@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Bulbasaur",
+    "type": ["Grass", "Poison"],
+    "abilities": ["Overgrow"],
+    "hiddenAbility": "Chlorophyll",
+    "baseStats": {
+      "hp": "45",
+      "atk": "49",
+      "def": "49",
+      "spA": "65",
+      "spD": "65",
+      "spe": "45"
+    },
+    "spawnRate": "",
+    "eggGroups": ["Monster", "Grass"],
+    "genderRatio": "87.5",
+    "evolutionTree": ["Bulbasaur", "Ivysaur", "Venusaur"],
+    "stage": "0",
+    "evolutionCondition": "16",
+    "moves": [
+      {
+        "level": "",
+        "name": ""
+      },
+      {
+        "level": "",
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Ivysaur",
+    "type": ["Grass", "Poison"],
+    "abilities": ["Overgrow"],
+    "hiddenAbility": "Chlorophyll",
+    "baseStats": {
+      "hp": "60",
+      "atk": "62",
+      "def": "63",
+      "spA": "80",
+      "spD": "80",
+      "spe": "60"
+    },
+    "spawnRate": "",
+    "eggGroups": ["Monster", "Grass"],
+    "genderRatio": "87.5",
+    "evolutionTree": ["Bulbasaur", "Ivysaur", "Venusaur"],
+    "stage": "1",
+    "evolutionCondition": "32",
+    "moves": [
+      {
+        "level": "",
+        "name": ""
+      },
+      {
+        "level": "",
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Venusaur",
+    "type": ["Grass", "Poison"],
+    "abilities": ["Overgrow"],
+    "hiddenAbility": "Chlorophyll",
+    "baseStats": {
+      "hp": "80",
+      "atk": "82",
+      "def": "83",
+      "spA": "100",
+      "spD": "100",
+      "spe": "80"
+    },
+    "spawnRate": "",
+    "eggGroups": ["Monster", "Grass"],
+    "genderRatio": "87.5",
+    "evolutionTree": ["Bulbasaur", "Ivysaur", "Venusaur"],
+    "stage": "2",
+    "evolutionCondition": "0",
+    "moves": [
+      {
+        "level": "",
+        "name": ""
+      },
+      {
+        "level": "",
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Charmander",
+    "type": ["Fire"],
+    "abilities": ["Blaze"],
+    "hiddenAbility": "Solar Power",
+    "baseStats": {
+      "hp": "39",
+      "atk": "52",
+      "def": "43",
+      "spA": "60",
+      "spD": "50",
+      "spe": "65"
+    },
+    "spawnRate": "",
+    "eggGroups": ["Monster", "Dragon"],
+    "genderRatio": "87.5",
+    "evolutionTree": ["Charmander", "Charmeleon", "Charizard"],
+    "stage": "0",
+    "evolutionCondition": "16",
+    "moves": [
+      {
+        "level": "",
+        "name": ""
+      },
+      {
+        "level": "",
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Charmeleon",
+    "type": ["Fire"],
+    "abilities": ["Blaze"],
+    "hiddenAbility": "Solar Power",
+    "baseStats": {
+      "hp": "58",
+      "atk": "64",
+      "def": "58",
+      "spA": "80",
+      "spD": "65",
+      "spe": "80"
+    },
+    "spawnRate": "",
+    "eggGroups": ["Monster", "Dragon"],
+    "genderRatio": "87.5",
+    "evolutionTree": ["Charmander", "Charmeleon", "Charizard"],
+    "stage": "1",
+    "evolutionCondition": "36",
+    "moves": [
+      {
+        "level": "",
+        "name": ""
+      },
+      {
+        "level": "",
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Charizard",
+    "type": ["Fire", "Flying"],
+    "abilities": ["Blaze"],
+    "hiddenAbility": "Solar Power",
+    "baseStats": {
+      "hp": "78",
+      "atk": "84",
+      "def": "78",
+      "spA": "109",
+      "spD": "85",
+      "spe": "100"
+    },
+    "spawnRate": "",
+    "eggGroups": ["Monster", "Dragon"],
+    "genderRatio": "87.5",
+    "evolutionTree": ["Charmander", "Charmeleon", "Charizard"],
+    "stage": "0",
+    "evolutionCondition": "16",
+    "moves": [
+      {
+        "level": "",
+        "name": ""
+      },
+      {
+        "level": "",
+        "name": ""
+      }
+    ]
+  }
+]
