@@ -4842,7 +4842,7 @@
   {
     "name": "Kangaskhan",
     "types": ["Normal"],
-    "abilities": ["Early Bird", "Scrappy Bird"],
+    "abilities": ["Early Bird", "Scrappy"],
     "hiddenAbility": "Inner Focus",
     "baseStats": {
       "hp": 105,
@@ -5709,10 +5709,6 @@
       {
         "evolution": "Porygon2",
         "condition": "Upgrade"
-      },
-      {
-        "evolution": "Porygon-Z",
-        "condition": "Dubious Disc"
       }
     ],
     "moves": [
@@ -5944,7 +5940,7 @@
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
-      "eggGroups": ["Ditto"],
+      "eggGroups": ["Legendary"],
       "egg": "Articuno",
       "altEgg": "Articuno"
     },
@@ -5976,7 +5972,7 @@
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
-      "eggGroups": ["Ditto"],
+      "eggGroups": ["Legendary"],
       "egg": "Zapdos",
       "altEgg": "Zapdos"
     },
@@ -6008,7 +6004,7 @@
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
-      "eggGroups": ["Ditto"],
+      "eggGroups": ["Legendary"],
       "egg": "Moltres",
       "altEgg": "Moltres"
     },
@@ -6146,7 +6142,7 @@
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
-      "eggGroups": ["Ditto"],
+      "eggGroups": ["Legendary"],
       "egg": "Mewtwo",
       "altEgg": "Mewtwo"
     },
@@ -6178,9 +6174,3484 @@
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
-      "eggGroups": ["Ditto"],
+      "eggGroups": ["Legendary"],
       "egg": "Mew",
       "altEgg": "Mew"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Chikorita",
+    "types": ["Grass"],
+    "abilities": ["Overgrow"],
+    "hiddenAbility": "Leaf Guard",
+    "baseStats": {
+      "hp": 45,
+      "atk": 49,
+      "def": 65,
+      "spA": 49,
+      "spD": 65,
+      "spe": 45
+    },
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Grass", "Monster"],
+      "egg": "Chikorita",
+      "altEgg": "Chikorita"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Bayleef",
+        "condition": 16
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Bayleef",
+    "types": ["Grass"],
+    "abilities": ["Overgrow"],
+    "hiddenAbility": "Leaf Guard",
+    "baseStats": {
+      "hp": 60,
+      "atk": 62,
+      "def": 80,
+      "spA": 63,
+      "spD": 80,
+      "spe": 60
+    },
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Grass", "Monster"],
+      "egg": "Chikorita",
+      "altEgg": "Chikorita"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Meganium",
+        "condition": 32
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Meganium",
+    "types": ["Grass"],
+    "abilities": ["Overgrow"],
+    "hiddenAbility": "Leaf Guard",
+    "baseStats": {
+      "hp": 80,
+      "atk": 82,
+      "def": 100,
+      "spA": 83,
+      "spD": 100,
+      "spe": 80
+    },
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Grass", "Monster"],
+      "egg": "Chikorita",
+      "altEgg": "Chikorita"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cyndaquil",
+    "types": ["Fire"],
+    "abilities": ["Blaze"],
+    "hiddenAbility": "Flash Fire",
+    "baseStats": {
+      "hp": 39,
+      "atk": 52,
+      "def": 43,
+      "spA": 60,
+      "spD": 50,
+      "spe": 65
+    },
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Cyndaquil",
+      "altEgg": "Cyndaquil"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Quilava",
+        "condition": 14
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cyndaquil",
+    "types": ["Fire"],
+    "abilities": ["Blaze"],
+    "hiddenAbility": "Flash Fire",
+    "baseStats": {
+      "hp": 58,
+      "atk": 64,
+      "def": 58,
+      "spA": 80,
+      "spD": 65,
+      "spe": 80
+    },
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Cyndaquil",
+      "altEgg": "Cyndaquil"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Typhlosion",
+        "condition": 36
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Typhlosion",
+    "types": ["Fire"],
+    "abilities": ["Blaze"],
+    "hiddenAbility": "Flash Fire",
+    "baseStats": {
+      "hp": 78,
+      "atk": 84,
+      "def": 78,
+      "spA": 109,
+      "spD": 85,
+      "spe": 100
+    },
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Cyndaquil",
+      "altEgg": "Cyndaquil"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Totodile",
+    "types": ["Water"],
+    "abilities": ["Torrent"],
+    "hiddenAbility": "Sheer Force",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 64,
+      "spA": 44,
+      "spD": 48,
+      "spe": 43
+    },
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Monster", "Water 1"],
+      "egg": "Totodile",
+      "altEgg": "Totodile"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Croconaw",
+        "condition": 18
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Croconaw",
+    "types": ["Water"],
+    "abilities": ["Torrent"],
+    "hiddenAbility": "Sheer Force",
+    "baseStats": {
+      "hp": 65,
+      "atk": 80,
+      "def": 80,
+      "spA": 59,
+      "spD": 63,
+      "spe": 58
+    },
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Monster", "Water 1"],
+      "egg": "Totodile",
+      "altEgg": "Totodile"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Feraligatr",
+        "condition": 30
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Feraligatr",
+    "types": ["Water"],
+    "abilities": ["Torrent"],
+    "hiddenAbility": "Sheer Force",
+    "baseStats": {
+      "hp": 85,
+      "atk": 105,
+      "def": 100,
+      "spA": 79,
+      "spD": 83,
+      "spe": 78
+    },
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Monster", "Water 1"],
+      "egg": "Totodile",
+      "altEgg": "Totodile"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Sentret",
+    "types": ["Normal"],
+    "abilities": ["Run Away", "Keen Eye"],
+    "hiddenAbility": "Frisk",
+    "baseStats": {
+      "hp": 35,
+      "atk": 46,
+      "def": 34,
+      "spA": 35,
+      "spD": 45,
+      "spe": 20
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Sentret",
+      "altEgg": "Sentret"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Furret",
+        "condition": 15
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Furret",
+    "types": ["Normal"],
+    "abilities": ["Run Away", "Keen Eye"],
+    "hiddenAbility": "Frisk",
+    "baseStats": {
+      "hp": 85,
+      "atk": 76,
+      "def": 64,
+      "spA": 45,
+      "spD": 55,
+      "spe": 90
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Sentret",
+      "altEgg": "Sentret"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Hoothoot",
+    "types": ["Normal", "Flying"],
+    "abilities": ["Insomnia", "Keen Eye"],
+    "hiddenAbility": "Tinted Lens",
+    "baseStats": {
+      "hp": 60,
+      "atk": 30,
+      "def": 30,
+      "spA": 36,
+      "spD": 56,
+      "spe": 50
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Hoothoot",
+      "altEgg": "Hoothoot"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Noctowl",
+        "condition": 20
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Noctowl",
+    "types": ["Normal", "Flying"],
+    "abilities": ["Insomnia", "Keen Eye"],
+    "hiddenAbility": "Tinted Lens",
+    "baseStats": {
+      "hp": 100,
+      "atk": 50,
+      "def": 50,
+      "spA": 86,
+      "spD": 96,
+      "spe": 70
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Hoothoot",
+      "altEgg": "Hoothoot"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Ledyba",
+    "types": ["Bug", "Flying"],
+    "abilities": ["Swarm", "Early Bird"],
+    "hiddenAbility": "Rattled",
+    "baseStats": {
+      "hp": 40,
+      "atk": 20,
+      "def": 30,
+      "spA": 40,
+      "spD": 80,
+      "spe": 55
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Ledyba",
+      "altEgg": "Ledyba"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Ledian",
+        "condition": 18
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Ledian",
+    "types": ["Bug", "Flying"],
+    "abilities": ["Swarm", "Early Bird"],
+    "hiddenAbility": "Iron Fist",
+    "baseStats": {
+      "hp": 55,
+      "atk": 35,
+      "def": 50,
+      "spA": 55,
+      "spD": 110,
+      "spe": 85
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Ledyba",
+      "altEgg": "Ledyba"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Spinarak",
+    "types": ["Bug", "Poison"],
+    "abilities": ["Swarm", "Insomnia"],
+    "hiddenAbility": "Sniper",
+    "baseStats": {
+      "hp": 40,
+      "atk": 60,
+      "def": 40,
+      "spA": 40,
+      "spD": 40,
+      "spe": 30
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Spinarak",
+      "altEgg": "Spinarak"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Ariados",
+        "condition": 22
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Ariados",
+    "types": ["Bug", "Poison"],
+    "abilities": ["Swarm", "Insomnia"],
+    "hiddenAbility": "Sniper",
+    "baseStats": {
+      "hp": 70,
+      "atk": 90,
+      "def": 70,
+      "spA": 60,
+      "spD": 70,
+      "spe": 40
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Spinarak",
+      "altEgg": "Spinarak"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Crobat",
+    "types": ["Poison", "Flying"],
+    "abilities": ["Inner Focus"],
+    "hiddenAbility": "Infiltrator",
+    "baseStats": {
+      "hp": 85,
+      "atk": 90,
+      "def": 80,
+      "spA": 70,
+      "spD": 80,
+      "spe": 130
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Zubat",
+      "altEgg": "Zubat"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Chinchou",
+    "types": ["Water", "Electric"],
+    "abilities": ["Volt Absorb", "Illuminate"],
+    "hiddenAbility": "Water Absorb",
+    "baseStats": {
+      "hp": 75,
+      "atk": 38,
+      "def": 38,
+      "spA": 56,
+      "spD": 56,
+      "spe": 67
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Water 2"],
+      "egg": "Chinchou",
+      "altEgg": "Chinchou"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Lanturn",
+        "condition": 27
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Lanturn",
+    "types": ["Water", "Electric"],
+    "abilities": ["Volt Absorb", "Illuminate"],
+    "hiddenAbility": "Water Absorb",
+    "baseStats": {
+      "hp": 125,
+      "atk": 58,
+      "def": 58,
+      "spA": 76,
+      "spD": 76,
+      "spe": 67
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Water 2"],
+      "egg": "Chinchou",
+      "altEgg": "Chinchou"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Pichu",
+    "types": ["Electric"],
+    "abilities": ["Static"],
+    "hiddenAbility": "Lightning Rod",
+    "baseStats": {
+      "hp": 20,
+      "atk": 40,
+      "def": 15,
+      "spA": 35,
+      "spD": 35,
+      "spe": 60
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Fairy"],
+      "egg": "Pichu",
+      "altEgg": "Pichu"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Pikachu",
+        "condition": "Friendship"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cleffa",
+    "types": ["Fairy"],
+    "abilities": ["Cute Charm", "Magic Guard"],
+    "hiddenAbility": "Friend Guard",
+    "baseStats": {
+      "hp": 50,
+      "atk": 25,
+      "def": 28,
+      "spA": 45,
+      "spD": 55,
+      "spe": 15
+    },
+    "spawnRate": "",
+    "genderRatio": 25,
+    "breeding": {
+      "eggGroups": ["Fairy"],
+      "egg": "Cleffa",
+      "altEgg": "Cleffa"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Clefairy",
+        "condition": "Friendship"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Igglybuff",
+    "types": ["Normal", "Fairy"],
+    "abilities": ["Cute Charm", "Competitive"],
+    "hiddenAbility": "Friend Guard",
+    "baseStats": {
+      "hp": 90,
+      "atk": 30,
+      "def": 15,
+      "spA": 40,
+      "spD": 20,
+      "spe": 15
+    },
+    "spawnRate": "",
+    "genderRatio": 25,
+    "breeding": {
+      "eggGroups": ["Fairy"],
+      "egg": "Igglybuff",
+      "altEgg": "Igglybuff"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Jigglypuff",
+        "condition": "Friendship"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Togepi",
+    "types": ["Fairy"],
+    "abilities": ["Hustle", "Serene Grace"],
+    "hiddenAbility": "Super Luck",
+    "baseStats": {
+      "hp": 35,
+      "atk": 20,
+      "def": 65,
+      "spA": 40,
+      "spD": 65,
+      "spe": 20
+    },
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Flying", "Fairy"],
+      "egg": "Togepi",
+      "altEgg": "Togepi"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Togetic",
+        "condition": "Friendship"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Togetic",
+    "types": ["Fairy", "Flying"],
+    "abilities": ["Hustle", "Serene Grace"],
+    "hiddenAbility": "Super Luck",
+    "baseStats": {
+      "hp": 55,
+      "atk": 40,
+      "def": 85,
+      "spA": 80,
+      "spD": 105,
+      "spe": 40
+    },
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Flying", "Fairy"],
+      "egg": "Togepi",
+      "altEgg": "Togepi"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Togekiss",
+        "condition": "Shiny Stone"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Natu",
+    "types": ["Psychic", "Flying"],
+    "abilities": ["Synchronize", "Early Bird"],
+    "hiddenAbility": "Magic Bounce",
+    "baseStats": {
+      "hp": 40,
+      "atk": 50,
+      "def": 45,
+      "spA": 70,
+      "spD": 45,
+      "spe": 70
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Natu",
+      "altEgg": "Natu"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Xatu",
+        "condition": 25
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Xatu",
+    "types": ["Psychic", "Flying"],
+    "abilities": ["Synchronize", "Early Bird"],
+    "hiddenAbility": "Magic Bounce",
+    "baseStats": {
+      "hp": 65,
+      "atk": 75,
+      "def": 70,
+      "spA": 95,
+      "spD": 70,
+      "spe": 95
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Natu",
+      "altEgg": "Natu"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Mareep",
+    "types": ["Electric"],
+    "abilities": ["Static"],
+    "hiddenAbility": "Plus",
+    "baseStats": {
+      "hp": 55,
+      "atk": 40,
+      "def": 40,
+      "spA": 65,
+      "spD": 45,
+      "spe": 35
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Monster"],
+      "egg": "Mareep",
+      "altEgg": "Mareep"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Flaaffy",
+        "condition": 15
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Flaaffy",
+    "types": ["Electric"],
+    "abilities": ["Static"],
+    "hiddenAbility": "Plus",
+    "baseStats": {
+      "hp": 70,
+      "atk": 55,
+      "def": 55,
+      "spA": 80,
+      "spD": 60,
+      "spe": 45
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Monster"],
+      "egg": "Mareep",
+      "altEgg": "Mareep"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Ampharos",
+        "condition": 30
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Ampharos",
+    "types": ["Electric"],
+    "abilities": ["Static"],
+    "hiddenAbility": "Plus",
+    "baseStats": {
+      "hp": 90,
+      "atk": 75,
+      "def": 85,
+      "spA": 15,
+      "spD": 90,
+      "spe": 55
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Monster"],
+      "egg": "Mareep",
+      "altEgg": "Mareep"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Bellossom",
+    "types": ["Grass"],
+    "abilities": ["Chlorophyll"],
+    "hiddenAbility": "Healer",
+    "baseStats": {
+      "hp": 75,
+      "atk": 80,
+      "def": 95,
+      "spA": 90,
+      "spD": 100,
+      "spe": 50
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Grass"],
+      "egg": "Oddish",
+      "altEgg": "Oddish"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Marill",
+    "types": ["Water", "Fairy"],
+    "abilities": ["Thick Fat", "Huge Power"],
+    "hiddenAbility": "Sap Sipper",
+    "baseStats": {
+      "hp": 70,
+      "atk": 20,
+      "def": 50,
+      "spA": 20,
+      "spD": 50,
+      "spe": 40
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Fairy", "Water 1"],
+      "egg": "Azurill",
+      "altEgg": "Azurill"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Azumarill",
+        "condition": 18
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Azumarill",
+    "types": ["Water", "Fairy"],
+    "abilities": ["Thick Fat", "Huge Power"],
+    "hiddenAbility": "Sap Sipper",
+    "baseStats": {
+      "hp": 100,
+      "atk": 50,
+      "def": 80,
+      "spA": 60,
+      "spD": 80,
+      "spe": 50
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Fairy", "Water 1"],
+      "egg": "Azurill",
+      "altEgg": "Azurill"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Sudowoodo",
+    "types": ["Rock"],
+    "abilities": ["Sturdy", "Rock Head"],
+    "hiddenAbility": "Rattled",
+    "baseStats": {
+      "hp": 70,
+      "atk": 100,
+      "def": 115,
+      "spA": 30,
+      "spD": 65,
+      "spe": 30
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Bonsly",
+      "altEgg": "Bonsly"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Politoed",
+    "types": ["Water"],
+    "abilities": ["Water Absorb", "Damp"],
+    "hiddenAbility": "Drizzle",
+    "baseStats": {
+      "hp": 90,
+      "atk": 75,
+      "def": 75,
+      "spA": 90,
+      "spD": 100,
+      "spe": 70
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Water 1"],
+      "egg": "Poliwag",
+      "altEgg": "Poliwag"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Hoppip",
+    "types": ["Grass", "Flying"],
+    "abilities": ["Chlorophyll", "Leaf Guard"],
+    "hiddenAbility": "Infiltrator",
+    "baseStats": {
+      "hp": 35,
+      "atk": 35,
+      "def": 40,
+      "spA": 35,
+      "spD": 55,
+      "spe": 50
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Fairy", "Grass"],
+      "egg": "Hoppip",
+      "altEgg": "Hoppip"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Skiploom",
+        "condition": 18
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Skiploom",
+    "types": ["Grass", "Flying"],
+    "abilities": ["Chlorophyll", "Leaf Guard"],
+    "hiddenAbility": "Infiltrator",
+    "baseStats": {
+      "hp": 55,
+      "atk": 45,
+      "def": 50,
+      "spA": 45,
+      "spD": 65,
+      "spe": 80
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Fairy", "Grass"],
+      "egg": "Hoppip",
+      "altEgg": "Hoppip"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Jumpluff",
+        "condition": 27
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Jumpluff",
+    "types": ["Grass", "Flying"],
+    "abilities": ["Chlorophyll", "Leaf Guard"],
+    "hiddenAbility": "Infiltrator",
+    "baseStats": {
+      "hp": 75,
+      "atk": 77,
+      "def": 70,
+      "spA": 55,
+      "spD": 95,
+      "spe": 110
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Fairy", "Grass"],
+      "egg": "Hoppip",
+      "altEgg": "Hoppip"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Aipom",
+    "types": ["Normal"],
+    "abilities": ["Run Away", "Pickup"],
+    "hiddenAbility": "Skill Link",
+    "baseStats": {
+      "hp": 55,
+      "atk": 70,
+      "def": 55,
+      "spA": 40,
+      "spD": 55,
+      "spe": 85
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Aipom",
+      "altEgg": "Aipom"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Ambipom",
+        "condition": "Double Hit"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Sunkern",
+    "types": ["Grass"],
+    "abilities": ["Chlorophyll", "Solar Power"],
+    "hiddenAbility": "Early Bird",
+    "baseStats": {
+      "hp": 30,
+      "atk": 30,
+      "def": 30,
+      "spA": 30,
+      "spD": 30,
+      "spe": 30
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Grass"],
+      "egg": "Sunkern",
+      "altEgg": "Sunkern"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Sunflora",
+        "condition": "Sun Stone"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Sunflora",
+    "types": ["Grass"],
+    "abilities": ["Chlorophyll", "Solar Power"],
+    "hiddenAbility": "Early Bird",
+    "baseStats": {
+      "hp": 75,
+      "atk": 75,
+      "def": 55,
+      "spA": 105,
+      "spD": 85,
+      "spe": 30
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Grass"],
+      "egg": "Sunkern",
+      "altEgg": "Sunkern"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Yanma",
+    "types": ["Bug", "Flying"],
+    "abilities": ["Speed Boost", "Compound Eyes"],
+    "hiddenAbility": "Frisk",
+    "baseStats": {
+      "hp": 65,
+      "atk": 65,
+      "def": 45,
+      "spA": 75,
+      "spD": 45,
+      "spe": 95
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Yanma",
+      "altEgg": "Yanma"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Yanmega",
+        "condition": "Ancient Power"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Wooper",
+    "types": ["Water", "Ground"],
+    "abilities": ["Damp", "Water Absorb"],
+    "hiddenAbility": "Unaware",
+    "baseStats": {
+      "hp": 55,
+      "atk": 45,
+      "def": 45,
+      "spA": 25,
+      "spD": 25,
+      "spe": 15
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Water 1"],
+      "egg": "Wooper",
+      "altEgg": "Wooper"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Quagsire",
+        "condition": 20
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Quagsire",
+    "types": ["Water", "Ground"],
+    "abilities": ["Damp", "Water Absorb"],
+    "hiddenAbility": "Unaware",
+    "baseStats": {
+      "hp": 95,
+      "atk": 85,
+      "def": 85,
+      "spA": 65,
+      "spD": 65,
+      "spe": 35
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Water 1"],
+      "egg": "Wooper",
+      "altEgg": "Wooper"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Espeon",
+    "types": ["Psychic"],
+    "abilities": ["Synchronize"],
+    "hiddenAbility": "Magic Bounce",
+    "baseStats": {
+      "hp": 65,
+      "atk": 65,
+      "def": 60,
+      "spA": 130,
+      "spD": 95,
+      "spe": 110
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Eevee",
+      "altEgg": "Eevee"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Umbreon",
+    "types": ["Dark"],
+    "abilities": ["Synchronize"],
+    "hiddenAbility": "Inner Focus",
+    "baseStats": {
+      "hp": 95,
+      "atk": 65,
+      "def": 110,
+      "spA": 60,
+      "spD": 120,
+      "spe": 65
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Eevee",
+      "altEgg": "Eevee"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Murkrow",
+    "types": ["Dark", "Flying"],
+    "abilities": ["Insomnia", "Super Luck"],
+    "hiddenAbility": "Prankster",
+    "baseStats": {
+      "hp": 60,
+      "atk": 85,
+      "def": 42,
+      "spA": 85,
+      "spD": 42,
+      "spe": 91
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Murkrow",
+      "altEgg": "Murkrow"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Honchkrow",
+        "condition": "Dusk Stone"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Slowking",
+    "types": ["Water", "Ground"],
+    "abilities": ["Oblivious", "Own Tempo"],
+    "hiddenAbility": "Regenerator",
+    "baseStats": {
+      "hp": 95,
+      "atk": 75,
+      "def": 80,
+      "spA": 100,
+      "spD": 110,
+      "spe": 30
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Monster", "Water 1"],
+      "egg": "Slowpoke",
+      "altEgg": "Slowpoke"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Misdreavus",
+    "types": ["Ghost"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 60,
+      "atk": 60,
+      "def": 60,
+      "spA": 85,
+      "spD": 85,
+      "spe": 85
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Misdreavus",
+      "altEgg": "Misdreavus"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Mismagius",
+        "condition": "Dusk Stone"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Unown",
+    "types": ["Psychic"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 48,
+      "atk": 72,
+      "def": 48,
+      "spA": 72,
+      "spD": 48,
+      "spe": 48
+    },
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Unown"],
+      "egg": "Unown",
+      "altEgg": "Unown"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Wobbuffet",
+    "types": ["Psychic"],
+    "abilities": ["Shadow Tag"],
+    "hiddenAbility": "Telepathy",
+    "baseStats": {
+      "hp": 190,
+      "atk": 33,
+      "def": 58,
+      "spA": 33,
+      "spD": 58,
+      "spe": 33
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Wynaut",
+      "altEgg": "Wynaut"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Girafarig",
+    "types": ["Normal", "Psychic"],
+    "abilities": ["Inner Focus", "Early Bird"],
+    "hiddenAbility": "Sap Sipper",
+    "baseStats": {
+      "hp": 70,
+      "atk": 80,
+      "def": 65,
+      "spA": 90,
+      "spD": 65,
+      "spe": 85
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Girafarig",
+      "altEgg": "Girafarig"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Pineco",
+    "types": ["Bug"],
+    "abilities": ["Sturdy"],
+    "hiddenAbility": "Overcoat",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 90,
+      "spA": 35,
+      "spD": 35,
+      "spe": 15
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Pineco",
+      "altEgg": "Pineco"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Forretress",
+        "condition": 31
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Forretress",
+    "types": ["Bug", "Steel"],
+    "abilities": ["Sturdy"],
+    "hiddenAbility": "Overcoat",
+    "baseStats": {
+      "hp": 75,
+      "atk": 90,
+      "def": 140,
+      "spA": 60,
+      "spD": 60,
+      "spe": 40
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Pineco",
+      "altEgg": "Pineco"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Dunsparce",
+    "types": ["Normal"],
+    "abilities": ["Serene Grace", "Run Away"],
+    "hiddenAbility": "Rattled",
+    "baseStats": {
+      "hp": 100,
+      "atk": 70,
+      "def": 70,
+      "spA": 65,
+      "spD": 65,
+      "spe": 45
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Dunsparce",
+      "altEgg": "Dunsparce"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Gligar",
+    "types": ["Ground", "Flying"],
+    "abilities": ["Hyper Cutter", "Sand Veil"],
+    "hiddenAbility": "Immunity",
+    "baseStats": {
+      "hp": 65,
+      "atk": 75,
+      "def": 105,
+      "spA": 35,
+      "spD": 65,
+      "spe": 85
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Gligar",
+      "altEgg": "Gligar"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Gliscor",
+        "condition": "Razor Fang"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Steelix",
+    "types": ["Steel", "Ground"],
+    "abilities": ["Rock Head", "Sturdy"],
+    "hiddenAbility": "Sheer Force",
+    "baseStats": {
+      "hp": 75,
+      "atk": 85,
+      "def": 200,
+      "spA": 55,
+      "spD": 65,
+      "spe": 30
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Onix",
+      "altEgg": "Onix"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Snubbull",
+    "types": ["Fairy"],
+    "abilities": ["Intimidate", "Run Away"],
+    "hiddenAbility": "Rattled",
+    "baseStats": {
+      "hp": 60,
+      "atk": 80,
+      "def": 50,
+      "spA": 40,
+      "spD": 40,
+      "spe": 30
+    },
+    "spawnRate": "",
+    "genderRatio": 25,
+    "breeding": {
+      "eggGroups": ["Fairy", "Field"],
+      "egg": "Snubbull",
+      "altEgg": "Snubbull"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Granbull",
+        "condition": 23
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Granbull",
+    "types": ["Fairy"],
+    "abilities": ["Intimidate", "Quick Feet"],
+    "hiddenAbility": "Rattled",
+    "baseStats": {
+      "hp": 90,
+      "atk": 120,
+      "def": 75,
+      "spA": 60,
+      "spD": 60,
+      "spe": 45
+    },
+    "spawnRate": "",
+    "genderRatio": 25,
+    "breeding": {
+      "eggGroups": ["Fairy", "Field"],
+      "egg": "Snubbull",
+      "altEgg": "Snubbull"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Qwilfish",
+    "types": ["Fairy"],
+    "abilities": ["Poison Point", "Swift Swim"],
+    "hiddenAbility": "Intimidate",
+    "baseStats": {
+      "hp": 65,
+      "atk": 95,
+      "def": 85,
+      "spA": 55,
+      "spD": 55,
+      "spe": 85
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Water 2"],
+      "egg": "Qwilfish",
+      "altEgg": "Qwilfish"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Scizor",
+    "types": ["Bug", "Steel"],
+    "abilities": ["Swarm", "Technician"],
+    "hiddenAbility": "Light Metal",
+    "baseStats": {
+      "hp": 70,
+      "atk": 120,
+      "def": 100,
+      "spA": 55,
+      "spD": 80,
+      "spe": 65
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Scyther",
+      "altEgg": "Scyther"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Shuckle",
+    "types": ["Bug", "Rock"],
+    "abilities": ["Sturdy", "Gluttony"],
+    "hiddenAbility": "Contrary",
+    "baseStats": {
+      "hp": 20,
+      "atk": 10,
+      "def": 230,
+      "spA": 10,
+      "spD": 230,
+      "spe": 5
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Shuckle",
+      "altEgg": "Shuckle"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Heracross",
+    "types": ["Bug", "Fighting"],
+    "abilities": ["Swarm", "Guts"],
+    "hiddenAbility": "Moxie",
+    "baseStats": {
+      "hp": 80,
+      "atk": 125,
+      "def": 75,
+      "spA": 40,
+      "spD": 95,
+      "spe": 85
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Heracross",
+      "altEgg": "Heracross"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Sneasel",
+    "types": ["Dark", "Ice"],
+    "abilities": ["Inner Focus", "Keen Eye"],
+    "hiddenAbility": "Pickpocket",
+    "baseStats": {
+      "hp": 55,
+      "atk": 95,
+      "def": 55,
+      "spA": 35,
+      "spD": 75,
+      "spe": 115
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Sneasel",
+      "altEgg": "Sneasel"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Weavile",
+        "condition": "Razor Claw"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Teddiursa",
+    "types": ["Normal"],
+    "abilities": ["Pickup", "Quick Feet"],
+    "hiddenAbility": "Honey Gather",
+    "baseStats": {
+      "hp": 60,
+      "atk": 80,
+      "def": 50,
+      "spA": 50,
+      "spD": 50,
+      "spe": 40
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Teddiursa",
+      "altEgg": "Teddiursa"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Ursaring",
+        "condition": 30
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Ursaring",
+    "types": ["Normal"],
+    "abilities": ["Guts", "Quick Feet"],
+    "hiddenAbility": "Unnerve",
+    "baseStats": {
+      "hp": 90,
+      "atk": 130,
+      "def": 75,
+      "spA": 75,
+      "spD": 75,
+      "spe": 55
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Teddiursa",
+      "altEgg": "Teddiursa"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Slugma",
+    "types": ["Fire"],
+    "abilities": ["Magma Armor", "Flame Body"],
+    "hiddenAbility": "Weak Armor",
+    "baseStats": {
+      "hp": 40,
+      "atk": 40,
+      "def": 40,
+      "spA": 70,
+      "spD": 40,
+      "spe": 20
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Slugma",
+      "altEgg": "Slugma"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Magcargo",
+        "condition": 38
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Magcargo",
+    "types": ["Fire", "Rock"],
+    "abilities": ["Magma Armor", "Flame Body"],
+    "hiddenAbility": "Weak Armor",
+    "baseStats": {
+      "hp": 60,
+      "atk": 50,
+      "def": 120,
+      "spA": 90,
+      "spD": 80,
+      "spe": 30
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Slugma",
+      "altEgg": "Slugma"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Swinub",
+    "types": ["Ice", "Ground"],
+    "abilities": ["Oblivious", "Snow Cloak"],
+    "hiddenAbility": "Thick Fat",
+    "baseStats": {
+      "hp": 50,
+      "atk": 50,
+      "def": 40,
+      "spA": 30,
+      "spD": 30,
+      "spe": 50
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Swinub",
+      "altEgg": "Swinub"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Piloswine",
+        "condition": 33
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Piloswine",
+    "types": ["Ice", "Ground"],
+    "abilities": ["Oblivious", "Snow Cloak"],
+    "hiddenAbility": "Thick Fat",
+    "baseStats": {
+      "hp": 100,
+      "atk": 100,
+      "def": 80,
+      "spA": 60,
+      "spD": 60,
+      "spe": 50
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Swinub",
+      "altEgg": "Swinub"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Mamoswine",
+        "condition": "Ancient Power"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Corsola",
+    "types": ["Water", "Rock"],
+    "abilities": ["Hustle", "Natural Cure"],
+    "hiddenAbility": "Regenerator",
+    "baseStats": {
+      "hp": 65,
+      "atk": 55,
+      "def": 95,
+      "spA": 65,
+      "spD": 95,
+      "spe": 35
+    },
+    "spawnRate": "",
+    "genderRatio": 25,
+    "breeding": {
+      "eggGroups": ["Water 1", "Water 3"],
+      "egg": "Corsola",
+      "altEgg": "Corsola"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Galarian Corsola",
+    "types": ["Ghost"],
+    "abilities": ["Weak Armor"],
+    "hiddenAbility": "Cursed Body",
+    "baseStats": {
+      "hp": 60,
+      "atk": 55,
+      "def": 100,
+      "spA": 65,
+      "spD": 100,
+      "spe": 30
+    },
+    "spawnRate": "",
+    "genderRatio": 25,
+    "breeding": {
+      "eggGroups": ["Water 1", "Water 3"],
+      "egg": "Galarian Corsola",
+      "altEgg": "Galarian Corsola"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Cursola",
+        "condition": 38
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Remoraid",
+    "types": ["Water"],
+    "abilities": ["Hustle", "Sniper"],
+    "hiddenAbility": "Moody",
+    "baseStats": {
+      "hp": 35,
+      "atk": 65,
+      "def": 35,
+      "spA": 65,
+      "spD": 35,
+      "spe": 65
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Water 1", "Water 2"],
+      "egg": "Remoraid",
+      "altEgg": "Remoraid"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Octillery",
+        "condition": 25
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Octillery",
+    "types": ["Water"],
+    "abilities": ["Suction Cups", "Sniper"],
+    "hiddenAbility": "Moody",
+    "baseStats": {
+      "hp": 75,
+      "atk": 105,
+      "def": 75,
+      "spA": 105,
+      "spD": 75,
+      "spe": 45
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Water 1", "Water 2"],
+      "egg": "Remoraid",
+      "altEgg": "Remoraid"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Delibird",
+    "types": ["Ice", "Flying"],
+    "abilities": ["Vital Spirit", "Hustle"],
+    "hiddenAbility": "Insomnia",
+    "baseStats": {
+      "hp": 45,
+      "atk": 55,
+      "def": 45,
+      "spA": 65,
+      "spD": 45,
+      "spe": 75
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Water 1"],
+      "egg": "Delibird",
+      "altEgg": "Delibird"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Mantine",
+    "types": ["Water", "Flying"],
+    "abilities": ["Swift Swim", "Water Absorb"],
+    "hiddenAbility": "Water Veil",
+    "baseStats": {
+      "hp": 85,
+      "atk": 40,
+      "def": 70,
+      "spA": 80,
+      "spD": 140,
+      "spe": 70
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Water 1"],
+      "egg": "Mantyke",
+      "altEgg": "Mantyke"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Skarmory",
+    "types": ["Steel", "Flying"],
+    "abilities": ["Keen Eye", "Sturdy"],
+    "hiddenAbility": "Weak Armor",
+    "baseStats": {
+      "hp": 65,
+      "atk": 80,
+      "def": 140,
+      "spA": 40,
+      "spD": 70,
+      "spe": 70
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Skarmory",
+      "altEgg": "Skarmory"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Houndour",
+    "types": ["Dark", "Fire"],
+    "abilities": ["Early Bird", "Flash Fire"],
+    "hiddenAbility": "Unnerve",
+    "baseStats": {
+      "hp": 45,
+      "atk": 60,
+      "def": 30,
+      "spA": 80,
+      "spD": 50,
+      "spe": 65
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Houndour",
+      "altEgg": "Houndour"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Houndoom",
+        "condition": 24
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Houndoom",
+    "types": ["Dark", "Fire"],
+    "abilities": ["Early Bird", "Flash Fire"],
+    "hiddenAbility": "Unnerve",
+    "baseStats": {
+      "hp": 75,
+      "atk": 90,
+      "def": 50,
+      "spA": 110,
+      "spD": 80,
+      "spe": 95
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Houndour",
+      "altEgg": "Houndour"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Kingdra",
+    "types": ["Dark", "Fire"],
+    "abilities": ["Swift Swim", "Sniper"],
+    "hiddenAbility": "Damp",
+    "baseStats": {
+      "hp": 75,
+      "atk": 95,
+      "def": 95,
+      "spA": 95,
+      "spD": 95,
+      "spe": 85
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Dragon", "Water 1"],
+      "egg": "Horsea",
+      "altEgg": "Horsea"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Phanpy",
+    "types": ["Ground"],
+    "abilities": ["Pickup"],
+    "hiddenAbility": "Sand Veil",
+    "baseStats": {
+      "hp": 90,
+      "atk": 60,
+      "def": 60,
+      "spA": 40,
+      "spD": 40,
+      "spe": 40
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Phanpy",
+      "altEgg": "Phanpy"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Donphan",
+        "condition": 25
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Donphan",
+    "types": ["Ground"],
+    "abilities": ["Sturdy"],
+    "hiddenAbility": "Sand Veil",
+    "baseStats": {
+      "hp": 90,
+      "atk": 120,
+      "def": 120,
+      "spA": 60,
+      "spD": 60,
+      "spe": 50
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Phanpy",
+      "altEgg": "Phanpy"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Porygon2",
+    "types": ["Normal"],
+    "abilities": ["Trace", "Download"],
+    "hiddenAbility": "Analytic",
+    "baseStats": {
+      "hp": 85,
+      "atk": 80,
+      "def": 90,
+      "spA": 105,
+      "spD": 95,
+      "spe": 60
+    },
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Porygon",
+      "altEgg": "Porygon"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Porygon-Z",
+        "condition": "Dubious Disc"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Stantler",
+    "types": ["Normal"],
+    "abilities": ["Intimidate", "Frisk"],
+    "hiddenAbility": "Sap Sipper",
+    "baseStats": {
+      "hp": 73,
+      "atk": 95,
+      "def": 62,
+      "spA": 85,
+      "spD": 65,
+      "spe": 85
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Stantler",
+      "altEgg": "Stantler"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Smeargle",
+    "types": ["Normal"],
+    "abilities": ["Own Tempo", "Technician"],
+    "hiddenAbility": "Moody",
+    "baseStats": {
+      "hp": 55,
+      "atk": 20,
+      "def": 35,
+      "spA": 20,
+      "spD": 45,
+      "spe": 75
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Smeargle",
+      "altEgg": "Smeargle"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Tyrogue",
+    "types": ["Fighting"],
+    "abilities": ["Guts", "Steadfast"],
+    "hiddenAbility": "Vital Spirit",
+    "baseStats": {
+      "hp": 35,
+      "atk": 35,
+      "def": 35,
+      "spA": 35,
+      "spD": 35,
+      "spe": 35
+    },
+    "spawnRate": "",
+    "genderRatio": 100,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Tyrogue",
+      "altEgg": "Tyrogue"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Hitmonlee",
+        "condition": "atk>def"
+      },
+      {
+        "evolution": "Hitmonchan",
+        "condition": "atk<def"
+      },
+      {
+        "evolution": "Hitmontop",
+        "condition": "atk=def"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Hitmontop",
+    "types": ["Fighting"],
+    "abilities": ["Intimidate", "Technician"],
+    "hiddenAbility": "Steadfast",
+    "baseStats": {
+      "hp": 50,
+      "atk": 95,
+      "def": 95,
+      "spA": 35,
+      "spD": 110,
+      "spe": 70
+    },
+    "spawnRate": "",
+    "genderRatio": 100,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Tyrogue",
+      "altEgg": "Tyrogue"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Smoochum",
+    "types": ["Ice", "Psychic"],
+    "abilities": ["Oblivious", "Forewarn"],
+    "hiddenAbility": "Hydration",
+    "baseStats": {
+      "hp": 45,
+      "atk": 30,
+      "def": 15,
+      "spA": 85,
+      "spD": 65,
+      "spe": 65
+    },
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Smoochum",
+      "altEgg": "Smoochum"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Jynx",
+        "condition": 30
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Elekid",
+    "types": ["Electric"],
+    "abilities": ["Static"],
+    "hiddenAbility": "Vital Spirit",
+    "baseStats": {
+      "hp": 45,
+      "atk": 63,
+      "def": 37,
+      "spA": 65,
+      "spD": 55,
+      "spe": 95
+    },
+    "spawnRate": "",
+    "genderRatio": 75,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Elekid",
+      "altEgg": "Elekid"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Electabuzz",
+        "condition": 30
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Magby",
+    "types": ["Fire"],
+    "abilities": ["Flame Body"],
+    "hiddenAbility": "Vital Spirit",
+    "baseStats": {
+      "hp": 45,
+      "atk": 75,
+      "def": 37,
+      "spA": 70,
+      "spD": 55,
+      "spe": 83
+    },
+    "spawnRate": "",
+    "genderRatio": 75,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Magby",
+      "altEgg": "Magby"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Magmar",
+        "condition": 30
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Miltank",
+    "types": ["Normal"],
+    "abilities": ["Thick Fat", "Scrappy"],
+    "hiddenAbility": "Sap Sipper",
+    "baseStats": {
+      "hp": 95,
+      "atk": 80,
+      "def": 105,
+      "spA": 40,
+      "spD": 70,
+      "spe": 100
+    },
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Tauros",
+      "altEgg": "Miltank"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Blissey",
+    "types": ["Normal"],
+    "abilities": ["Natural Cure", "Serene Grace"],
+    "hiddenAbility": "Healer",
+    "baseStats": {
+      "hp": 255,
+      "atk": 10,
+      "def": 10,
+      "spA": 75,
+      "spD": 135,
+      "spe": 55
+    },
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Fairy"],
+      "egg": "Happiny",
+      "altEgg": "Happiny"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Raikou",
+    "types": ["Electric"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "Inner Focus",
+    "baseStats": {
+      "hp": 90,
+      "atk": 85,
+      "def": 75,
+      "spA": 115,
+      "spD": 110,
+      "spe": 115
+    },
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Raikou",
+      "altEgg": "Raikou"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Entei",
+    "types": ["Fire"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "Inner Focus",
+    "baseStats": {
+      "hp": 115,
+      "atk": 115,
+      "def": 85,
+      "spA": 90,
+      "spD": 75,
+      "spe": 100
+    },
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Entei",
+      "altEgg": "Entei"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Suicune",
+    "types": ["Water"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "Inner Focus",
+    "baseStats": {
+      "hp": 100,
+      "atk": 75,
+      "def": 115,
+      "spA": 90,
+      "spD": 115,
+      "spe": 85
+    },
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Suicune",
+      "altEgg": "Suicune"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Larvitar",
+    "types": ["Rock", "Ground"],
+    "abilities": ["Guts"],
+    "hiddenAbility": "Sand Veil",
+    "baseStats": {
+      "hp": 50,
+      "atk": 64,
+      "def": 50,
+      "spA": 45,
+      "spD": 50,
+      "spe": 41
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Monster"],
+      "egg": "Larvitar",
+      "altEgg": "Larvitar"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Pupitar",
+        "condition": 30
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Pupitar",
+    "types": ["Rock", "Ground"],
+    "abilities": ["Shed Skin"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 70,
+      "atk": 84,
+      "def": 70,
+      "spA": 65,
+      "spD": 70,
+      "spe": 51
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Monster"],
+      "egg": "Larvitar",
+      "altEgg": "Larvitar"
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Tyranitar",
+        "condition": 55
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Tyranitar",
+    "types": ["Rock", "Dark"],
+    "abilities": ["Sand Stream"],
+    "hiddenAbility": "Unnerve",
+    "baseStats": {
+      "hp": 100,
+      "atk": 134,
+      "def": 110,
+      "spA": 95,
+      "spD": 100,
+      "spe": 61
+    },
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Monster"],
+      "egg": "Larvitar",
+      "altEgg": "Larvitar"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Lugia",
+    "types": ["Psychic", "Flying"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "Multiscale",
+    "baseStats": {
+      "hp": 106,
+      "atk": 90,
+      "def": 130,
+      "spA": 90,
+      "spD": 154,
+      "spe": 110
+    },
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Lugia",
+      "altEgg": "Lugia"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Ho-oh",
+    "types": ["Fire", "Flying"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "Regenerator",
+    "baseStats": {
+      "hp": 106,
+      "atk": 130,
+      "def": 90,
+      "spA": 110,
+      "spD": 154,
+      "spe": 90
+    },
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Ho-oh",
+      "altEgg": "Ho-oh"
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Celebi",
+    "types": ["Psychic", "Grass"],
+    "abilities": ["Natural Cure"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 100,
+      "atk": 100,
+      "def": 100,
+      "spA": 100,
+      "spD": 100,
+      "spe": 100
+    },
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Celebi",
+      "altEgg": "Celebi"
     },
     "evolutionDetails": [],
     "moves": [
