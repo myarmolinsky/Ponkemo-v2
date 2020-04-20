@@ -12,6 +12,7 @@
       "spD": 65,
       "spe": 45
     },
+    "weight": 6.9,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -53,6 +54,7 @@
       "spD": 80,
       "spe": 60
     },
+    "weight": 13,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -94,6 +96,7 @@
       "spD": 100,
       "spe": 80
     },
+    "weight": 100,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -130,6 +133,7 @@
       "spD": 50,
       "spe": 65
     },
+    "weight": 8.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -171,6 +175,7 @@
       "spD": 65,
       "spe": 80
     },
+    "weight": 19,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -212,6 +217,7 @@
       "spD": 85,
       "spe": 100
     },
+    "weight": 90.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -248,6 +254,7 @@
       "spD": 64,
       "spe": 43
     },
+    "weight": 9,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -289,6 +296,7 @@
       "spD": 80,
       "spe": 58
     },
+    "weight": 22.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -330,6 +338,7 @@
       "spD": 105,
       "spe": 78
     },
+    "weight": 85.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -366,6 +375,7 @@
       "spD": 20,
       "spe": 45
     },
+    "weight": 2.9,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -407,6 +417,7 @@
       "spD": 25,
       "spe": 30
     },
+    "weight": 9.9,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -448,6 +459,7 @@
       "spD": 80,
       "spe": 70
     },
+    "weight": 32,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -484,6 +496,7 @@
       "spD": 20,
       "spe": 50
     },
+    "weight": 3.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -525,6 +538,7 @@
       "spD": 25,
       "spe": 35
     },
+    "weight": 10,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -566,6 +580,7 @@
       "spD": 80,
       "spe": 75
     },
+    "weight": 29.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -602,6 +617,7 @@
       "spD": 35,
       "spe": 56
     },
+    "weight": 1.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -643,6 +659,7 @@
       "spD": 50,
       "spe": 71
     },
+    "weight": 30,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -684,6 +701,7 @@
       "spD": 70,
       "spe": 101
     },
+    "weight": 39.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -720,6 +738,7 @@
       "spD": 35,
       "spe": 72
     },
+    "weight": 3.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -761,6 +780,7 @@
       "spD": 70,
       "spe": 97
     },
+    "weight": 18.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -797,6 +817,7 @@
       "spD": 35,
       "spe": 72
     },
+    "weight": 3.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -838,6 +859,7 @@
       "spD": 80,
       "spe": 77
     },
+    "weight": 25.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -874,6 +896,7 @@
       "spD": 31,
       "spe": 70
     },
+    "weight": 2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -915,6 +938,7 @@
       "spD": 61,
       "spe": 100
     },
+    "weight": 38,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -951,6 +975,7 @@
       "spD": 54,
       "spe": 55
     },
+    "weight": 6.9,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -992,6 +1017,7 @@
       "spD": 79,
       "spe": 80
     },
+    "weight": 65,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -1028,6 +1054,7 @@
       "spD": 50,
       "spe": 90
     },
+    "weight": 6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -1073,6 +1100,7 @@
       "spD": 80,
       "spe": 110
     },
+    "weight": 30,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -1109,6 +1137,7 @@
       "spD": 85,
       "spe": 110
     },
+    "weight": 21,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -1145,6 +1174,7 @@
       "spD": 60,
       "spe": 120
     },
+    "weight": 6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -1181,6 +1211,7 @@
       "spD": 30,
       "spe": 40
     },
+    "weight": 12,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -1222,6 +1253,7 @@
       "spD": 55,
       "spe": 65
     },
+    "weight": 29.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -1258,6 +1290,7 @@
       "spD": 35,
       "spe": 40
     },
+    "weight": 40,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -1299,6 +1332,7 @@
       "spD": 65,
       "spe": 65
     },
+    "weight": 55,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -1335,6 +1369,7 @@
       "spD": 40,
       "spe": 41
     },
+    "weight": 7,
     "spawnRate": "",
     "genderRatio": 0,
     "breeding": {
@@ -1376,6 +1411,7 @@
       "spD": 55,
       "spe": 56
     },
+    "weight": 20,
     "spawnRate": "",
     "genderRatio": 0,
     "breeding": {
@@ -1417,6 +1453,7 @@
       "spD": 85,
       "spe": 76
     },
+    "weight": 60,
     "spawnRate": "",
     "genderRatio": 0,
     "breeding": {
@@ -1453,6 +1490,7 @@
       "spD": 40,
       "spe": 50
     },
+    "weight": 9,
     "spawnRate": "",
     "genderRatio": 100,
     "breeding": {
@@ -1494,6 +1532,7 @@
       "spD": 55,
       "spe": 65
     },
+    "weight": 19.5,
     "spawnRate": "",
     "genderRatio": 100,
     "breeding": {
@@ -1535,6 +1574,7 @@
       "spD": 75,
       "spe": 85
     },
+    "weight": 62,
     "spawnRate": "",
     "genderRatio": 100,
     "breeding": {
@@ -1571,6 +1611,7 @@
       "spD": 65,
       "spe": 35
     },
+    "weight": 7.5,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -1612,6 +1653,7 @@
       "spD": 90,
       "spe": 60
     },
+    "weight": 40,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -1648,6 +1690,7 @@
       "spD": 65,
       "spe": 65
     },
+    "weight": 9.9,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -1689,6 +1732,7 @@
       "spD": 100,
       "spe": 100
     },
+    "weight": 19.9,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -1725,6 +1769,7 @@
       "spD": 65,
       "spe": 65
     },
+    "weight": 9.9,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -1756,7 +1801,7 @@
   {
     "name": "Alolan Ninetales",
     "types": ["Ice", "Fairy"],
-    "abilities": ["Snow Cloack"],
+    "abilities": ["Snow Cloak"],
     "hiddenAbility": "Snow Warning",
     "baseStats": {
       "hp": 73,
@@ -1766,6 +1811,7 @@
       "spD": 100,
       "spe": 109
     },
+    "weight": 19.9,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -1802,6 +1848,7 @@
       "spD": 25,
       "spe": 20
     },
+    "weight": 5.5,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -1843,6 +1890,7 @@
       "spD": 50,
       "spe": 45
     },
+    "weight": 12,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -1879,6 +1927,7 @@
       "spD": 40,
       "spe": 55
     },
+    "weight": 7.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -1920,6 +1969,7 @@
       "spD": 75,
       "spe": 90
     },
+    "weight": 55,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -1961,6 +2011,7 @@
       "spD": 65,
       "spe": 30
     },
+    "weight": 5.4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2002,6 +2053,7 @@
       "spD": 75,
       "spe": 40
     },
+    "weight": 8.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2047,6 +2099,7 @@
       "spD": 90,
       "spe": 50
     },
+    "weight": 18.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2083,6 +2136,7 @@
       "spD": 55,
       "spe": 25
     },
+    "weight": 5.4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2124,6 +2178,7 @@
       "spD": 80,
       "spe": 30
     },
+    "weight": 29.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2160,6 +2215,7 @@
       "spD": 55,
       "spe": 45
     },
+    "weight": 30,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2201,6 +2257,7 @@
       "spD": 75,
       "spe": 90
     },
+    "weight": 12.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2237,6 +2294,7 @@
       "spD": 45,
       "spe": 95
     },
+    "weight": 0.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2278,6 +2336,7 @@
       "spD": 70,
       "spe": 120
     },
+    "weight": 33.3,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2314,6 +2373,7 @@
       "spD": 45,
       "spe": 90
     },
+    "weight": 1,
     "spawnRate": "",
     "eggGroups": ["Field"],
     "genderRatio": 50,
@@ -2356,6 +2416,7 @@
       "spD": 70,
       "spe": 110
     },
+    "weight": 66.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2392,6 +2453,7 @@
       "spD": 50,
       "spe": 90
     },
+    "weight": 4.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2433,6 +2495,7 @@
       "spD": 65,
       "spe": 115
     },
+    "weight": 32,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2469,6 +2532,7 @@
       "spD": 40,
       "spe": 90
     },
+    "weight": 4.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2510,6 +2574,7 @@
       "spD": 65,
       "spe": 115
     },
+    "weight": 33,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2546,6 +2611,7 @@
       "spD": 40,
       "spe": 40
     },
+    "weight": 7.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2587,6 +2653,7 @@
       "spD": 50,
       "spe": 55
     },
+    "weight": 19.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2628,6 +2695,7 @@
       "spD": 80,
       "spe": 85
     },
+    "weight": 76.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2664,6 +2732,7 @@
       "spD": 45,
       "spe": 70
     },
+    "weight": 28,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2705,6 +2774,7 @@
       "spD": 70,
       "spe": 95
     },
+    "weight": 32,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2741,6 +2811,7 @@
       "spD": 50,
       "spe": 60
     },
+    "weight": 19,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -2782,6 +2853,7 @@
       "spD": 80,
       "spe": 95
     },
+    "weight": 155,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -2818,6 +2890,7 @@
       "spD": 40,
       "spe": 90
     },
+    "weight": 12.4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2859,6 +2932,7 @@
       "spD": 50,
       "spe": 90
     },
+    "weight": 20,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2904,6 +2978,7 @@
       "spD": 90,
       "spe": 70
     },
+    "weight": 54,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -2940,6 +3015,7 @@
       "spD": 55,
       "spe": 90
     },
+    "weight": 19.5,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -2981,6 +3057,7 @@
       "spD": 70,
       "spe": 105
     },
+    "weight": 56.5,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -3022,6 +3099,7 @@
       "spD": 95,
       "spe": 120
     },
+    "weight": 48,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -3058,6 +3136,7 @@
       "spD": 35,
       "spe": 35
     },
+    "weight": 19.5,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -3099,6 +3178,7 @@
       "spD": 60,
       "spe": 45
     },
+    "weight": 70.5,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -3140,6 +3220,7 @@
       "spD": 85,
       "spe": 55
     },
+    "weight": 130,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -3176,6 +3257,7 @@
       "spD": 30,
       "spe": 40
     },
+    "weight": 4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3217,6 +3299,7 @@
       "spD": 45,
       "spe": 55
     },
+    "weight": 6.4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3258,6 +3341,7 @@
       "spD": 70,
       "spe": 70
     },
+    "weight": 15.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3294,6 +3378,7 @@
       "spD": 100,
       "spe": 70
     },
+    "weight": 45.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3335,6 +3420,7 @@
       "spD": 120,
       "spe": 100
     },
+    "weight": 55,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3371,6 +3457,7 @@
       "spD": 30,
       "spe": 20
     },
+    "weight": 20,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3412,6 +3499,7 @@
       "spD": 45,
       "spe": 35
     },
+    "weight": 105,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3453,6 +3541,7 @@
       "spD": 65,
       "spe": 45
     },
+    "weight": 300,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3489,6 +3578,7 @@
       "spD": 30,
       "spe": 20
     },
+    "weight": 20.3,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3530,6 +3620,7 @@
       "spD": 45,
       "spe": 35
     },
+    "weight": 110,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3571,6 +3662,7 @@
       "spD": 65,
       "spe": 45
     },
+    "weight": 316,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3607,6 +3699,7 @@
       "spD": 65,
       "spe": 90
     },
+    "weight": 30,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3648,6 +3741,7 @@
       "spD": 80,
       "spe": 105
     },
+    "weight": 95,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3684,6 +3778,7 @@
       "spD": 65,
       "spe": 90
     },
+    "weight": 24,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3725,6 +3820,7 @@
       "spD": 80,
       "spe": 105
     },
+    "weight": 80,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3761,6 +3857,7 @@
       "spD": 40,
       "spe": 15
     },
+    "weight": 36,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3806,6 +3903,7 @@
       "spD": 80,
       "spe": 30
     },
+    "weight": 78.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3842,6 +3940,7 @@
       "spD": 55,
       "spe": 45
     },
+    "weight": 6,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -3883,6 +3982,7 @@
       "spD": 70,
       "spe": 70
     },
+    "weight": 60,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -3924,6 +4024,7 @@
       "spD": 62,
       "spe": 60
     },
+    "weight": 15,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -3960,6 +4061,7 @@
       "spD": 62,
       "spe": 55
     },
+    "weight": 42,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4001,6 +4103,7 @@
       "spD": 35,
       "spe": 75
     },
+    "weight": 39.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4042,6 +4145,7 @@
       "spD": 60,
       "spe": 110
     },
+    "weight": 85.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4078,6 +4182,7 @@
       "spD": 70,
       "spe": 45
     },
+    "weight": 90,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4119,6 +4224,7 @@
       "spD": 95,
       "spe": 70
     },
+    "weight": 120,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4155,6 +4261,7 @@
       "spD": 50,
       "spe": 25
     },
+    "weight": 30,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4196,6 +4303,7 @@
       "spD": 100,
       "spe": 50
     },
+    "weight": 30,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4232,6 +4340,7 @@
       "spD": 50,
       "spe": 25
     },
+    "weight": 42,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4273,6 +4382,7 @@
       "spD": 100,
       "spe": 50
     },
+    "weight": 52,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4309,6 +4419,7 @@
       "spD": 25,
       "spe": 40
     },
+    "weight": 4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4350,6 +4461,7 @@
       "spD": 45,
       "spe": 70
     },
+    "weight": 132.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4374,7 +4486,7 @@
     ]
   },
   {
-    "name": "Ghastly",
+    "name": "Gastly",
     "types": ["Ghost", "Poison"],
     "abilities": ["Levitate"],
     "hiddenAbility": "",
@@ -4386,12 +4498,13 @@
       "spD": 35,
       "spe": 80
     },
+    "weight": 0.1,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
       "eggGroups": ["Amorphous"],
-      "egg": "Ghastly",
-      "altEgg": "Ghastly"
+      "egg": "Gastly",
+      "altEgg": "Gastly"
     },
     "stages": {
       "current": 0,
@@ -4427,12 +4540,13 @@
       "spD": 55,
       "spe": 95
     },
+    "weight": 0.1,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
       "eggGroups": ["Amorphous"],
-      "egg": "Ghastly",
-      "altEgg": "Ghastly"
+      "egg": "Gastly",
+      "altEgg": "Gastly"
     },
     "stages": {
       "current": 1,
@@ -4458,7 +4572,7 @@
   {
     "name": "Gengar",
     "types": ["Ghost", "Poison"],
-    "abilities": ["Levitate"],
+    "abilities": ["Cursed Body"],
     "hiddenAbility": "",
     "baseStats": {
       "hp": 60,
@@ -4468,12 +4582,13 @@
       "spD": 75,
       "spe": 110
     },
+    "weight": 40.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
       "eggGroups": ["Amorphous"],
-      "egg": "Ghastly",
-      "altEgg": "Ghastly"
+      "egg": "Gastly",
+      "altEgg": "Gastly"
     },
     "stages": {
       "current": 2,
@@ -4504,6 +4619,7 @@
       "spD": 45,
       "spe": 70
     },
+    "weight": 210,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4545,6 +4661,7 @@
       "spD": 90,
       "spe": 42
     },
+    "weight": 32.4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4586,6 +4703,7 @@
       "spD": 115,
       "spe": 67
     },
+    "weight": 75.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4622,6 +4740,7 @@
       "spD": 25,
       "spe": 50
     },
+    "weight": 6.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4663,6 +4782,7 @@
       "spD": 50,
       "spe": 75
     },
+    "weight": 60,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4699,6 +4819,7 @@
       "spD": 55,
       "spe": 100
     },
+    "weight": 10.4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4740,6 +4861,7 @@
       "spD": 80,
       "spe": 150
     },
+    "weight": 66.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4776,6 +4898,7 @@
       "spD": 45,
       "spe": 40
     },
+    "weight": 2.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4821,6 +4944,7 @@
       "spD": 75,
       "spe": 55
     },
+    "weight": 120,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4857,6 +4981,7 @@
       "spD": 75,
       "spe": 45
     },
+    "weight": 415.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4893,6 +5018,7 @@
       "spD": 50,
       "spe": 35
     },
+    "weight": 6.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4938,6 +5064,7 @@
       "spD": 80,
       "spe": 45
     },
+    "weight": 45,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -4974,6 +5101,7 @@
       "spD": 80,
       "spe": 45
     },
+    "weight": 34,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5010,6 +5138,7 @@
       "spD": 110,
       "spe": 87
     },
+    "weight": 49.8,
     "spawnRate": "",
     "genderRatio": 100,
     "breeding": {
@@ -5046,6 +5175,7 @@
       "spD": 110,
       "spe": 76
     },
+    "weight": 50.2,
     "spawnRate": "",
     "genderRatio": 100,
     "breeding": {
@@ -5082,6 +5212,7 @@
       "spD": 75,
       "spe": 30
     },
+    "weight": 65.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5123,6 +5254,7 @@
       "spD": 45,
       "spe": 35
     },
+    "weight": 1,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5168,6 +5300,7 @@
       "spD": 70,
       "spe": 60
     },
+    "weight": 9.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5204,6 +5337,7 @@
       "spD": 70,
       "spe": 60
     },
+    "weight": 16,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5240,6 +5374,7 @@
       "spD": 30,
       "spe": 25
     },
+    "weight": 115,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5281,6 +5416,7 @@
       "spD": 45,
       "spe": 40
     },
+    "weight": 120,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5322,6 +5458,7 @@
       "spD": 105,
       "spe": 50
     },
+    "weight": 34.6,
     "spawnRate": "",
     "genderRatio": 0,
     "breeding": {
@@ -5363,6 +5500,7 @@
       "spD": 40,
       "spe": 60
     },
+    "weight": 35,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5404,6 +5542,7 @@
       "spD": 80,
       "spe": 90
     },
+    "weight": 80,
     "spawnRate": "",
     "genderRatio": 0,
     "breeding": {
@@ -5440,6 +5579,7 @@
       "spD": 25,
       "spe": 60
     },
+    "weight": 8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5481,6 +5621,7 @@
       "spD": 45,
       "spe": 85
     },
+    "weight": 25,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5522,6 +5663,7 @@
       "spD": 50,
       "spe": 63
     },
+    "weight": 15,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5563,6 +5705,7 @@
       "spD": 80,
       "spe": 68
     },
+    "weight": 39,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5599,6 +5742,7 @@
       "spD": 55,
       "spe": 85
     },
+    "weight": 34.5,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -5640,6 +5784,7 @@
       "spD": 85,
       "spe": 115
     },
+    "weight": 80,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -5676,6 +5821,7 @@
       "spD": 120,
       "spe": 90
     },
+    "weight": 54.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5712,6 +5858,7 @@
       "spD": 90,
       "spe": 100
     },
+    "weight": 56.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5753,6 +5900,7 @@
       "spD": 80,
       "spe": 105
     },
+    "weight": 56,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5794,6 +5942,7 @@
       "spD": 95,
       "spe": 95
     },
+    "weight": 40.6,
     "spawnRate": "",
     "genderRatio": 0,
     "breeding": {
@@ -5830,6 +5979,7 @@
       "spD": 85,
       "spe": 105
     },
+    "weight": 30,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -5871,6 +6021,7 @@
       "spD": 85,
       "spe": 93
     },
+    "weight": 44.5,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -5912,6 +6063,7 @@
       "spD": 70,
       "spe": 85
     },
+    "weight": 55,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -5948,6 +6100,7 @@
       "spD": 70,
       "spe": 110
     },
+    "weight": 88.4,
     "spawnRate": "",
     "genderRatio": 100,
     "breeding": {
@@ -5984,6 +6137,7 @@
       "spD": 20,
       "spe": 80
     },
+    "weight": 10,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -6025,6 +6179,7 @@
       "spD": 100,
       "spe": 81
     },
+    "weight": 235,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -6061,6 +6216,7 @@
       "spD": 95,
       "spe": 60
     },
+    "weight": 220,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -6097,6 +6253,7 @@
       "spD": 48,
       "spe": 48
     },
+    "weight": 4,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -6133,6 +6290,7 @@
       "spD": 85,
       "spe": 75
     },
+    "weight": 6.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6169,6 +6327,7 @@
       "spD": 65,
       "spe": 55
     },
+    "weight": 6.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6238,6 +6397,7 @@
       "spD": 95,
       "spe": 65
     },
+    "weight": 29,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6274,6 +6434,7 @@
       "spD": 95,
       "spe": 130
     },
+    "weight": 24.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6310,6 +6471,7 @@
       "spD": 110,
       "spe": 65
     },
+    "weight": 25,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6346,6 +6508,7 @@
       "spD": 75,
       "spe": 40
     },
+    "weight": 36.5,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -6387,6 +6550,7 @@
       "spD": 55,
       "spe": 35
     },
+    "weight": 7.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6428,6 +6592,7 @@
       "spD": 70,
       "spe": 55
     },
+    "weight": 35,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6464,6 +6629,7 @@
       "spD": 45,
       "spe": 55
     },
+    "weight": 11.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6505,6 +6671,7 @@
       "spD": 70,
       "spe": 80
     },
+    "weight": 40.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6541,6 +6708,7 @@
       "spD": 75,
       "spe": 130
     },
+    "weight": 59,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6577,6 +6745,7 @@
       "spD": 110,
       "spe": 30
     },
+    "weight": 460,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6613,6 +6782,7 @@
       "spD": 125,
       "spe": 85
     },
+    "weight": 55.4,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -6649,6 +6819,7 @@
       "spD": 90,
       "spe": 100
     },
+    "weight": 52.6,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -6685,6 +6856,7 @@
       "spD": 85,
       "spe": 90
     },
+    "weight": 60,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -6721,6 +6893,7 @@
       "spD": 50,
       "spe": 50
     },
+    "weight": 3.3,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -6762,6 +6935,7 @@
       "spD": 70,
       "spe": 70
     },
+    "weight": 16.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -6803,6 +6977,7 @@
       "spD": 100,
       "spe": 80
     },
+    "weight": 210,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -6839,6 +7014,7 @@
       "spD": 90,
       "spe": 130
     },
+    "weight": 122,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -6875,6 +7051,7 @@
       "spD": 100,
       "spe": 100
     },
+    "weight": 4,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -6911,6 +7088,7 @@
       "spD": 65,
       "spe": 45
     },
+    "weight": 6.4,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6952,6 +7130,7 @@
       "spD": 80,
       "spe": 60
     },
+    "weight": 15.8,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -6993,6 +7172,7 @@
       "spD": 100,
       "spe": 80
     },
+    "weight": 100.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -7029,6 +7209,7 @@
       "spD": 50,
       "spe": 65
     },
+    "weight": 7.9,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -7070,6 +7251,7 @@
       "spD": 65,
       "spe": 80
     },
+    "weight": 19,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -7111,6 +7293,7 @@
       "spD": 85,
       "spe": 100
     },
+    "weight": 79.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -7147,6 +7330,7 @@
       "spD": 48,
       "spe": 43
     },
+    "weight": 9.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -7188,6 +7372,7 @@
       "spD": 63,
       "spe": 58
     },
+    "weight": 25,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -7229,6 +7414,7 @@
       "spD": 83,
       "spe": 78
     },
+    "weight": 88.8,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -7265,6 +7451,7 @@
       "spD": 45,
       "spe": 20
     },
+    "weight": 6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7306,6 +7493,7 @@
       "spD": 55,
       "spe": 90
     },
+    "weight": 32.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7342,6 +7530,7 @@
       "spD": 56,
       "spe": 50
     },
+    "weight": 21.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7383,6 +7572,7 @@
       "spD": 96,
       "spe": 70
     },
+    "weight": 40.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7419,6 +7609,7 @@
       "spD": 80,
       "spe": 55
     },
+    "weight": 10.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7460,6 +7651,7 @@
       "spD": 110,
       "spe": 85
     },
+    "weight": 35.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7496,6 +7688,7 @@
       "spD": 40,
       "spe": 30
     },
+    "weight": 8.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7537,6 +7730,7 @@
       "spD": 70,
       "spe": 40
     },
+    "weight": 33.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7573,6 +7767,7 @@
       "spD": 80,
       "spe": 130
     },
+    "weight": 75,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7609,6 +7804,7 @@
       "spD": 56,
       "spe": 67
     },
+    "weight": 12,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7650,6 +7846,7 @@
       "spD": 76,
       "spe": 67
     },
+    "weight": 22.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7686,6 +7883,7 @@
       "spD": 35,
       "spe": 60
     },
+    "weight": 2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7727,6 +7925,7 @@
       "spD": 55,
       "spe": 15
     },
+    "weight": 3,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -7768,6 +7967,7 @@
       "spD": 20,
       "spe": 15
     },
+    "weight": 1,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -7809,6 +8009,7 @@
       "spD": 65,
       "spe": 20
     },
+    "weight": 1.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -7850,6 +8051,7 @@
       "spD": 105,
       "spe": 40
     },
+    "weight": 3.2,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -7891,6 +8093,7 @@
       "spD": 45,
       "spe": 70
     },
+    "weight": 2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7932,6 +8135,7 @@
       "spD": 70,
       "spe": 95
     },
+    "weight": 15,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -7968,6 +8172,7 @@
       "spD": 45,
       "spe": 35
     },
+    "weight": 7.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8009,6 +8214,7 @@
       "spD": 60,
       "spe": 45
     },
+    "weight": 13.3,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8050,6 +8256,7 @@
       "spD": 90,
       "spe": 55
     },
+    "weight": 61.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8086,6 +8293,7 @@
       "spD": 100,
       "spe": 50
     },
+    "weight": 5.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8122,6 +8330,7 @@
       "spD": 50,
       "spe": 40
     },
+    "weight": 8.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8163,6 +8372,7 @@
       "spD": 80,
       "spe": 50
     },
+    "weight": 28.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8199,6 +8409,7 @@
       "spD": 65,
       "spe": 30
     },
+    "weight": 38,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8235,6 +8446,7 @@
       "spD": 100,
       "spe": 70
     },
+    "weight": 33.9,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8271,6 +8483,7 @@
       "spD": 55,
       "spe": 50
     },
+    "weight": 0.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8312,6 +8525,7 @@
       "spD": 65,
       "spe": 80
     },
+    "weight": 1,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8353,6 +8567,7 @@
       "spD": 95,
       "spe": 110
     },
+    "weight": 3,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8389,6 +8604,7 @@
       "spD": 55,
       "spe": 85
     },
+    "weight": 11.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8430,6 +8646,7 @@
       "spD": 30,
       "spe": 30
     },
+    "weight": 1.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8471,6 +8688,7 @@
       "spD": 85,
       "spe": 30
     },
+    "weight": 8.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8507,6 +8725,7 @@
       "spD": 45,
       "spe": 95
     },
+    "weight": 38,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8548,6 +8767,7 @@
       "spD": 25,
       "spe": 15
     },
+    "weight": 8.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8589,6 +8809,7 @@
       "spD": 65,
       "spe": 35
     },
+    "weight": 75,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8625,6 +8846,7 @@
       "spD": 95,
       "spe": 110
     },
+    "weight": 26.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8661,6 +8883,7 @@
       "spD": 120,
       "spe": 65
     },
+    "weight": 27,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8697,6 +8920,7 @@
       "spD": 42,
       "spe": 91
     },
+    "weight": 2.1,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8738,6 +8962,7 @@
       "spD": 110,
       "spe": 30
     },
+    "weight": 79.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8774,6 +8999,7 @@
       "spD": 85,
       "spe": 85
     },
+    "weight": 1,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8815,6 +9041,7 @@
       "spD": 48,
       "spe": 48
     },
+    "weight": 5,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -8851,6 +9078,7 @@
       "spD": 58,
       "spe": 33
     },
+    "weight": 28.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8887,6 +9115,7 @@
       "spD": 65,
       "spe": 85
     },
+    "weight": 41.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8923,6 +9152,7 @@
       "spD": 35,
       "spe": 15
     },
+    "weight": 7.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -8964,6 +9194,7 @@
       "spD": 60,
       "spe": 40
     },
+    "weight": 125.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9000,6 +9231,7 @@
       "spD": 65,
       "spe": 45
     },
+    "weight": 14,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9036,6 +9268,7 @@
       "spD": 65,
       "spe": 85
     },
+    "weight": 64.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9077,6 +9310,7 @@
       "spD": 65,
       "spe": 30
     },
+    "weight": 400,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9113,6 +9347,7 @@
       "spD": 40,
       "spe": 30
     },
+    "weight": 7.8,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -9154,6 +9389,7 @@
       "spD": 60,
       "spe": 45
     },
+    "weight": 48.7,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -9190,6 +9426,7 @@
       "spD": 55,
       "spe": 85
     },
+    "weight": 3.9,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9226,6 +9463,7 @@
       "spD": 80,
       "spe": 65
     },
+    "weight": 118,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9262,6 +9500,7 @@
       "spD": 230,
       "spe": 5
     },
+    "weight": 20.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9298,6 +9537,7 @@
       "spD": 95,
       "spe": 85
     },
+    "weight": 54,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9334,6 +9574,7 @@
       "spD": 75,
       "spe": 115
     },
+    "weight": 28,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9375,6 +9616,7 @@
       "spD": 50,
       "spe": 40
     },
+    "weight": 8.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9416,6 +9658,7 @@
       "spD": 75,
       "spe": 55
     },
+    "weight": 125.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9452,6 +9695,7 @@
       "spD": 40,
       "spe": 20
     },
+    "weight": 35,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9493,6 +9737,7 @@
       "spD": 80,
       "spe": 30
     },
+    "weight": 55,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9529,6 +9774,7 @@
       "spD": 30,
       "spe": 50
     },
+    "weight": 6.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9570,6 +9816,7 @@
       "spD": 60,
       "spe": 50
     },
+    "weight": 55.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9611,6 +9858,7 @@
       "spD": 95,
       "spe": 35
     },
+    "weight": 5,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -9647,6 +9895,7 @@
       "spD": 100,
       "spe": 30
     },
+    "weight": 0.5,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -9688,6 +9937,7 @@
       "spD": 35,
       "spe": 65
     },
+    "weight": 12,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9729,6 +9979,7 @@
       "spD": 75,
       "spe": 45
     },
+    "weight": 28.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9765,6 +10016,7 @@
       "spD": 45,
       "spe": 75
     },
+    "weight": 16,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9801,6 +10053,7 @@
       "spD": 140,
       "spe": 70
     },
+    "weight": 220,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9837,6 +10090,7 @@
       "spD": 70,
       "spe": 70
     },
+    "weight": 50.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9873,6 +10127,7 @@
       "spD": 50,
       "spe": 65
     },
+    "weight": 10.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9914,6 +10169,7 @@
       "spD": 80,
       "spe": 95
     },
+    "weight": 35,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9950,6 +10206,7 @@
       "spD": 95,
       "spe": 85
     },
+    "weight": 152,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -9986,6 +10243,7 @@
       "spD": 40,
       "spe": 40
     },
+    "weight": 33.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -10027,6 +10285,7 @@
       "spD": 60,
       "spe": 50
     },
+    "weight": 120,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -10063,6 +10322,7 @@
       "spD": 95,
       "spe": 60
     },
+    "weight": 32.5,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -10104,6 +10364,7 @@
       "spD": 65,
       "spe": 85
     },
+    "weight": 71.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -10140,6 +10401,7 @@
       "spD": 45,
       "spe": 75
     },
+    "weight": 58,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -10176,6 +10438,7 @@
       "spD": 35,
       "spe": 35
     },
+    "weight": 21,
     "spawnRate": "",
     "genderRatio": 100,
     "breeding": {
@@ -10225,6 +10488,7 @@
       "spD": 110,
       "spe": 70
     },
+    "weight": 48,
     "spawnRate": "",
     "genderRatio": 100,
     "breeding": {
@@ -10261,6 +10525,7 @@
       "spD": 65,
       "spe": 65
     },
+    "weight": 6,
     "spawnRate": "",
     "genderRatio": 0,
     "breeding": {
@@ -10302,6 +10567,7 @@
       "spD": 55,
       "spe": 95
     },
+    "weight": 23.5,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -10343,6 +10609,7 @@
       "spD": 55,
       "spe": 83
     },
+    "weight": 21.4,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -10384,6 +10651,7 @@
       "spD": 70,
       "spe": 100
     },
+    "weight": 75.5,
     "spawnRate": "",
     "genderRatio": 0,
     "breeding": {
@@ -10420,6 +10688,7 @@
       "spD": 135,
       "spe": 55
     },
+    "weight": 46.8,
     "spawnRate": "",
     "genderRatio": 0,
     "breeding": {
@@ -10456,6 +10725,7 @@
       "spD": 110,
       "spe": 115
     },
+    "weight": 178,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -10492,6 +10762,7 @@
       "spD": 75,
       "spe": 100
     },
+    "weight": 198,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -10528,6 +10799,7 @@
       "spD": 115,
       "spe": 85
     },
+    "weight": 187,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -10564,6 +10836,7 @@
       "spD": 50,
       "spe": 41
     },
+    "weight": 72,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -10605,6 +10878,7 @@
       "spD": 70,
       "spe": 51
     },
+    "weight": 152,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -10646,6 +10920,7 @@
       "spD": 100,
       "spe": 61
     },
+    "weight": 202,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -10682,6 +10957,7 @@
       "spD": 154,
       "spe": 110
     },
+    "weight": 216,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -10718,6 +10994,7 @@
       "spD": 154,
       "spe": 90
     },
+    "weight": 199,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -10754,6 +11031,7 @@
       "spD": 100,
       "spe": 100
     },
+    "weight": 5,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -10790,6 +11068,7 @@
       "spD": 55,
       "spe": 70
     },
+    "weight": 5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -10831,6 +11110,7 @@
       "spD": 65,
       "spe": 95
     },
+    "weight": 21.6,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -10872,6 +11152,7 @@
       "spD": 85,
       "spe": 120
     },
+    "weight": 52.2,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -10908,6 +11189,7 @@
       "spD": 50,
       "spe": 45
     },
+    "weight": 2.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -10949,6 +11231,7 @@
       "spD": 60,
       "spe": 55
     },
+    "weight": 19.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -10990,6 +11273,7 @@
       "spD": 70,
       "spe": 80
     },
+    "weight": 52,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -11026,6 +11310,7 @@
       "spD": 50,
       "spe": 40
     },
+    "weight": 7.6,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -11067,6 +11352,7 @@
       "spD": 70,
       "spe": 50
     },
+    "weight": 28,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -11108,6 +11394,7 @@
       "spD": 90,
       "spe": 60
     },
+    "weight": 81.9,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -11144,6 +11431,7 @@
       "spD": 30,
       "spe": 35
     },
+    "weight": 13.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11185,6 +11473,7 @@
       "spD": 60,
       "spe": 70
     },
+    "weight": 37,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11221,6 +11510,7 @@
       "spD": 41,
       "spe": 60
     },
+    "weight": 17.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11262,6 +11552,7 @@
       "spD": 61,
       "spe": 100
     },
+    "weight": 32.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11298,6 +11589,7 @@
       "spD": 41,
       "spe": 60
     },
+    "weight": 17.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11339,6 +11631,7 @@
       "spD": 61,
       "spe": 100
     },
+    "weight": 32.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11380,6 +11673,7 @@
       "spD": 30,
       "spe": 20
     },
+    "weight": 3.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11425,6 +11719,7 @@
       "spD": 25,
       "spe": 15
     },
+    "weight": 10,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11466,6 +11761,7 @@
       "spD": 50,
       "spe": 65
     },
+    "weight": 28.4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11502,6 +11798,7 @@
       "spD": 25,
       "spe": 15
     },
+    "weight": 11.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11543,6 +11840,7 @@
       "spD": 90,
       "spe": 65
     },
+    "weight": 31.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11579,6 +11877,7 @@
       "spD": 50,
       "spe": 30
     },
+    "weight": 2.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11620,6 +11919,7 @@
       "spD": 70,
       "spe": 50
     },
+    "weight": 32.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11661,6 +11961,7 @@
       "spD": 100,
       "spe": 70
     },
+    "weight": 55,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11697,6 +11998,7 @@
       "spD": 30,
       "spe": 30
     },
+    "weight": 4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11738,6 +12040,7 @@
       "spD": 40,
       "spe": 60
     },
+    "weight": 28,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11779,6 +12082,7 @@
       "spD": 60,
       "spe": 80
     },
+    "weight": 59.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11815,6 +12119,7 @@
       "spD": 30,
       "spe": 85
     },
+    "weight": 2.3,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11856,6 +12161,7 @@
       "spD": 50,
       "spe": 125
     },
+    "weight": 19.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11892,6 +12198,7 @@
       "spD": 30,
       "spe": 85
     },
+    "weight": 9.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11933,6 +12240,7 @@
       "spD": 70,
       "spe": 65
     },
+    "weight": 28,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -11969,6 +12277,7 @@
       "spD": 35,
       "spe": 40
     },
+    "weight": 6.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12010,6 +12319,7 @@
       "spD": 55,
       "spe": 50
     },
+    "weight": 20.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12055,6 +12365,7 @@
       "spD": 115,
       "spe": 80
     },
+    "weight": 48.4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12091,6 +12402,7 @@
       "spD": 52,
       "spe": 65
     },
+    "weight": 1.7,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12132,6 +12444,7 @@
       "spD": 82,
       "spe": 80
     },
+    "weight": 3.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12168,6 +12481,7 @@
       "spD": 60,
       "spe": 35
     },
+    "weight": 4.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12209,6 +12523,7 @@
       "spD": 60,
       "spe": 70
     },
+    "weight": 39.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12245,6 +12560,7 @@
       "spD": 35,
       "spe": 30
     },
+    "weight": 24,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12286,6 +12602,7 @@
       "spD": 55,
       "spe": 90
     },
+    "weight": 46.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12327,6 +12644,7 @@
       "spD": 65,
       "spe": 100
     },
+    "weight": 130.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12363,6 +12681,7 @@
       "spD": 30,
       "spe": 40
     },
+    "weight": 5.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12408,6 +12727,7 @@
       "spD": 50,
       "spe": 160
     },
+    "weight": 12,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12444,6 +12764,7 @@
       "spD": 30,
       "spe": 40
     },
+    "weight": 1.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12480,6 +12801,7 @@
       "spD": 23,
       "spe": 28
     },
+    "weight": 16.3,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12521,6 +12843,7 @@
       "spD": 43,
       "spe": 48
     },
+    "weight": 40.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12562,6 +12885,7 @@
       "spD": 73,
       "spe": 68
     },
+    "weight": 84,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12598,6 +12922,7 @@
       "spD": 30,
       "spe": 25
     },
+    "weight": 86.4,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -12639,6 +12964,7 @@
       "spD": 60,
       "spe": 50
     },
+    "weight": 253.8,
     "spawnRate": "",
     "genderRatio": 75,
     "breeding": {
@@ -12675,6 +13001,7 @@
       "spD": 40,
       "spe": 20
     },
+    "weight": 2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12716,6 +13043,7 @@
       "spD": 90,
       "spe": 30
     },
+    "weight": 97,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12757,6 +13085,7 @@
       "spD": 35,
       "spe": 50
     },
+    "weight": 11,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -12798,6 +13127,7 @@
       "spD": 55,
       "spe": 90
     },
+    "weight": 32.6,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -12834,6 +13164,7 @@
       "spD": 65,
       "spe": 50
     },
+    "weight": 11,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12870,6 +13201,7 @@
       "spD": 55,
       "spe": 50
     },
+    "weight": 11.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12906,6 +13238,7 @@
       "spD": 40,
       "spe": 30
     },
+    "weight": 60,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12947,6 +13280,7 @@
       "spD": 50,
       "spe": 40
     },
+    "weight": 120,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -12988,6 +13322,7 @@
       "spD": 60,
       "spe": 50
     },
+    "weight": 360,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13024,6 +13359,7 @@
       "spD": 55,
       "spe": 60
     },
+    "weight": 11.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13065,6 +13401,7 @@
       "spD": 75,
       "spe": 80
     },
+    "weight": 31.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13101,6 +13438,7 @@
       "spD": 40,
       "spe": 65
     },
+    "weight": 15.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13142,6 +13480,7 @@
       "spD": 60,
       "spe": 105
     },
+    "weight": 40.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13178,6 +13517,7 @@
       "spD": 75,
       "spe": 95
     },
+    "weight": 4.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13214,6 +13554,7 @@
       "spD": 85,
       "spe": 95
     },
+    "weight": 4.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13250,6 +13591,7 @@
       "spD": 85,
       "spe": 85
     },
+    "weight": 17.7,
     "spawnRate": "",
     "genderRatio": 100,
     "breeding": {
@@ -13286,6 +13628,7 @@
       "spD": 85,
       "spe": 85
     },
+    "weight": 17.7,
     "spawnRate": "",
     "genderRatio": 0,
     "breeding": {
@@ -13322,6 +13665,7 @@
       "spD": 80,
       "spe": 65
     },
+    "weight": 2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13363,6 +13707,7 @@
       "spD": 53,
       "spe": 40
     },
+    "weight": 10.3,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13404,6 +13749,7 @@
       "spD": 83,
       "spe": 55
     },
+    "weight": 80,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13440,6 +13786,7 @@
       "spD": 20,
       "spe": 65
     },
+    "weight": 20.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13481,6 +13828,7 @@
       "spD": 40,
       "spe": 95
     },
+    "weight": 88.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13517,6 +13865,7 @@
       "spD": 35,
       "spe": 60
     },
+    "weight": 130,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13558,6 +13907,7 @@
       "spD": 45,
       "spe": 60
     },
+    "weight": 398,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13594,6 +13944,7 @@
       "spD": 45,
       "spe": 35
     },
+    "weight": 24,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13635,6 +13986,7 @@
       "spD": 75,
       "spe": 40
     },
+    "weight": 220,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13671,6 +14023,7 @@
       "spD": 70,
       "spe": 20
     },
+    "weight": 80.4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13707,6 +14060,7 @@
       "spD": 80,
       "spe": 60
     },
+    "weight": 30.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13748,6 +14102,7 @@
       "spD": 110,
       "spe": 80
     },
+    "weight": 71.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13784,6 +14139,7 @@
       "spD": 60,
       "spe": 60
     },
+    "weight": 5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13820,6 +14176,7 @@
       "spD": 45,
       "spe": 10
     },
+    "weight": 15,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13861,6 +14218,7 @@
       "spD": 50,
       "spe": 70
     },
+    "weight": 15.3,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13902,6 +14260,7 @@
       "spD": 80,
       "spe": 100
     },
+    "weight": 82,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13938,6 +14297,7 @@
       "spD": 40,
       "spe": 35
     },
+    "weight": 51.3,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -13979,6 +14339,7 @@
       "spD": 60,
       "spe": 55
     },
+    "weight": 77.4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14015,6 +14376,7 @@
       "spD": 75,
       "spe": 50
     },
+    "weight": 1.2,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14056,6 +14418,7 @@
       "spD": 105,
       "spe": 80
     },
+    "weight": 20.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14092,6 +14455,7 @@
       "spD": 60,
       "spe": 90
     },
+    "weight": 40.3,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14128,6 +14492,7 @@
       "spD": 60,
       "spe": 65
     },
+    "weight": 52.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14164,6 +14529,7 @@
       "spD": 85,
       "spe": 70
     },
+    "weight": 168,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -14200,6 +14566,7 @@
       "spD": 65,
       "spe": 70
     },
+    "weight": 154,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -14236,6 +14603,7 @@
       "spD": 41,
       "spe": 60
     },
+    "weight": 1.9,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14277,6 +14645,7 @@
       "spD": 71,
       "spe": 60
     },
+    "weight": 23.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14313,6 +14682,7 @@
       "spD": 35,
       "spe": 35
     },
+    "weight": 11.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14354,6 +14724,7 @@
       "spD": 55,
       "spe": 55
     },
+    "weight": 32.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14390,6 +14761,7 @@
       "spD": 70,
       "spe": 55
     },
+    "weight": 21.5,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -14431,6 +14803,7 @@
       "spD": 120,
       "spe": 75
     },
+    "weight": 108,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -14467,6 +14840,7 @@
       "spD": 87,
       "spe": 23
     },
+    "weight": 23.8,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -14508,6 +14882,7 @@
       "spD": 107,
       "spe": 43
     },
+    "weight": 60.4,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -14544,6 +14919,7 @@
       "spD": 50,
       "spe": 75
     },
+    "weight": 12.5,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -14585,6 +14961,7 @@
       "spD": 80,
       "spe": 45
     },
+    "weight": 68.2,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -14621,6 +14998,7 @@
       "spD": 55,
       "spe": 80
     },
+    "weight": 7.4,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14662,6 +15040,7 @@
       "spD": 125,
       "spe": 81
     },
+    "weight": 162,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14698,6 +15077,7 @@
       "spD": 70,
       "spe": 70
     },
+    "weight": 0.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14734,6 +15114,7 @@
       "spD": 120,
       "spe": 40
     },
+    "weight": 22,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14770,6 +15151,7 @@
       "spD": 33,
       "spe": 45
     },
+    "weight": 2.3,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14811,6 +15193,7 @@
       "spD": 63,
       "spe": 65
     },
+    "weight": 12.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14847,6 +15230,7 @@
       "spD": 90,
       "spe": 25
     },
+    "weight": 15,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14888,6 +15272,7 @@
       "spD": 130,
       "spe": 25
     },
+    "weight": 30.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14929,6 +15314,7 @@
       "spD": 87,
       "spe": 51
     },
+    "weight": 100,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -14965,6 +15351,7 @@
       "spD": 90,
       "spe": 65
     },
+    "weight": 1,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15001,6 +15388,7 @@
       "spD": 60,
       "spe": 75
     },
+    "weight": 47,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15037,6 +15425,7 @@
       "spD": 48,
       "spe": 23
     },
+    "weight": 14,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15078,6 +15467,7 @@
       "spD": 50,
       "spe": 50
     },
+    "weight": 16.8,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15123,6 +15513,7 @@
       "spD": 80,
       "spe": 80
     },
+    "weight": 256.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15159,6 +15550,7 @@
       "spD": 50,
       "spe": 25
     },
+    "weight": 39.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15200,6 +15592,7 @@
       "spD": 70,
       "spe": 45
     },
+    "weight": 87.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15241,6 +15634,7 @@
       "spD": 90,
       "spe": 65
     },
+    "weight": 150.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15277,6 +15671,7 @@
       "spD": 55,
       "spe": 32
     },
+    "weight": 52.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15322,6 +15717,7 @@
       "spD": 75,
       "spe": 52
     },
+    "weight": 27,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15358,6 +15754,7 @@
       "spD": 75,
       "spe": 52
     },
+    "weight": 22.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15394,6 +15791,7 @@
       "spD": 65,
       "spe": 55
     },
+    "weight": 23.4,
     "spawnRate": "",
     "genderRatio": 87.5,
     "breeding": {
@@ -15430,6 +15828,7 @@
       "spD": 65,
       "spe": 97
     },
+    "weight": 8.7,
     "spawnRate": "",
     "genderRatio": 25,
     "breeding": {
@@ -15466,6 +15865,7 @@
       "spD": 30,
       "spe": 50
     },
+    "weight": 42.1,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15507,6 +15907,7 @@
       "spD": 50,
       "spe": 50
     },
+    "weight": 110.5,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15548,6 +15949,7 @@
       "spD": 80,
       "spe": 100
     },
+    "weight": 102.6,
     "spawnRate": "",
     "genderRatio": 50,
     "breeding": {
@@ -15584,6 +15986,7 @@
       "spD": 60,
       "spe": 30
     },
+    "weight": 95.2,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -15625,6 +16028,7 @@
       "spD": 80,
       "spe": 50
     },
+    "weight": 202.5,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -15666,6 +16070,7 @@
       "spD": 90,
       "spe": 70
     },
+    "weight": 550,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -15707,6 +16112,7 @@
       "spD": 100,
       "spe": 50
     },
+    "weight": 230,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -15743,6 +16149,7 @@
       "spD": 200,
       "spe": 50
     },
+    "weight": 175,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -15779,6 +16186,7 @@
       "spD": 150,
       "spe": 50
     },
+    "weight": 205,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -15815,6 +16223,7 @@
       "spD": 130,
       "spe": 110
     },
+    "weight": 40,
     "spawnRate": "",
     "genderRatio": 0,
     "breeding": {
@@ -15851,6 +16260,7 @@
       "spD": 110,
       "spe": 110
     },
+    "weight": 60,
     "spawnRate": "",
     "genderRatio": 100,
     "breeding": {
@@ -15887,6 +16297,7 @@
       "spD": 140,
       "spe": 90
     },
+    "weight": 352,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -15923,6 +16334,7 @@
       "spD": 90,
       "spe": 90
     },
+    "weight": 950,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -15959,6 +16371,7 @@
       "spD": 90,
       "spe": 95
     },
+    "weight": 206.5,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -15995,6 +16408,7 @@
       "spD": 100,
       "spe": 100
     },
+    "weight": 1.1,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -16031,6 +16445,7 @@
       "spD": 50,
       "spe": 150
     },
+    "weight": 60.8,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -16067,6 +16482,7 @@
       "spD": 20,
       "spe": 180
     },
+    "weight": 60.8,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -16103,6 +16519,7 @@
       "spD": 160,
       "spe": 90
     },
+    "weight": 60.8,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
@@ -16139,12 +16556,4536 @@
       "spD": 90,
       "spe": 180
     },
+    "weight": 60.8,
     "spawnRate": "",
     "genderRatio": -1,
     "breeding": {
       "eggGroups": ["Legendary"],
       "egg": "Deoxys Speed Forme",
       "altEgg": "Deoxys Speed Forme"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Turtwig",
+    "types": ["Grass"],
+    "abilities": ["Overgrow"],
+    "hiddenAbility": "Shell Armor",
+    "baseStats": {
+      "hp": 55,
+      "atk": 68,
+      "def": 64,
+      "spA": 45,
+      "spD": 55,
+      "spe": 31
+    },
+    "weight": 10.2,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Grass", "Monster"],
+      "egg": "Turtwig",
+      "altEgg": "Turtwig"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Grotle",
+        "condition": 18
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Grotle",
+    "types": ["Grass"],
+    "abilities": ["Overgrow"],
+    "hiddenAbility": "Shell Armor",
+    "baseStats": {
+      "hp": 75,
+      "atk": 89,
+      "def": 85,
+      "spA": 55,
+      "spD": 65,
+      "spe": 36
+    },
+    "weight": 97,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Grass", "Monster"],
+      "egg": "Turtwig",
+      "altEgg": "Turtwig"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Torterra",
+        "condition": 32
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Torterra",
+    "types": ["Grass", "Ground"],
+    "abilities": ["Overgrow"],
+    "hiddenAbility": "Shell Armor",
+    "baseStats": {
+      "hp": 95,
+      "atk": 109,
+      "def": 105,
+      "spA": 75,
+      "spD": 85,
+      "spe": 56
+    },
+    "weight": 310,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Grass", "Monster"],
+      "egg": "Turtwig",
+      "altEgg": "Turtwig"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Chimchar",
+    "types": ["Fire"],
+    "abilities": ["Blaze"],
+    "hiddenAbility": "Iron Fist",
+    "baseStats": {
+      "hp": 44,
+      "atk": 58,
+      "def": 44,
+      "spA": 58,
+      "spD": 44,
+      "spe": 61
+    },
+    "weight": 6.2,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Chimchar",
+      "altEgg": "Chimchar"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Monferno",
+        "condition": 14
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Monferno",
+    "types": ["Fire", "Fighting"],
+    "abilities": ["Blaze"],
+    "hiddenAbility": "Iron Fist",
+    "baseStats": {
+      "hp": 64,
+      "atk": 78,
+      "def": 52,
+      "spA": 78,
+      "spD": 52,
+      "spe": 81
+    },
+    "weight": 22,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Chimchar",
+      "altEgg": "Chimchar"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Infernape",
+        "condition": 36
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Infernape",
+    "types": ["Fire", "Fighting"],
+    "abilities": ["Blaze"],
+    "hiddenAbility": "Iron Fist",
+    "baseStats": {
+      "hp": 76,
+      "atk": 104,
+      "def": 71,
+      "spA": 104,
+      "spD": 71,
+      "spe": 108
+    },
+    "weight": 55,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Chimchar",
+      "altEgg": "Chimchar"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Piplup",
+    "types": ["Water"],
+    "abilities": ["Torrent"],
+    "hiddenAbility": "Defiant",
+    "baseStats": {
+      "hp": 53,
+      "atk": 51,
+      "def": 53,
+      "spA": 61,
+      "spD": 56,
+      "spe": 40
+    },
+    "weight": 5.2,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Piplup",
+      "altEgg": "Piplup"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Prinplup",
+        "condition": 16
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Prinplup",
+    "types": ["Water"],
+    "abilities": ["Torrent"],
+    "hiddenAbility": "Defiant",
+    "baseStats": {
+      "hp": 64,
+      "atk": 66,
+      "def": 68,
+      "spA": 81,
+      "spD": 76,
+      "spe": 50
+    },
+    "weight": 23,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Piplup",
+      "altEgg": "Piplup"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Empoleon",
+        "condition": 36
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Empoleon",
+    "types": ["Water", "Steel"],
+    "abilities": ["Torrent"],
+    "hiddenAbility": "Defiant",
+    "baseStats": {
+      "hp": 84,
+      "atk": 86,
+      "def": 88,
+      "spA": 111,
+      "spD": 101,
+      "spe": 60
+    },
+    "weight": 84.5,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Piplup",
+      "altEgg": "Piplup"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Starly",
+    "types": ["Normal", "Flying"],
+    "abilities": ["Keen Eye"],
+    "hiddenAbility": "Reckless",
+    "baseStats": {
+      "hp": 40,
+      "atk": 55,
+      "def": 30,
+      "spA": 30,
+      "spD": 30,
+      "spe": 60
+    },
+    "weight": 2,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Starly",
+      "altEgg": "Starly"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Staravia",
+        "condition": 14
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Staravia",
+    "types": ["Normal", "Flying"],
+    "abilities": ["Intimidate"],
+    "hiddenAbility": "Reckless",
+    "baseStats": {
+      "hp": 55,
+      "atk": 75,
+      "def": 50,
+      "spA": 40,
+      "spD": 40,
+      "spe": 80
+    },
+    "weight": 15.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Starly",
+      "altEgg": "Starly"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Staraptor",
+        "condition": 34
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Staraptor",
+    "types": ["Normal", "Flying"],
+    "abilities": ["Intimidate"],
+    "hiddenAbility": "Reckless",
+    "baseStats": {
+      "hp": 85,
+      "atk": 120,
+      "def": 70,
+      "spA": 50,
+      "spD": 60,
+      "spe": 100
+    },
+    "weight": 24.9,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Starly",
+      "altEgg": "Starly"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Bidoof",
+    "types": ["Normal"],
+    "abilities": ["Simple", "Unaware"],
+    "hiddenAbility": "Moody",
+    "baseStats": {
+      "hp": 59,
+      "atk": 45,
+      "def": 40,
+      "spA": 35,
+      "spD": 40,
+      "spe": 31
+    },
+    "weight": 20,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Water 1"],
+      "egg": "Bidoof",
+      "altEgg": "Bidoof"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Bibarel",
+        "condition": 15
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Bibarel",
+    "types": ["Normal", "Water"],
+    "abilities": ["Simple", "Unaware"],
+    "hiddenAbility": "Moody",
+    "baseStats": {
+      "hp": 79,
+      "atk": 85,
+      "def": 60,
+      "spA": 55,
+      "spD": 60,
+      "spe": 71
+    },
+    "weight": 31.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Water 1"],
+      "egg": "Bidoof",
+      "altEgg": "Bidoof"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Kricketot",
+    "types": ["Bug"],
+    "abilities": ["Shed Skin"],
+    "hiddenAbility": "Run Away",
+    "baseStats": {
+      "hp": 37,
+      "atk": 25,
+      "def": 41,
+      "spA": 25,
+      "spD": 41,
+      "spe": 25
+    },
+    "weight": 2.2,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Kricketot",
+      "altEgg": "Kricketot"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Kricketune",
+        "condition": 10
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Kricketot",
+    "types": ["Bug"],
+    "abilities": ["Swarm"],
+    "hiddenAbility": "Technician",
+    "baseStats": {
+      "hp": 77,
+      "atk": 85,
+      "def": 51,
+      "spA": 55,
+      "spD": 51,
+      "spe": 65
+    },
+    "weight": 25.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Kricketot",
+      "altEgg": "Kricketot"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Shinx",
+    "types": ["Electric"],
+    "abilities": ["Rivalry", "Intimidate"],
+    "hiddenAbility": "Guts",
+    "baseStats": {
+      "hp": 45,
+      "atk": 65,
+      "def": 34,
+      "spA": 40,
+      "spD": 34,
+      "spe": 45
+    },
+    "weight": 9.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Shinx",
+      "altEgg": "Shinx"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Luxio",
+        "condition": 15
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Luxio",
+    "types": ["Electric"],
+    "abilities": ["Rivalry", "Intimidate"],
+    "hiddenAbility": "Guts",
+    "baseStats": {
+      "hp": 60,
+      "atk": 85,
+      "def": 49,
+      "spA": 60,
+      "spD": 49,
+      "spe": 60
+    },
+    "weight": 30.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Shinx",
+      "altEgg": "Shinx"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Luxray",
+        "condition": 30
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Luxray",
+    "types": ["Electric"],
+    "abilities": ["Rivalry", "Intimidate"],
+    "hiddenAbility": "Guts",
+    "baseStats": {
+      "hp": 80,
+      "atk": 120,
+      "def": 79,
+      "spA": 95,
+      "spD": 79,
+      "spe": 70
+    },
+    "weight": 42,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Shinx",
+      "altEgg": "Shinx"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Budew",
+    "types": ["Grass", "Poison"],
+    "abilities": ["Natural Cure", "Poison Point"],
+    "hiddenAbility": "Leaf Guard",
+    "baseStats": {
+      "hp": 40,
+      "atk": 30,
+      "def": 35,
+      "spA": 50,
+      "spD": 70,
+      "spe": 55
+    },
+    "weight": 1.2,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Fairy", "Grass"],
+      "egg": "Budew",
+      "altEgg": "Budew"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Roselia",
+        "condition": "Friendship"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Roserade",
+    "types": ["Grass", "Poison"],
+    "abilities": ["Natural Cure", "Poison Point"],
+    "hiddenAbility": "Technician",
+    "baseStats": {
+      "hp": 60,
+      "atk": 70,
+      "def": 65,
+      "spA": 125,
+      "spD": 105,
+      "spe": 90
+    },
+    "weight": 14.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Fairy", "Grass"],
+      "egg": "Budew",
+      "altEgg": "Budew"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cranidos",
+    "types": ["Rock"],
+    "abilities": ["Mold Breaker"],
+    "hiddenAbility": "Sheer Force",
+    "baseStats": {
+      "hp": 67,
+      "atk": 125,
+      "def": 40,
+      "spA": 30,
+      "spD": 30,
+      "spe": 58
+    },
+    "weight": 31.5,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Cranidos",
+      "altEgg": "Cranidos"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Rampardos",
+        "condition": 30
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cranidos",
+    "types": ["Rock"],
+    "abilities": ["Mold Breaker"],
+    "hiddenAbility": "Sheer Force",
+    "baseStats": {
+      "hp": 97,
+      "atk": 165,
+      "def": 60,
+      "spA": 65,
+      "spD": 50,
+      "spe": 58
+    },
+    "weight": 102.5,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Cranidos",
+      "altEgg": "Cranidos"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Shieldon",
+    "types": ["Rock", "Steel"],
+    "abilities": ["Sturdy"],
+    "hiddenAbility": "Soundproof",
+    "baseStats": {
+      "hp": 30,
+      "atk": 42,
+      "def": 118,
+      "spA": 42,
+      "spD": 88,
+      "spe": 30
+    },
+    "weight": 57,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Shieldon",
+      "altEgg": "Shieldon"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Bastiodon",
+        "condition": 30
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Bastiodon",
+    "types": ["Rock", "Steel"],
+    "abilities": ["Sturdy"],
+    "hiddenAbility": "Soundproof",
+    "baseStats": {
+      "hp": 60,
+      "atk": 52,
+      "def": 168,
+      "spA": 47,
+      "spD": 138,
+      "spe": 30
+    },
+    "weight": 149.5,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Shieldon",
+      "altEgg": "Shieldon"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Burmy",
+    "types": ["Bug"],
+    "abilities": ["Shed Skin"],
+    "hiddenAbility": "Overcoat",
+    "baseStats": {
+      "hp": 40,
+      "atk": 29,
+      "def": 45,
+      "spA": 29,
+      "spD": 45,
+      "spe": 36
+    },
+    "weight": 3.4,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Burmy",
+      "altEgg": "Burmy"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Mothim",
+        "condition": "Mothim"
+      },
+      {
+        "evolution": "Wormadam Plant Cloak",
+        "condition": "Wormadam"
+      },
+      {
+        "evolution": "Wormadam Sandy Cloak",
+        "condition": "Wormadam"
+      },
+      {
+        "evolution": "Wormadam Trash Cloak",
+        "condition": "Wormadam"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Wormadam Plant Cloak",
+    "types": ["Bug", "Grass"],
+    "abilities": ["Anticipation"],
+    "hiddenAbility": "Overcoat",
+    "baseStats": {
+      "hp": 60,
+      "atk": 59,
+      "def": 85,
+      "spA": 79,
+      "spD": 105,
+      "spe": 36
+    },
+    "weight": 6.5,
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Burmy",
+      "altEgg": "Burmy"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Wormadam Sandy Cloak",
+    "types": ["Bug", "Ground"],
+    "abilities": ["Anticipation"],
+    "hiddenAbility": "Overcoat",
+    "baseStats": {
+      "hp": 60,
+      "atk": 79,
+      "def": 105,
+      "spA": 59,
+      "spD": 85,
+      "spe": 36
+    },
+    "weight": 6.5,
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Burmy",
+      "altEgg": "Burmy"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Wormadam Trash Cloak",
+    "types": ["Bug", "Steel"],
+    "abilities": ["Anticipation"],
+    "hiddenAbility": "Overcoat",
+    "baseStats": {
+      "hp": 60,
+      "atk": 69,
+      "def": 95,
+      "spA": 69,
+      "spD": 95,
+      "spe": 36
+    },
+    "weight": 6.5,
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Burmy",
+      "altEgg": "Burmy"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Mothim",
+    "types": ["Bug", "Flying"],
+    "abilities": ["Swarm"],
+    "hiddenAbility": "Tinted Lens",
+    "baseStats": {
+      "hp": 70,
+      "atk": 94,
+      "def": 50,
+      "spA": 94,
+      "spD": 50,
+      "spe": 66
+    },
+    "weight": 23.3,
+    "spawnRate": "",
+    "genderRatio": 100,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Burmy",
+      "altEgg": "Burmy"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Combee",
+    "types": ["Bug", "Flying"],
+    "abilities": ["Honey Gather"],
+    "hiddenAbility": "Hustle",
+    "baseStats": {
+      "hp": 30,
+      "atk": 30,
+      "def": 42,
+      "spA": 30,
+      "spD": 42,
+      "spe": 70
+    },
+    "weight": 5.5,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Combee",
+      "altEgg": "Combee"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Vespiquen",
+        "condition": "Vespiquen"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Combee",
+    "types": ["Bug", "Flying"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "Unnerve",
+    "baseStats": {
+      "hp": 70,
+      "atk": 80,
+      "def": 102,
+      "spA": 80,
+      "spD": 102,
+      "spe": 40
+    },
+    "weight": 38.5,
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Combee",
+      "altEgg": "Combee"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Pachirisu",
+    "types": ["Electric"],
+    "abilities": ["Run Away", "Pickup"],
+    "hiddenAbility": "Volt Absorb",
+    "baseStats": {
+      "hp": 60,
+      "atk": 45,
+      "def": 70,
+      "spA": 45,
+      "spD": 90,
+      "spe": 95
+    },
+    "weight": 3.9,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Fairy", "Field"],
+      "egg": "Pachirisu",
+      "altEgg": "Pachirisu"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Buizel",
+    "types": ["Water"],
+    "abilities": ["Swift Swim"],
+    "hiddenAbility": "Water Veil",
+    "baseStats": {
+      "hp": 55,
+      "atk": 65,
+      "def": 35,
+      "spA": 60,
+      "spD": 30,
+      "spe": 85
+    },
+    "weight": 29.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Water 1"],
+      "egg": "Buizel",
+      "altEgg": "Buizel"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Floatzel",
+        "condition": 26
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Floatzel",
+    "types": ["Water"],
+    "abilities": ["Swift Swim"],
+    "hiddenAbility": "Water Veil",
+    "baseStats": {
+      "hp": 85,
+      "atk": 105,
+      "def": 55,
+      "spA": 85,
+      "spD": 50,
+      "spe": 115
+    },
+    "weight": 33.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Water 1"],
+      "egg": "Buizel",
+      "altEgg": "Buizel"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cherubi",
+    "types": ["Grass"],
+    "abilities": ["Chlorophyll"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 45,
+      "atk": 35,
+      "def": 45,
+      "spA": 62,
+      "spD": 53,
+      "spe": 35
+    },
+    "weight": 3.3,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Fairy", "Grass"],
+      "egg": "Cherubi",
+      "altEgg": "Cherubi"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Cherrim",
+        "condition": 25
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cherrim",
+    "types": ["Grass"],
+    "abilities": ["Chlorophyll"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 70,
+      "atk": 60,
+      "def": 70,
+      "spA": 87,
+      "spD": 78,
+      "spe": 85
+    },
+    "weight": 9.3,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Fairy", "Grass"],
+      "egg": "Cherubi",
+      "altEgg": "Cherubi"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Shellos",
+    "types": ["Water"],
+    "abilities": ["Sticky Hold", "Storm Drain"],
+    "hiddenAbility": "Sand Force",
+    "baseStats": {
+      "hp": 76,
+      "atk": 48,
+      "def": 48,
+      "spA": 57,
+      "spD": 62,
+      "spe": 34
+    },
+    "weight": 6.3,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous", "Water 1"],
+      "egg": "Shellos",
+      "altEgg": "Shellos"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Gastrodon",
+        "condition": 30
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Gastrodon",
+    "types": ["Water", "Ground"],
+    "abilities": ["Sticky Hold", "Storm Drain"],
+    "hiddenAbility": "Sand Force",
+    "baseStats": {
+      "hp": 111,
+      "atk": 83,
+      "def": 68,
+      "spA": 92,
+      "spD": 82,
+      "spe": 39
+    },
+    "weight": 29.9,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous", "Water 1"],
+      "egg": "Shellos",
+      "altEgg": "Shellos"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Ambipom",
+    "types": ["Normal"],
+    "abilities": ["Technician", "Pickup"],
+    "hiddenAbility": "Skill Link",
+    "baseStats": {
+      "hp": 75,
+      "atk": 100,
+      "def": 66,
+      "spA": 60,
+      "spD": 66,
+      "spe": 115
+    },
+    "weight": 20.3,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Aipom",
+      "altEgg": "Aipom"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Drifloon",
+    "types": ["Ghost", "Flying"],
+    "abilities": ["Aftermath", "Unburden"],
+    "hiddenAbility": "Flare Boost",
+    "baseStats": {
+      "hp": 90,
+      "atk": 50,
+      "def": 34,
+      "spA": 60,
+      "spD": 44,
+      "spe": 70
+    },
+    "weight": 1.2,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Drifloon",
+      "altEgg": "Drifloon"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Drifblim",
+        "condition": 28
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Drifblim",
+    "types": ["Ghost", "Flying"],
+    "abilities": ["Aftermath", "Unburden"],
+    "hiddenAbility": "Flare Boost",
+    "baseStats": {
+      "hp": 150,
+      "atk": 80,
+      "def": 44,
+      "spA": 90,
+      "spD": 54,
+      "spe": 80
+    },
+    "weight": 15,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Drifloon",
+      "altEgg": "Drifloon"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Buneary",
+    "types": ["Normal"],
+    "abilities": ["Run Away", "Klutz"],
+    "hiddenAbility": "Limber",
+    "baseStats": {
+      "hp": 55,
+      "atk": 66,
+      "def": 44,
+      "spA": 44,
+      "spD": 56,
+      "spe": 85
+    },
+    "weight": 5.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Buneary",
+      "altEgg": "Buneary"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Lopunny",
+        "condition": "Friendship"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Lopunny",
+    "types": ["Normal"],
+    "abilities": ["Cute Charm", "Klutz"],
+    "hiddenAbility": "Limber",
+    "baseStats": {
+      "hp": 65,
+      "atk": 76,
+      "def": 84,
+      "spA": 54,
+      "spD": 96,
+      "spe": 105
+    },
+    "weight": 33.3,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Buneary",
+      "altEgg": "Buneary"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Mismagius",
+    "types": ["Ghost"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 60,
+      "atk": 60,
+      "def": 60,
+      "spA": 105,
+      "spD": 105,
+      "spe": 105
+    },
+    "weight": 4.4,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Misdreavus",
+      "altEgg": "Misdreavus"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Honchkrow",
+    "types": ["Dark", "Flying"],
+    "abilities": ["Insomnia", "Super Luck"],
+    "hiddenAbility": "Moxie",
+    "baseStats": {
+      "hp": 100,
+      "atk": 125,
+      "def": 52,
+      "spA": 105,
+      "spD": 52,
+      "spe": 71
+    },
+    "weight": 27.3,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Murkrow",
+      "altEgg": "Murkrow"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Glameow",
+    "types": ["Normal"],
+    "abilities": ["Limber", "Own Tempo"],
+    "hiddenAbility": "Keen Eye",
+    "baseStats": {
+      "hp": 49,
+      "atk": 55,
+      "def": 42,
+      "spA": 42,
+      "spD": 37,
+      "spe": 85
+    },
+    "weight": 3.9,
+    "spawnRate": "",
+    "genderRatio": 25,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Glameow",
+      "altEgg": "Glameow"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Purugly",
+        "condition": 38
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Purugly",
+    "types": ["Normal"],
+    "abilities": ["Thick Fat", "Own Tempo"],
+    "hiddenAbility": "Defiant",
+    "baseStats": {
+      "hp": 71,
+      "atk": 82,
+      "def": 64,
+      "spA": 64,
+      "spD": 59,
+      "spe": 112
+    },
+    "weight": 43.8,
+    "spawnRate": "",
+    "genderRatio": 25,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Glameow",
+      "altEgg": "Glameow"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Chingling",
+    "types": ["Psychic"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 45,
+      "atk": 30,
+      "def": 50,
+      "spA": 65,
+      "spD": 50,
+      "spe": 45
+    },
+    "weight": 0.6,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Chingling",
+      "altEgg": "Chingling"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Chimecho",
+        "condition": "Friendship"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Stunky",
+    "types": ["Poison", "Dark"],
+    "abilities": ["Stench", "Aftermath"],
+    "hiddenAbility": "Keen Eye",
+    "baseStats": {
+      "hp": 63,
+      "atk": 63,
+      "def": 47,
+      "spA": 41,
+      "spD": 41,
+      "spe": 74
+    },
+    "weight": 19.2,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Stunky",
+      "altEgg": "Stunky"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Skuntank",
+        "condition": 34
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Skuntank",
+    "types": ["Poison", "Dark"],
+    "abilities": ["Stench", "Aftermath"],
+    "hiddenAbility": "Keen Eye",
+    "baseStats": {
+      "hp": 103,
+      "atk": 93,
+      "def": 67,
+      "spA": 71,
+      "spD": 61,
+      "spe": 84
+    },
+    "weight": 38,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Stunky",
+      "altEgg": "Stunky"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Bronzor",
+    "types": ["Steel", "Psychic"],
+    "abilities": ["Levitate", "Heatproof"],
+    "hiddenAbility": "Heavy Metal",
+    "baseStats": {
+      "hp": 57,
+      "atk": 24,
+      "def": 86,
+      "spA": 24,
+      "spD": 86,
+      "spe": 23
+    },
+    "weight": 60.5,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Bronzor",
+      "altEgg": "Bronzor"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Bronzong",
+        "condition": 33
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Bronzong",
+    "types": ["Steel", "Psychic"],
+    "abilities": ["Levitate", "Heatproof"],
+    "hiddenAbility": "Heavy Metal",
+    "baseStats": {
+      "hp": 67,
+      "atk": 89,
+      "def": 116,
+      "spA": 79,
+      "spD": 116,
+      "spe": 33
+    },
+    "weight": 187,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Bronzor",
+      "altEgg": "Bronzor"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Bonsly",
+    "types": ["Rock"],
+    "abilities": ["Sturdy", "Rock Head"],
+    "hiddenAbility": "Rattled",
+    "baseStats": {
+      "hp": 50,
+      "atk": 80,
+      "def": 95,
+      "spA": 10,
+      "spD": 45,
+      "spe": 10
+    },
+    "weight": 15,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Bonsly",
+      "altEgg": "Bonsly"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Sudowoodo",
+        "condition": "Mimic"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Mime Jr.",
+    "types": ["Psychic", "Fairy"],
+    "abilities": ["Soundproof", "Filter"],
+    "hiddenAbility": "Technician",
+    "baseStats": {
+      "hp": 20,
+      "atk": 25,
+      "def": 45,
+      "spA": 70,
+      "spD": 90,
+      "spe": 60
+    },
+    "weight": 13,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Mime Jr.",
+      "altEgg": "Mime Jr."
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Mr. Mime",
+        "condition": "Mimic"
+      },
+      {
+        "evolution": "Galarian Mr. Mime",
+        "condition": "Mimic"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Happiny",
+    "types": ["Normal"],
+    "abilities": ["Natural Cure", "Serene Grace"],
+    "hiddenAbility": "Friend Guard",
+    "baseStats": {
+      "hp": 100,
+      "atk": 5,
+      "def": 5,
+      "spA": 15,
+      "spD": 65,
+      "spe": 30
+    },
+    "weight": 24.4,
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Fairy"],
+      "egg": "Happiny",
+      "altEgg": "Happiny"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Chansey",
+        "condition": "Oval Stone"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Chatot",
+    "types": ["Normal", "Flying"],
+    "abilities": ["Keen Eye", "Tangled Feet"],
+    "hiddenAbility": "Big Pecks",
+    "baseStats": {
+      "hp": 76,
+      "atk": 65,
+      "def": 45,
+      "spA": 92,
+      "spD": 42,
+      "spe": 91
+    },
+    "weight": 1.9,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Chatot",
+      "altEgg": "Chatot"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Spiritomb",
+    "types": ["Ghost", "Dark"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "Infiltrator",
+    "baseStats": {
+      "hp": 50,
+      "atk": 92,
+      "def": 108,
+      "spA": 92,
+      "spD": 108,
+      "spe": 35
+    },
+    "weight": 108,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Spiritomb",
+      "altEgg": "Spiritomb"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Gible",
+    "types": ["Dragon", "Ground"],
+    "abilities": ["Sand Veil"],
+    "hiddenAbility": "Rough Skin",
+    "baseStats": {
+      "hp": 58,
+      "atk": 70,
+      "def": 45,
+      "spA": 40,
+      "spD": 45,
+      "spe": 42
+    },
+    "weight": 20.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Dragon", "Monster"],
+      "egg": "Gible",
+      "altEgg": "Gible"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Gabite",
+        "condition": 24
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Gabite",
+    "types": ["Dragon", "Ground"],
+    "abilities": ["Sand Veil"],
+    "hiddenAbility": "Rough Skin",
+    "baseStats": {
+      "hp": 68,
+      "atk": 90,
+      "def": 65,
+      "spA": 50,
+      "spD": 55,
+      "spe": 82
+    },
+    "weight": 56,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Dragon", "Monster"],
+      "egg": "Gible",
+      "altEgg": "Gible"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Garchomp",
+        "condition": 48
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Garchomp",
+    "types": ["Dragon", "Ground"],
+    "abilities": ["Sand Veil"],
+    "hiddenAbility": "Rough Skin",
+    "baseStats": {
+      "hp": 108,
+      "atk": 130,
+      "def": 95,
+      "spA": 80,
+      "spD": 85,
+      "spe": 102
+    },
+    "weight": 95,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Dragon", "Monster"],
+      "egg": "Gible",
+      "altEgg": "Gible"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Munchlax",
+    "types": ["Normal"],
+    "abilities": ["Pickup", "Thick Fat"],
+    "hiddenAbility": "Gluttony",
+    "baseStats": {
+      "hp": 135,
+      "atk": 85,
+      "def": 40,
+      "spA": 40,
+      "spD": 85,
+      "spe": 5
+    },
+    "weight": 105,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Monster"],
+      "egg": "Munchlax",
+      "altEgg": "Munchlax"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Snorlax",
+        "condition": "Friendship"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Riolu",
+    "types": ["Fighting"],
+    "abilities": ["Steadfast", "Inner Focus"],
+    "hiddenAbility": "Prankster",
+    "baseStats": {
+      "hp": 40,
+      "atk": 70,
+      "def": 40,
+      "spA": 35,
+      "spD": 40,
+      "spe": 60
+    },
+    "weight": 20.2,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Riolu",
+      "altEgg": "Riolu"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Lucario",
+        "condition": "Friendship"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Lucario",
+    "types": ["Fighting", "Steel"],
+    "abilities": ["Steadfast", "Inner Focus"],
+    "hiddenAbility": "Justified",
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 70,
+      "spA": 115,
+      "spD": 70,
+      "spe": 90
+    },
+    "weight": 54,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Riolu",
+      "altEgg": "Riolu"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Hippopotas",
+    "types": ["Ground"],
+    "abilities": ["Sand Stream"],
+    "hiddenAbility": "Sand Force",
+    "baseStats": {
+      "hp": 68,
+      "atk": 72,
+      "def": 78,
+      "spA": 38,
+      "spD": 42,
+      "spe": 32
+    },
+    "weight": 49.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Hippopotas",
+      "altEgg": "Hippopotas"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Hippowdon",
+        "condition": 34
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Hippowdon",
+    "types": ["Ground"],
+    "abilities": ["Sand Stream"],
+    "hiddenAbility": "Sand Force",
+    "baseStats": {
+      "hp": 108,
+      "atk": 112,
+      "def": 118,
+      "spA": 68,
+      "spD": 72,
+      "spe": 47
+    },
+    "weight": 300,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Hippopotas",
+      "altEgg": "Hippopotas"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Skorupi",
+    "types": ["Poison", "Bug"],
+    "abilities": ["Battle Armor", "Sniper"],
+    "hiddenAbility": "Keen Eye",
+    "baseStats": {
+      "hp": 40,
+      "atk": 50,
+      "def": 90,
+      "spA": 30,
+      "spD": 55,
+      "spe": 65
+    },
+    "weight": 12,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug", "Water 3"],
+      "egg": "Skorupi",
+      "altEgg": "Skorupi"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Drapion",
+        "condition": 40
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Drapion",
+    "types": ["Poison", "Dark"],
+    "abilities": ["Battle Armor", "Sniper"],
+    "hiddenAbility": "Keen Eye",
+    "baseStats": {
+      "hp": 70,
+      "atk": 90,
+      "def": 110,
+      "spA": 60,
+      "spD": 75,
+      "spe": 95
+    },
+    "weight": 61.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug", "Water 3"],
+      "egg": "Skorupi",
+      "altEgg": "Skorupi"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Croagunk",
+    "types": ["Poison", "Fighting"],
+    "abilities": ["Anticipation", "Dry Skin"],
+    "hiddenAbility": "Poison Touch",
+    "baseStats": {
+      "hp": 48,
+      "atk": 61,
+      "def": 40,
+      "spA": 61,
+      "spD": 40,
+      "spe": 50
+    },
+    "weight": 23,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Croagunk",
+      "altEgg": "Croagunk"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Toxicroak",
+        "condition": 37
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Toxicroak",
+    "types": ["Poison", "Fighting"],
+    "abilities": ["Anticipation", "Dry Skin"],
+    "hiddenAbility": "Poison Touch",
+    "baseStats": {
+      "hp": 83,
+      "atk": 106,
+      "def": 65,
+      "spA": 86,
+      "spD": 65,
+      "spe": 85
+    },
+    "weight": 44.4,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Croagunk",
+      "altEgg": "Croagunk"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Carnivine",
+    "types": ["Grass"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 74,
+      "atk": 100,
+      "def": 72,
+      "spA": 90,
+      "spD": 72,
+      "spe": 46
+    },
+    "weight": 27,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Grass"],
+      "egg": "Carnivine",
+      "altEgg": "Carnivine"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Finneon",
+    "types": ["Water"],
+    "abilities": ["Swift Swim", "Storm Drain"],
+    "hiddenAbility": "Water Veil",
+    "baseStats": {
+      "hp": 49,
+      "atk": 49,
+      "def": 56,
+      "spA": 49,
+      "spD": 61,
+      "spe": 66
+    },
+    "weight": 7,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Water 2"],
+      "egg": "Finneon",
+      "altEgg": "Finneon"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Lumineon",
+        "condition": 31
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Lumineon",
+    "types": ["Water"],
+    "abilities": ["Swift Swim", "Storm Drain"],
+    "hiddenAbility": "Water Veil",
+    "baseStats": {
+      "hp": 69,
+      "atk": 69,
+      "def": 76,
+      "spA": 69,
+      "spD": 86,
+      "spe": 91
+    },
+    "weight": 24,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Water 2"],
+      "egg": "Finneon",
+      "altEgg": "Finneon"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Mantyke",
+    "types": ["Water", "Flying"],
+    "abilities": ["Swift Swim", "Water Absorb"],
+    "hiddenAbility": "Water Veil",
+    "baseStats": {
+      "hp": 45,
+      "atk": 20,
+      "def": 50,
+      "spA": 60,
+      "spD": 120,
+      "spe": 50
+    },
+    "weight": 65,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Water 1"],
+      "egg": "Mantyke",
+      "altEgg": "Mantyke"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Mantine",
+        "condition": "Water Stone"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Snover",
+    "types": ["Grass", "Ice"],
+    "abilities": ["Snow Warning"],
+    "hiddenAbility": "Soundproof",
+    "baseStats": {
+      "hp": 60,
+      "atk": 62,
+      "def": 50,
+      "spA": 62,
+      "spD": 60,
+      "spe": 40
+    },
+    "weight": 50.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Grass", "Monster"],
+      "egg": "Snover",
+      "altEgg": "Snover"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Abomasnow",
+        "condition": 40
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Abomasnow",
+    "types": ["Grass", "Ice"],
+    "abilities": ["Snow Warning"],
+    "hiddenAbility": "Soundproof",
+    "baseStats": {
+      "hp": 90,
+      "atk": 92,
+      "def": 75,
+      "spA": 92,
+      "spD": 85,
+      "spe": 60
+    },
+    "weight": 135.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Grass", "Monster"],
+      "egg": "Snover",
+      "altEgg": "Snover"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Weavile",
+    "types": ["Dark", "Ice"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "Pickpocket",
+    "baseStats": {
+      "hp": 70,
+      "atk": 120,
+      "def": 65,
+      "spA": 45,
+      "spD": 85,
+      "spe": 125
+    },
+    "weight": 34,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Sneasel",
+      "altEgg": "Sneasel"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Magnezone",
+    "types": ["Electric", "Steel"],
+    "abilities": ["Magnet Pull", "Sturdy"],
+    "hiddenAbility": "Analytic",
+    "baseStats": {
+      "hp": 70,
+      "atk": 70,
+      "def": 115,
+      "spA": 130,
+      "spD": 90,
+      "spe": 60
+    },
+    "weight": 180,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Magnemite",
+      "altEgg": "Magnemite"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Lickilicky",
+    "types": ["Normal"],
+    "abilities": ["Own Tempo", "Oblivious"],
+    "hiddenAbility": "Cloud Nine",
+    "baseStats": {
+      "hp": 110,
+      "atk": 85,
+      "def": 95,
+      "spA": 80,
+      "spD": 95,
+      "spe": 50
+    },
+    "weight": 140,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Monster"],
+      "egg": "Lickitung",
+      "altEgg": "Lickitung"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Rhyperior",
+    "types": ["Ground", "Rock"],
+    "abilities": ["Lightning Rod", "Solid Rock"],
+    "hiddenAbility": "Reckless",
+    "baseStats": {
+      "hp": 115,
+      "atk": 140,
+      "def": 130,
+      "spA": 55,
+      "spD": 55,
+      "spe": 40
+    },
+    "weight": 282.8,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Monster"],
+      "egg": "Rhyhorn",
+      "altEgg": "Rhyhorn"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Tangrowth",
+    "types": ["Grass"],
+    "abilities": ["Chlorophyll", "Leaf Guard"],
+    "hiddenAbility": "Regenerator",
+    "baseStats": {
+      "hp": 100,
+      "atk": 100,
+      "def": 125,
+      "spA": 110,
+      "spD": 50,
+      "spe": 50
+    },
+    "weight": 128.6,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Grass"],
+      "egg": "Tangela",
+      "altEgg": "Tangela"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Electivire",
+    "types": ["Electric"],
+    "abilities": ["Motor Drive"],
+    "hiddenAbility": "Vital Spirit",
+    "baseStats": {
+      "hp": 75,
+      "atk": 123,
+      "def": 67,
+      "spA": 95,
+      "spD": 85,
+      "spe": 95
+    },
+    "weight": 138.6,
+    "spawnRate": "",
+    "genderRatio": 75,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Elekid",
+      "altEgg": "Elekid"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Magmortar",
+    "types": ["Fire"],
+    "abilities": ["Flame Body"],
+    "hiddenAbility": "Vital Spirit",
+    "baseStats": {
+      "hp": 75,
+      "atk": 95,
+      "def": 67,
+      "spA": 125,
+      "spD": 95,
+      "spe": 83
+    },
+    "weight": 68,
+    "spawnRate": "",
+    "genderRatio": 75,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Magby",
+      "altEgg": "Magby"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Togekiss",
+    "types": ["Fairy", "Flying"],
+    "abilities": ["Hustle", "Serene Grace"],
+    "hiddenAbility": "Super Luck",
+    "baseStats": {
+      "hp": 85,
+      "atk": 50,
+      "def": 95,
+      "spA": 120,
+      "spD": 115,
+      "spe": 80
+    },
+    "weight": 38,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Fairy", "Flying"],
+      "egg": "Togepi",
+      "altEgg": "Togepi"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Yanmega",
+    "types": ["Bug", "Flying"],
+    "abilities": ["Speed Boost", "Tinted Lens"],
+    "hiddenAbility": "Frisk",
+    "baseStats": {
+      "hp": 86,
+      "atk": 76,
+      "def": 86,
+      "spA": 116,
+      "spD": 56,
+      "spe": 95
+    },
+    "weight": 51.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Yanma",
+      "altEgg": "Yanma"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Leafeon",
+    "types": ["Grass"],
+    "abilities": ["Leaf Guard"],
+    "hiddenAbility": "Chlorophyll",
+    "baseStats": {
+      "hp": 65,
+      "atk": 110,
+      "def": 130,
+      "spA": 60,
+      "spD": 65,
+      "spe": 95
+    },
+    "weight": 25.5,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Eevee",
+      "altEgg": "Eevee"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Glaceon",
+    "types": ["Ice"],
+    "abilities": ["Snow Cloak"],
+    "hiddenAbility": "Ice Body",
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 110,
+      "spA": 130,
+      "spD": 95,
+      "spe": 65
+    },
+    "weight": 25.9,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Eevee",
+      "altEgg": "Eevee"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Gliscor",
+    "types": ["Ground", "Flying"],
+    "abilities": ["Hyper Cutter", "Sand Veil"],
+    "hiddenAbility": "Poison Heal",
+    "baseStats": {
+      "hp": 75,
+      "atk": 95,
+      "def": 125,
+      "spA": 45,
+      "spD": 75,
+      "spe": 95
+    },
+    "weight": 42.5,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Gligar",
+      "altEgg": "Gligar"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Mamoswine",
+    "types": ["Ice", "Ground"],
+    "abilities": ["Oblivious", "Snow Cloak"],
+    "hiddenAbility": "Thick Fat",
+    "baseStats": {
+      "hp": 110,
+      "atk": 130,
+      "def": 80,
+      "spA": 70,
+      "spD": 60,
+      "spe": 80
+    },
+    "weight": 291,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Swinub",
+      "altEgg": "Swinub"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Porygon-Z",
+    "types": ["Normal"],
+    "abilities": ["Adaptability", "Download"],
+    "hiddenAbility": "Analytic",
+    "baseStats": {
+      "hp": 85,
+      "atk": 80,
+      "def": 70,
+      "spA": 135,
+      "spD": 75,
+      "spe": 90
+    },
+    "weight": 34,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Porygon",
+      "altEgg": "Porygon"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Gallade",
+    "types": ["Psychic", "Fighting"],
+    "abilities": ["Steadfast"],
+    "hiddenAbility": "Justified",
+    "baseStats": {
+      "hp": 68,
+      "atk": 125,
+      "def": 65,
+      "spA": 65,
+      "spD": 115,
+      "spe": 80
+    },
+    "weight": 52,
+    "spawnRate": "",
+    "genderRatio": 100,
+    "breeding": {
+      "eggGroups": ["Amorphous", "Human-Like"],
+      "egg": "Ralts",
+      "altEgg": "Ralts"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Probopass",
+    "types": ["Rock", "Steel"],
+    "abilities": ["Sturdy", "Magnet Pull"],
+    "hiddenAbility": "Sand Force",
+    "baseStats": {
+      "hp": 60,
+      "atk": 55,
+      "def": 145,
+      "spA": 75,
+      "spD": 150,
+      "spe": 40
+    },
+    "weight": 340,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Nosepass",
+      "altEgg": "Nosepass"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Dusknoir",
+    "types": ["Ghost"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "Frisk",
+    "baseStats": {
+      "hp": 45,
+      "atk": 100,
+      "def": 135,
+      "spA": 65,
+      "spD": 135,
+      "spe": 45
+    },
+    "weight": 106.6,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Duskull",
+      "altEgg": "Duskull"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Froslass",
+    "types": ["Ice", "Ghost"],
+    "abilities": ["Snow Cloak"],
+    "hiddenAbility": "Cursed Body",
+    "baseStats": {
+      "hp": 70,
+      "atk": 80,
+      "def": 70,
+      "spA": 80,
+      "spD": 70,
+      "spe": 110
+    },
+    "weight": 26.6,
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Fairy", "Mineral"],
+      "egg": "Snorunt",
+      "altEgg": "Snorunt"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Rotom",
+    "types": ["Electric", "Ghost"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 50,
+      "atk": 50,
+      "def": 77,
+      "spA": 95,
+      "spD": 77,
+      "spe": 91
+    },
+    "weight": 0.3,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Rotom",
+      "altEgg": "Rotom"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Heat Rotom",
+    "types": ["Electric", "Fire"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spA": 105,
+      "spD": 107,
+      "spe": 86
+    },
+    "weight": 0.3,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Heat Rotom",
+      "altEgg": "Heat Rotom"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Wash Rotom",
+    "types": ["Electric", "Water"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spA": 105,
+      "spD": 107,
+      "spe": 86
+    },
+    "weight": 0.3,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Wash Rotom",
+      "altEgg": "Wash Rotom"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Frost Rotom",
+    "types": ["Electric", "Ice"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spA": 105,
+      "spD": 107,
+      "spe": 86
+    },
+    "weight": 0.3,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Frost Rotom",
+      "altEgg": "Frost Rotom"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Fan Rotom",
+    "types": ["Electric", "Flying"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spA": 105,
+      "spD": 107,
+      "spe": 86
+    },
+    "weight": 0.3,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Fan Rotom",
+      "altEgg": "Fan Rotom"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Mow Rotom",
+    "types": ["Electric", "Grass"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 107,
+      "spA": 105,
+      "spD": 107,
+      "spe": 86
+    },
+    "weight": 0.3,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Amorphous"],
+      "egg": "Mow Rotom",
+      "altEgg": "Mow Rotom"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Uxie",
+    "types": ["Psychic"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 75,
+      "atk": 75,
+      "def": 130,
+      "spA": 75,
+      "spD": 130,
+      "spe": 95
+    },
+    "weight": 0.3,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Uxie",
+      "altEgg": "Uxie"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Mesprit",
+    "types": ["Psychic"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 80,
+      "atk": 105,
+      "def": 105,
+      "spA": 105,
+      "spD": 105,
+      "spe": 80
+    },
+    "weight": 0.3,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Mesprit",
+      "altEgg": "Mesprit"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Azelf",
+    "types": ["Psychic"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 75,
+      "atk": 125,
+      "def": 70,
+      "spA": 125,
+      "spD": 70,
+      "spe": 115
+    },
+    "weight": 0.3,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Azelf",
+      "altEgg": "Azelf"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Dialga",
+    "types": ["Steel", "Dragon"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "Telepathy",
+    "baseStats": {
+      "hp": 100,
+      "atk": 120,
+      "def": 120,
+      "spA": 150,
+      "spD": 100,
+      "spe": 90
+    },
+    "weight": 683,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Dialga",
+      "altEgg": "Dialga"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Palkia",
+    "types": ["Water", "Dragon"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "Telepathy",
+    "baseStats": {
+      "hp": 90,
+      "atk": 120,
+      "def": 100,
+      "spA": 150,
+      "spD": 120,
+      "spe": 100
+    },
+    "weight": 336,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Palkia",
+      "altEgg": "Palkia"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Heatran",
+    "types": ["Fire", "Steel"],
+    "abilities": ["Flash Fire"],
+    "hiddenAbility": "Flame Body",
+    "baseStats": {
+      "hp": 91,
+      "atk": 90,
+      "def": 106,
+      "spA": 130,
+      "spD": 106,
+      "spe": 77
+    },
+    "weight": 430,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Heatran",
+      "altEgg": "Heatran"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Regigigas",
+    "types": ["Normal"],
+    "abilities": ["Slow Start"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 110,
+      "atk": 160,
+      "def": 110,
+      "spA": 80,
+      "spD": 110,
+      "spe": 100
+    },
+    "weight": 420,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Regigigas",
+      "altEgg": "Regigigas"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Giratina Altered Forme",
+    "types": ["Ghost", "Dragon"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "Telepathy",
+    "baseStats": {
+      "hp": 150,
+      "atk": 100,
+      "def": 120,
+      "spA": 100,
+      "spD": 120,
+      "spe": 90
+    },
+    "weight": 750,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Giratina Altered Forme",
+      "altEgg": "Giratina Altered Forme"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Giratina Origin Forme",
+        "condition": "Griseous Orb"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Giratina Origin Forme",
+    "types": ["Ghost", "Dragon"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 150,
+      "atk": 120,
+      "def": 100,
+      "spA": 120,
+      "spD": 100,
+      "spe": 90
+    },
+    "weight": 650,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Giratina Altered Forme",
+      "altEgg": "Giratina Altered Forme"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Giratina Altered Forme",
+        "condition": "No Griseous Orb"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cresselia",
+    "types": ["Psychic"],
+    "abilities": ["Levitate"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 120,
+      "atk": 70,
+      "def": 120,
+      "spA": 75,
+      "spD": 130,
+      "spe": 85
+    },
+    "weight": 85.6,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Cresselia",
+      "altEgg": "Cresselia"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Phione",
+    "types": ["Water"],
+    "abilities": ["Hydration"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 80,
+      "atk": 80,
+      "def": 80,
+      "spA": 80,
+      "spD": 80,
+      "spe": 80
+    },
+    "weight": 3.1,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Fairy", "Water 1"],
+      "egg": "Phione",
+      "altEgg": "Phione"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Manaphy",
+    "types": ["Water"],
+    "abilities": ["Hydration"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 100,
+      "atk": 100,
+      "def": 100,
+      "spA": 100,
+      "spD": 100,
+      "spe": 100
+    },
+    "weight": 1.4,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Fairy", "Water 1"],
+      "egg": "Manaphy",
+      "altEgg": "Manaphy"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Darkrai",
+    "types": ["Dark"],
+    "abilities": ["Bad Dreams"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 70,
+      "atk": 90,
+      "def": 90,
+      "spA": 135,
+      "spD": 90,
+      "spe": 125
+    },
+    "weight": 50.5,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Darkrai",
+      "altEgg": "Darkrai"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Shaymin Land Forme",
+    "types": ["Grass"],
+    "abilities": ["Natural Cure"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 100,
+      "atk": 100,
+      "def": 100,
+      "spA": 100,
+      "spD": 100,
+      "spe": 100
+    },
+    "weight": 2.1,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Shaymin Land Forme",
+      "altEgg": "Shaymin Land Forme"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Shaymin Sky Forme",
+        "condition": "Gracidea Flower"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Shaymin Sky Forme",
+    "types": ["Grass", "Flying"],
+    "abilities": ["Serene Grace"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 100,
+      "atk": 103,
+      "def": 75,
+      "spA": 120,
+      "spD": 75,
+      "spe": 127
+    },
+    "weight": 5.2,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Shaymin Land Forme",
+      "altEgg": "Shaymin Land Forme"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Shaymin Land Forme",
+        "condition": "Shaymin Land Forme"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Arceus",
+    "types": ["Normal"],
+    "abilities": ["Multitype"],
+    "hiddenAbility": "",
+    "baseStats": {
+      "hp": 120,
+      "atk": 120,
+      "def": 120,
+      "spA": 120,
+      "spD": 120,
+      "spe": 120
+    },
+    "weight": 320,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Arceus",
+      "altEgg": "Arceus"
     },
     "stages": {
       "current": 0,
