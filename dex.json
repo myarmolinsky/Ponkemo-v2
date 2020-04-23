@@ -24398,12 +24398,7 @@
       "current": 0,
       "max": 0
     },
-    "evolutionDetails": [
-      {
-        "evolution": "Giratina Origin Forme",
-        "condition": "Griseous Orb"
-      }
-    ],
+    "evolutionDetails": [],
     "moves": [
       {
         "learnConditions": [],
@@ -24443,12 +24438,7 @@
       "current": 0,
       "max": 0
     },
-    "evolutionDetails": [
-      {
-        "evolution": "Giratina Altered Forme",
-        "condition": "No Griseous Orb"
-      }
-    ],
+    "evolutionDetails": [],
     "moves": [
       {
         "learnConditions": [],
@@ -31783,6 +31773,46 @@
     "weight": 48.5,
     "baseFriendship": 35,
     "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Keldeo",
+      "altEgg": "Keldeo"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Keldeo Resolute Forme",
+    "types": ["Water", "Fighting"],
+    "abilities": ["Justified"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/keldeo-resolute.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/keldeo-resolute.png",
+    "baseStats": {
+      "hp": 91,
+      "atk": 72,
+      "def": 90,
+      "spA": 129,
+      "spD": 90,
+      "spe": 108
+    },
+    "weight": 48.5,
+    "baseFriendship": 35,
+    "spawnRate": -1,
     "genderRatio": -1,
     "breeding": {
       "eggGroups": ["Legendary"],
@@ -39674,6 +39704,3744 @@
     "stages": {
       "current": 1,
       "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Grookey",
+    "types": ["Grass"],
+    "abilities": ["Overgrow"],
+    "hiddenAbility": "Grassy Surge",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/grookey.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/grookey.png",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 50,
+      "spA": 40,
+      "spD": 40,
+      "spe": 65
+    },
+    "weight": 5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Grass"],
+      "egg": "Grookey",
+      "altEgg": "Grookey"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Thwackey",
+        "condition": 16
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Thwackey",
+    "types": ["Grass"],
+    "abilities": ["Overgrow"],
+    "hiddenAbility": "Grassy Surge",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/thwackey.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/thwackey.png",
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 70,
+      "spA": 55,
+      "spD": 60,
+      "spe": 70
+    },
+    "weight": 14,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Grass"],
+      "egg": "Grookey",
+      "altEgg": "Grookey"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Rillaboom",
+        "condition": 35
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Rillaboom",
+    "types": ["Grass"],
+    "abilities": ["Overgrow"],
+    "hiddenAbility": "Grassy Surge",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/rillaboom.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/rillaboom.png",
+    "baseStats": {
+      "hp": 100,
+      "atk": 125,
+      "def": 90,
+      "spA": 60,
+      "spD": 70,
+      "spe": 85
+    },
+    "weight": 90,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Grass"],
+      "egg": "Grookey",
+      "altEgg": "Grookey"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Scorbunny",
+    "types": ["Fire"],
+    "abilities": ["Blaze"],
+    "hiddenAbility": "Libero",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/scorbunny.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/scorbunny.png",
+    "baseStats": {
+      "hp": 50,
+      "atk": 71,
+      "def": 40,
+      "spA": 40,
+      "spD": 40,
+      "spe": 69
+    },
+    "weight": 4.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Scorbunny",
+      "altEgg": "Scorbunny"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Raboot",
+        "condition": 16
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Raboot",
+    "types": ["Fire"],
+    "abilities": ["Blaze"],
+    "hiddenAbility": "Libero",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/raboot.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/raboot.png",
+    "baseStats": {
+      "hp": 65,
+      "atk": 86,
+      "def": 60,
+      "spA": 55,
+      "spD": 60,
+      "spe": 94
+    },
+    "weight": 9,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Scorbunny",
+      "altEgg": "Scorbunny"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Cinderace",
+        "condition": 35
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cinderace",
+    "types": ["Fire"],
+    "abilities": ["Blaze"],
+    "hiddenAbility": "Libero",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/cinderace.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/cinderace.png",
+    "baseStats": {
+      "hp": 80,
+      "atk": 116,
+      "def": 75,
+      "spA": 65,
+      "spD": 75,
+      "spe": 119
+    },
+    "weight": 33,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Human-Like"],
+      "egg": "Scorbunny",
+      "altEgg": "Scorbunny"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Sobble",
+    "types": ["Water"],
+    "abilities": ["Torrent"],
+    "hiddenAbility": "Sniper",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/sobble.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/sobble.png",
+    "baseStats": {
+      "hp": 50,
+      "atk": 40,
+      "def": 40,
+      "spA": 70,
+      "spD": 40,
+      "spe": 70
+    },
+    "weight": 4,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Water 1"],
+      "egg": "Sobble",
+      "altEgg": "Sobble"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Drizzile",
+        "condition": 16
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Drizzile",
+    "types": ["Water"],
+    "abilities": ["Torrent"],
+    "hiddenAbility": "Sniper",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/drizzile.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/drizzile.png",
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 55,
+      "spA": 95,
+      "spD": 55,
+      "spe": 95
+    },
+    "weight": 11.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Water 1"],
+      "egg": "Sobble",
+      "altEgg": "Sobble"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Inteleon",
+        "condition": 35
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Inteleon",
+    "types": ["Water"],
+    "abilities": ["Torrent"],
+    "hiddenAbility": "Sniper",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/inteleon.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/inteleon.png",
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 65,
+      "spA": 125,
+      "spD": 65,
+      "spe": 120
+    },
+    "weight": 45.2,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 87.5,
+    "breeding": {
+      "eggGroups": ["Field", "Water 1"],
+      "egg": "Sobble",
+      "altEgg": "Sobble"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Skwovet",
+    "types": ["Normal"],
+    "abilities": ["Cheek Pouch"],
+    "hiddenAbility": "Gluttony",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/skwovet.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/skwovet.png",
+    "baseStats": {
+      "hp": 70,
+      "atk": 55,
+      "def": 55,
+      "spA": 35,
+      "spD": 35,
+      "spe": 25
+    },
+    "weight": 2.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Skwovet",
+      "altEgg": "Skwovet"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Greedent",
+        "condition": 24
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Greedent",
+    "types": ["Normal"],
+    "abilities": ["Cheek Pouch"],
+    "hiddenAbility": "Gluttony",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/greedent.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/greedent.png",
+    "baseStats": {
+      "hp": 120,
+      "atk": 95,
+      "def": 95,
+      "spA": 55,
+      "spD": 75,
+      "spe": 20
+    },
+    "weight": 6,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Skwovet",
+      "altEgg": "Skwovet"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Rookidee",
+    "types": ["Flying"],
+    "abilities": ["Keen Eye", "Unnerve"],
+    "hiddenAbility": "Big Pecks",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/rookidee.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/rookidee.png",
+    "baseStats": {
+      "hp": 38,
+      "atk": 47,
+      "def": 35,
+      "spA": 33,
+      "spD": 35,
+      "spe": 57
+    },
+    "weight": 1.8,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Rookidee",
+      "altEgg": "Rookidee"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Corvisquire",
+        "condition": 18
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Corvisquire",
+    "types": ["Flying"],
+    "abilities": ["Keen Eye", "Unnerve"],
+    "hiddenAbility": "Big Pecks",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/corvisquire.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/corvisquire.png",
+    "baseStats": {
+      "hp": 68,
+      "atk": 67,
+      "def": 55,
+      "spA": 43,
+      "spD": 55,
+      "spe": 77
+    },
+    "weight": 16,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Rookidee",
+      "altEgg": "Rookidee"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Corviknight",
+        "condition": 38
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Corviknight",
+    "types": ["Flying", "Steel"],
+    "abilities": ["Pressure", "Unnerve"],
+    "hiddenAbility": "Mirror Armor",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/corviknight.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/corviknight.png",
+    "baseStats": {
+      "hp": 98,
+      "atk": 87,
+      "def": 105,
+      "spA": 53,
+      "spD": 85,
+      "spe": 67
+    },
+    "weight": 75,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying"],
+      "egg": "Rookidee",
+      "altEgg": "Rookidee"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Blipbug",
+    "types": ["Bug"],
+    "abilities": ["Swarm", "Compound Eyes"],
+    "hiddenAbility": "Telepathy",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/blipbug.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/blipbug.png",
+    "baseStats": {
+      "hp": 25,
+      "atk": 20,
+      "def": 20,
+      "spA": 25,
+      "spD": 45,
+      "spe": 45
+    },
+    "weight": 8,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Blipbug",
+      "altEgg": "Blipbug"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Dottler",
+        "condition": 10
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Deetler",
+    "types": ["Bug", "Psychic"],
+    "abilities": ["Swarm", "Compound Eyes"],
+    "hiddenAbility": "Telepathy",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/deetler.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/deetler.png",
+    "baseStats": {
+      "hp": 50,
+      "atk": 35,
+      "def": 80,
+      "spA": 50,
+      "spD": 90,
+      "spe": 30
+    },
+    "weight": 19.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Blipbug",
+      "altEgg": "Blipbug"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Orbeetle",
+        "condition": 30
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Orbeetle",
+    "types": ["Bug", "Psychic"],
+    "abilities": ["Swarm", "Frisk"],
+    "hiddenAbility": "Telepathy",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/orbeetle.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/orbeetle.png",
+    "baseStats": {
+      "hp": 60,
+      "atk": 45,
+      "def": 110,
+      "spA": 80,
+      "spD": 120,
+      "spe": 90
+    },
+    "weight": 40.8,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Blipbug",
+      "altEgg": "Blipbug"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Nickit",
+    "types": ["Dark"],
+    "abilities": ["Run Away", "Unburden"],
+    "hiddenAbility": "Stakeout",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/nickit.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/nickit.png",
+    "baseStats": {
+      "hp": 40,
+      "atk": 28,
+      "def": 28,
+      "spA": 47,
+      "spD": 52,
+      "spe": 50
+    },
+    "weight": 8.9,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Nickit",
+      "altEgg": "Nickit"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Thievul",
+        "condition": 18
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Thievul",
+    "types": ["Dark"],
+    "abilities": ["Run Away", "Unburden"],
+    "hiddenAbility": "Stakeout",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/thievul.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/thievul.png",
+    "baseStats": {
+      "hp": 70,
+      "atk": 58,
+      "def": 58,
+      "spA": 87,
+      "spD": 92,
+      "spe": 90
+    },
+    "weight": 19.9,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Nickit",
+      "altEgg": "Nickit"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Gossifleur",
+    "types": ["Grass"],
+    "abilities": ["Cotton Down", "Regenerator"],
+    "hiddenAbility": "Effect Spore",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/gossifleur.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/gossifleur.png",
+    "baseStats": {
+      "hp": 40,
+      "atk": 40,
+      "def": 60,
+      "spA": 40,
+      "spD": 60,
+      "spe": 10
+    },
+    "weight": 2.2,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Grass"],
+      "egg": "Gossifleur",
+      "altEgg": "Gossifleur"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Eldegoss",
+        "condition": 20
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Eldegoss",
+    "types": ["Grass"],
+    "abilities": ["Cotton Down", "Regenerator"],
+    "hiddenAbility": "Effect Spore",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/eldegoss.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/eldegoss.png",
+    "baseStats": {
+      "hp": 60,
+      "atk": 50,
+      "def": 90,
+      "spA": 80,
+      "spD": 120,
+      "spe": 60
+    },
+    "weight": 2.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Grass"],
+      "egg": "Gossifleur",
+      "altEgg": "Gossifleur"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Wooloo",
+    "types": ["Normal"],
+    "abilities": ["Cotton Down", "Regenerator"],
+    "hiddenAbility": "Effect Spore",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/wooloo.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/wooloo.png",
+    "baseStats": {
+      "hp": 42,
+      "atk": 40,
+      "def": 55,
+      "spA": 40,
+      "spD": 45,
+      "spe": 48
+    },
+    "weight": 6,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Wooloo",
+      "altEgg": "Wooloo"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Dubwool",
+        "condition": 24
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Dubwool",
+    "types": ["Normal"],
+    "abilities": ["Fluffy", "Steafast"],
+    "hiddenAbility": "Bulletproof",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/dubwool.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/dubwool.png",
+    "baseStats": {
+      "hp": 72,
+      "atk": 80,
+      "def": 100,
+      "spA": 60,
+      "spD": 90,
+      "spe": 88
+    },
+    "weight": 43,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Wooloo",
+      "altEgg": "Wooloo"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Chewtle",
+    "types": ["Water"],
+    "abilities": ["Strong Jaw", "Shell Armor"],
+    "hiddenAbility": "Swift Swim",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/chewtle.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/chewtle.png",
+    "baseStats": {
+      "hp": 50,
+      "atk": 64,
+      "def": 50,
+      "spA": 38,
+      "spD": 38,
+      "spe": 44
+    },
+    "weight": 8.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Monster", "Water 1"],
+      "egg": "Chewtle",
+      "altEgg": "Chewtle"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Drednaw",
+        "condition": 22
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Drednaw",
+    "types": ["Water", "Rock"],
+    "abilities": ["Strong Jaw", "Shell Armor"],
+    "hiddenAbility": "Swift Swim",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/drednaw.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/drednaw.png",
+    "baseStats": {
+      "hp": 90,
+      "atk": 115,
+      "def": 90,
+      "spA": 48,
+      "spD": 68,
+      "spe": 74
+    },
+    "weight": 115.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Monster", "Water 1"],
+      "egg": "Chewtle",
+      "altEgg": "Chewtle"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Yamper",
+    "types": ["Electric"],
+    "abilities": ["Ball Fetch"],
+    "hiddenAbility": "Rattled",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/yamper.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/yamper.png",
+    "baseStats": {
+      "hp": 59,
+      "atk": 45,
+      "def": 50,
+      "spA": 40,
+      "spD": 50,
+      "spe": 26
+    },
+    "weight": 13.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Yamper",
+      "altEgg": "Yamper"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Boltund",
+        "condition": 25
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Boltund",
+    "types": ["Electric"],
+    "abilities": ["Strong Jaw"],
+    "hiddenAbility": "Competitive",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/boltund.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/boltund.png",
+    "baseStats": {
+      "hp": 69,
+      "atk": 90,
+      "def": 60,
+      "spA": 90,
+      "spD": 60,
+      "spe": 121
+    },
+    "weight": 34,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Yamper",
+      "altEgg": "Yamper"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Rolycoly",
+    "types": ["Rock"],
+    "abilities": ["Steam Engine", "Heatproof"],
+    "hiddenAbility": "Flash Fire",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/rolycoly.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/rolycoly.png",
+    "baseStats": {
+      "hp": 30,
+      "atk": 40,
+      "def": 50,
+      "spA": 40,
+      "spD": 50,
+      "spe": 30
+    },
+    "weight": 12,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Rolycoly",
+      "altEgg": "Rolycoly"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Carkol",
+        "condition": 18
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Carkol",
+    "types": ["Rock", "Fire"],
+    "abilities": ["Steam Engine", "Flame Body"],
+    "hiddenAbility": "Flash Fire",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/carkol.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/carkol.png",
+    "baseStats": {
+      "hp": 80,
+      "atk": 60,
+      "def": 90,
+      "spA": 60,
+      "spD": 70,
+      "spe": 50
+    },
+    "weight": 78,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Rolycoly",
+      "altEgg": "Rolycoly"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Coalossal",
+        "condition": 34
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Coalossal",
+    "types": ["Rock", "Fire"],
+    "abilities": ["Steam Engine", "Heatproof"],
+    "hiddenAbility": "Flash Fire",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/coalossal.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/coalossal.png",
+    "baseStats": {
+      "hp": 110,
+      "atk": 80,
+      "def": 120,
+      "spA": 80,
+      "spD": 90,
+      "spe": 30
+    },
+    "weight": 310.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Rolycoly",
+      "altEgg": "Rolycoly"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Applin",
+    "types": ["Grass", "Dragon"],
+    "abilities": ["Ripen", "Gluttony"],
+    "hiddenAbility": "Bulletproof",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/applin.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/applin.png",
+    "baseStats": {
+      "hp": 40,
+      "atk": 40,
+      "def": 80,
+      "spA": 40,
+      "spD": 40,
+      "spe": 20
+    },
+    "weight": 0.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Dragon", "Grass"],
+      "egg": "Applin",
+      "altEgg": "Applin"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Flapple",
+        "condition": "Tart Apple"
+      },
+      {
+        "evolution": "Appletun",
+        "condition": "Sweet Apple"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Flapple",
+    "types": ["Grass", "Dragon"],
+    "abilities": ["Ripen", "Gluttony"],
+    "hiddenAbility": "Hustle",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/flapple.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/flapple.png",
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 80,
+      "spA": 95,
+      "spD": 60,
+      "spe": 70
+    },
+    "weight": 1,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Dragon", "Grass"],
+      "egg": "Applin",
+      "altEgg": "Applin"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Appletun",
+    "types": ["Grass", "Dragon"],
+    "abilities": ["Ripen", "Gluttony"],
+    "hiddenAbility": "Thick Fat",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/appletun.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/appletun.png",
+    "baseStats": {
+      "hp": 110,
+      "atk": 85,
+      "def": 80,
+      "spA": 100,
+      "spD": 80,
+      "spe": 30
+    },
+    "weight": 13,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Dragon", "Grass"],
+      "egg": "Applin",
+      "altEgg": "Applin"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Silicobra",
+    "types": ["Ground"],
+    "abilities": ["Sand Spit", "Shed Skin"],
+    "hiddenAbility": "Sand Veil",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/silicobra.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/silicobra.png",
+    "baseStats": {
+      "hp": 52,
+      "atk": 57,
+      "def": 75,
+      "spA": 35,
+      "spD": 50,
+      "spe": 46
+    },
+    "weight": 7.6,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Dragon", "Field"],
+      "egg": "Silicobra",
+      "altEgg": "Silicobra"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Sandaconda",
+        "condition": 36
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Sandaconda",
+    "types": ["Ground"],
+    "abilities": ["Sand Spit", "Shed Skin"],
+    "hiddenAbility": "Sand Veil",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/sandaconda.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/sandaconda.png",
+    "baseStats": {
+      "hp": 72,
+      "atk": 107,
+      "def": 125,
+      "spA": 65,
+      "spD": 70,
+      "spe": 71
+    },
+    "weight": 65.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Dragon", "Field"],
+      "egg": "Silicobra",
+      "altEgg": "Silicobra"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cramorant",
+    "types": ["Flying", "Water"],
+    "abilities": ["Gulp Missile"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/cramorant.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/cramorant.png",
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 55,
+      "spA": 85,
+      "spD": 95,
+      "spe": 85
+    },
+    "weight": 18,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying", "Water 1"],
+      "egg": "Cramorant",
+      "altEgg": "Cramorant"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cramorant Gulping Form",
+    "types": ["Flying", "Water"],
+    "abilities": ["Gulp Missile"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/cramorant-gulping.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/cramorant-gulping.png",
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 55,
+      "spA": 85,
+      "spD": 95,
+      "spe": 85
+    },
+    "weight": 18,
+    "baseFriendship": 50,
+    "spawnRate": -1,
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying", "Water 1"],
+      "egg": "Cramorant",
+      "altEgg": "Cramorant"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cramorant Gorging Form",
+    "types": ["Flying", "Water"],
+    "abilities": ["Gulp Missile"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/cramorant-gorging.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/cramorant-gorging.png",
+    "baseStats": {
+      "hp": 70,
+      "atk": 85,
+      "def": 55,
+      "spA": 85,
+      "spD": 95,
+      "spe": 85
+    },
+    "weight": 18,
+    "baseFriendship": 50,
+    "spawnRate": -1,
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Flying", "Water 1"],
+      "egg": "Cramorant",
+      "altEgg": "Cramorant"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Arrokuda",
+    "types": ["Water"],
+    "abilities": ["Swift Swim"],
+    "hiddenAbility": "Propeller Tail",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/arrokuda.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/arrokuda.png",
+    "baseStats": {
+      "hp": 41,
+      "atk": 63,
+      "def": 40,
+      "spA": 40,
+      "spD": 30,
+      "spe": 66
+    },
+    "weight": 1,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Water 2"],
+      "egg": "Arrokuda",
+      "altEgg": "Arrokuda"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Barraskewda",
+        "condition": 26
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Barraskewda",
+    "types": ["Water"],
+    "abilities": ["Swift Swim"],
+    "hiddenAbility": "Propeller Tail",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/barraskewda.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/barraskewda.png",
+    "baseStats": {
+      "hp": 61,
+      "atk": 123,
+      "def": 60,
+      "spA": 60,
+      "spD": 50,
+      "spe": 136
+    },
+    "weight": 30,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Water 2"],
+      "egg": "Arrokuda",
+      "altEgg": "Arrokuda"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Toxel",
+    "types": ["Electric", "Poison"],
+    "abilities": ["Rattled", "Static"],
+    "hiddenAbility": "Klutz",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/toxel.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/toxel.png",
+    "baseStats": {
+      "hp": 40,
+      "atk": 38,
+      "def": 35,
+      "spA": 54,
+      "spD": 35,
+      "spe": 40
+    },
+    "weight": 11,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Toxel",
+      "altEgg": "Toxel"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Toxtricity Amped Form",
+        "condition": "Toxtricity Amped Form"
+      },
+      {
+        "evolution": "Toxtricity Low Key Form",
+        "condition": "Toxtricity Low Key Form"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Toxtricity Amped Form",
+    "types": ["Electric", "Poison"],
+    "abilities": ["Punk Rock", "Plus"],
+    "hiddenAbility": "Technician",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/toxtricity-amped.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/toxtricity-amped.png",
+    "baseStats": {
+      "hp": 75,
+      "atk": 98,
+      "def": 70,
+      "spA": 114,
+      "spD": 70,
+      "spe": 75
+    },
+    "weight": 40,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Toxel",
+      "altEgg": "Toxel"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Toxtricity Low Key Form",
+    "types": ["Electric", "Poison"],
+    "abilities": ["Punk Rock", "Minus"],
+    "hiddenAbility": "Technician",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/toxtricity-low-key.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/toxtricity-low-key.png",
+    "baseStats": {
+      "hp": 75,
+      "atk": 98,
+      "def": 70,
+      "spA": 114,
+      "spD": 70,
+      "spe": 75
+    },
+    "weight": 40,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Toxel",
+      "altEgg": "Toxel"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Sizzlipede",
+    "types": ["Fire", "Bug"],
+    "abilities": ["Flash Fire", "White Smoke"],
+    "hiddenAbility": "Flame Body",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/sizzlipede.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/sizzlipede.png",
+    "baseStats": {
+      "hp": 50,
+      "atk": 65,
+      "def": 45,
+      "spA": 50,
+      "spD": 50,
+      "spe": 45
+    },
+    "weight": 1,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Sizzlipede",
+      "altEgg": "Sizzlipede"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Centiskorch",
+        "condition": 28
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Centiskorch",
+    "types": ["Fire", "Bug"],
+    "abilities": ["Flash Fire", "White Smoke"],
+    "hiddenAbility": "Flame Body",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/centiskorch.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/centiskorch.png",
+    "baseStats": {
+      "hp": 100,
+      "atk": 115,
+      "def": 65,
+      "spA": 90,
+      "spD": 90,
+      "spe": 65
+    },
+    "weight": 120,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Sizzlipede",
+      "altEgg": "Sizzlipede"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Clobbopus",
+    "types": ["Fighting"],
+    "abilities": ["Limber"],
+    "hiddenAbility": "Technician",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/clobbopus.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/clobbopus.png",
+    "baseStats": {
+      "hp": 50,
+      "atk": 68,
+      "def": 60,
+      "spA": 50,
+      "spD": 50,
+      "spe": 32
+    },
+    "weight": 4,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Human-Like", "Water 1"],
+      "egg": "Clobbopus",
+      "altEgg": "Clobbopus"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Grapploct",
+        "condition": "Taunt"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Grapploct",
+    "types": ["Fighting"],
+    "abilities": ["Limber"],
+    "hiddenAbility": "Technician",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/grapploct.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/grapploct.png",
+    "baseStats": {
+      "hp": 80,
+      "atk": 118,
+      "def": 90,
+      "spA": 70,
+      "spD": 80,
+      "spe": 42
+    },
+    "weight": 39,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Human-Like", "Water 1"],
+      "egg": "Clobbopus",
+      "altEgg": "Clobbopus"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Sinistea",
+    "types": ["Ghost"],
+    "abilities": ["Weak Armor"],
+    "hiddenAbility": "Cursed Body",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/sinistea.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/sinistea.png",
+    "baseStats": {
+      "hp": 40,
+      "atk": 45,
+      "def": 45,
+      "spA": 74,
+      "spD": 54,
+      "spe": 50
+    },
+    "weight": 0.2,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Amorphous", "Mineral"],
+      "egg": "Sinistea",
+      "altEgg": "Sinistea"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Polteageist",
+        "condition": "Cracked Pot"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Polteageist",
+    "types": ["Ghost"],
+    "abilities": ["Weak Armor"],
+    "hiddenAbility": "Cursed Body",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/polteageist.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/polteageist.png",
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 65,
+      "spA": 134,
+      "spD": 114,
+      "spe": 70
+    },
+    "weight": 0.4,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Amorphous", "Mineral"],
+      "egg": "Sinistea",
+      "altEgg": "Sinistea"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Hatenna",
+    "types": ["Psychic"],
+    "abilities": ["Healer", "Anticipation"],
+    "hiddenAbility": "Magic Bounce",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/hatenna.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/hatenna.png",
+    "baseStats": {
+      "hp": 42,
+      "atk": 30,
+      "def": 45,
+      "spA": 56,
+      "spD": 53,
+      "spe": 39
+    },
+    "weight": 3.4,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Fairy"],
+      "egg": "Impidimp",
+      "altEgg": "Hatenna"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Hattrem",
+        "condition": 32
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Hattrem",
+    "types": ["Psychic"],
+    "abilities": ["Healer", "Anticipation"],
+    "hiddenAbility": "Magic Bounce",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/hattrem.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/hattrem.png",
+    "baseStats": {
+      "hp": 57,
+      "atk": 40,
+      "def": 65,
+      "spA": 86,
+      "spD": 73,
+      "spe": 49
+    },
+    "weight": 4.8,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Fairy"],
+      "egg": "Impidimp",
+      "altEgg": "Hatenna"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Hatterene",
+        "condition": 42
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Hatterene",
+    "types": ["Psychic", "Fairy"],
+    "abilities": ["Healer", "Anticipation"],
+    "hiddenAbility": "Magic Bounce",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/hatterene.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/hatterene.png",
+    "baseStats": {
+      "hp": 57,
+      "atk": 90,
+      "def": 95,
+      "spA": 136,
+      "spD": 103,
+      "spe": 29
+    },
+    "weight": 5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Fairy"],
+      "egg": "Impidimp",
+      "altEgg": "Hatenna"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Impidimp",
+    "types": ["Dark", "Fairy"],
+    "abilities": ["Prankster", "Frisk"],
+    "hiddenAbility": "Pickpocket",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/impidimp.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/impidimp.png",
+    "baseStats": {
+      "hp": 45,
+      "atk": 45,
+      "def": 30,
+      "spA": 55,
+      "spD": 40,
+      "spe": 50
+    },
+    "weight": 5.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 100,
+    "breeding": {
+      "eggGroups": ["Fairy", "Human-Like"],
+      "egg": "Impidimp",
+      "altEgg": "Hatenna"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Morgrem",
+        "condition": 32
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Morgrem",
+    "types": ["Dark", "Fairy"],
+    "abilities": ["Prankster", "Frisk"],
+    "hiddenAbility": "Pickpocket",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/morgrem.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/morgrem.png",
+    "baseStats": {
+      "hp": 65,
+      "atk": 60,
+      "def": 45,
+      "spA": 75,
+      "spD": 55,
+      "spe": 70
+    },
+    "weight": 12.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 100,
+    "breeding": {
+      "eggGroups": ["Fairy", "Human-Like"],
+      "egg": "Impidimp",
+      "altEgg": "Hatenna"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Grimmsnarl",
+        "condition": 42
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Grimmsnarl",
+    "types": ["Dark", "Fairy"],
+    "abilities": ["Prankster", "Frisk"],
+    "hiddenAbility": "Pickpocket",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/grimmsnarl.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/grimmsnarl.png",
+    "baseStats": {
+      "hp": 95,
+      "atk": 120,
+      "def": 65,
+      "spA": 95,
+      "spD": 75,
+      "spe": 60
+    },
+    "weight": 61,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 100,
+    "breeding": {
+      "eggGroups": ["Fairy", "Human-Like"],
+      "egg": "Impidimp",
+      "altEgg": "Hatenna"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Obstagoon",
+    "types": ["Dark", "Normal"],
+    "abilities": ["Reckless", "Guts"],
+    "hiddenAbility": "Defiant",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/obstagoon.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/obstagoon.png",
+    "baseStats": {
+      "hp": 93,
+      "atk": 90,
+      "def": 101,
+      "spA": 60,
+      "spD": 81,
+      "spe": 95
+    },
+    "weight": 46,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Galarian Zigzagoon",
+      "altEgg": "Galarian Zigzagoon"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Perrserker",
+    "types": ["Steel"],
+    "abilities": ["Battle Armor", "Tough Claws"],
+    "hiddenAbility": "Steely Spirit",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/perrserker.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/perrserker.png",
+    "baseStats": {
+      "hp": 70,
+      "atk": 110,
+      "def": 100,
+      "spA": 50,
+      "spD": 60,
+      "spe": 50
+    },
+    "weight": 28,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field"],
+      "egg": "Galarian Meowth",
+      "altEgg": "Galarian Meowth"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cursola",
+    "types": ["Ghost"],
+    "abilities": ["Weak Armor"],
+    "hiddenAbility": "Perish Body",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/cursola.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/cursola.png",
+    "baseStats": {
+      "hp": 60,
+      "atk": 95,
+      "def": 50,
+      "spA": 145,
+      "spD": 130,
+      "spe": 30
+    },
+    "weight": 0.4,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 25,
+    "breeding": {
+      "eggGroups": ["Water 1", "Water 3"],
+      "egg": "Galarian Corsola",
+      "altEgg": "Galarian Corsola"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Sirfetch'd",
+    "types": ["Fighting"],
+    "abilities": ["Steadfast"],
+    "hiddenAbility": "Scrappy",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/sirfetchd.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/sirfetchd.png",
+    "baseStats": {
+      "hp": 62,
+      "atk": 135,
+      "def": 95,
+      "spA": 68,
+      "spD": 82,
+      "spe": 65
+    },
+    "weight": 117,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Flying"],
+      "egg": "Galarian Farfetch'd",
+      "altEgg": "Galarian Farfetch'd"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Mr. Rime",
+    "types": ["Psychic", "Ice"],
+    "abilities": ["Tangled Feet", "Screen Cleaner"],
+    "hiddenAbility": "Ice Body",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/mr-rime.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/mr-rime.png",
+    "baseStats": {
+      "hp": 80,
+      "atk": 85,
+      "def": 75,
+      "spA": 110,
+      "spD": 100,
+      "spe": 70
+    },
+    "weight": 58.2,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Human-Like"],
+      "egg": "Mime Jr.",
+      "altEgg": "Mime Jr."
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Runerigus",
+    "types": ["Ground", "Ghost"],
+    "abilities": ["Wandering Spirit"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/runerigus.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/runerigus.png",
+    "baseStats": {
+      "hp": 58,
+      "atk": 95,
+      "def": 145,
+      "spA": 50,
+      "spD": 105,
+      "spe": 30
+    },
+    "weight": 66.6,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous", "Mineral"],
+      "egg": "Galarian Yamask",
+      "altEgg": "Galarian Yamask"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Milcery",
+    "types": ["Fairy"],
+    "abilities": ["Sweet Veil"],
+    "hiddenAbility": "Aroma Veil",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/milcery.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/milcery.png",
+    "baseStats": {
+      "hp": 45,
+      "atk": 40,
+      "def": 40,
+      "spA": 50,
+      "spD": 61,
+      "spe": 34
+    },
+    "weight": 0.3,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Amorphous", "Fairy"],
+      "egg": "Milcery",
+      "altEgg": "Milcery"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Alcremie",
+        "condition": "Trade"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Alcremie",
+    "types": ["Fairy"],
+    "abilities": ["Sweet Veil"],
+    "hiddenAbility": "Aroma Veil",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/alcremie.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/alcremie.png",
+    "baseStats": {
+      "hp": 55,
+      "atk": 60,
+      "def": 75,
+      "spA": 110,
+      "spD": 121,
+      "spe": 64
+    },
+    "weight": 0.5,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Amorphous", "Fairy"],
+      "egg": "Milcery",
+      "altEgg": "Milcery"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Falinks",
+    "types": ["Fighting"],
+    "abilities": ["Battle Armor"],
+    "hiddenAbility": "Defiant",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/falinks.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/falinks.png",
+    "baseStats": {
+      "hp": 65,
+      "atk": 100,
+      "def": 100,
+      "spA": 70,
+      "spD": 60,
+      "spe": 75
+    },
+    "weight": 62,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Fairy", "Mineral"],
+      "egg": "Falinks",
+      "altEgg": "Falinks"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Pincurchin",
+    "types": ["Electric"],
+    "abilities": ["Lightning Rod"],
+    "hiddenAbility": "Electric Surge",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/pincurchin.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/pincurchin.png",
+    "baseStats": {
+      "hp": 48,
+      "atk": 101,
+      "def": 95,
+      "spA": 91,
+      "spD": 81,
+      "spe": 15
+    },
+    "weight": 1,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous", "Water 1"],
+      "egg": "Pincurchin",
+      "altEgg": "Pincurchin"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Snom",
+    "types": ["Ice", "Bug"],
+    "abilities": ["Shield Dust"],
+    "hiddenAbility": "Ice Scales",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/snom.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/snom.png",
+    "baseStats": {
+      "hp": 30,
+      "atk": 25,
+      "def": 35,
+      "spA": 45,
+      "spD": 30,
+      "spe": 20
+    },
+    "weight": 3.8,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Snom",
+      "altEgg": "Snom"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Frosmoth",
+        "condition": "Friendship"
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Frosmoth",
+    "types": ["Ice", "Bug"],
+    "abilities": ["Shield Dust"],
+    "hiddenAbility": "Ice Scales",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/frosmoth.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/frosmoth.png",
+    "baseStats": {
+      "hp": 70,
+      "atk": 65,
+      "def": 60,
+      "spA": 125,
+      "spD": 90,
+      "spe": 65
+    },
+    "weight": 42,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Bug"],
+      "egg": "Snom",
+      "altEgg": "Snom"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Stonjourner",
+    "types": ["Rock"],
+    "abilities": ["Power Spot"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/stonjourner.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/stonjourner.png",
+    "baseStats": {
+      "hp": 100,
+      "atk": 125,
+      "def": 135,
+      "spA": 20,
+      "spD": 20,
+      "spe": 70
+    },
+    "weight": 520,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Mineral"],
+      "egg": "Stonjourner",
+      "altEgg": "Stonjourner"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Eiscue Ice Face",
+    "types": ["Ice"],
+    "abilities": ["Ice Face"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/eiscue.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/eiscue.png",
+    "baseStats": {
+      "hp": 75,
+      "atk": 80,
+      "def": 110,
+      "spA": 65,
+      "spD": 90,
+      "spe": 50
+    },
+    "weight": 89,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Water 1"],
+      "egg": "Eiscue Ice Face",
+      "altEgg": "Eiscue Ice Face"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Eiscue Noice Face",
+    "types": ["Ice"],
+    "abilities": ["Ice Face"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/eiscue-noice.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/eiscue-noice.png",
+    "baseStats": {
+      "hp": 75,
+      "atk": 80,
+      "def": 70,
+      "spA": 65,
+      "spD": 50,
+      "spe": 130
+    },
+    "weight": 89,
+    "baseFriendship": 50,
+    "spawnRate": -1,
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Water 1"],
+      "egg": "Eiscue Ice Face",
+      "altEgg": "Eiscue Ice Face"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Indeedee♂",
+    "types": ["Psychic", "Normal"],
+    "abilities": ["Inner Focus", "Synchronize"],
+    "hiddenAbility": "Psychic Surge",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/indeedee.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/indeedee.png",
+    "baseStats": {
+      "hp": 60,
+      "atk": 65,
+      "def": 55,
+      "spA": 105,
+      "spD": 95,
+      "spe": 95
+    },
+    "weight": 28,
+    "baseFriendship": 140,
+    "spawnRate": "",
+    "genderRatio": 100,
+    "breeding": {
+      "eggGroups": ["Fairy"],
+      "egg": "Indeedee♂",
+      "altEgg": "Indeedee♀"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Indeedee♀",
+    "types": ["Psychic", "Normal"],
+    "abilities": ["Own Tempo", "Synchronize"],
+    "hiddenAbility": "Psychic Surge",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/indeedee-female.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/indeedee-female.png",
+    "baseStats": {
+      "hp": 70,
+      "atk": 55,
+      "def": 65,
+      "spA": 95,
+      "spD": 105,
+      "spe": 85
+    },
+    "weight": 28,
+    "baseFriendship": 140,
+    "spawnRate": "",
+    "genderRatio": 0,
+    "breeding": {
+      "eggGroups": ["Fairy"],
+      "egg": "Indeedee♂",
+      "altEgg": "Indeedee♀"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Morpeko Full Belly Mode",
+    "types": ["Electric", "Dark"],
+    "abilities": ["Hunger Switch"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/morpeko.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/morpeko.png",
+    "baseStats": {
+      "hp": 58,
+      "atk": 95,
+      "def": 58,
+      "spA": 70,
+      "spD": 58,
+      "spe": 97
+    },
+    "weight": 3,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Fairy", "Field"],
+      "egg": "Morpeko Full Belly Mode",
+      "altEgg": "Morpeko Full Belly Mode"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Morpeko Hangry Mode",
+    "types": ["Electric", "Dark"],
+    "abilities": ["Hunger Switch"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/morpeko-hangry.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/morpeko-hangry.png",
+    "baseStats": {
+      "hp": 58,
+      "atk": 95,
+      "def": 58,
+      "spA": 70,
+      "spD": 58,
+      "spe": 97
+    },
+    "weight": 3,
+    "baseFriendship": 50,
+    "spawnRate": -1,
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Fairy", "Field"],
+      "egg": "Morpeko Hangry Mode",
+      "altEgg": "Morpeko Hangry Mode"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Cufant",
+    "types": ["Steel"],
+    "abilities": ["Sheer Force"],
+    "hiddenAbility": "Heavy Metal",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/cufant.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/cufant.png",
+    "baseStats": {
+      "hp": 72,
+      "atk": 80,
+      "def": 49,
+      "spA": 40,
+      "spD": 49,
+      "spe": 40
+    },
+    "weight": 100,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Mineral"],
+      "egg": "Cufant",
+      "altEgg": "Cufant"
+    },
+    "stages": {
+      "current": 0,
+      "max": 1
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Copperajah",
+        "condition": 34
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Copperajah",
+    "types": ["Steel"],
+    "abilities": ["Sheer Force"],
+    "hiddenAbility": "Heavy Metal",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/copperajah.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/copperajah.png",
+    "baseStats": {
+      "hp": 122,
+      "atk": 130,
+      "def": 69,
+      "spA": 80,
+      "spD": 69,
+      "spe": 30
+    },
+    "weight": 650,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Field", "Mineral"],
+      "egg": "Cufant",
+      "altEgg": "Cufant"
+    },
+    "stages": {
+      "current": 1,
+      "max": 1
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Dracozolt",
+    "types": ["Electric", "Dragon"],
+    "abilities": ["Volt Absorb", "Hustle"],
+    "hiddenAbility": "Sand Rush",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/dracozolt.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/dracozolt.png",
+    "baseStats": {
+      "hp": 90,
+      "atk": 100,
+      "def": 90,
+      "spA": 80,
+      "spD": 70,
+      "spe": 75
+    },
+    "weight": 190,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Monster", "Dragon"],
+      "egg": "Dracozolt",
+      "altEgg": "Dracozolt"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Arctozolt",
+    "types": ["Electric", "Ice"],
+    "abilities": ["Volt Absorb", "Static"],
+    "hiddenAbility": "Slush Rush",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/arctozolt.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/arctozolt.png",
+    "baseStats": {
+      "hp": 90,
+      "atk": 100,
+      "def": 90,
+      "spA": 90,
+      "spD": 80,
+      "spe": 55
+    },
+    "weight": 150,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Monster", "Water 3"],
+      "egg": "Arctozolt",
+      "altEgg": "Arctozolt"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Dracovish",
+    "types": ["Water", "Dragon"],
+    "abilities": ["Water Absorb", "Strong Jaw"],
+    "hiddenAbility": "Sand Rush",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/dracovish.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/dracovish.png",
+    "baseStats": {
+      "hp": 90,
+      "atk": 90,
+      "def": 100,
+      "spA": 70,
+      "spD": 80,
+      "spe": 75
+    },
+    "weight": 215,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Monster", "Dragon"],
+      "egg": "Dracovish",
+      "altEgg": "Dracovish"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Arctovish",
+    "types": ["Electric", "Dragon"],
+    "abilities": ["Water Absorb", "Ice Body"],
+    "hiddenAbility": "Slush Rush",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/arctovish.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/arctovish.png",
+    "baseStats": {
+      "hp": 90,
+      "atk": 90,
+      "def": 100,
+      "spA": 80,
+      "spD": 90,
+      "spe": 55
+    },
+    "weight": 175,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Monster", "Water 3"],
+      "egg": "Arctovish",
+      "altEgg": "Arctovish"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Duraludon",
+    "types": ["Steel", "Dragon"],
+    "abilities": ["Light Metal", "Heavy Metal"],
+    "hiddenAbility": "Stalwart",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/duraludon.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/duraludon.png",
+    "baseStats": {
+      "hp": 70,
+      "atk": 95,
+      "def": 115,
+      "spA": 120,
+      "spD": 50,
+      "spe": 85
+    },
+    "weight": 40,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Dragon", "Mineral"],
+      "egg": "Duraludon",
+      "altEgg": "Duraludon"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Dreepy",
+    "types": ["Dragon", "Ghost"],
+    "abilities": ["Clear Body", "Infiltrator"],
+    "hiddenAbility": "Cursed Body",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/dreepy.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/dreepy.png",
+    "baseStats": {
+      "hp": 28,
+      "atk": 60,
+      "def": 30,
+      "spA": 40,
+      "spD": 30,
+      "spe": 82
+    },
+    "weight": 2,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous", "Dragon"],
+      "egg": "Dreepy",
+      "altEgg": "Dreepy"
+    },
+    "stages": {
+      "current": 0,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Drakloak",
+        "condition": 50
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Drakloak",
+    "types": ["Dragon", "Ghost"],
+    "abilities": ["Clear Body", "Infiltrator"],
+    "hiddenAbility": "Cursed Body",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/drakloak.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/drakloak.png",
+    "baseStats": {
+      "hp": 68,
+      "atk": 80,
+      "def": 50,
+      "spA": 60,
+      "spD": 50,
+      "spe": 102
+    },
+    "weight": 11,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous", "Dragon"],
+      "egg": "Dreepy",
+      "altEgg": "Dreepy"
+    },
+    "stages": {
+      "current": 1,
+      "max": 2
+    },
+    "evolutionDetails": [
+      {
+        "evolution": "Dragapult",
+        "condition": 60
+      }
+    ],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Dragapult",
+    "types": ["Dragon", "Ghost"],
+    "abilities": ["Clear Body", "Infiltrator"],
+    "hiddenAbility": "Cursed Body",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/dragapult.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/dragapult.png",
+    "baseStats": {
+      "hp": 88,
+      "atk": 120,
+      "def": 75,
+      "spA": 100,
+      "spD": 75,
+      "spe": 142
+    },
+    "weight": 50,
+    "baseFriendship": 50,
+    "spawnRate": "",
+    "genderRatio": 50,
+    "breeding": {
+      "eggGroups": ["Amorphous", "Dragon"],
+      "egg": "Dreepy",
+      "altEgg": "Dreepy"
+    },
+    "stages": {
+      "current": 2,
+      "max": 2
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Zacian Hero of Many Battles",
+    "types": ["Fairy"],
+    "abilities": ["Intrepid Sword"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/zacian-hero.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/zacian-hero.png",
+    "baseStats": {
+      "hp": 92,
+      "atk": 130,
+      "def": 115,
+      "spA": 80,
+      "spD": 115,
+      "spe": 138
+    },
+    "weight": 110,
+    "baseFriendship": 0,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Zacian Hero of Many Battles",
+      "altEgg": "Zacian Hero of Many Battles"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Zacian Crowned Sword",
+    "types": ["Fairy", "Steel"],
+    "abilities": ["Intrepid Sword"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/zacian.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/zacian.png",
+    "baseStats": {
+      "hp": 92,
+      "atk": 170,
+      "def": 115,
+      "spA": 80,
+      "spD": 115,
+      "spe": 148
+    },
+    "weight": 355,
+    "baseFriendship": 0,
+    "spawnRate": -1,
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Zacian Hero of Many Battles",
+      "altEgg": "Zacian Hero of Many Battles"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Zamazenta Hero of Many Battles",
+    "types": ["Fighting"],
+    "abilities": ["Dauntless Shield"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/zamazenta-hero.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/zamazenta-hero.png",
+    "baseStats": {
+      "hp": 92,
+      "atk": 130,
+      "def": 115,
+      "spA": 80,
+      "spD": 115,
+      "spe": 138
+    },
+    "weight": 210,
+    "baseFriendship": 0,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Zamazenta Hero of Many Battles",
+      "altEgg": "Zamazenta Hero of Many Battles"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Zamazenta Crowned Shield",
+    "types": ["Fighting", "Steel"],
+    "abilities": ["Dauntless Shield"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/zamazenta.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/zamazenta.png",
+    "baseStats": {
+      "hp": 92,
+      "atk": 130,
+      "def": 145,
+      "spA": 80,
+      "spD": 145,
+      "spe": 128
+    },
+    "weight": 785,
+    "baseFriendship": 0,
+    "spawnRate": -1,
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Zamazenta Hero of Many Battles",
+      "altEgg": "Zamazenta Hero of Many Battles"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
+    },
+    "evolutionDetails": [],
+    "moves": [
+      {
+        "learnConditions": [],
+        "name": ""
+      },
+      {
+        "learnConditions": [],
+        "name": ""
+      }
+    ]
+  },
+  {
+    "name": "Eternatus",
+    "types": ["Poison", "Dragon"],
+    "abilities": ["Pressure"],
+    "hiddenAbility": "",
+    "sprite": "https://img.pokemondb.net/sprites/home/normal/eternatus.png",
+    "shinySprite": "https://img.pokemondb.net/sprites/home/shiny/eternatus.png",
+    "baseStats": {
+      "hp": 140,
+      "atk": 85,
+      "def": 95,
+      "spA": 145,
+      "spD": 95,
+      "spe": 130
+    },
+    "weight": 950,
+    "baseFriendship": 0,
+    "spawnRate": "",
+    "genderRatio": -1,
+    "breeding": {
+      "eggGroups": ["Legendary"],
+      "egg": "Eternatus",
+      "altEgg": "Eternatus"
+    },
+    "stages": {
+      "current": 0,
+      "max": 0
     },
     "evolutionDetails": [],
     "moves": [
