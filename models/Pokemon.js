@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const pokemonSchema = new mongoose.Schema({
+const PokemonSchema = new mongoose.Schema({
   name: {
     type: String,
   },
@@ -46,4 +46,4 @@ const pokemonSchema = new mongoose.Schema({
 });
 
 //Export the model using the schema above
-module.exports = mongoose.model("pokemon", pokemonSchema);
+module.exports = mongoose.model("pokemon", PokemonSchema);

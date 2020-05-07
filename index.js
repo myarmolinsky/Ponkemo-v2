@@ -21,13 +21,10 @@ app.use(function (req, res, next) {
 
 app.use(express.json({ extended: false }));
 
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/pokemon", require("./routes/api/pokemon"));
+
 app.get("/", async (req, res) => {
-  for (let p of dex) {
-    if ((await Pokemon.findOneAndUpdate({ name: p.name }, p)) === null) {
-      let poke = new Pokemon(p);
-      await poke.save();
-    } //add objects from the json if they don't already exist in the database
-  }
   res.send("Hello from the backend!");
 });
 
