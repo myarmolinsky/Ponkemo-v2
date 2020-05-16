@@ -16,7 +16,7 @@ const User = require("../../models/User"); //bring in our User model
 router.post(
   "/",
   [
-    check("username", "Name is required") //first parameter in check is which piece of data we are checking, second parameter is a custom error message
+    check("username", "Username is required") //first parameter in check is which piece of data we are checking, second parameter is a custom error message
       //if a custom error message is not passed, then some generic error message will be used
       .not()
       .isEmpty(), //.not().isEmpty() is our rule for this piece of data. it means that we want this piece of data to not be empty

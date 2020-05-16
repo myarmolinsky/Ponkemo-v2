@@ -4,7 +4,7 @@ const UserSchema = new mongoose.Schema({
   //create our schema
   //mongoose.Schema() takes in an object with all the fields that we want
   username: {
-    //we want our user to have a name of type String so we set 'name' to an object of type 'String'
+    //we want our user to have a name of type String so we set 'username' to an object of type 'String'
     type: String,
     required: true, //we also want this field to be required so we set 'required' to 'true'
   },

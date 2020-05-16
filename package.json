@@ -2,33 +2,35 @@
   "name": "ponkemo-v2",
   "version": "1.0.0",
   "description": "Reinventing/Rebooting Ponkemo",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/myarmolinsky/Ponkemo-v2.git"
   },
-  "author": "",
+  "author": "Matthew Yarmolinsky",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/myarmolinsky/Ponkemo-v2/issues"
   },
-  "devDependencies": {
-    "nodemon": "^1.19.4"
-  },
+  "homepage": "https://github.com/myarmolinsky/Ponkemo-v2#readme",
   "dependencies": {
-    "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
-    "config": "^3.2.2",
+    "config": "^3.2.4",
     "express": "^4.17.1",
-    "express-validator": "^6.4.1",
+    "express-validator": "^6.3.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.7.3",
-    "node-fetch": "^2.6.0",
-    "react-bootstrap": "^1.0.0-beta.12"
+    "mongoose": "^5.8.1",
+    "request": "^2.88.0"
   },
-  "homepage": "https://github.com/myarmolinsky/Ponkemo-v2#readme"
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.3"
+  }
 }

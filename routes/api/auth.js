@@ -34,9 +34,8 @@ router.post(
   //this route's post request was based on the "users.js" route's post request so check there for any other comments about the code
   "/",
   [
-    //a user logging in only puts in their email and password
-    check("email", "Please include a valid email").isEmail(), //validate that the email they entered is in the form of an email
-    check("password", "Password is required").exists() //make sure that the password exists
+    //a user logging in only puts in their username and password
+    check("password", "Password is required").exists(), //make sure that the password exists
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -44,11 +43,11 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { email, password } = req.body; //our request body for logging in only passes an email and password so that's all we pull from the req.body
+    const { username, password } = req.body; //our request body for logging in only passes a username and password so that's all we pull from the req.body
 
     try {
       //check for the user
-      let user = await User.findOne({ email });
+      let user = await User.findOne({ username });
       if (!user) {
         //if there is NOT a user with the given credentials
         return res
@@ -70,8 +69,8 @@ router.post(
 
       const payload = {
         user: {
-          id: user.id
-        }
+          id: user.id,
+        },
       };
 
       jwt.sign(
