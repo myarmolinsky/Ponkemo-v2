@@ -3,6 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import Register from "../auth/Register";
 import Login from "../auth/Login";
 import Dashboard from "../dashboard/Dashboard";
+import Pokedex from "../pokedex/Pokedex";
+import Pokemon from "../pokedex/Pokemon";
 import PrivateRoute from "../routing/PrivateRoute";
 import NotFound from "../layout/NotFound";
 
@@ -16,6 +18,8 @@ const Routes = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <PrivateRoute exact path="/pokedex/" component={Pokedex} />
+        <PrivateRoute exact path="/pokedex/:pokemon" component={Pokemon} />
         <Route component={NotFound} />
       </Switch>
     </section>

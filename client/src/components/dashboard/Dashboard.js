@@ -14,7 +14,7 @@ const Dashboard = ({ auth: { user } }) => {
       {/*if still loading and the profile is null, show the loading spinner graphic, else show our Fragment*/}
       <h1 className="large text-primary">Dashboard</h1>
       <p className="lead">
-        <i className="fas fa-user"> Welcome {user && user.name}</i>
+        <i className="fas fa-user"> Welcome {user && user.username}</i>
         {/*if the user exists, show the user's name*/}
       </p>
     </Fragment>
@@ -29,5 +29,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-// export default connect(mapStateToProps, { deleteAccount })(Dashboard);
 export default connect(mapStateToProps, {})(Dashboard);

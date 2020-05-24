@@ -488,6 +488,11 @@ button {
   margin-bottom: 0.5rem;
 }
 
+.sprite {
+  height: 100px;
+  width: 100px;
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .container {

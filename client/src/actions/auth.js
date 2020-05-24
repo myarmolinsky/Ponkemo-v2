@@ -76,7 +76,6 @@ export const login = (username, password) => async (dispatch) => {
   const body = JSON.stringify({ username, password });
   try {
     const res = await axios.post("/api/auth", body, config); //we are authenticating so we want to send a post request to '/api/auth'
-    console.log("test");
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data, //in this case, the payload will be a token
