@@ -19,7 +19,7 @@ const Routes = () => {
         <Route exact path="/login" component={Login} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute exact path="/pokedex/" component={Pokedex} />
-        <PrivateRoute exact path="/pokedex/:pokemon" component={Pokemon} />
+        <PrivateRoute exact path="/pokedex/:id" component={Pokemon} />
         <Route component={NotFound} />
       </Switch>
     </section>

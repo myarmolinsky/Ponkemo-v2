@@ -1,13 +1,49 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { getAllPokemon } from "../../actions/pokemon";
 
-const Pokedex = () => {
+const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
+  useEffect(() => {
+    getAllPokemon();
+  }, [getAllPokemon]);
+
   return (
     <Fragment>
-      <h1 className="large text-primary">Pokedex</h1>
-      <p className="lead">Display all Pokemon</p>
+      {pokedex === null || loading ? (
+        <Fragment>
+          <p>loading...</p>
+        </Fragment>
+      ) : (
+        <Fragment>
+          {pokedex.map((item) => (
+            <Link key={item.name} to={`/pokedex/${item.id}`}>
+              <div className="pokedex-item">
+                <img src={item.sprite} className="sprite" alt={item.name} />
+                <span
+                  className={
+                    item.name.length < 15 ? "caption" : "small-caption"
+                  }
+                >
+                  [{item.name}]
+                </span>
+              </div>
+            </Link>
+          ))}
+        </Fragment>
+      )}
     </Fragment>
   );
 };
 
-export default connect()(Pokedex);
+Pokedex.propTypes = {
+  getAllPokemon: PropTypes.func.isRequired,
+  pokemon: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  pokemon: state.pokemon,
+});
+
+export default connect(mapStateToProps, { getAllPokemon })(Pokedex);

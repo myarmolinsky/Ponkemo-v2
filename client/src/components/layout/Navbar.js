@@ -16,6 +16,14 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Link>
       </li>
       <li>
+        <Link to="/pokedex">
+          <i className="fas fa-circle"></i>{" "}
+          {/*the above line is so that an icon is displayed with the button*/}
+          <span className="hide-sm">Pokedex</span>{" "}
+          {/*the span surrounding 'Dashboard' is so that it shows up on mobile devices*/}
+        </Link>
+      </li>
+      <li>
         <a onClick={logout} href="#!">
           <i className="fas fa-sign-out-alt"></i>{" "}
           <span className="hide-sm">Logout</span>

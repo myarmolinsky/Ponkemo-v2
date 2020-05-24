@@ -7,26 +7,26 @@ const Pokemon = require("../../models/Pokemon");
 // @access Public
 router.get("/", async (req, res) => {
   try {
-    const pokemon = await Pokemon.findOne(req.pokemon);
-    res.json(pokemon);
+    const pokedex = await Pokemon.find({});
+    res.json(pokedex);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
 });
 
-// @route GET api/pokemon
-// @desc Get a Pokemon by the name provided
+// @route GET api/pokemon/:id
+// @desc Get a Pokemon by the id provided
 // @access Public
-router.get("/:name", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const pokemons = {
       pokemon: null,
       previousPokemon: null,
       nextPokemon: null,
     };
-    const pokemon = await Pokemon.findOne({ name: req.params.name });
-    pokemons.pokemon = await Pokemon.findOne({ name: req.params.name });
+    const pokemon = await Pokemon.findOne({ id: req.params.id });
+    pokemons.pokemon = await Pokemon.findOne({ id: req.params.id });
     if (!pokemons) {
       return res.status(400).json({ msg: "Pokemon not found" });
     }

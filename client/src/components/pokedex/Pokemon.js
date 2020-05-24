@@ -10,8 +10,8 @@ const Pokemon = ({
   pokemon: { pokemon, previousPokemon, nextPokemon, loading },
 }) => {
   useEffect(() => {
-    getPokemon(match.params.pokemon);
-  }, [getPokemon, match.params.pokemon]);
+    getPokemon(match.params.id);
+  }, [getPokemon, match.params.id]);
 
   return (
     <Fragment>
@@ -26,7 +26,7 @@ const Pokemon = ({
               to={
                 previousPokemon !== null && pokemon.id > 1
                   ? () => {
-                      return `/pokedex/${previousPokemon.name}`;
+                      return `/pokedex/${previousPokemon.id}`;
                     }
                   : () => {
                       return;
@@ -40,7 +40,7 @@ const Pokemon = ({
               to={
                 nextPokemon !== null && pokemon.id < 1030
                   ? () => {
-                      return `/pokedex/${nextPokemon.name}`;
+                      return `/pokedex/${nextPokemon.id}`;
                     }
                   : () => {
                       return;
@@ -102,6 +102,7 @@ const Pokemon = ({
             ""
           )}
           <br />
+          {/* Make moves invisible for Pokemon with no moves listed */}
           <p className="lead">Moves:</p>
           <p>
             {pokemon.moves.map((item) => (
@@ -116,6 +117,7 @@ const Pokemon = ({
   );
 };
 
+// ADD THE REST OF THE EVOLUTION CONDITIONS
 const evolutionCondition = (condition) => {
   if (typeof condition === "number") {
     return "at level " + condition;
@@ -153,6 +155,28 @@ const evolutionCondition = (condition) => {
         return "by leveling up a Gligar while it holds a Razor Fang";
       case "Razor Claw":
         return "by leveling up a Sneasel while it holds a Razor Claw";
+      case "Wormadam":
+        return "by leveling up a female Burmy to level 20";
+      case "Mothim":
+        return "by leveling up a male Burmy to level 20";
+      case "Gallade":
+        return "by using a Dawn Stone on a male Kirlia";
+      case "Salazzle":
+        return "by leveling up a female Salandit to level 33";
+      case "Froslass":
+        return "by using a Dawn Stone on a female Snorunt";
+      case "Double Hit":
+        return "by leveling up while it knows Double Hit";
+      case "Mimic":
+        return "by leveling up while it knows Mimic";
+      case "Taunt":
+        return "by leveling up while it knows Taunt";
+      case "Rollout":
+        return "by leveling up while it knows Rollout";
+      case "Dragon Pulse":
+        return "by leveling up while it knows Dragon Pulse";
+      case "Stomp":
+        return "by leveling up while it knows Stomp";
       default:
         return;
     }
@@ -202,10 +226,14 @@ const learnMoveCondition = (conditions) => {
 Pokemon.propTypes = {
   getPokemon: PropTypes.func.isRequired,
   pokemon: PropTypes.object.isRequired,
+  previousPokemon: PropTypes.object,
+  nextPokemon: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
   pokemon: state.pokemon,
+  previousPokemon: state.previousPokemon,
+  nextPokemon: state.nextPokemon,
 });
 
 export default connect(mapStateToProps, { getPokemon })(Pokemon);
