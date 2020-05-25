@@ -2,6 +2,7 @@ import {
   LOAD_POKEMON,
   LOAD_ALL_POKEMON,
   POKEMON_NOT_FOUND,
+  CLEAR_POKEMON,
 } from "../actions/types";
 
 const initialState = {
@@ -16,6 +17,14 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
+    case CLEAR_POKEMON:
+      return {
+        ...state,
+        pokemon: null,
+        nextPokemon: null,
+        previousPokemon: null,
+        loading: false,
+      };
     case LOAD_POKEMON:
       return {
         ...state,

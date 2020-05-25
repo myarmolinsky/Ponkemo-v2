@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getAllPokemon } from "../../actions/pokemon";
+import Spinner from "../layout/Spinner";
 
 const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
   useEffect(() => {
@@ -13,7 +14,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
     <Fragment>
       {pokedex === null || loading ? (
         <Fragment>
-          <p>loading...</p>
+          <Spinner />
         </Fragment>
       ) : (
         <Fragment>

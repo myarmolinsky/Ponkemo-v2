@@ -1,8 +1,15 @@
 import axios from "axios";
-import { LOAD_POKEMON, LOAD_ALL_POKEMON, POKEMON_NOT_FOUND } from "./types";
+import {
+  LOAD_POKEMON,
+  LOAD_ALL_POKEMON,
+  POKEMON_NOT_FOUND,
+  CLEAR_POKEMON,
+} from "./types";
 
 // Load Pokemon
 export const getPokemon = (id) => async (dispatch) => {
+  dispatch({ type: CLEAR_POKEMON });
+
   try {
     const res = await axios.get(`/api/pokemon/${id}`);
 
@@ -20,6 +27,8 @@ export const getPokemon = (id) => async (dispatch) => {
 
 // Load Pokedex
 export const getAllPokemon = () => async (dispatch) => {
+  dispatch({ type: CLEAR_POKEMON });
+
   try {
     const res = await axios.get(`/api/pokemon/`);
 

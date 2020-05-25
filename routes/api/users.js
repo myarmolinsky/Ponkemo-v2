@@ -42,8 +42,17 @@ router.post(
     //.findOne() returns a promise so we have to use async await
 
     try {
-      // See if user exists (if they exist then we send back an error because we don't want two users with the same email)
-      let user = await User.findOne({ email }); //this will get the user by searching by the given object
+      // See if user exists (if they exist then we send back an error because we don't want two users with the same username or email)
+      let user = await User.findOne({ username }); //this will get the user by searching by the given object
+      if (user) {
+        //if the user exists:
+        return res //return is required before this res because it is not the last res. otherwise you would get an error. only the last res does not need a return before it
+          .status(400)
+          .json({ errors: [{ msg: "User already exists" }] }); //bad request because the user already exists
+        //in order to match the same type of error response that we get above when calling "res.status(400).json({ errors: errors.array() })", we pass .json() the above object
+      } //everything after this if statement only runs if 'user' does not exist
+
+      user = await User.findOne({ email }); //this will get the user by searching by the given object
       if (user) {
         //if the user exists:
         return res //return is required before this res because it is not the last res. otherwise you would get an error. only the last res does not need a return before it

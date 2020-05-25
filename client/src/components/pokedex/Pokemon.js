@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getPokemon } from "../../actions/pokemon";
+import Spinner from "../layout/Spinner";
 
 const Pokemon = ({
   match,
@@ -10,6 +11,7 @@ const Pokemon = ({
   pokemon: { pokemon, previousPokemon, nextPokemon, loading },
 }) => {
   useEffect(() => {
+    window.scrollTo(0, 0);
     getPokemon(match.params.id);
   }, [getPokemon, match.params.id]);
 
@@ -17,7 +19,7 @@ const Pokemon = ({
     <Fragment>
       {pokemon === null || loading ? (
         <Fragment>
-          <p>loading...</p>
+          <Spinner />
         </Fragment>
       ) : (
         <Fragment>
@@ -102,15 +104,20 @@ const Pokemon = ({
             ""
           )}
           <br />
-          {/* Make moves invisible for Pokemon with no moves listed */}
-          <p className="lead">Moves:</p>
-          <p>
-            {pokemon.moves.map((item) => (
-              <li key={item.name}>
-                {item.name} via {learnMoveCondition(item.learnConditions)}
-              </li>
-            ))}
-          </p>
+          {pokemon.moves.length < 1 ? (
+            ""
+          ) : (
+            <Fragment>
+              <p className="lead">Moves:</p>
+              <p>
+                {pokemon.moves.map((item) => (
+                  <li key={item.name}>
+                    {item.name} via {learnMoveCondition(item.learnConditions)}
+                  </li>
+                ))}
+              </p>
+            </Fragment>
+          )}
         </Fragment>
       )}
     </Fragment>
@@ -177,6 +184,10 @@ const evolutionCondition = (condition) => {
         return "by leveling up while it knows Dragon Pulse";
       case "Stomp":
         return "by leveling up while it knows Stomp";
+      case "Meowstic Male":
+        return "by leveling up a male Espurr to level 25";
+      case "Meowstic Female":
+        return "by leveling up a female Espurr to level 25";
       default:
         return;
     }
