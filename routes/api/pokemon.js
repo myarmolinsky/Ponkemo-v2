@@ -20,17 +20,15 @@ router.get("/", async (req, res) => {
 // @access Public
 router.get("/:id", async (req, res) => {
   try {
-    const pokemon = await Pokemon.findOne({ id: req.params.id });
-    if (!pokemon) {
-      return res.status(400).json({ msg: "Pokemon not found" });
-    }
+    const pokedex = await Pokemon.find({});
+    let pokemon;
+    // if id is greater than the amount of pokemon int he pokedex or less than 1
+    if (req.params.id > pokedex.length || req.params.id < 1) pokemon = {};
+    else pokemon = await Pokemon.findOne({ id: req.params.id });
 
     res.json(pokemon);
   } catch (err) {
     console.error(err.message);
-    if (err.kind == "ObjectId") {
-      return res.status(400).json({ msg: "Pokemon not found" });
-    }
     res.status(500).send("Server Error");
   }
 });
@@ -40,12 +38,14 @@ router.get("/:id", async (req, res) => {
 // @access Private
 router.post("/:id", async (req, res) => {
   try {
-    const pokemon = await Pokemon.findOneAndUpdate(
+    // try to find the Pokemon with the matching id
+    let pokemon = await Pokemon.findOneAndUpdate(
       { id: req.params.id },
       req.body
     );
 
     if (!pokemon) {
+      // if there isn't one, make a new one with the given information
       const {
         name,
         sprite,

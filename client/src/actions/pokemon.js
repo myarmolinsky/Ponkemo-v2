@@ -58,6 +58,7 @@ export const updatePokemon = (id, formData, edit = true) => async (
       },
     };
 
+    // translate the formData into an object that can be passed into the database
     const realData = {
       name: formData.name,
       sprite: formData.sprite,
@@ -89,6 +90,7 @@ export const updatePokemon = (id, formData, edit = true) => async (
       },
     };
 
+    // make sure there are no duplicate moves (adding the duplicates' learn conditions to the original) and no duplicate learn conditions for each move
     let moves = [];
     let conditions = [];
     let uniqueMoves = [];

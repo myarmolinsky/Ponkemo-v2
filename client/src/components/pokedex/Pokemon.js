@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getPokemon, getAllPokemon } from "../../actions/pokemon";
 import Spinner from "../layout/Spinner";
+import NotFound from "../layout/NotFound";
 
 const Pokemon = ({
   match,
@@ -24,9 +25,13 @@ const Pokemon = ({
         <Fragment>
           <Spinner />
         </Fragment>
+      ) : match.params.id > pokedex.length || match.params.id < 1 ? (
+        // if the page the user is trying to go to a Pokemon that does not exist
+        <NotFound />
       ) : (
         <Fragment>
           <div className="buttons">
+            {/* If there is a previous pokemon, have a link to its page */}
             <Link
               to={
                 pokemon.id > 1
@@ -41,6 +46,7 @@ const Pokemon = ({
             >
               Previous Pokemon
             </Link>
+            {/* If there is a next pokemon, have a link to its page */}
             <Link
               to={
                 pokemon.id < pokedex.length
@@ -59,7 +65,8 @@ const Pokemon = ({
             </Link>
           </div>
           <h1 className="large text-primary">
-            {pokemon.name}{" "}
+            {/* Name*/}
+            {pokemon.name} {/* Edit link for users with "admin" privileges */}
             {user !== null && user.privileges === "admin" ? (
               <Link
                 className="lead edit-link"
@@ -71,23 +78,31 @@ const Pokemon = ({
               ""
             )}
           </h1>
+          {/* Sprite */}
           <img className="sprite" src={pokemon.sprite} alt={pokemon.name} />
+          {/* Shiny Sprite */}
           <img
             className="sprite"
             src={pokemon.shinySprite}
             alt={`Shiny ${pokemon.name}`}
           />
+          {/* Types */}
           <p className="lead">
             Types: {pokemon.types[0]}
             {pokemon.types.length > 1 ? ", " + pokemon.types[1] : ""}
           </p>
+          {/* Abilities */}
           <p className="lead">
             Abilities: {pokemon.abilities[0]}
             {pokemon.abilities.length > 1 ? ", " + pokemon.abilities[1] : ""}
           </p>
+          {/* Hidden Ability */}
           <p className="lead">Hidden Ability: {pokemon.hiddenAbility}</p>
+          {/* Weight in kg */}
           <p className="lead">Weight: {pokemon.weight} kg</p>
+          {/* Base Friendship */}
           <p className="lead">Base Friendship: {pokemon.baseFriendship}</p>
+          {/* Base Stats */}
           <p className="lead">Base Stats:</p>
           <p>Health: {pokemon.baseStats.hp}</p>
           <p>Attack: {pokemon.baseStats.atk}</p>
@@ -96,19 +111,25 @@ const Pokemon = ({
           <p>Special Defense: {pokemon.baseStats.spD}</p>
           <p>Speed: {pokemon.baseStats.spe}</p>
           <br />
+          {/* Egg Groups */}
           <p className="lead">
             Egg Groups: {pokemon.breeding.eggGroups[0]}
             {pokemon.breeding.eggGroups.length > 1
               ? ", " + pokemon.breeding.eggGroups[1]
               : ""}
           </p>
+          {/* Pokemon that hatches from the egg if it is a male */}
           <p>Male Egg: {pokemon.breeding.egg}</p>
+          {/* Pokemon that hatches from the egg if it is a female */}
           <p>Female Egg: {pokemon.breeding.altEgg}</p>
           <br />
+          {/* Spawn Rate */}
           <p className="lead">Spawn Rate: {pokemon.spawnRate}</p>
+          {/* Show what the pokemon evolves into only if the Pokemon evolves into something */}
           {pokemon.stages.current !== pokemon.stages.max ? (
             <Fragment>
               <p className="lead">Evolves into:</p>
+              {/* Show each evolution and how to obtain it */}
               <p>
                 {pokemon.evolutionDetails.map((item) => (
                   <li key={item.evolution}>
@@ -121,11 +142,13 @@ const Pokemon = ({
           ) : (
             ""
           )}
+          {/* Show moves only if the Pokemon has moves (ex. Megas do not have moves) */}
           {pokemon.moves.length < 1 ? (
             ""
           ) : (
             <Fragment>
               <p className="lead">Moves:</p>
+              {/* Show the move and the ways the Pokemon can learn it */}
               <p>
                 {pokemon.moves.map((item) => (
                   <li key={item.name}>
@@ -141,6 +164,7 @@ const Pokemon = ({
   );
 };
 
+// Return the condition for evolving a Pokemon
 const evolutionCondition = (condition) => {
   if (typeof condition === "number") {
     return "at level " + condition;
@@ -210,7 +234,9 @@ const evolutionCondition = (condition) => {
   }
 };
 
+// Return the conditions for learning a move
 const learnMoveCondition = (conditions) => {
+  // if there is only one condition, just show it
   if (conditions.length === 1) {
     return typeof conditions[0] === "number"
       ? "level " + conditions[0]
@@ -220,10 +246,12 @@ const learnMoveCondition = (conditions) => {
       ? "Move Tutor"
       : conditions[0];
   } else {
+    // if there is more than one condition, show the first one
     let list =
       typeof conditions[0] === "number"
         ? "level " + conditions[0]
         : conditions[0];
+    // then go through the list of conditions, showing each one separated by proper grammar (commas and "and")
     for (let i = 1; i < conditions.length; i++) {
       if (conditions.length > 2) list += ", ";
       else list += " ";
