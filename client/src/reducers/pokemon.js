@@ -3,14 +3,13 @@ import {
   LOAD_ALL_POKEMON,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
+  UPDATE_POKEMON,
 } from "../actions/types";
 
 const initialState = {
   loading: true, //make sure the loading is done (we've already made a request to the backend and got a response)
   pokedex: [],
   pokemon: null,
-  nextPokemon: null,
-  previousPokemon: null,
 };
 
 export default function (state = initialState, action) {
@@ -21,16 +20,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         pokemon: null,
-        nextPokemon: null,
-        previousPokemon: null,
-        loading: false,
       };
     case LOAD_POKEMON:
       return {
         ...state,
-        pokemon: payload.pokemon,
-        nextPokemon: payload.nextPokemon,
-        previousPokemon: payload.previousPokemon,
+        pokemon: payload,
         loading: false,
       };
     case LOAD_ALL_POKEMON:
@@ -42,6 +36,12 @@ export default function (state = initialState, action) {
     case POKEMON_NOT_FOUND:
       return {
         ...state,
+        loading: false,
+      };
+    case UPDATE_POKEMON:
+      return {
+        ...state,
+        pokemon: payload,
         loading: false,
       };
     default:

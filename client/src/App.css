@@ -62,6 +62,11 @@ img {
   margin-bottom: 1rem;
 }
 
+.edit-link {
+  color: blue;
+  text-decoration: underline;
+}
+
 .text-center {
   text-align: center;
 }
@@ -271,6 +276,10 @@ button {
 
 .table th {
   background: var(--light-color);
+}
+
+textarea {
+  resize: none;
 }
 
 /* Navbar */

@@ -17,6 +17,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  privileges: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = User = mongoose.model("user", UserSchema); //export this as User which is a mongoose model

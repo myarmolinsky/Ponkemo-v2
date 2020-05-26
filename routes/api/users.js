@@ -66,6 +66,7 @@ router.post(
         username,
         email,
         password, //this password is not hashed/encrypted yet so we will need to do that
+        privileges: "standard",
       }); //this does not save the user, it just creates a new instance
       //we need to call user.save() to actually save it to the database
       //before we save we want to encrypt the password with bcrypt
@@ -99,7 +100,7 @@ router.post(
         payload,
         config.get("jwtSecret"), //our signed jwt has to have some kind of secret
         //you don't want to just put your secret here so we made it inside our default.json inside our config folder
-        { expiresIn: 3600 }, //this parameter is optional. it is a set of options
+        {}, //this parameter is optional. it is a set of options
         //the one we are using is 'expiresIn', which makes the token expire in the given amount of seconds
         //we set it to 3600 seconds so that the token expires an hour after being made
         (err, token) => {

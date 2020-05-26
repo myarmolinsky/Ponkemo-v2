@@ -17,6 +17,7 @@ const Dashboard = ({ auth: { user } }) => {
         <i className="fas fa-user"> Welcome {user && user.username}</i>
         {/*if the user exists, show the user's name*/}
       </p>
+      {/* THIS IS WHERE ALL THE BUTTONS FOR CATCHING, FORAGING, TRAINING, ETC GO */}
     </Fragment>
   );
 };

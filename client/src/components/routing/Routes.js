@@ -5,6 +5,7 @@ import Login from "../auth/Login";
 import Dashboard from "../dashboard/Dashboard";
 import Pokedex from "../pokedex/Pokedex";
 import Pokemon from "../pokedex/Pokemon";
+import EditPokemon from "../pokemon-forms/EditPokemon";
 import PrivateRoute from "../routing/PrivateRoute";
 import NotFound from "../layout/NotFound";
 import Alert from "../layout/Alert";
@@ -20,8 +21,9 @@ const Routes = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
-        <PrivateRoute exact path="/pokedex/" component={Pokedex} />
-        <PrivateRoute exact path="/pokedex/:id" component={Pokemon} />
+        <Route exact path="/pokedex/" component={Pokedex} />
+        <Route exact path="/pokedex/:id" component={Pokemon} />
+        <PrivateRoute exact path="/pokedex/:id/edit" component={EditPokemon} />
         <Route component={NotFound} />
       </Switch>
     </section>

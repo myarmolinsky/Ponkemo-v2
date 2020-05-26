@@ -2,18 +2,21 @@ import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getPokemon } from "../../actions/pokemon";
+import { getPokemon, getAllPokemon } from "../../actions/pokemon";
 import Spinner from "../layout/Spinner";
 
 const Pokemon = ({
   match,
   getPokemon,
-  pokemon: { pokemon, previousPokemon, nextPokemon, loading },
+  getAllPokemon,
+  pokemon: { pokemon, pokedex, loading },
+  auth: { user },
 }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     getPokemon(match.params.id);
-  }, [getPokemon, match.params.id]);
+    getAllPokemon();
+  }, [getPokemon, getAllPokemon, match.params.id]);
 
   return (
     <Fragment>
@@ -26,9 +29,9 @@ const Pokemon = ({
           <div className="buttons">
             <Link
               to={
-                previousPokemon !== null && pokemon.id > 1
+                pokemon.id > 1
                   ? () => {
-                      return `/pokedex/${previousPokemon.id}`;
+                      return `/pokedex/${pokemon.id - 1}`;
                     }
                   : () => {
                       return;
@@ -40,25 +43,39 @@ const Pokemon = ({
             </Link>
             <Link
               to={
-                nextPokemon !== null && pokemon.id < 1030
+                pokemon.id < pokedex.length
                   ? () => {
-                      return `/pokedex/${nextPokemon.id}`;
+                      return `/pokedex/${pokemon.id + 1}`;
                     }
                   : () => {
                       return;
                     }
               }
-              className={pokemon.id < 1030 ? "btn btn-dark" : "btn btn-light"}
+              className={
+                pokemon.id < pokedex.length ? "btn btn-dark" : "btn btn-light"
+              }
             >
               Next Pokemon
             </Link>
           </div>
-          <h1 className="large text-primary">{pokemon.name}</h1>
-          <img className="sprite" src={pokemon.sprite} alt="Bulbasaur" />
+          <h1 className="large text-primary">
+            {pokemon.name}{" "}
+            {user !== null && user.privileges === "admin" ? (
+              <Link
+                className="lead edit-link"
+                to={`/pokedex/${pokemon.id}/edit`}
+              >
+                Edit
+              </Link>
+            ) : (
+              ""
+            )}
+          </h1>
+          <img className="sprite" src={pokemon.sprite} alt={pokemon.name} />
           <img
             className="sprite"
             src={pokemon.shinySprite}
-            alt="Shiny Bulbasaur"
+            alt={`Shiny ${pokemon.name}`}
           />
           <p className="lead">
             Types: {pokemon.types[0]}
@@ -99,11 +116,11 @@ const Pokemon = ({
                   </li>
                 ))}
               </p>
+              <br />
             </Fragment>
           ) : (
             ""
           )}
-          <br />
           {pokemon.moves.length < 1 ? (
             ""
           ) : (
@@ -124,7 +141,6 @@ const Pokemon = ({
   );
 };
 
-// ADD THE REST OF THE EVOLUTION CONDITIONS
 const evolutionCondition = (condition) => {
   if (typeof condition === "number") {
     return "at level " + condition;
@@ -236,15 +252,14 @@ const learnMoveCondition = (conditions) => {
 
 Pokemon.propTypes = {
   getPokemon: PropTypes.func.isRequired,
+  getAllPokemon: PropTypes.func.isRequired,
   pokemon: PropTypes.object.isRequired,
-  previousPokemon: PropTypes.object,
-  nextPokemon: PropTypes.object,
+  auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   pokemon: state.pokemon,
-  previousPokemon: state.previousPokemon,
-  nextPokemon: state.nextPokemon,
+  auth: state.auth,
 });
 
-export default connect(mapStateToProps, { getPokemon })(Pokemon);
+export default connect(mapStateToProps, { getPokemon, getAllPokemon })(Pokemon);
