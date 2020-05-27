@@ -37,6 +37,7 @@ const Pokemon = ({
     spe: 0,
     spawnRate: 0,
     moves: "[]",
+    evolutionDetails: "[]",
     id: currentId,
     eggGroups: "",
     egg: "",
@@ -110,7 +111,21 @@ const Pokemon = ({
                 .split("{")
                 .join("{\n")
                 .split('"},')
-                .join('"\n},\n'),
+                .join('"\n},\n')
+                .split("}]")
+                .join("\n}]"),
+        evolutionDetails:
+          loading || !pokemon.evolutionDetails
+            ? "[]"
+            : JSON.stringify(pokemon.evolutionDetails)
+                .split('",')
+                .join('",\n')
+                .split("{")
+                .join("{\n")
+                .split('"},')
+                .join('"\n},\n')
+                .split("}]")
+                .join("\n}]"),
         id: loading || !pokemon.id ? currentId : pokemon.id,
         eggGroups:
           loading ||
@@ -170,6 +185,7 @@ const Pokemon = ({
     currentStage,
     maxStage,
     genderRatio,
+    evolutionDetails,
   } = formData;
 
   const onChange = (e) =>
@@ -375,6 +391,16 @@ const Pokemon = ({
                 placeholder={maxStage}
                 name="maxStage"
                 value={maxStage}
+                onChange={(e) => onChange(e)}
+              />
+              {/* Evolution Details */}
+              <span className="lead">Evolution Details: </span>
+              <textarea
+                rows="5"
+                type="text"
+                placeholder={evolutionDetails}
+                name="evolutionDetails"
+                value={evolutionDetails}
                 onChange={(e) => onChange(e)}
               />
               {/* Base Stats */}
