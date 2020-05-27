@@ -22,7 +22,7 @@ router.get("/:id", async (req, res) => {
   try {
     const pokedex = await Pokemon.find({});
     let pokemon;
-    // if id is greater than the amount of pokemon int he pokedex or less than 1
+    // if id is greater than the amount of pokemon in the pokedex or less than 1
     if (req.params.id > pokedex.length || req.params.id < 1) pokemon = {};
     else pokemon = await Pokemon.findOne({ id: req.params.id });
 

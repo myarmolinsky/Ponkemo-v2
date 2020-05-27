@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {
   getPokemon,
-  getAllPokemon,
+  getPokedexLength,
   updatePokemon,
 } from "../../actions/pokemon";
 import Spinner from "../layout/Spinner";
@@ -13,9 +13,9 @@ import NotFound from "../layout/NotFound";
 const Pokemon = ({
   match,
   getPokemon,
-  getAllPokemon,
+  getPokedexLength,
   updatePokemon,
-  pokemon: { pokemon, pokedex, loading },
+  pokemon: { pokemon, pokedexLength, loading },
   auth: { user },
 }) => {
   let currentId = match.params.id;
@@ -36,9 +36,9 @@ const Pokemon = ({
     spD: 0,
     spe: 0,
     spawnRate: 0,
-    moves: [],
-    id: 0,
-    eggGroups: [],
+    moves: "[]",
+    id: currentId,
+    eggGroups: "",
     egg: "",
     altEgg: "",
     currentStage: 0,
@@ -49,9 +49,8 @@ const Pokemon = ({
   useEffect(() => {
     window.scrollTo(0, 0);
     getPokemon(currentId); // get the Pokemon with the matching id
-    getAllPokemon(); // get the Pokedex so we know how many Pokemon we have
 
-    if (pokemon && JSON.stringify(pokemon) !== "{}")
+    if (pokemon)
       // if we're editing an existing Pokemon
       setFormData({
         name: loading || !pokemon.name ? "" : pokemon.name,
@@ -59,22 +58,52 @@ const Pokemon = ({
         shinySprite: loading || !pokemon.shinySprite ? "" : pokemon.shinySprite,
         types: loading || !pokemon.types ? "" : pokemon.types.join(", "),
         abilities:
-          loading || !pokemon.abilities ? "" : pokemon.abilities.join(","),
+          loading || !pokemon.abilities ? "" : pokemon.abilities.join(", "),
         hiddenAbility:
           loading || !pokemon.hiddenAbility ? "" : pokemon.hiddenAbility,
         weight: loading || !pokemon.weight ? 0 : pokemon.weight,
         baseFriendship:
           loading || !pokemon.baseFriendship ? 0 : pokemon.baseFriendship,
-        hp: loading || !pokemon.baseStats.hp ? 0 : pokemon.baseStats.hp,
-        atk: loading || !pokemon.baseStats.atk ? 0 : pokemon.baseStats.atk,
-        def: loading || !pokemon.baseStats.def ? 0 : pokemon.baseStats.def,
-        spA: loading || !pokemon.baseStats.spA ? 0 : pokemon.baseStats.spA,
-        spD: loading || !pokemon.baseStats.spD ? 0 : pokemon.baseStats.spD,
-        spe: loading || !pokemon.baseStats.spe ? 0 : pokemon.baseStats.spe,
+        hp:
+          loading ||
+          !pokemon.baseStats ||
+          (pokemon.baseStats && !pokemon.baseStats.hp)
+            ? 0
+            : pokemon.baseStats.hp,
+        atk:
+          loading ||
+          !pokemon.baseStats ||
+          (pokemon.baseStats && !pokemon.baseStats.atk)
+            ? 0
+            : pokemon.baseStats.atk,
+        def:
+          loading ||
+          !pokemon.baseStats ||
+          (pokemon.baseStats && !pokemon.baseStats.def)
+            ? 0
+            : pokemon.baseStats.def,
+        spA:
+          loading ||
+          !pokemon.baseStats ||
+          (pokemon.baseStats && !pokemon.baseStats.spA)
+            ? 0
+            : pokemon.baseStats.spA,
+        spD:
+          loading ||
+          !pokemon.baseStats ||
+          (pokemon.baseStats && !pokemon.baseStats.spD)
+            ? 0
+            : pokemon.baseStats.spD,
+        spe:
+          loading ||
+          !pokemon.baseStats ||
+          (pokemon.baseStats && !pokemon.baseStats.spe)
+            ? 0
+            : pokemon.baseStats.spe,
         spawnRate: loading || !pokemon.spawnRate ? 0 : pokemon.spawnRate,
         moves:
           loading || !pokemon.moves
-            ? ""
+            ? "[]"
             : JSON.stringify(pokemon.moves)
                 .split("],")
                 .join("],\n")
@@ -82,48 +111,40 @@ const Pokemon = ({
                 .join("{\n")
                 .split('"},')
                 .join('"\n},\n'),
-        id: loading || !pokemon.id ? 0 : pokemon.id,
+        id: loading || !pokemon.id ? currentId : pokemon.id,
         eggGroups:
-          loading || !pokemon.breeding.eggGroups
+          loading ||
+          !pokemon.breeding ||
+          (pokemon.breeding && !pokemon.breeding.eggGroups)
             ? ""
             : pokemon.breeding.eggGroups.join(", "),
-        egg: loading || !pokemon.breeding.egg ? "" : pokemon.breeding.egg,
+        egg:
+          loading ||
+          !pokemon.breeding ||
+          (pokemon.breeding && !pokemon.breeding.egg)
+            ? ""
+            : pokemon.breeding.egg,
         altEgg:
-          loading || !pokemon.breeding.altEgg ? "" : pokemon.breeding.altEgg,
+          loading ||
+          !pokemon.breeding ||
+          (pokemon.breeding && !pokemon.breeding.altEgg)
+            ? ""
+            : pokemon.breeding.altEgg,
         currentStage:
-          loading || !pokemon.stages.current ? 0 : pokemon.stages.current,
-        maxStage: loading || !pokemon.stages.max ? 0 : pokemon.stages.max,
+          loading ||
+          !pokemon.stages ||
+          (pokemon.stages && !pokemon.stages.current)
+            ? 0
+            : pokemon.stages.current,
+        maxStage:
+          loading || !pokemon.stages || (pokemon.stages && !pokemon.stages.max)
+            ? 0
+            : pokemon.stages.max,
         genderRatio: loading || !pokemon.genderRatio ? 0 : pokemon.genderRatio,
       });
-    else {
-      // if we're creating a new Pokemon
-      setFormData({
-        name: "",
-        sprite: "",
-        shinySprite: "",
-        types: "",
-        abilities: "",
-        hiddenAbility: "",
-        weight: 0,
-        baseFriendship: 0,
-        hp: 0,
-        atk: 0,
-        def: 0,
-        spA: 0,
-        spD: 0,
-        spe: 0,
-        spawnRate: "",
-        moves: "[]",
-        id: currentId,
-        eggGroups: "",
-        egg: "",
-        altEgg: "",
-        currentStage: 0,
-        maxStage: 0,
-        genderRatio: 0,
-      });
-    }
-  }, [getPokemon, getAllPokemon, currentId, loading]);
+
+    if (pokedexLength === 0 || currentId > pokedexLength) getPokedexLength(); // get the Pokedex so we know how many Pokemon we have
+  }, [getPokemon, getPokedexLength, currentId, loading]);
 
   const {
     name,
@@ -157,10 +178,63 @@ const Pokemon = ({
   const onSubmit = (e) => {
     e.preventDefault();
     // if we are making a new Pokemon
-    if (currentId > pokedex.length) updatePokemon(currentId, formData, false);
+    if (currentId > pokedexLength) updatePokemon(currentId, formData, false);
     // if we are editing an existing Pokemon
     else updatePokemon(currentId, formData);
-    window.location.reload(); // reload the page so that all the proper data loads
+    if (currentId > pokedexLength) window.location.reload(); // reload the page so that all the proper data loads
+  };
+
+  // if there is a previous Pokemon, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
+  const previousPokemonButton = () => {
+    if (currentId > 1)
+      return (
+        <a className="btn btn-dark" href={`/pokedex/${currentId - 1}/edit`}>
+          Previous Pokemon
+        </a>
+      );
+    else return <button className="btn btn-light">Previous Pokemon</button>;
+  };
+
+  // if there is a next Pokemon, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
+  const nextPokemonButton = () => {
+    if (currentId < pokedexLength) {
+      return (
+        <a
+          className="btn btn-dark"
+          href={`/pokedex/${parseInt(currentId) + 1}/edit`}
+        >
+          {/* have to parseInt id because it thinks it's a string for some reason */}
+          Next Pokemon
+        </a>
+      );
+    } else return <button className="btn btn-light">Next Pokemon</button>;
+  };
+
+  // if you're not on the new Pokemon's page, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
+  const newPokemonButton = () => {
+    if (currentId <= pokedexLength) {
+      return (
+        <a className="btn btn-dark" href={`/pokedex/${pokedexLength + 1}/edit`}>
+          Add a New Pokemon
+        </a>
+      );
+    } else return <button className="btn btn-light">Add a New Pokemon</button>;
+  };
+
+  // if you're on a new Pokemon's page and it doesn't exist yet, return a grayed out button that takes you nowhere, otherwise return an <a> tag to it's normal page
+  const cancelButton = () => {
+    if (currentId > pokedexLength) {
+      return (
+        <a className="lead edit-link" href={`/pokedex/${currentId - 1}/`}>
+          Cancel
+        </a>
+      );
+    } else
+      return (
+        <a className="lead edit-link" href={`/pokedex/${currentId}/`}>
+          Cancel
+        </a>
+      );
   };
 
   return (
@@ -172,17 +246,17 @@ const Pokemon = ({
         <AccessDenied />
       ) : pokemon === null || loading ? (
         <Spinner />
-      ) : currentId > pokedex.length + 1 || currentId < 1 ? (
+      ) : currentId > pokedexLength + 1 || currentId < 1 ? (
         // if the page the user is trying to go to a Pokemon that does not exist
         <NotFound />
       ) : (
         <Fragment>
           <div className="buttons">
             {/* Link does not reload the page so I have to use <a> tags so I use these functions to determine which <a> tag to return depending on the page we're on */}
-            {previousPokemonButton(currentId)}
-            {nextPokemonButton(currentId, pokedex.length)}
-            {newPokemonButton(currentId, pokedex.length)}
-            {cancelButton(currentId, pokedex.length)}
+            {previousPokemonButton()}
+            {nextPokemonButton()}
+            {newPokemonButton()}
+            {cancelButton()}
           </div>
           <form className="form" onSubmit={(e) => onSubmit(e)}>
             <div className="form-group">
@@ -398,59 +472,9 @@ const Pokemon = ({
   );
 };
 
-// if there is a previous Pokemon, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
-const previousPokemonButton = (id) => {
-  if (id > 1)
-    return (
-      <a className="btn btn-dark" href={`/pokedex/${id - 1}/edit`}>
-        Previous Pokemon
-      </a>
-    );
-  else return <button className="btn btn-light">Previous Pokemon</button>;
-};
-
-// if there is a next Pokemon, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
-const nextPokemonButton = (id, maxID) => {
-  if (id < maxID) {
-    return (
-      <a className="btn btn-dark" href={`/pokedex/${parseInt(id) + 1}/edit`}>
-        {/* have to parseInt id because it thinks it's a string for some reason */}
-        Next Pokemon
-      </a>
-    );
-  } else return <button className="btn btn-light">Next Pokemon</button>;
-};
-
-// if you're not on the new Pokemon's page, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
-const newPokemonButton = (id, maxID) => {
-  if (id <= maxID) {
-    return (
-      <a className="btn btn-dark" href={`/pokedex/${maxID + 1}/edit`}>
-        Add a New Pokemon
-      </a>
-    );
-  } else return <button className="btn btn-light">Add a New Pokemon</button>;
-};
-
-// if you're on a new Pokemon's page and it doesn't exist yet, return a grayed out button that takes you nowhere, otherwise return an <a> tag to it's normal page
-const cancelButton = (id, maxID) => {
-  if (id > maxID) {
-    return (
-      <a className="lead edit-link" href={`/pokedex/${id - 1}/`}>
-        Cancel
-      </a>
-    );
-  } else
-    return (
-      <a className="lead edit-link" href={`/pokedex/${id}/`}>
-        Cancel
-      </a>
-    );
-};
-
 Pokemon.propTypes = {
   getPokemon: PropTypes.func.isRequired,
-  getAllPokemon: PropTypes.func.isRequired,
+  getPokedexLength: PropTypes.func.isRequired,
   updatePokemon: PropTypes.func.isRequired,
   pokemon: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
@@ -463,6 +487,6 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   getPokemon,
-  getAllPokemon,
+  getPokedexLength,
   updatePokemon,
 })(Pokemon);

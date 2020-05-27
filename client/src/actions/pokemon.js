@@ -3,6 +3,7 @@ import { setAlert } from "./alert";
 import {
   LOAD_POKEMON,
   LOAD_ALL_POKEMON,
+  LOAD_POKEDEX_LENGTH,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
   UPDATE_POKEMON,
@@ -10,14 +11,28 @@ import {
 
 // Load Pokedex
 export const getAllPokemon = () => async (dispatch) => {
-  dispatch({ type: CLEAR_POKEMON });
-
   try {
     const res = await axios.get(`/api/pokemon/`);
 
     return dispatch({
       type: LOAD_ALL_POKEMON,
       payload: res.data,
+    });
+  } catch (err) {
+    return dispatch({
+      type: POKEMON_NOT_FOUND,
+      payload: { msg: "Pokemon not found", status: 404 },
+    });
+  }
+};
+
+export const getPokedexLength = () => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/pokemon/`);
+
+    return dispatch({
+      type: LOAD_POKEDEX_LENGTH,
+      payload: res.data.length,
     });
   } catch (err) {
     return dispatch({

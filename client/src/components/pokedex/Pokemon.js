@@ -249,6 +249,8 @@ const learnMoveCondition = (conditions) => {
       ? "Breeding"
       : conditions[0] === "Tutor"
       ? "Move Tutor"
+      : conditions[0] === "Evolve"
+      ? "Evolving"
       : conditions[0];
   } else {
     // if there is more than one condition, show the first one
@@ -272,6 +274,9 @@ const learnMoveCondition = (conditions) => {
             break;
           case "Tutor":
             list += "Move Tutor";
+            break;
+          case "Evolve":
+            list += "Evolving";
             break;
           default:
             list += conditions[i];

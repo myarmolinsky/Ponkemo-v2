@@ -4,12 +4,14 @@ import {
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
   UPDATE_POKEMON,
+  LOAD_POKEDEX_LENGTH,
 } from "../actions/types";
 
 const initialState = {
   loading: true, //make sure the loading is done (we've already made a request to the backend and got a response)
   pokedex: [],
   pokemon: null,
+  pokedexLength: 0,
 };
 
 export default function (state = initialState, action) {
@@ -33,9 +35,15 @@ export default function (state = initialState, action) {
         pokedex: payload,
         loading: false,
       };
+    case LOAD_POKEDEX_LENGTH:
+      return {
+        ...state,
+        pokedexLength: payload,
+      };
     case POKEMON_NOT_FOUND:
       return {
         ...state,
+        pokemon: null,
         loading: false,
       };
     case UPDATE_POKEMON:
