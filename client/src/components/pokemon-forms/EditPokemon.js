@@ -43,6 +43,7 @@ const Pokemon = ({
     altEgg: "",
     currentStage: 0,
     maxStage: 0,
+    genderRatio: 0,
   });
 
   useEffect(() => {
@@ -92,6 +93,7 @@ const Pokemon = ({
         currentStage:
           loading || !pokemon.stages.current ? 0 : pokemon.stages.current,
         maxStage: loading || !pokemon.stages.max ? 0 : pokemon.stages.max,
+        genderRatio: loading || !pokemon.genderRatio ? 0 : pokemon.genderRatio,
       });
     else {
       // if we're creating a new Pokemon
@@ -118,6 +120,7 @@ const Pokemon = ({
         altEgg: "",
         currentStage: 0,
         maxStage: 0,
+        genderRatio: 0,
       });
     }
   }, [getPokemon, getAllPokemon, currentId, loading]);
@@ -145,6 +148,7 @@ const Pokemon = ({
     altEgg,
     currentStage,
     maxStage,
+    genderRatio,
   } = formData;
 
   const onChange = (e) =>
@@ -261,6 +265,15 @@ const Pokemon = ({
                 placeholder={baseFriendship}
                 name="baseFriendship"
                 value={baseFriendship}
+                onChange={(e) => onChange(e)}
+              />
+              {/* Gender Ratio */}
+              <span className="lead">Gender Ratio: </span>
+              <input
+                type="text"
+                placeholder={genderRatio}
+                name="genderRatio"
+                value={genderRatio}
                 onChange={(e) => onChange(e)}
               />
               {/* Spawn Rate */}

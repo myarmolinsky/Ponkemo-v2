@@ -88,6 +88,7 @@ export const updatePokemon = (id, formData, edit = true) => async (
         current: formData.currentStage,
         max: formData.maxStage,
       },
+      genderRatio: formData.genderRatio,
     };
 
     // make sure there are no duplicate moves (adding the duplicates' learn conditions to the original) and no duplicate learn conditions for each move

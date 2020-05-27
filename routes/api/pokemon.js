@@ -61,6 +61,7 @@ router.post("/:id", async (req, res) => {
         id,
         breeding,
         stages,
+        genderRatio,
       } = req.body;
 
       pokemon = new Pokemon({
@@ -78,6 +79,7 @@ router.post("/:id", async (req, res) => {
         id,
         breeding,
         stages,
+        genderRatio,
       });
 
       pokemon.save();

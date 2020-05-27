@@ -102,6 +102,11 @@ const Pokemon = ({
           <p className="lead">Weight: {pokemon.weight} kg</p>
           {/* Base Friendship */}
           <p className="lead">Base Friendship: {pokemon.baseFriendship}</p>
+          {/* Gender Ratio */}
+          <p className="lead">
+            Gender Ratio: {pokemon.genderRatio}% Male and{" "}
+            {100 - pokemon.genderRatio}% Female
+          </p>
           {/* Base Stats */}
           <p className="lead">Base Stats:</p>
           <p>Health: {pokemon.baseStats.hp}</p>

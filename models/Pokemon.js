@@ -46,6 +46,9 @@ const PokemonSchema = new mongoose.Schema({
   moves: {
     type: Array,
   },
+  genderRatio: {
+    type: Number,
+  },
 });
 
 //Export the model using the schema above
