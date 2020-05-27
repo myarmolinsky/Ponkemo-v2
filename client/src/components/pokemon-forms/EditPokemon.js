@@ -159,7 +159,7 @@ const Pokemon = ({
       });
 
     if (pokedexLength === 0 || currentId > pokedexLength) getPokedexLength(); // get the Pokedex so we know how many Pokemon we have
-  }, [getPokemon, getPokedexLength, currentId, loading]);
+  }, [getPokemon, getPokedexLength, currentId, loading, pokedexLength]);
 
   const {
     name,

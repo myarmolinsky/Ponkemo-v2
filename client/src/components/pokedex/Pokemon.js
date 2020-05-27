@@ -233,6 +233,12 @@ const evolutionCondition = (condition) => {
         return "by leveling up a male Espurr to level 25";
       case "Meowstic Female":
         return "by leveling up a female Espurr to level 25";
+      case "atk>def":
+        return "by leveling up Tyrogue to level 20 while its Attack is higher than its Defense";
+      case "atk=def":
+        return "by leveling up Tyrogue to level 20 while its Attack is equal to its Defense";
+      case "atk<def":
+        return "by leveling up Tyrogue to level 20 while its Attack is less than its Defense";
       default:
         return;
     }
