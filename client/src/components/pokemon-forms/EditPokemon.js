@@ -110,8 +110,8 @@ const Pokemon = ({
                 .join("],\n")
                 .split("{")
                 .join("{\n")
-                .split('"},')
-                .join('"\n},\n')
+                .split("},")
+                .join("\n},\n")
                 .split("}]")
                 .join("\n}]"),
         evolutionDetails:
@@ -122,8 +122,8 @@ const Pokemon = ({
                 .join('",\n')
                 .split("{")
                 .join("{\n")
-                .split('"},')
-                .join('"\n},\n')
+                .split("},")
+                .join("\n},\n")
                 .split("}]")
                 .join("\n}]"),
         id: loading || !pokemon.id ? currentId : pokemon.id,

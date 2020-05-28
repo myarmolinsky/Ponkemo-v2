@@ -239,6 +239,34 @@ const evolutionCondition = (condition) => {
         return "by leveling up Tyrogue to level 20 while its Attack is equal to its Defense";
       case "atk<def":
         return "by leveling up Tyrogue to level 20 while its Attack is less than its Defense";
+      case "Deep Sea Tooth":
+        return "by trade while holding a Deep Sea Tooth";
+      case "Deep Sea Scale":
+        return "by trade while holding a Deep Sea Scale";
+      case "Reaper Cloth":
+        return "by trade while holding a Reaper Cloth";
+      case "Electirizer":
+        return "by trade while holding a Electirizer";
+      case "Prism Scale":
+        return "by trade while holding a Prism Scale";
+      case "Magmarizer":
+        return "by trade while holding a Magmarizer";
+      case "Trade":
+        return "by trade";
+      case "King's Rock":
+        return "by trade while holding a King's Rock";
+      case "Upgrade":
+        return "by trade while holding a Upgrade";
+      case "Dubious Disc":
+        return "by trade while holding a Dubious Disc";
+      case "Protector":
+        return "by trade while holding a Protector";
+      case "Dragon Scale":
+        return "by trade while holding a Dragon Scale";
+      case "Sachet":
+        return "by trade while holding a Sachet";
+      case "Whipped Dream":
+        return "by trade while holding a Whipped Dream";
       default:
         return;
     }
