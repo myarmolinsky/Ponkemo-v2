@@ -104,8 +104,13 @@ const Pokemon = ({
           <p className="lead">Base Friendship: {pokemon.baseFriendship}</p>
           {/* Gender Ratio */}
           <p className="lead">
-            Gender Ratio: {pokemon.genderRatio}% Male and{" "}
-            {100 - pokemon.genderRatio}% Female
+            Gender Ratio:{" "}
+            {pokemon.genderRatio !== -1
+              ? pokemon.genderRatio +
+                "% Male and" +
+                (100 - pokemon.genderRatio) +
+                "% Female "
+              : "Genderless"}
           </p>
           {/* Base Stats */}
           <p className="lead">Base Stats:</p>
@@ -265,8 +270,16 @@ const evolutionCondition = (condition) => {
         return "by trade while holding a Dragon Scale";
       case "Sachet":
         return "by trade while holding a Sachet";
+      case "Sweet Apple":
+        return "by using a Sweet Apple";
+      case "Tart Apple":
+        return "by using a Tart Apple";
       case "Whipped Dream":
         return "by trade while holding a Whipped Dream";
+      case "Toxtricity Amped Form":
+        return "by leveling up Toxel to level 30 while its nature is Hardy, Brave, Adamant, Naughty, Docile, Impish, Lax, Hasty, Jolly, Naive, Rash, Sassy, or Quirky";
+      case "Toxtricity Low Key Form":
+        return "by leveling up Toxel to level 30 while its nature is Lonely, Bold, Relaxed, Timid, SErious, Modest, Mild, Quiet, Bashful, Calm, Gentle, or Careful";
       default:
         return;
     }
