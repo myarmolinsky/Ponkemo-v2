@@ -7,6 +7,7 @@ import {
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
   UPDATE_POKEMON,
+  UPDATE_POKEMON_FAILED,
 } from "./types";
 
 // Load Pokedex
@@ -148,8 +149,15 @@ export const updatePokemon = (id, formData, edit = true) => async (
       payload: res.data,
     });
   } catch (err) {
+    dispatch(
+      setAlert(
+        edit ? "Failed to Update Pokemon" : "Failed to Create Pokemon",
+        "danger"
+      )
+    );
+
     return dispatch({
-      type: POKEMON_NOT_FOUND,
+      type: UPDATE_POKEMON_FAILED,
       payload: { msg: "Pokemon not found", status: 404 },
     });
   }

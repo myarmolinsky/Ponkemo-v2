@@ -18,7 +18,7 @@ const Pokemon = ({
   pokemon: { pokemon, pokedexLength, loading },
   auth: { user },
 }) => {
-  let currentId = match.params.id;
+  let currentId = parseInt(match.params.id);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -197,7 +197,7 @@ const Pokemon = ({
     if (currentId > pokedexLength) updatePokemon(currentId, formData, false);
     // if we are editing an existing Pokemon
     else updatePokemon(currentId, formData);
-    if (currentId > pokedexLength) window.location.reload(); // reload the page so that all the proper data loads
+    if (currentId > pokedexLength) window.location.reload(); // reload the page so that all the proper data loads (otherwise the buttons don't work properly)
   };
 
   // if there is a previous Pokemon, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
@@ -215,11 +215,7 @@ const Pokemon = ({
   const nextPokemonButton = () => {
     if (currentId < pokedexLength) {
       return (
-        <a
-          className="btn btn-dark"
-          href={`/pokedex/${parseInt(currentId) + 1}/edit`}
-        >
-          {/* have to parseInt id because it thinks it's a string for some reason */}
+        <a className="btn btn-dark" href={`/pokedex/${currentId + 1}/edit`}>
           Next Pokemon
         </a>
       );

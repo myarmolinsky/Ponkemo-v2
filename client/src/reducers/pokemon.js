@@ -4,6 +4,7 @@ import {
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
   UPDATE_POKEMON,
+  UPDATE_POKEMON_FAILED,
   LOAD_POKEDEX_LENGTH,
 } from "../actions/types";
 
@@ -50,6 +51,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         pokemon: payload,
+        loading: false,
+      };
+    case UPDATE_POKEMON_FAILED:
+      return {
+        ...state,
         loading: false,
       };
     default:

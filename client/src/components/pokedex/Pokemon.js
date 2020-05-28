@@ -107,7 +107,7 @@ const Pokemon = ({
             Gender Ratio:{" "}
             {pokemon.genderRatio !== -1
               ? pokemon.genderRatio +
-                "% Male and" +
+                "% Male and " +
                 (100 - pokemon.genderRatio) +
                 "% Female "
               : "Genderless"}
