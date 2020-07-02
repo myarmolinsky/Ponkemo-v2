@@ -22,11 +22,74 @@ router.get("/:id", async (req, res) => {
   try {
     const pokedex = await Pokemon.find({});
     let pokemon;
+    let id = parseFloat(req.params.id);
     // if id is greater than the amount of pokemon in the pokedex or less than 1
-    if (req.params.id > pokedex.length || req.params.id < 1) pokemon = {};
-    else pokemon = await Pokemon.findOne({ id: req.params.id });
+    if (id > pokedex.length || id < 1) pokemon = {};
+    else pokemon = await Pokemon.findOne({ id: id });
 
-    res.json(pokemon);
+    // the id of the next pokemon
+    let nextPokemonId;
+    let nextId = id + 0.01;
+    let nextPokemon = await Pokemon.findOne({ id: nextId });
+    if (nextPokemon) nextPokemonId = nextId;
+    else nextPokemonId = Math.ceil(nextId);
+
+    // the id of the previous pokemon
+    let previousPokemonId;
+    // if the id is not an integer, decrease it by 0.01
+    if (Math.floor(id) !== id) previousPokemonId = id - 0.01;
+    else {
+      // otherwise decrease it by 0.99 (4 -> 3.01) and count upwards until we reach an id with no pokemon attached to it
+      let previousId = id - 0.99;
+      let previousPokemon = await Pokemon.findOne({ id: previousId });
+      while (previousPokemon) {
+        previousId += 0.01;
+        previousPokemon = await Pokemon.findOne({ id: previousId });
+      }
+      previousPokemonId = previousId - 0.01; // decrease previousId by 1 because previousId is currently the id not attached to a pokemon
+      if (previousPokemonId < id - 1)
+        // calculation issue occurs when subtracting 0.01 from an integer so round up if the issue does occur
+        previousPokemonId = Math.ceil(previousPokemonId);
+    }
+
+    // evolutionIds is an array that contains the ids of the evolutions of the pokemon
+    let evolutionIds = [];
+    // loop through the evolutionDetails array to find push the id of each evolution onto the evolutionIds array
+    for (let i = 0; i < pokemon.evolutionDetails.length; i++) {
+      let evolutionName = pokemon.evolutionDetails[i].evolution;
+      let evolution = await Pokemon.findOne({ name: evolutionName });
+      evolutionIds.push(evolution.id);
+    }
+
+    // eggIds is an array that contains the ids of the egg and altEgg of the pokemon
+    let eggIds = [];
+    let egg = await Pokemon.findOne({ name: pokemon.breeding.egg });
+    let eggId = egg.id;
+    eggIds.push(eggId);
+    egg = await Pokemon.findOne({ name: pokemon.breeding.altEgg });
+    eggId = egg.id;
+    eggIds.push(eggId);
+
+    // pokemon formes
+    let formes = [];
+    let formeId = Math.floor(id);
+    let forme = await Pokemon.findOne({ id: formeId });
+    while (forme) {
+      formes.push(forme);
+      formeId += 0.01;
+      if (formeId === Math.ceil(formeId)) break;
+      forme = await Pokemon.findOne({ id: formeId });
+    }
+
+    let payload = {
+      pokemon,
+      nextPokemonId,
+      previousPokemonId,
+      evolutionIds,
+      eggIds,
+      formes,
+    };
+    res.json(payload);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

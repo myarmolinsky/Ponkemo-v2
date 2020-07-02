@@ -15,10 +15,16 @@ const Pokemon = ({
   getPokemon,
   getPokedexLength,
   updatePokemon,
-  pokemon: { pokemon, pokedexLength, loading },
+  pokemon: {
+    pokemon,
+    nextPokemonId,
+    previousPokemonId,
+    pokedexLength,
+    loading,
+  },
   auth: { user },
 }) => {
-  let currentId = parseInt(match.params.id);
+  let currentId = parseFloat(match.params.id);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -193,18 +199,25 @@ const Pokemon = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // if we are making a new Pokemon
-    if (currentId > pokedexLength) updatePokemon(currentId, formData, false);
-    // if we are editing an existing Pokemon
-    else updatePokemon(currentId, formData);
-    if (currentId > pokedexLength) window.location.reload(); // reload the page so that all the proper data loads (otherwise the buttons don't work properly)
+    // if we are making a new Pokemon reload the page after creating it so that all the proper data loads (otherwise the buttons don't work properly)
+    if (currentId > pokedexLength) {
+      updatePokemon(currentId, formData, false);
+      window.location.reload();
+    } else updatePokemon(currentId, formData); // if we are editing an existing Pokemon
+    // if we edited the pokemon's id, load the page connected to its new id
+    let splitUrl = window.location.href.split("/");
+    if (id !== currentId) {
+      splitUrl.pop();
+      splitUrl.pop();
+      window.open(splitUrl.join("/") + "/" + id + "/edit", "_self");
+    }
   };
 
   // if there is a previous Pokemon, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
   const previousPokemonButton = () => {
     if (currentId > 1)
       return (
-        <a className="btn btn-dark" href={`/pokedex/${currentId - 1}/edit`}>
+        <a className="btn btn-dark" href={`/pokedex/${previousPokemonId}/edit`}>
           Previous Pokemon
         </a>
       );
@@ -215,7 +228,7 @@ const Pokemon = ({
   const nextPokemonButton = () => {
     if (currentId < pokedexLength) {
       return (
-        <a className="btn btn-dark" href={`/pokedex/${currentId + 1}/edit`}>
+        <a className="btn btn-dark" href={`/pokedex/${nextPokemonId}/edit`}>
           Next Pokemon
         </a>
       );

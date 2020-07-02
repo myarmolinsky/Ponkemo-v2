@@ -20,21 +20,25 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
         <Fragment>
           {pokedex.map((
             item // for each item in the pokedex
-          ) => (
-            <Link key={item.name} to={`/pokedex/${item.id}`}>
-              {/* Create a link leading to the pokemon's page */}
-              <div className="pokedex-item">
-                <img
-                  src={item.sprite}
-                  className="sprite pokedex-sprite"
-                  alt={item.name}
-                />
-                {/* Pokemon's sprite */}
-                <span className="caption">[{item.name}]</span>
-                {/* Pokemon's name */}
-              </div>
-            </Link>
-          ))}
+          ) =>
+            Math.floor(item.id) === item.id ? (
+              <Link key={item.name} to={`/pokedex/${item.id}`}>
+                {/* Create a link leading to the pokemon's page */}
+                <div className="pokedex-item">
+                  <img
+                    src={item.sprite}
+                    className="sprite pokedex-sprite"
+                    alt={item.name}
+                  />
+                  {/* Pokemon's sprite */}
+                  <span className="caption">[{item.name}]</span>
+                  {/* Pokemon's name */}
+                </div>
+              </Link>
+            ) : (
+              ""
+            )
+          )}
         </Fragment>
       )}
     </Fragment>

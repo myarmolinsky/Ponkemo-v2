@@ -10,7 +10,7 @@ const Pokemon = ({
   match,
   getPokemon,
   getAllPokemon,
-  pokemon: { pokemon, pokedex, loading },
+  pokemon: { pokemon, evolutionIds, eggIds, formes, pokedex, loading },
   auth: { user },
 }) => {
   useEffect(() => {
@@ -18,6 +18,9 @@ const Pokemon = ({
     getPokemon(match.params.id);
     getAllPokemon();
   }, [getPokemon, getAllPokemon, match.params.id]);
+
+  // evolutionIndex is the index we are up to in the evolutionIds array
+  let evolutionIndex = 0;
 
   return (
     <Fragment>
@@ -36,7 +39,7 @@ const Pokemon = ({
               to={
                 pokemon.id > 1
                   ? () => {
-                      return `/pokedex/${pokemon.id - 1}`;
+                      return `/pokedex/${Math.ceil(pokemon.id) - 1}`;
                     }
                   : () => {
                       return;
@@ -51,7 +54,7 @@ const Pokemon = ({
               to={
                 pokemon.id < pokedex.length
                   ? () => {
-                      return `/pokedex/${pokemon.id + 1}`;
+                      return `/pokedex/${Math.floor(pokemon.id) + 1}`;
                     }
                   : () => {
                       return;
@@ -86,6 +89,31 @@ const Pokemon = ({
             src={pokemon.shinySprite}
             alt={`Shiny ${pokemon.name}`}
           />
+          {/* Formes */}
+          <div className="lead">
+            Formes: <br />
+            {formes.map((
+              item // for each item in formes
+            ) =>
+              item.name !== pokemon.name ? (
+                <Link key={item.name} to={`/pokedex/${item.id}`}>
+                  {/* Create a link leading to the pokemon's page */}
+                  <div className="pokedex-item">
+                    <img
+                      src={item.sprite}
+                      className="sprite pokedex-sprite"
+                      alt={item.name}
+                    />
+                    {/* Pokemon's sprite */}
+                    <span className="caption">[{item.name}]</span>
+                    {/* Pokemon's name */}
+                  </div>
+                </Link>
+              ) : (
+                ""
+              )
+            )}
+          </div>
           {/* Types */}
           <p className="lead">
             Types: {pokemon.types[0]}
@@ -129,9 +157,15 @@ const Pokemon = ({
               : ""}
           </p>
           {/* Pokemon that hatches from the egg if it is a male */}
-          <p>Male Egg: {pokemon.breeding.egg}</p>
+          <p>
+            Male Egg:{" "}
+            <Link to={`/pokedex/${eggIds[0]}`}>{pokemon.breeding.egg}</Link>
+          </p>
           {/* Pokemon that hatches from the egg if it is a female */}
-          <p>Female Egg: {pokemon.breeding.altEgg}</p>
+          <p>
+            Female Egg:{" "}
+            <Link to={`/pokedex/${eggIds[1]}`}>{pokemon.breeding.altEgg}</Link>
+          </p>
           <br />
           {/* Spawn Rate */}
           <p className="lead">Spawn Rate: {pokemon.spawnRate}</p>
@@ -141,11 +175,21 @@ const Pokemon = ({
               <p className="lead">Evolves into:</p>
               {/* Show each evolution and how to obtain it */}
               <p>
-                {pokemon.evolutionDetails.map((item) => (
-                  <li key={item.evolution}>
-                    {item.evolution} {evolutionCondition(item.condition)}
-                  </li>
-                ))}
+                {pokemon.evolutionDetails.map((item) => {
+                  // the name of the evolution is a link to the evolution
+                  let listItem = (
+                    <li key={item.evolution}>
+                      <Link to={`/pokedex/${evolutionIds[evolutionIndex]}`}>
+                        {item.evolution}
+                      </Link>{" "}
+                      {evolutionCondition(item.condition)}
+                    </li>
+                  );
+                  // increase evolutionIndex by one
+                  evolutionIndex++;
+                  // return the list item
+                  return listItem;
+                })}
               </p>
               <br />
             </Fragment>

@@ -12,6 +12,11 @@ const initialState = {
   loading: true, //make sure the loading is done (we've already made a request to the backend and got a response)
   pokedex: [],
   pokemon: null,
+  nextPokemonId: -1,
+  previousPokemonId: -1,
+  evolutionIds: [],
+  eggIds: [],
+  formes: [],
   pokedexLength: 0,
 };
 
@@ -27,8 +32,13 @@ export default function (state = initialState, action) {
     case LOAD_POKEMON:
       return {
         ...state,
-        pokemon: payload,
+        pokemon: payload.pokemon,
+        nextPokemonId: payload.nextPokemonId,
+        previousPokemonId: payload.previousPokemonId,
         loading: false,
+        evolutionIds: payload.evolutionIds,
+        eggIds: payload.eggIds,
+        formes: payload.formes,
       };
     case LOAD_ALL_POKEMON:
       return {

@@ -1,0 +1,26 @@
+to do:
+real id for all pokemon
+egg groups page showing all pokemon of an egg group + egg groups on pokemon page are links to their respective web page
+clean up moves list on pokemon page (maybe a table or something)
+add moves for the rest of the pokemon
+movedex + editing moves
+moves are a link to that move
+abilitydex + editing abilities
+itemdex + items + editing items
+users have spawnCounter, item tier points, pokemon tier points
+spawnrates
+dashboard (maybe change name of dashboard to something else)
+-catch
+-forage
+-train
+-breed
+-recycle pokemon and items (for pokemon tier points and item tier points respectively)
+sorting owned pokemon
+pokedex search/filter
+shop for buying items and pokemon with points (specific pokemon and items and/or packs of random pokemon and items for their respective points)
+use items + hold items
+battling
+battle rules
+contests (hearthome)
+challenges (ie bots with ai battles) (+ special badges)
+dynamax (player must choose between their team having dynamax or mega+z)

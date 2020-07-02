@@ -49,7 +49,6 @@ export const getPokemon = (id) => async (dispatch) => {
 
   try {
     const res = await axios.get(`/api/pokemon/${id}`);
-
     return dispatch({
       type: LOAD_POKEMON,
       payload: res.data,
