@@ -21,6 +21,7 @@ const Pokemon = ({
 
   // evolutionIndex is the index we are up to in the evolutionIds array
   let evolutionIndex = 0;
+  console.log(pokemon);
 
   return (
     <Fragment>

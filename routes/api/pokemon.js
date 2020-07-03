@@ -53,7 +53,7 @@ router.get("/:id", async (req, res) => {
 
     // the id of the next pokemon
     let nextPokemonId = -1;
-    let nextId = id + 0.01;
+    let nextId = (id + 0.01).toFixed(2);
     let nextPokemon = await Pokemon.findOne({ id: nextId });
     if (nextPokemon) nextPokemonId = nextId;
     else nextPokemonId = Math.ceil(nextId);
@@ -61,16 +61,17 @@ router.get("/:id", async (req, res) => {
     // the id of the previous pokemon
     let previousPokemonId = -1;
     // if the id is not an integer, decrease it by 0.01
-    if (Math.floor(id) !== id) previousPokemonId = id - 0.01;
+    if (Math.floor(id) !== id) previousPokemonId = (id - 0.01).toFixed(2);
     else {
       // otherwise decrease it by 0.99 (4 -> 3.01) and count upwards until we reach an id with no pokemon attached to it
-      let previousId = id - 0.99;
+      let previousId = (id - 0.99).toFixed(2);
       let previousPokemon = await Pokemon.findOne({ id: previousId });
       while (previousPokemon) {
-        previousId += 0.01;
+        console.log(previousId);
+        previousId = parseFloat(previousId + 0.01);
         previousPokemon = await Pokemon.findOne({ id: previousId });
       }
-      previousPokemonId = previousId - 0.01; // decrease previousId by 1 because previousId is currently the id not attached to a pokemon
+      previousPokemonId = (previousId - 0.01).toFixed(2); // decrease previousId by 1 because previousId is currently the id not attached to a pokemon
       if (previousPokemonId < id - 1)
         // calculation issue occurs when subtracting 0.01 from an integer so round up if the issue does occur
         previousPokemonId = Math.ceil(previousPokemonId);
