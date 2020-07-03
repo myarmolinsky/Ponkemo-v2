@@ -3,7 +3,7 @@ import { setAlert } from "./alert";
 import {
   LOAD_POKEMON,
   LOAD_ALL_POKEMON,
-  LOAD_POKEDEX_LENGTH,
+  GET_LAST_ID,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
   UPDATE_POKEMON,
@@ -27,13 +27,13 @@ export const getAllPokemon = () => async (dispatch) => {
   }
 };
 
-export const getPokedexLength = () => async (dispatch) => {
+export const getLastId = () => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/pokemon/`);
+    const res = await axios.get(`/api/pokemon/lastId`);
 
     return dispatch({
-      type: LOAD_POKEDEX_LENGTH,
-      payload: res.data.length,
+      type: GET_LAST_ID,
+      payload: res.data,
     });
   } catch (err) {
     return dispatch({

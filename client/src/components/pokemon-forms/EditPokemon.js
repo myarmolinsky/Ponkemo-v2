@@ -1,11 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {
-  getPokemon,
-  getPokedexLength,
-  updatePokemon,
-} from "../../actions/pokemon";
+import { getPokemon, getLastId, updatePokemon } from "../../actions/pokemon";
 import Spinner from "../layout/Spinner";
 import AccessDenied from "../layout/AccessDenied";
 import NotFound from "../layout/NotFound";
@@ -13,15 +9,9 @@ import NotFound from "../layout/NotFound";
 const Pokemon = ({
   match,
   getPokemon,
-  getPokedexLength,
+  getLastId,
   updatePokemon,
-  pokemon: {
-    pokemon,
-    nextPokemonId,
-    previousPokemonId,
-    pokedexLength,
-    loading,
-  },
+  pokemon: { pokemon, nextPokemonId, previousPokemonId, lastId, loading },
   auth: { user },
 }) => {
   let currentId = parseFloat(match.params.id);
@@ -164,8 +154,8 @@ const Pokemon = ({
         genderRatio: loading || !pokemon.genderRatio ? 0 : pokemon.genderRatio,
       });
 
-    if (pokedexLength === 0 || currentId > pokedexLength) getPokedexLength(); // get the Pokedex so we know how many Pokemon we have
-  }, [getPokemon, getPokedexLength, currentId, loading, pokedexLength]);
+    if (lastId === -1 || currentId > lastId) getLastId(); // get the last id so we know how many Pokemon we have
+  }, [getPokemon, getLastId, currentId, loading, lastId]);
 
   const {
     name,
@@ -200,7 +190,7 @@ const Pokemon = ({
   const onSubmit = (e) => {
     e.preventDefault();
     // if we are making a new Pokemon reload the page after creating it so that all the proper data loads (otherwise the buttons don't work properly)
-    if (currentId > pokedexLength) {
+    if (currentId > lastId) {
       updatePokemon(currentId, formData, false);
       window.location.reload();
     } else updatePokemon(currentId, formData); // if we are editing an existing Pokemon
@@ -226,7 +216,7 @@ const Pokemon = ({
 
   // if there is a next Pokemon, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
   const nextPokemonButton = () => {
-    if (currentId < pokedexLength) {
+    if (currentId < lastId) {
       return (
         <a className="btn btn-dark" href={`/pokedex/${nextPokemonId}/edit`}>
           Next Pokemon
@@ -237,9 +227,9 @@ const Pokemon = ({
 
   // if you're not on the new Pokemon's page, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
   const newPokemonButton = () => {
-    if (currentId <= pokedexLength) {
+    if (Math.floor(currentId) <= lastId) {
       return (
-        <a className="btn btn-dark" href={`/pokedex/${pokedexLength + 1}/edit`}>
+        <a className="btn btn-dark" href={`/pokedex/${lastId + 1}/edit`}>
           Add a New Pokemon
         </a>
       );
@@ -248,7 +238,7 @@ const Pokemon = ({
 
   // if you're on a new Pokemon's page and it doesn't exist yet, return a grayed out button that takes you nowhere, otherwise return an <a> tag to it's normal page
   const cancelButton = () => {
-    if (currentId > pokedexLength) {
+    if (currentId > lastId) {
       return (
         <a className="lead edit-link" href={`/pokedex/${currentId - 1}/`}>
           Cancel
@@ -271,7 +261,7 @@ const Pokemon = ({
         <AccessDenied />
       ) : pokemon === null || loading ? (
         <Spinner />
-      ) : currentId > pokedexLength + 1 || currentId < 1 ? (
+      ) : currentId > lastId + 1 || currentId < 1 ? (
         // if the page the user is trying to go to a Pokemon that does not exist
         <NotFound />
       ) : (
@@ -509,7 +499,7 @@ const Pokemon = ({
 
 Pokemon.propTypes = {
   getPokemon: PropTypes.func.isRequired,
-  getPokedexLength: PropTypes.func.isRequired,
+  getLastId: PropTypes.func.isRequired,
   updatePokemon: PropTypes.func.isRequired,
   pokemon: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
@@ -522,6 +512,6 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   getPokemon,
-  getPokedexLength,
+  getLastId,
   updatePokemon,
 })(Pokemon);

@@ -5,7 +5,7 @@ import {
   CLEAR_POKEMON,
   UPDATE_POKEMON,
   UPDATE_POKEMON_FAILED,
-  LOAD_POKEDEX_LENGTH,
+  GET_LAST_ID,
 } from "../actions/types";
 
 const initialState = {
@@ -17,7 +17,7 @@ const initialState = {
   evolutionIds: [],
   eggIds: [],
   formes: [],
-  pokedexLength: 0,
+  lastId: -1,
 };
 
 export default function (state = initialState, action) {
@@ -35,10 +35,10 @@ export default function (state = initialState, action) {
         pokemon: payload.pokemon,
         nextPokemonId: payload.nextPokemonId,
         previousPokemonId: payload.previousPokemonId,
-        loading: false,
         evolutionIds: payload.evolutionIds,
         eggIds: payload.eggIds,
         formes: payload.formes,
+        loading: false,
       };
     case LOAD_ALL_POKEMON:
       return {
@@ -46,15 +46,20 @@ export default function (state = initialState, action) {
         pokedex: payload,
         loading: false,
       };
-    case LOAD_POKEDEX_LENGTH:
+    case GET_LAST_ID:
       return {
         ...state,
-        pokedexLength: payload,
+        lastId: payload,
       };
     case POKEMON_NOT_FOUND:
       return {
         ...state,
         pokemon: null,
+        nextPokemonId: -1,
+        previousPokemonId: -1,
+        evolutionIds: [],
+        eggIds: [],
+        formes: [],
         loading: false,
       };
     case UPDATE_POKEMON:

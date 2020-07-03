@@ -2,22 +2,22 @@ import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getPokemon, getAllPokemon } from "../../actions/pokemon";
+import { getPokemon, getLastId } from "../../actions/pokemon";
 import Spinner from "../layout/Spinner";
 import NotFound from "../layout/NotFound";
 
 const Pokemon = ({
   match,
   getPokemon,
-  getAllPokemon,
-  pokemon: { pokemon, evolutionIds, eggIds, formes, pokedex, loading },
+  getLastId,
+  pokemon: { pokemon, evolutionIds, eggIds, formes, lastId, loading },
   auth: { user },
 }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     getPokemon(match.params.id);
-    getAllPokemon();
-  }, [getPokemon, getAllPokemon, match.params.id]);
+    getLastId();
+  }, [getPokemon, getLastId, match.params.id]);
 
   // evolutionIndex is the index we are up to in the evolutionIds array
   let evolutionIndex = 0;
@@ -28,7 +28,9 @@ const Pokemon = ({
         <Fragment>
           <Spinner />
         </Fragment>
-      ) : match.params.id > pokedex.length || match.params.id < 1 ? (
+      ) : (match.params.id > lastId &&
+          Math.floor(match.params.id) !== lastId) ||
+        match.params.id < 1 ? (
         // if the page the user is trying to go to a Pokemon that does not exist
         <NotFound />
       ) : (
@@ -52,7 +54,7 @@ const Pokemon = ({
             {/* If there is a next pokemon, have a link to its page */}
             <Link
               to={
-                pokemon.id < pokedex.length
+                pokemon.id < lastId
                   ? () => {
                       return `/pokedex/${Math.floor(pokemon.id) + 1}`;
                     }
@@ -60,9 +62,7 @@ const Pokemon = ({
                       return;
                     }
               }
-              className={
-                pokemon.id < pokedex.length ? "btn btn-dark" : "btn btn-light"
-              }
+              className={pokemon.id < lastId ? "btn btn-dark" : "btn btn-light"}
             >
               Next Pokemon
             </Link>
@@ -91,27 +91,33 @@ const Pokemon = ({
           />
           {/* Formes */}
           <div className="lead">
-            Formes: <br />
-            {formes.map((
-              item // for each item in formes
-            ) =>
-              item.name !== pokemon.name ? (
-                <Link key={item.name} to={`/pokedex/${item.id}`}>
-                  {/* Create a link leading to the pokemon's page */}
-                  <div className="pokedex-item">
-                    <img
-                      src={item.sprite}
-                      className="sprite pokedex-sprite"
-                      alt={item.name}
-                    />
-                    {/* Pokemon's sprite */}
-                    <span className="caption">[{item.name}]</span>
-                    {/* Pokemon's name */}
-                  </div>
-                </Link>
-              ) : (
-                ""
-              )
+            {formes.length > 1 ? (
+              <Fragment>
+                Formes: <br />
+                {formes.map((
+                  item // for each item in formes
+                ) =>
+                  item.name !== pokemon.name ? (
+                    <Link key={item.name} to={`/pokedex/${item.id}`}>
+                      {/* Create a link leading to the pokemon's page */}
+                      <div className="pokedex-item">
+                        <img
+                          src={item.sprite}
+                          className="sprite pokedex-sprite"
+                          alt={item.name}
+                        />
+                        {/* Pokemon's sprite */}
+                        <span className="caption">[{item.name}]</span>
+                        {/* Pokemon's name */}
+                      </div>
+                    </Link>
+                  ) : (
+                    ""
+                  )
+                )}
+              </Fragment>
+            ) : (
+              " "
             )}
           </div>
           {/* Types */}
@@ -121,11 +127,18 @@ const Pokemon = ({
           </p>
           {/* Abilities */}
           <p className="lead">
-            Abilities: {pokemon.abilities[0]}
+            {pokemon.abilities.length > 1 ? "Abilities:" : "Ability:"}{" "}
+            {pokemon.abilities[0]}
             {pokemon.abilities.length > 1 ? ", " + pokemon.abilities[1] : ""}
           </p>
           {/* Hidden Ability */}
-          <p className="lead">Hidden Ability: {pokemon.hiddenAbility}</p>
+          {pokemon.hiddenAbility !== "" ? (
+            <Fragment>
+              <p className="lead">Hidden Ability: {pokemon.hiddenAbility}</p>
+            </Fragment>
+          ) : (
+            ""
+          )}
           {/* Weight in kg */}
           <p className="lead">Weight: {pokemon.weight} kg</p>
           {/* Base Friendship */}
@@ -156,17 +169,29 @@ const Pokemon = ({
               ? ", " + pokemon.breeding.eggGroups[1]
               : ""}
           </p>
-          {/* Pokemon that hatches from the egg if it is a male */}
-          <p>
-            Male Egg:{" "}
-            <Link to={`/pokedex/${eggIds[0]}`}>{pokemon.breeding.egg}</Link>
-          </p>
-          {/* Pokemon that hatches from the egg if it is a female */}
-          <p>
-            Female Egg:{" "}
-            <Link to={`/pokedex/${eggIds[1]}`}>{pokemon.breeding.altEgg}</Link>
-          </p>
-          <br />
+          {pokemon.breeding.egg !== pokemon.breeding.altEgg ? (
+            <Fragment>
+              {/* Pokemon that hatches from the egg if it is a male */}
+              <p className="lead">
+                Male Egg:{" "}
+                <Link to={`/pokedex/${eggIds[0]}`}>{pokemon.breeding.egg}</Link>
+              </p>
+              {/* Pokemon that hatches from the egg if it is a female */}
+              <p className="lead">
+                Female Egg:{" "}
+                <Link to={`/pokedex/${eggIds[1]}`}>
+                  {pokemon.breeding.altEgg}
+                </Link>
+              </p>
+            </Fragment>
+          ) : (
+            <Fragment>
+              <p className="lead">
+                Egg:{" "}
+                <Link to={`/pokedex/${eggIds[0]}`}>{pokemon.breeding.egg}</Link>
+              </p>
+            </Fragment>
+          )}
           {/* Spawn Rate */}
           <p className="lead">Spawn Rate: {pokemon.spawnRate}</p>
           {/* Show what the pokemon evolves into only if the Pokemon evolves into something */}
@@ -381,7 +406,7 @@ const learnMoveCondition = (conditions) => {
 
 Pokemon.propTypes = {
   getPokemon: PropTypes.func.isRequired,
-  getAllPokemon: PropTypes.func.isRequired,
+  getLastId: PropTypes.func.isRequired,
   pokemon: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
 };
@@ -391,4 +416,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { getPokemon, getAllPokemon })(Pokemon);
+export default connect(mapStateToProps, { getPokemon, getLastId })(Pokemon);
