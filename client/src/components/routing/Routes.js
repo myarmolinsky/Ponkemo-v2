@@ -9,6 +9,8 @@ import EditPokemon from "../pokemon-forms/EditPokemon";
 import PrivateRoute from "../routing/PrivateRoute";
 import NotFound from "../layout/NotFound";
 import Alert from "../layout/Alert";
+import EggGroups from "../pokedex/EggGroups";
+import EggGroup from "../pokedex/EggGroup";
 
 const Routes = () => {
   return (
@@ -21,9 +23,11 @@ const Routes = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/pokedex/" component={Pokedex} />
+        <Route exact path="/pokedex" component={Pokedex} />
         <Route exact path="/pokedex/:id" component={Pokemon} />
         <PrivateRoute exact path="/pokedex/:id/edit" component={EditPokemon} />
+        <Route exact path="/egggroups" component={EggGroups} />
+        <Route exact path="/egggroups/:eggGroup" component={EggGroup} />
         <Route component={NotFound} />
       </Switch>
     </section>

@@ -1,5 +1,4 @@
 to do:
-egg groups page showing all pokemon of an egg group + egg groups on pokemon page are links to their respective web page
 clean up moves list on pokemon page (maybe a table or something)
 add moves for the rest of the pokemon
 movedex + editing moves

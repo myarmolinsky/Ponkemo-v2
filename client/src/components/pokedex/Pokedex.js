@@ -31,7 +31,25 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     alt={item.name}
                   />
                   {/* Pokemon's sprite */}
-                  <span className="caption">[{item.name}]</span>
+                  <span className="caption">
+                    [
+                    {item.name
+                      .split(" ")[0]
+                      .substring(item.name.split(" ")[0].length - 1) === "." || // this covers for pokemon like Mr. Mime
+                    item.name
+                      .split(" ")[0]
+                      .substring(item.name.split(" ")[0].length - 1) === ":" // this covers for pokemon like Type: Null
+                      ? item.name.split(" ")[0] + " " + item.name.split(" ")[1]
+                      : item.name.split(" ")[0] === "Arceus-Normal" // cover for Arceus
+                      ? "Arceus"
+                      : item.name
+                          .split(" ")[0]
+                          .substring(0, item.name.split(" ")[0].length - 1) ===
+                        "Indeedee"
+                      ? "Indeedee" // cover for Indeedee
+                      : item.name.split(" ")[0]}
+                    ]
+                  </span>
                   {/* Pokemon's name */}
                 </div>
               </Link>

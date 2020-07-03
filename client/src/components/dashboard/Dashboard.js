@@ -11,7 +11,6 @@ import { connect } from "react-redux";
 const Dashboard = ({ auth: { user } }) => {
   return (
     <Fragment>
-      {/*if still loading and the profile is null, show the loading spinner graphic, else show our Fragment*/}
       <h1 className="large text-primary">Dashboard</h1>
       <p className="lead">
         <i className="fas fa-user"> Welcome {user && user.username}</i>
