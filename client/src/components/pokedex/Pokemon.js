@@ -164,10 +164,19 @@ const Pokemon = ({
           <br />
           {/* Egg Groups */}
           <p className="lead">
-            Egg Groups: {pokemon.breeding.eggGroups[0]}
-            {pokemon.breeding.eggGroups.length > 1
-              ? ", " + pokemon.breeding.eggGroups[1]
-              : ""}
+            Egg Groups:{" "}
+            <Link to={`/egggroups/${pokemon.breeding.eggGroups[0]}`}>
+              {pokemon.breeding.eggGroups[0]}
+            </Link>
+            {pokemon.breeding.eggGroups.length > 1 ? ", " : ""}
+            {/* must run another ternary separately because when you append jsx to a string, it comes out as [Object object] instead of what it's meant to be */}
+            {pokemon.breeding.eggGroups.length > 1 ? (
+              <Link to={`/egggroups/${pokemon.breeding.eggGroups[1]}`}>
+                {pokemon.breeding.eggGroups[1]}
+              </Link>
+            ) : (
+              ""
+            )}
           </p>
           {pokemon.breeding.egg !== pokemon.breeding.altEgg ? (
             <Fragment>
@@ -186,6 +195,7 @@ const Pokemon = ({
             </Fragment>
           ) : (
             <Fragment>
+              {/* if male and female eggs are the same */}
               <p className="lead">
                 Egg:{" "}
                 <Link to={`/pokedex/${eggIds[0]}`}>{pokemon.breeding.egg}</Link>
@@ -228,13 +238,58 @@ const Pokemon = ({
             <Fragment>
               <p className="lead">Moves:</p>
               {/* Show the move and the ways the Pokemon can learn it */}
-              <p>
-                {pokemon.moves.map((item) => (
-                  <li key={item.name}>
-                    {item.name} via {learnMoveCondition(item.learnConditions)}
-                  </li>
-                ))}
-              </p>
+              <table className="moves-table">
+                <thead>
+                  <tr>
+                    <th className="move-cell move-head">Move</th>
+                    <th className="move-cell move-head">Level(s)</th>
+                    <th className="move-cell move-head">Evolution</th>
+                    <th className="move-cell move-head">TM</th>
+                    <th className="move-cell move-head">Egg</th>
+                    <th className="move-cell move-head">Tutor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pokemon.moves.map((item) => (
+                    <tr key={item.name}>
+                      <td className="move-cell move-body move-name">
+                        {item.name}
+                      </td>
+                      <td className="move-cell move-body none-move-name">
+                        {learnMoveCondition(item.learnConditions)}
+                      </td>
+                      <td className="move-cell move-body none-move-name">
+                        {item.learnConditions.includes("Evolve") ? (
+                          <i className="fas fa-check"></i>
+                        ) : (
+                          <i className="fas fa-times"></i>
+                        )}
+                      </td>
+                      <td className="move-cell move-body none-move-name">
+                        {item.learnConditions.includes("TM") ? (
+                          <i className="fas fa-check"></i>
+                        ) : (
+                          <i className="fas fa-times"></i>
+                        )}
+                      </td>
+                      <td className="move-cell move-body none-move-name">
+                        {item.learnConditions.includes("Egg") ? (
+                          <i className="fas fa-check"></i>
+                        ) : (
+                          <i className="fas fa-times"></i>
+                        )}
+                      </td>
+                      <td className="move-cell move-body none-move-name">
+                        {item.learnConditions.includes("Tutor") ? (
+                          <i className="fas fa-check"></i>
+                        ) : (
+                          <i className="fas fa-times"></i>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </Fragment>
           )}
         </Fragment>
@@ -359,48 +414,20 @@ const evolutionCondition = (condition) => {
 const learnMoveCondition = (conditions) => {
   // if there is only one condition, just show it
   if (conditions.length === 1) {
-    return typeof conditions[0] === "number"
-      ? "level " + conditions[0]
-      : conditions[0] === "Egg"
-      ? "Breeding"
-      : conditions[0] === "Tutor"
-      ? "Move Tutor"
-      : conditions[0] === "Evolve"
-      ? "Evolving"
-      : conditions[0];
+    return typeof conditions[0] === "number" ? (
+      conditions[0]
+    ) : (
+      <i className="fas fa-minus"></i>
+    );
   } else {
     // if there is more than one condition, show the first one
-    let list =
-      typeof conditions[0] === "number"
-        ? "level " + conditions[0]
-        : conditions[0];
-    // then go through the list of conditions, showing each one separated by proper grammar (commas and "and")
-    for (let i = 1; i < conditions.length; i++) {
-      if (conditions.length > 2) list += ", ";
-      else list += " ";
-      if (i === conditions.length - 1) {
-        list += "and ";
-      }
-      if (typeof conditions[i] === "number") {
-        list += "level " + conditions[i];
-      } else {
-        switch (conditions[i]) {
-          case "Egg":
-            list += "Breeding";
-            break;
-          case "Tutor":
-            list += "Move Tutor";
-            break;
-          case "Evolve":
-            list += "Evolving";
-            break;
-          default:
-            list += conditions[i];
-            break;
-        }
-      }
+    let list = [];
+    for (let i = 0; i < conditions.length; i++) {
+      if (typeof conditions[i] === "number") list.push(conditions[i]);
     }
-    return list;
+    list.sort();
+    if (list.length === 0) return <i className="fas fa-minus"></i>;
+    return list.join(", ");
   }
 };
 

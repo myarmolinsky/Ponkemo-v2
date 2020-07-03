@@ -1,5 +1,4 @@
 to do:
-clean up moves list on pokemon page (maybe a table or something)
 add moves for the rest of the pokemon
 movedex + editing moves
 moves are a link to that move
@@ -16,6 +15,7 @@ dashboard (maybe change name of dashboard to something else)
 -recycle pokemon and items (for pokemon tier points and item tier points respectively)
 sorting owned pokemon
 pokedex search/filter
+sort moves on pokemon page
 shop for buying items and pokemon with points (specific pokemon and items and/or packs of random pokemon and items for their respective points)
 use items + hold items
 battling

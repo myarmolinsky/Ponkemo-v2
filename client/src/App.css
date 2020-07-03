@@ -79,6 +79,31 @@ img {
   color: var(--dark-color);
 }
 
+.moves-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.move-head {
+  height: 3em;
+}
+
+.move-body {
+  height: 2em;
+}
+
+.move-name {
+  padding-left: 1em;
+}
+
+.none-move-name {
+  text-align: center;
+}
+
+.move-cell {
+  border: 1px solid black;
+}
+
 /* Padding */
 .p {
   padding: 0.5rem;

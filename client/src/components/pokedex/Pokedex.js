@@ -47,6 +47,11 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                           .substring(0, item.name.split(" ")[0].length - 1) ===
                         "Indeedee"
                       ? "Indeedee" // cover for Indeedee
+                      : item.name
+                          .split(" ")[0]
+                          .substring(0, item.name.split(" ")[0].length - 1) ===
+                        "Meowstic"
+                      ? "Meowstic" // cover for Meowstic
                       : item.name.split(" ")[0]}
                     ]
                   </span>
