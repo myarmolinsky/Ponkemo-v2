@@ -67,7 +67,6 @@ router.get("/:id", async (req, res) => {
       let previousId = (id - 0.99).toFixed(2);
       let previousPokemon = await Pokemon.findOne({ id: previousId });
       while (previousPokemon) {
-        console.log(previousId);
         previousId = parseFloat(previousId + 0.01);
         previousPokemon = await Pokemon.findOne({ id: previousId });
       }
@@ -84,18 +83,28 @@ router.get("/:id", async (req, res) => {
       for (let i = 0; i < pokemon.evolutionDetails.length; i++) {
         let evolutionName = pokemon.evolutionDetails[i].evolution;
         let evolution = await Pokemon.findOne({ name: evolutionName });
-        evolutionIds.push(evolution.id);
+        if (evolution) evolutionIds.push(evolution.id);
+        else {
+          console.log("Cannot find evolution at index " + i);
+          evolutionIds.push(-1);
+        }
       }
 
     // eggIds is an array that contains the ids of the egg and altEgg of the pokemon
     let eggIds = [];
     if (pokemon.breeding) {
       let egg = await Pokemon.findOne({ name: pokemon.breeding.egg });
-      let eggId = egg.id;
-      eggIds.push(eggId);
+      if (egg) eggIds.push(egg.id);
+      else {
+        console.log("Cannot find egg");
+        eggIds.push(-1);
+      }
       egg = await Pokemon.findOne({ name: pokemon.breeding.altEgg });
-      eggId = egg.id;
-      eggIds.push(eggId);
+      if (egg) eggIds.push(egg.id);
+      else {
+        console.log("Cannot find altEgg");
+        eggIds.push(-1);
+      }
     }
 
     // pokemon formes

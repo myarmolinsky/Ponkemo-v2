@@ -1,12 +1,17 @@
 to do:
 add moves for the rest of the pokemon
 movedex + editing moves
-moves are a link to that move
+moves are a link to that move (move page shows all pokemon that can learn the move)
 abilitydex + editing abilities
+abilities are a link to that ability (ability page shows all pokemon that can have that ability)
 itemdex + items + editing items
+fix notFound showing up while loading a pokemon even though pokemon exists (should show spinner instead)
+types are links to type page with type chart
 users have spawnCounter, item tier points, pokemon tier points
 spawnrates
-gen 8 and move adjustments
+sort moves on pokemon page
+pokedex search/filter
+loading spinner instead of notfound for pokemon and editpokemon
 dashboard (maybe change name of dashboard to something else)
 -catch
 -forage
@@ -14,10 +19,10 @@ dashboard (maybe change name of dashboard to something else)
 -breed
 -recycle pokemon and items (for pokemon tier points and item tier points respectively)
 sorting owned pokemon
-pokedex search/filter
-sort moves on pokemon page
 shop for buying items and pokemon with points (specific pokemon and items and/or packs of random pokemon and items for their respective points)
 use items + hold items
+auto-recycle pokemon option (< chosen IV percentage)
+trading + cpu-trading
 battling
 battle rules
 contests (hearthome)

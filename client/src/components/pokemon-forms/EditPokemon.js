@@ -254,13 +254,11 @@ const Pokemon = ({
 
   return (
     <Fragment>
-      {user === null || loading ? (
+      {user === null || loading || pokemon === null ? (
         <Spinner />
       ) : user.privileges !== "admin" ? (
         // if the user does not have "admin" privileges
         <AccessDenied />
-      ) : pokemon === null || loading ? (
-        <Spinner />
       ) : currentId > lastId + 1 || currentId < 1 ? (
         // if the page the user is trying to go to a Pokemon that does not exist
         <NotFound />

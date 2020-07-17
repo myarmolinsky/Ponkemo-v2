@@ -21,11 +21,10 @@ const Pokemon = ({
 
   // evolutionIndex is the index we are up to in the evolutionIds array
   let evolutionIndex = 0;
-  console.log(pokemon);
 
   return (
     <Fragment>
-      {pokemon === null || loading ? (
+      {loading || pokemon === null ? (
         <Fragment>
           <Spinner />
         </Fragment>
@@ -261,30 +260,54 @@ const Pokemon = ({
                       </td>
                       <td className="move-cell move-body none-move-name">
                         {item.learnConditions.includes("Evolve") ? (
-                          <i className="fas fa-check"></i>
+                          <i
+                            className="fas fa-check"
+                            style={{ color: "green" }}
+                          ></i>
                         ) : (
-                          <i className="fas fa-times"></i>
+                          <i
+                            className="fas fa-times"
+                            style={{ color: "red" }}
+                          ></i>
                         )}
                       </td>
                       <td className="move-cell move-body none-move-name">
                         {item.learnConditions.includes("TM") ? (
-                          <i className="fas fa-check"></i>
+                          <i
+                            className="fas fa-check"
+                            style={{ color: "green" }}
+                          ></i>
                         ) : (
-                          <i className="fas fa-times"></i>
+                          <i
+                            className="fas fa-times"
+                            style={{ color: "red" }}
+                          ></i>
                         )}
                       </td>
                       <td className="move-cell move-body none-move-name">
                         {item.learnConditions.includes("Egg") ? (
-                          <i className="fas fa-check"></i>
+                          <i
+                            className="fas fa-check"
+                            style={{ color: "green" }}
+                          ></i>
                         ) : (
-                          <i className="fas fa-times"></i>
+                          <i
+                            className="fas fa-times"
+                            style={{ color: "red" }}
+                          ></i>
                         )}
                       </td>
                       <td className="move-cell move-body none-move-name">
                         {item.learnConditions.includes("Tutor") ? (
-                          <i className="fas fa-check"></i>
+                          <i
+                            className="fas fa-check"
+                            style={{ color: "green" }}
+                          ></i>
                         ) : (
-                          <i className="fas fa-times"></i>
+                          <i
+                            className="fas fa-times"
+                            style={{ color: "red" }}
+                          ></i>
                         )}
                       </td>
                     </tr>
@@ -405,6 +428,8 @@ const evolutionCondition = (condition) => {
         return "by leveling up Toxel to level 30 while its nature is Hardy, Brave, Adamant, Naughty, Docile, Impish, Lax, Hasty, Jolly, Naive, Rash, Sassy, or Quirky";
       case "Toxtricity Low Key Form":
         return "by leveling up Toxel to level 30 while its nature is Lonely, Bold, Relaxed, Timid, SErious, Modest, Mild, Quiet, Bashful, Calm, Gentle, or Careful";
+      case "Galarica Cuff":
+        return "by using a Galarica Cuff";
       default:
         return;
     }
