@@ -78,6 +78,6 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - If you wish to see Pokemon at the current stage of this project, add a file to the config folder called "default.json" and put this text inside it:
 ```
 {
-  "mongoURI": "mongodb+srv://Ponkemo:password123@devconnector-1edv7.mongodb.net/Ponkemo"
+  "mongoURI": "mongodb+srv://Ponkemo:TestPassword123@devconnector-1edv7.mongodb.net/Ponkemo"
 }
 ```
