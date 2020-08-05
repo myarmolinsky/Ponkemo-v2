@@ -328,6 +328,8 @@ const evolutionCondition = (condition) => {
     return "at level " + condition;
   } else {
     switch (condition) {
+      case "Shiny Stone":
+        return "by using a Shiny Stone";
       case "Ice Stone":
         return "by using an Ice Stone";
       case "Fire Stone":

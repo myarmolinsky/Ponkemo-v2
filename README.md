@@ -1,11 +1,15 @@
 # Ponkemo-v2
+
 ## Intro
-This project is my personal take on the Pokemon franchise, seeking to implement as many features of the games as possible while also seeking to ensure the inclusion of every Pokemon and everything that comes with them (something the generation 8 games have failed to do).  The end result may seem a bit like Smogon's Pokemon battle simulator Pokemon Showdown, however something I've always liked doing is catching and training the Pokemon for battle myself so in order to battle, you need to raise your own team.
 
-I have attempted this project once before and in a way this a reinvention/reboot of it, however at its core this project is intended to achieve all the goals I failed to achieve in my first attempt of the project and more.  In regards to the first project I am referring to, it is called Ponkemo and its repository can be found at this link: https://github.com/myarmolinsky/Ponkemo.  To summarize that project, it is a Pokemon catching and training simulator: just a mere fraction of what I intended on implementing.  Due to a lack of foresight on my behalf in regards to the technologies I was using to tackle the ambitious ideas I held in my mind, I ended that project.
+This project is my personal take on the Pokemon franchise, seeking to implement as many features of the games as possible while also seeking to ensure the inclusion of every Pokemon and everything that comes with them (something the generation 8 games have failed to do). The end result may seem a bit like Smogon's Pokemon battle simulator Pokemon Showdown, however something I've always liked doing is catching and training the Pokemon for battle myself so in order to battle, you need to raise your own team.
 
-I planned to return to the project once I felt more comfortable with a JavaScript based stack, and now I have; I am using the MERN stack to make this project.  Below you will find a growing list of features I have included and features I will include.
+I have attempted this project once before and in a way this a reinvention/reboot of it, however at its core this project is intended to achieve all the goals I failed to achieve in my first attempt of the project and more. In regards to the first project I am referring to, it is called Ponkemo and its repository can be found at this link: https://github.com/myarmolinsky/Ponkemo. To summarize that project, it is a Pokemon catching and training simulator: just a mere fraction of what I intended on implementing. Due to a lack of foresight on my behalf in regards to the technologies I was using to tackle the ambitious ideas I held in my mind, I ended that project.
+
+I planned to return to the project once I felt more comfortable with a JavaScript based stack, and now I have; I am using the MERN stack to develop this project. Below you will find a growing list of features I have included and features I will include.
+
 ## Included Features
+
 - User sign up and log in
 - Pokedex (user does not have to be signed in to see this)
   - Each Pokemon on the Pokedex page links to its respective Pokemon page
@@ -28,7 +32,9 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
   - Each Egg Group links to its respective Egg Group Page
 - Egg Group page for each Egg Group showing all Pokemon in that Egg Group
   - Each Pokemon on the Egg Group page links to its respective Pokemon page
+
 ## Planned Features/To-Do List
+
 - Add moves for the rest of the pokemon
 - Movedex
   - Moves on Pokemon page are a link to that respective move page
@@ -70,14 +76,19 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
   - Pokedex completion
   - Special badges for completing each challenge
 - Dynamax (player must choose between their team having Dynamax or Mega Pokemon and Z moves)
+
 ## Notes
+
 - Some Pokemon's evolution conditions have been changed or adjusted
   - Time of day evolutions are out
   - Some Pokemon Egg Groups have been changed (Generation 8 fossil Pokemon)
   - Magnetic field and other odd/specific conditions are out (replaced with stone evolution)
 - If you wish to see Pokemon at the current stage of this project, add a file to the config folder called "default.json" and put this text inside it:
+
 ```
 {
   "mongoURI": "mongodb+srv://Ponkemo:TestPassword123@devconnector-1edv7.mongodb.net/Ponkemo"
 }
 ```
+
+- Pokemon are able to learn every move they have been able to learn throughout the generations. This is because I feel like if a Pokemon was able to learn the move once, it should still be able to learn it.
