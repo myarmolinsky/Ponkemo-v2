@@ -13,6 +13,9 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - User sign up and log in
 - Pokedex (user does not have to be signed in to see this)
   - Each Pokemon on the Pokedex page links to its respective Pokemon page
+  - Search filter to search for Pokemon by name, type, ability, egg group, and base stats
+  - Toggle whether formes are shown (not shown by default)
+  - Toggle between shiny and non-shiny sprites (non-shiny by default)
 - Pokemon page for each Pokemon which displays all information about a Pokemon including the Pokemon's:
   - Name
   - Normal and shiny sprites
@@ -27,7 +30,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
   - What its egg hatches into
   - Spawn Rate (currently all 0 or -1)
   - List of Evolutions and how to get them
-  - Table of learnable moves and how to learn them
+  - Table of learnable moves and how to learn them (Only for first 359 Pokemon so far)
 - Egg Groups page showing all Egg Groups
   - Each Egg Group links to its respective Egg Group Page
 - Egg Group page for each Egg Group showing all Pokemon in that Egg Group
@@ -35,6 +38,9 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 
 ## Planned Features/To-Do List
 
+- Comment code
+- Fix decimal always showing in url when going to previous pokemon
+- Fix Stage 0 Pokemon and future evolutions having unidentical egg moves (duskull + dusknoir, chingling + chimecho)
 - Add moves for the rest of the pokemon
 - Movedex
   - Moves on Pokemon page are a link to that respective move page
@@ -54,7 +60,8 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Spawnrates
   - Give each Pokemon a fair (as fair as possible) spawnrate
 - Sort moves on Pokemon page
-- Pokedex search/filter
+- Sort Pokedex
+- Back button/history
 - Dashboard (maybe change the name of dashboard to something else)
   - Catch Pokemon
   - Forage for items
@@ -82,7 +89,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Some Pokemon's evolution conditions have been changed or adjusted
   - Time of day evolutions are out
   - Some Pokemon Egg Groups have been changed (Generation 8 fossil Pokemon)
-  - Magnetic field and other odd/specific conditions are out (replaced with stone evolution)
+  - Magnetic field and other odd/specific conditions are out
 - If you wish to see Pokemon at the current stage of this project, add a file to the config folder called "default.json" and put this text inside it:
 
 ```
@@ -91,4 +98,4 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 }
 ```
 
-- Pokemon are able to learn every move they have been able to learn throughout the generations. This is because I feel like if a Pokemon was able to learn the move once, it should still be able to learn it.
+- Pokemon are able to learn every move they have been able to learn throughout the generations

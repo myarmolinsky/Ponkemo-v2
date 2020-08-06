@@ -104,6 +104,31 @@ img {
   border: 1px solid black;
 }
 
+.search-form {
+  display: inline-block;
+}
+
+.input-icon {
+  border: solid;
+  border-right: none;
+  border-color: lightgray;
+  border-width: 0.05rem;
+  border-radius: 0em;
+  padding: 0.6em;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 /* Padding */
 .p {
   padding: 0.5rem;
@@ -275,6 +300,7 @@ img {
   color: #888;
 }
 
+.form input[type="number"],
 .form input[type="text"],
 .form input[type="email"],
 .form input[type="password"],
@@ -286,6 +312,11 @@ img {
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #ccc;
+}
+
+.form input[type="number"] {
+  width: 3em;
+  text-align: center;
 }
 
 .form input[type="submit"],
