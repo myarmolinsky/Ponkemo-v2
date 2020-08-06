@@ -2,89 +2,99 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-const EggGroups = () => {
+const Types = () => {
   return (
     <Fragment>
-      <h1 className="large text-primary">Egg Groups</h1>
+      <h1 className="large text-primary">Types</h1>
       <ul>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Amorphous">Amorphous</Link>
+            <Link to="/types/Bug">Bug</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Bug">Bug</Link>
+            <Link to="/types/Dark">Dark</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Ditto">Ditto</Link>
+            <Link to="/types/Dragon">Dragon</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Dragon">Dragon</Link>
+            <Link to="/types/Electric">Electric</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Fairy">Fairy</Link>
+            <Link to="/types/Fairy">Fairy</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Field">Field</Link>
+            <Link to="/types/Fighting">Fighting</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Flying">Flying</Link>
+            <Link to="/types/Fire">Fire</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Grass">Grass</Link>
+            <Link to="/types/Flying">Flying</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Human-Like">Human-Like</Link>
+            <Link to="/types/Ghost">Ghost</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Legendary">Legendary</Link>
+            <Link to="/types/Grass">Grass</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Mineral">Mineral</Link>
+            <Link to="/types/Ground">Ground</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Monster">Monster</Link>
+            <Link to="/types/Ice">Ice</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Unown">Unown</Link>
+            <Link to="/types/Normal">Normal</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Water 1">Water 1</Link>
+            <Link to="/types/Poison">Poison</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Water 2">Water 2</Link>
+            <Link to="/types/Psychic">Psychic</Link>
           </span>
         </li>
         <li>
           <span className="lead">
-            <Link to="/egggroups/Water 3">Water 3</Link>
+            <Link to="/types/Rock">Rock</Link>
+          </span>
+        </li>
+        <li>
+          <span className="lead">
+            <Link to="/types/Steel">Steel</Link>
+          </span>
+        </li>
+        <li>
+          <span className="lead">
+            <Link to="/types/Water">Water</Link>
           </span>
         </li>
       </ul>
@@ -92,4 +102,4 @@ const EggGroups = () => {
   );
 };
 
-export default connect()(EggGroups);
+export default connect()(Types);

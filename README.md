@@ -31,17 +31,23 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
   - Spawn Rate (currently all 0 or -1)
   - List of Evolutions and how to get them
   - Table of learnable moves and how to learn them (Only for first 359 Pokemon so far)
-- Egg Groups page showing all Egg Groups
-  - Each Egg Group links to its respective Egg Group Page
+- Egg Groups page showing all Egg Groups (currently only accessible by going to an egg group page via a Pokemon page or by going directly to the url)
+  - Each Egg Group links to its respective Egg Group page
 - Egg Group page for each Egg Group showing all Pokemon in that Egg Group
   - Each Pokemon on the Egg Group page links to its respective Pokemon page
+  - Search filter to search for Pokemon by name, type, ability, and base stats
+- Types page showing all Types (current only accessible by going to a Type page via a Pokemon page or by going directly to the url)
+  - Each Type links to its respective Type page
+- Type page for each Type showing all Pokemon who have that Type
+  - Each Pokemon on the Type page links to its respective Pokemon page
+  - Search filter to search for Pokemon by name, another type, ability, egg group, and base stats
 
 ## Planned Features/To-Do List
 
 - Comment code
 - Fix decimal always showing in url when going to previous pokemon
 - Fix Stage 0 Pokemon and future evolutions having unidentical egg moves (duskull + dusknoir, chingling + chimecho)
-- Add moves for the rest of the pokemon
+- Add moves for the rest of the pokemon (360-end)
 - Movedex
   - Moves on Pokemon page are a link to that respective move page
   - Move page shows all Pokemon that can learn the move
@@ -53,8 +59,6 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Itemdex
   - Edit items (admin-privilege users only)
 - Fix notFound showing up while loading a Pokemon even though the Pokemon exists (should show spinner instead)
-- Types pages
-  - Types on Pokemon page are links to that respective type page with a type chart
 - Users have spawnCounter, item tier points, Pokemon tier points
   - spawnCounter is used for spawning Pokemon, it ensures that it is harder to get a rarer Pokemon
 - Spawnrates

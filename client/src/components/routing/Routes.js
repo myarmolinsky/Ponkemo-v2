@@ -11,6 +11,8 @@ import NotFound from "../layout/NotFound";
 import Alert from "../layout/Alert";
 import EggGroups from "../pokedex/EggGroups";
 import EggGroup from "../pokedex/EggGroup";
+import Types from "../pokedex/Types";
+import Type from "../pokedex/Type";
 
 const Routes = () => {
   return (
@@ -28,6 +30,8 @@ const Routes = () => {
         <PrivateRoute exact path="/pokedex/:id/edit" component={EditPokemon} />
         <Route exact path="/egggroups" component={EggGroups} />
         <Route exact path="/egggroups/:eggGroup" component={EggGroup} />
+        <Route exact path="/types" component={Types} />
+        <Route exact path="/types/:type" component={Type} />
         <Route component={NotFound} />
       </Switch>
     </section>

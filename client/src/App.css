@@ -104,31 +104,6 @@ img {
   border: 1px solid black;
 }
 
-.search-form {
-  display: inline-block;
-}
-
-.input-icon {
-  border: solid;
-  border-right: none;
-  border-color: lightgray;
-  border-width: 0.05rem;
-  border-radius: 0em;
-  padding: 0.6em;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
 /* Padding */
 .p {
   padding: 0.5rem;
@@ -322,6 +297,77 @@ input[type="number"] {
 .form input[type="submit"],
 button {
   font: inherit;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.search-form .form-group {
+  margin: 1.2rem 0;
+}
+
+.search-form .form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+}
+
+.search-form input[type="number"],
+.search-form input[type="text"],
+.search-form input[type="email"],
+.search-form input[type="password"],
+.search-form input[type="date"],
+.search-form select,
+.search-form textarea {
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+
+.search-form input[type="text"] {
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+.search-form .search-bar {
+  margin-bottom: 1em;
+}
+
+.search-form input[type="number"] {
+  text-align: center;
+}
+
+.search-form select {
+  width: 100%;
+}
+
+.search-form input[type="submit"],
+button {
+  font: inherit;
+}
+
+.search-form label {
+  display: block;
+  width: 20%;
+  font-size: 1.2rem;
+}
+
+.search-form .input-icon {
+  width: 1.9%;
+  padding: 0.6em;
+  position: absolute;
+  margin-left: -2em;
 }
 
 .table th,

@@ -128,11 +128,11 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
         (pokemon.name.includes("Arceus") || pokemon.name.includes("Basculin")))
     )
       return false;
-    if (firstType !== "") if (pokemon.types[0] !== firstType) return false;
+
+    if (firstType !== "") if (!pokemon.types.includes(firstType)) return false;
     if (secondType !== "")
-      if (pokemon.types.length > 1) {
-        if (pokemon.types[1] !== secondType) return false;
-      } else return false;
+      if (!pokemon.types.includes(secondType)) return false;
+
     if (ability !== "") {
       if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase()))
         if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase()))
@@ -147,6 +147,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
             return false;
           }
     }
+
     if (eggGroup !== "")
       if (pokemon.breeding.eggGroups[0] !== eggGroup)
         if (pokemon.breeding.eggGroups.length > 1) {
@@ -154,6 +155,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
         } else {
           return false;
         }
+
     let hpGreater,
       hpLess,
       atkGreater,
@@ -166,6 +168,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
       spdLess,
       speGreater,
       speLess;
+
     if (baseHealthGreater === "") hpGreater = 0;
     else hpGreater = parseFloat(baseHealthGreater);
     if (baseHealthLess === "") hpLess = 256;
@@ -235,9 +238,9 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
         </Fragment>
       ) : (
         <Fragment>
-          <form className="form">
-            <i className="fas fa-search input-icon"></i>
-            <div className="search-form form-group">
+          <form className="search-form">
+            <div className="search-bar">
+              <i className="fas fa-search input-icon"></i>
               <input
                 type="text"
                 placeholder="Search for a Pokemon"
@@ -284,6 +287,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     Shiny Sprites: On
                   </button>
                 )}
+                <hr style={{ marginTop: "1em" }} />
               </Fragment>
             ) : (
               <Fragment>
@@ -323,21 +327,19 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     Shiny Sprites: On
                   </button>
                 )}
-                <br />
+                <hr style={{ marginTop: "1em" }} />
                 <div
-                  className="search-form form-group"
+                  className="form-group"
                   style={{
                     paddingLeft: "40px",
                     display: "table",
                   }}
                 >
-                  <label className="lead" style={{ display: "table-cell" }}>
-                    First Type:
-                  </label>
+                  <label style={{ display: "table-cell" }}>Types:</label>
                   <select
                     name="firstType"
                     onChange={(e) => onChange(e)}
-                    style={{ display: "table-cell" }}
+                    style={{ display: "table-cell", marginLeft: "-100%" }}
                   >
                     <option defaultValue value=""></option>
                     <option value="Bug">Bug</option>
@@ -359,12 +361,6 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     <option value="Steel">Steel</option>
                     <option value="Water">Water</option>
                   </select>
-                  <label
-                    className="lead"
-                    style={{ display: "table-cell", paddingLeft: "1em" }}
-                  >
-                    Second Type:
-                  </label>
                   <select
                     name="secondType"
                     onChange={(e) => onChange(e)}
@@ -391,8 +387,10 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     <option value="Water">Water</option>
                   </select>
                   <label
-                    className="lead"
-                    style={{ display: "table-cell", paddingLeft: "1em" }}
+                    style={{
+                      display: "table-cell",
+                      paddingLeft: "1em",
+                    }}
                   >
                     Ability:
                   </label>
@@ -402,18 +400,17 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     name="ability"
                     value={ability}
                     onChange={(e) => onChange(e)}
-                    style={{ display: "table-cell" }}
+                    style={{ display: "table-cell", marginLeft: "-45%" }}
                   ></input>
-                  <label
-                    className="lead"
-                    style={{ display: "table-cell", paddingLeft: "1em" }}
-                  >
-                    Egg Group:
-                  </label>
+                  <label style={{ display: "table-cell" }}>Egg Group:</label>
                   <select
                     name="eggGroup"
                     onChange={(e) => onChange(e)}
-                    style={{ display: "table-cell" }}
+                    style={{
+                      display: "table-cell",
+                      width: "110%",
+                      marginLeft: "-10%",
+                    }}
                   >
                     <option defaultValue value=""></option>
                     <option value="Amorphous">Amorphous</option>
@@ -434,14 +431,15 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     <option value="Water 3">Water 3</option>
                   </select>
                 </div>
+                <hr />
                 <div
-                  className="search-form form-group"
+                  className="form-group"
                   style={{
                     paddingLeft: "40px",
                     display: "table",
                   }}
                 >
-                  <label className="lead" style={{ display: "table-cell" }}>
+                  <label style={{ display: "table-cell" }}>
                     Base Health {">"}
                   </label>
                   <input
@@ -452,10 +450,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     onChange={(e) => onChange(e)}
                     style={{ display: "table-cell" }}
                   ></input>
-                  <label
-                    className="lead"
-                    style={{ display: "table-cell", paddingLeft: "1em" }}
-                  >
+                  <label style={{ display: "table-cell", paddingLeft: "1em" }}>
                     Base Health {"<"}
                   </label>
                   <input
@@ -466,10 +461,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     onChange={(e) => onChange(e)}
                     style={{ display: "table-cell" }}
                   ></input>
-                  <label
-                    className="lead"
-                    style={{ display: "table-cell", paddingLeft: "1em" }}
-                  >
+                  <label style={{ display: "table-cell", paddingLeft: "1em" }}>
                     Base Attack {">"}
                   </label>
                   <input
@@ -480,10 +472,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     onChange={(e) => onChange(e)}
                     style={{ display: "table-cell" }}
                   ></input>
-                  <label
-                    className="lead"
-                    style={{ display: "table-cell", paddingLeft: "1em" }}
-                  >
+                  <label style={{ display: "table-cell", paddingLeft: "1em" }}>
                     Base Attack {"<"}
                   </label>
                   <input
@@ -496,13 +485,13 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                   ></input>
                 </div>
                 <div
-                  className="search-form form-group"
+                  className="form-group"
                   style={{
                     paddingLeft: "40px",
                     display: "table",
                   }}
                 >
-                  <label className="lead" style={{ display: "table-cell" }}>
+                  <label style={{ display: "table-cell" }}>
                     Base Defense {">"}
                   </label>
                   <input
@@ -513,10 +502,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     onChange={(e) => onChange(e)}
                     style={{ display: "table-cell" }}
                   ></input>
-                  <label
-                    className="lead"
-                    style={{ display: "table-cell", paddingLeft: "1em" }}
-                  >
+                  <label style={{ display: "table-cell", paddingLeft: "1em" }}>
                     Base Defense {"<"}
                   </label>
                   <input
@@ -527,10 +513,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     onChange={(e) => onChange(e)}
                     style={{ display: "table-cell" }}
                   ></input>
-                  <label
-                    className="lead"
-                    style={{ display: "table-cell", paddingLeft: "1em" }}
-                  >
+                  <label style={{ display: "table-cell", paddingLeft: "1em" }}>
                     Base Special Attack {">"}
                   </label>
                   <input
@@ -541,10 +524,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     onChange={(e) => onChange(e)}
                     style={{ display: "table-cell" }}
                   ></input>
-                  <label
-                    className="lead"
-                    style={{ display: "table-cell", paddingLeft: "1em" }}
-                  >
+                  <label style={{ display: "table-cell", paddingLeft: "1em" }}>
                     Base Special Attack {"<"}
                   </label>
                   <input
@@ -557,13 +537,13 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                   ></input>
                 </div>
                 <div
-                  className="search-form form-group"
+                  className="form-group"
                   style={{
                     paddingLeft: "40px",
                     display: "table",
                   }}
                 >
-                  <label className="lead" style={{ display: "table-cell" }}>
+                  <label style={{ display: "table-cell" }}>
                     Base Special Defense {">"}
                   </label>
                   <input
@@ -574,10 +554,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     onChange={(e) => onChange(e)}
                     style={{ display: "table-cell" }}
                   ></input>
-                  <label
-                    className="lead"
-                    style={{ display: "table-cell", paddingLeft: "1em" }}
-                  >
+                  <label style={{ display: "table-cell", paddingLeft: "1em" }}>
                     Base Special Defense {"<"}
                   </label>
                   <input
@@ -588,10 +565,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     onChange={(e) => onChange(e)}
                     style={{ display: "table-cell" }}
                   ></input>
-                  <label
-                    className="lead"
-                    style={{ display: "table-cell", paddingLeft: "1em" }}
-                  >
+                  <label style={{ display: "table-cell", paddingLeft: "1em" }}>
                     Base Speed {">"}
                   </label>
                   <input
@@ -602,10 +576,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     onChange={(e) => onChange(e)}
                     style={{ display: "table-cell" }}
                   ></input>
-                  <label
-                    className="lead"
-                    style={{ display: "table-cell", paddingLeft: "1em" }}
-                  >
+                  <label style={{ display: "table-cell", paddingLeft: "1em" }}>
                     Base Speed {"<"}
                   </label>
                   <input
@@ -617,10 +588,8 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     style={{ display: "table-cell" }}
                   ></input>
                 </div>
-                <div
-                  className="search-form form-group"
-                  style={{ display: "flex" }}
-                >
+                <hr style={{ marginTop: "1em" }} />
+                <div className="form-group" style={{ display: "flex" }}>
                   <input
                     className="btn btn-dark"
                     type="reset"
@@ -629,6 +598,7 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
                     style={{ marginLeft: "auto" }}
                   />
                 </div>
+                <hr style={{ marginTop: "1em" }} />
               </Fragment>
             )}
           </form>

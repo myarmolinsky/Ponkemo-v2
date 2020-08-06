@@ -5,12 +5,12 @@ import { connect } from "react-redux";
 import { getAllPokemon } from "../../actions/pokemon";
 import Spinner from "../layout/Spinner";
 
-const EggGroup = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
+const Type = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
   const [searchData, setSearchData] = useState({
     search: "",
-    firstType: "",
-    secondType: "",
+    type: "",
     ability: "",
+    eggGroup: "",
     baseHealthGreater: 0,
     baseHealthLess: 256,
     baseAttackGreater: 0,
@@ -33,9 +33,9 @@ const EggGroup = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
 
   const {
     search,
-    firstType,
-    secondType,
+    type,
     ability,
+    eggGroup,
     baseHealthGreater,
     baseHealthLess,
     baseAttackGreater,
@@ -57,9 +57,9 @@ const EggGroup = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
   useEffect(() => {
     setSearchData({
       search: "",
-      firstType: "",
-      secondType: "",
+      type: "",
       ability: "",
+      eggGroup: "",
       baseHealthGreater: 0,
       baseHealthLess: 256,
       baseAttackGreater: 0,
@@ -126,9 +126,9 @@ const EggGroup = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
     )
       return false;
 
-    if (firstType !== "") if (!pokemon.types.includes(firstType)) return false;
-    if (secondType !== "")
-      if (!pokemon.types.includes(secondType)) return false;
+    if (!pokemon.types.includes(match.params.type)) return false;
+
+    if (type !== "") if (!pokemon.types.includes(type)) return false;
 
     if (ability !== "") {
       if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase()))
@@ -145,8 +145,13 @@ const EggGroup = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
           }
     }
 
-    if (!pokemon.breeding.eggGroups.includes(match.params.eggGroup))
-      return false;
+    if (eggGroup !== "")
+      if (pokemon.breeding.eggGroups[0] !== eggGroup)
+        if (pokemon.breeding.eggGroups.length > 1) {
+          if (pokemon.breeding.eggGroups[1] !== eggGroup) return false;
+        } else {
+          return false;
+        }
 
     let hpGreater,
       hpLess,
@@ -203,9 +208,9 @@ const EggGroup = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
   const clearSearch = () => {
     setSearchData({
       search: "",
-      firstType: "",
-      secondType: "",
+      type: "",
       ability: "",
+      eggGroup: "",
       baseHealthGreater: 0,
       baseHealthLess: 256,
       baseAttackGreater: 0,
@@ -229,14 +234,12 @@ const EggGroup = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
         </Fragment>
       ) : (
         <Fragment>
-          <Link to="/egggroups" className="btn btn-dark">
-            To Egg Groups
+          <Link to="/types" className="btn btn-dark">
+            To Types
           </Link>
           <br />
           <br />
-          <h1 className="large text-primary">
-            {match.params.eggGroup} Egg Group
-          </h1>
+          <h1 className="large text-primary">{match.params.type} Types</h1>
           <Fragment>
             <form className="search-form">
               <div className="search-bar">
@@ -335,36 +338,11 @@ const EggGroup = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
                       display: "table",
                     }}
                   >
-                    <label style={{ display: "table-cell" }}>Types:</label>
+                    <label style={{ display: "table-cell" }}>Other Type:</label>
                     <select
-                      name="firstType"
+                      name="type"
                       onChange={(e) => onChange(e)}
-                      style={{ display: "table-cell" }}
-                    >
-                      <option defaultValue value=""></option>
-                      <option value="Bug">Bug</option>
-                      <option value="Dark">Dark</option>
-                      <option value="Dragon">Dragon</option>
-                      <option value="Electric">Electric</option>
-                      <option value="Fairy">Fairy</option>
-                      <option value="Fighting">Fighting</option>
-                      <option value="Fire">Fire</option>
-                      <option value="Flying">Flying</option>
-                      <option value="Ghost">Ghost</option>
-                      <option value="Grass">Grass</option>
-                      <option value="Ground">Ground</option>
-                      <option value="Ice">Ice</option>
-                      <option value="Normal">Normal</option>
-                      <option value="Poison">Poison</option>
-                      <option value="Psychic">Psychic</option>
-                      <option value="Rock">Rock</option>
-                      <option value="Steel">Steel</option>
-                      <option value="Water">Water</option>
-                    </select>
-                    <select
-                      name="secondType"
-                      onChange={(e) => onChange(e)}
-                      style={{ display: "table-cell" }}
+                      style={{ display: "table-cell", marginLeft: "-100%" }}
                     >
                       <option defaultValue value=""></option>
                       <option value="Bug">Bug</option>
@@ -400,8 +378,36 @@ const EggGroup = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
                       name="ability"
                       value={ability}
                       onChange={(e) => onChange(e)}
-                      style={{ display: "table-cell" }}
+                      style={{ display: "table-cell", marginLeft: "-45%" }}
                     ></input>
+                    <label style={{ display: "table-cell" }}>Egg Group:</label>
+                    <select
+                      name="eggGroup"
+                      onChange={(e) => onChange(e)}
+                      style={{
+                        display: "table-cell",
+                        width: "110%",
+                        marginLeft: "-10%",
+                      }}
+                    >
+                      <option defaultValue value=""></option>
+                      <option value="Amorphous">Amorphous</option>
+                      <option value="Bug">Bug</option>
+                      <option value="Ditto">Ditto</option>
+                      <option value="Dragon">Dragon</option>
+                      <option value="Fairy">Fairy</option>
+                      <option value="Field">Field</option>
+                      <option value="Flying">Flying</option>
+                      <option value="Grass">Grass</option>
+                      <option value="Human-Like">Human-Like</option>
+                      <option value="Legendary">Legendary</option>
+                      <option value="Mineral">Mineral</option>
+                      <option value="Monster">Monster</option>
+                      <option value="Unown">Unown</option>
+                      <option value="Water 1">Water 1</option>
+                      <option value="Water 2">Water 2</option>
+                      <option value="Water 3">Water 3</option>
+                    </select>
                   </div>
                   <hr />
                   <div
@@ -691,7 +697,7 @@ const EggGroup = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
   );
 };
 
-EggGroup.propTypes = {
+Type.propTypes = {
   getAllPokemon: PropTypes.func.isRequired,
   pokemon: PropTypes.object.isRequired,
 };
@@ -700,4 +706,4 @@ const mapStateToProps = (state) => ({
   pokemon: state.pokemon,
 });
 
-export default connect(mapStateToProps, { getAllPokemon })(EggGroup);
+export default connect(mapStateToProps, { getAllPokemon })(Type);

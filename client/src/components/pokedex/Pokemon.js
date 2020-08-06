@@ -122,8 +122,14 @@ const Pokemon = ({
           </div>
           {/* Types */}
           <p className="lead">
-            Types: {pokemon.types[0]}
-            {pokemon.types.length > 1 ? ", " + pokemon.types[1] : ""}
+            Types:{" "}
+            <Link to={`/types/${pokemon.types[0]}`}>{pokemon.types[0]}</Link>
+            {pokemon.types.length > 1 ? ", " : ""}
+            {pokemon.types.length > 1 ? (
+              <Link to={`/types/${pokemon.types[1]}`}>{pokemon.types[1]}</Link>
+            ) : (
+              ""
+            )}
           </p>
           {/* Abilities */}
           <p className="lead">
