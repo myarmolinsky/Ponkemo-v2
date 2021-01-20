@@ -47,7 +47,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Comment code
 - Fix decimal always showing in url when going to previous pokemon
 - Fix Stage 0 Pokemon and future evolutions having unidentical egg moves (duskull + dusknoir, chingling + chimecho)
-- Add moves for the rest of the pokemon (360-end)
+- Add moves for the rest of the pokemon (359-end)
 - Movedex
   - Moves on Pokemon page are a link to that respective move page
   - Move page shows all Pokemon that can learn the move
@@ -77,7 +77,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Use items and give items to Pokemon to hold
 - Auto-recycle Pokemon option (Give the user the ability to choose the criteria under which a Pokemon gets recycled such as if the Pokemon's IV percentage is lower than a certain amount the user declared)
 - Trading Pokemon between users and trading with a CPU
-  - CPU trading is intended for if there is no other user on to trade with or if a user does not trust other users to fairly trade (such as trading adn trading back for trade evolutions)
+  - CPU trading is intended for if there is no other user on to trade with or if a user does not trust other users to fairly trade (such as trading and trading back for trade evolutions)
   - CPU trading would cost points
 - Battling
 - Battle rules
