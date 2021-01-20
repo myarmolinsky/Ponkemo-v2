@@ -1,18 +1,25 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getPokemon, getLastId } from "../../actions/pokemon";
+import { any } from "prop-types";
+import { PokemonContext } from "../../context";
 import Spinner from "../layout/Spinner";
 import NotFound from "../layout/NotFound";
 
-const Pokemon = ({
-  match,
-  getPokemon,
-  getLastId,
-  pokemon: { pokemon, evolutionIds, eggIds, formes, lastId, loading },
-  auth: { user },
-}) => {
+export const Pokemon = ({ match }) => {
+  const {
+    getPokemon,
+    getLastId,
+    pokemon,
+    evolutionIds,
+    eggIds,
+    formes,
+    lastId,
+    loading,
+  } = useContext(PokemonContext);
+
+  // TODO UserContext
+  let user = null;
+
   useEffect(() => {
     window.scrollTo(0, 0);
     getPokemon(match.params.id);
@@ -466,15 +473,5 @@ const learnMoveCondition = (conditions) => {
 };
 
 Pokemon.propTypes = {
-  getPokemon: PropTypes.func.isRequired,
-  getLastId: PropTypes.func.isRequired,
-  pokemon: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired,
+  match: any.isRequired,
 };
-
-const mapStateToProps = (state) => ({
-  pokemon: state.pokemon,
-  auth: state.auth,
-});
-
-export default connect(mapStateToProps, { getPokemon, getLastId })(Pokemon);

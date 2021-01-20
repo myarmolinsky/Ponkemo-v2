@@ -1,19 +1,25 @@
-import React, { Fragment, useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getPokemon, getLastId, updatePokemon } from "../../actions/pokemon";
+import React, { Fragment, useState, useEffect, useContext } from "react";
+import { any } from "prop-types";
+import { PokemonContext } from "../../context";
 import Spinner from "../layout/Spinner";
 import AccessDenied from "../layout/AccessDenied";
 import NotFound from "../layout/NotFound";
 
-const Pokemon = ({
-  match,
-  getPokemon,
-  getLastId,
-  updatePokemon,
-  pokemon: { pokemon, nextPokemonId, previousPokemonId, lastId, loading },
-  auth: { user },
-}) => {
+export const EditPokemon = ({ match }) => {
+  const {
+    getPokemon,
+    getLastId,
+    updatePokemon,
+    pokemon,
+    nextPokemonId,
+    previousPokemonId,
+    lastId,
+    loading,
+  } = useContext(PokemonContext);
+
+  // TODO UserContext
+  let user = null;
+
   let currentId = parseFloat(match.params.id);
 
   const [formData, setFormData] = useState({
@@ -495,21 +501,6 @@ const Pokemon = ({
   );
 };
 
-Pokemon.propTypes = {
-  getPokemon: PropTypes.func.isRequired,
-  getLastId: PropTypes.func.isRequired,
-  updatePokemon: PropTypes.func.isRequired,
-  pokemon: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired,
+EditPokemon.propTypes = {
+  match: any.isRequired,
 };
-
-const mapStateToProps = (state) => ({
-  pokemon: state.pokemon,
-  auth: state.auth,
-});
-
-export default connect(mapStateToProps, {
-  getPokemon,
-  getLastId,
-  updatePokemon,
-})(Pokemon);

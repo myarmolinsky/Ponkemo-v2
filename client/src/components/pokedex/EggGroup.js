@@ -1,11 +1,12 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getAllPokemon } from "../../actions/pokemon";
+import { any } from "prop-types";
+import { PokemonContext } from "../../context";
 import Spinner from "../layout/Spinner";
 
-const EggGroup = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
+export const EggGroup = ({ match }) => {
+  const { getAllPokemon, pokedex, loading } = useContext(PokemonContext);
+
   const [searchData, setSearchData] = useState({
     search: "",
     firstType: "",
@@ -692,12 +693,5 @@ const EggGroup = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
 };
 
 EggGroup.propTypes = {
-  getAllPokemon: PropTypes.func.isRequired,
-  pokemon: PropTypes.object.isRequired,
+  match: any.isRequired,
 };
-
-const mapStateToProps = (state) => ({
-  pokemon: state.pokemon,
-});
-
-export default connect(mapStateToProps, { getAllPokemon })(EggGroup);

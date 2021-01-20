@@ -1,11 +1,11 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getAllPokemon } from "../../actions/pokemon";
+import { PokemonContext } from "../../context";
 import Spinner from "../layout/Spinner";
 
-const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
+export const Pokedex = () => {
+  const { getAllPokemon, pokedex, loading } = useContext(PokemonContext);
+
   const [searchData, setSearchData] = useState({
     search: "",
     firstType: "",
@@ -698,14 +698,3 @@ const Pokedex = ({ getAllPokemon, pokemon: { pokedex, loading } }) => {
     </Fragment>
   );
 };
-
-Pokedex.propTypes = {
-  getAllPokemon: PropTypes.func.isRequired,
-  pokemon: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  pokemon: state.pokemon,
-});
-
-export default connect(mapStateToProps, { getAllPokemon })(Pokedex);

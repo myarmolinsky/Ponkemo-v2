@@ -4,6 +4,7 @@ import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; //import react router
 import Routes from "./components/routing/Routes";
+import { PokemonState } from "./context";
 // Redux
 import { Provider } from "react-redux"; //the Provider connects Redux and React
 import store from "./store"; //bring in the store
@@ -22,22 +23,24 @@ const App = () => {
   }, []); //we only want this to run once, but useEffect runs as an infinite loop unless we add a second parameter to it. the second parameter is just empty [] brackets
 
   return (
-    //changed this from 'function App() {}' to an arrow function: 'const App =() => {}'
-    <Provider store={store}>
-      {/*we pass our store into the Provider*/}
-      {/*for the Provider to work, we have to wrap everything inside it*/}
-      <Router>
-        {/*for the router to work, we have to wrap everything inside it*/}
-        <Fragment>
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            {/*instead of '<Landing />', we use this. we set 'exact path' equal to the index which is just '/' and the component we want to load is 'Landing'*/}
-            <Route component={Routes} />
-          </Switch>
-        </Fragment>
-      </Router>
-    </Provider>
+    <PokemonState>
+      <Provider store={store}>
+        {/*changed this from 'function App() {}' to an arrow function: 'const App =() => {}'*/}
+        {/*we pass our store into the Provider*/}
+        {/*for the Provider to work, we have to wrap everything inside it*/}
+        <Router>
+          {/*for the router to work, we have to wrap everything inside it*/}
+          <Fragment>
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={Landing} />
+              {/*instead of '<Landing />', we use this. we set 'exact path' equal to the index which is just '/' and the component we want to load is 'Landing'*/}
+              <Route component={Routes} />
+            </Switch>
+          </Fragment>
+        </Router>
+      </Provider>
+    </PokemonState>
   );
 };
 

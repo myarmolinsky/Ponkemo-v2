@@ -1,11 +1,12 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getAllPokemon } from "../../actions/pokemon";
+import { any } from "prop-types";
+import { PokemonContext } from "../../context";
 import Spinner from "../layout/Spinner";
 
-const Type = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
+export const Type = ({ match }) => {
+  const { getAllPokemon, pokedex, loading } = useContext(PokemonContext);
+
   const [searchData, setSearchData] = useState({
     search: "",
     type: "",
@@ -698,12 +699,5 @@ const Type = ({ match, getAllPokemon, pokemon: { pokedex, loading } }) => {
 };
 
 Type.propTypes = {
-  getAllPokemon: PropTypes.func.isRequired,
-  pokemon: PropTypes.object.isRequired,
+  match: any.isRequired,
 };
-
-const mapStateToProps = (state) => ({
-  pokemon: state.pokemon,
-});
-
-export default connect(mapStateToProps, { getAllPokemon })(Type);
