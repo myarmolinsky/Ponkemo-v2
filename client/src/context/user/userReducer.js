@@ -6,16 +6,9 @@ import {
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
-} from "../actions/types";
+} from "./types";
 
-const initialState = {
-  token: localStorage.getItem("token"),
-  isAuthenticated: null,
-  loading: true, //make sure the loading is done (we've already made a request to the backend and got a response)
-  user: null,
-};
-
-export default function (state = initialState, action) {
+export default function (state, action) {
   const { type, payload } = action;
   switch (type) {
     case USER_LOADED:

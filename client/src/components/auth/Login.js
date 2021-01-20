@@ -1,10 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { login } from "../../actions/auth";
+import { UserContext } from "../../context";
 
-const Login = ({ login, isAuthenticated }) => {
+export const Login = () => {
+  const { login, isAuthenticated } = useContext(UserContext);
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -61,14 +61,3 @@ const Login = ({ login, isAuthenticated }) => {
     </Fragment>
   );
 };
-
-Login.propTypes = {
-  login: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
-};
-
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
-});
-
-export default connect(mapStateToProps, { login })(Login);

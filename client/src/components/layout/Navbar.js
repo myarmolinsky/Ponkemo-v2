@@ -1,10 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom"; //we want to use 'Link' instead of 'a href'
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { logout } from "../../actions/auth";
+import { UserContext } from "../../context";
 
-const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+export const Navbar = () => {
+  const { logout, isAuthenticated, loading } = useContext(UserContext);
+
   const authLinks = (
     <ul>
       <li>
@@ -68,14 +68,3 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     </nav>
   );
 };
-
-Navbar.propTypes = {
-  logout: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  auth: state.auth,
-});
-
-export default connect(mapStateToProps, { logout })(Navbar);

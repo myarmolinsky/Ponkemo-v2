@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { UserContext } from "../../context";
 import { Route, Switch } from "react-router-dom";
-import Register from "../auth/Register";
-import Login from "../auth/Login";
-import Dashboard from "../dashboard/Dashboard";
+import { Register } from "../auth/Register";
+import { Login } from "../auth/Login";
+import { Dashboard } from "../dashboard/Dashboard";
 import { Pokedex } from "../pokedex/Pokedex";
 import { Pokemon } from "../pokedex/Pokemon";
 import { EditPokemon } from "../pokemon-forms/EditPokemon";
-import PrivateRoute from "../routing/PrivateRoute";
+import { PrivateRoute } from "../routing/PrivateRoute";
 import NotFound from "../layout/NotFound";
 import Alert from "../layout/Alert";
 import EggGroups from "../pokedex/EggGroups";
@@ -15,6 +16,12 @@ import Types from "../pokedex/Types";
 import { Type } from "../pokedex/Type";
 
 const Routes = () => {
+  const { loadUser } = useContext(UserContext);
+
+  useEffect(() => {
+    loadUser();
+  }, []);
+
   return (
     <section className="container">
       {/*every page within the theme except for the landing page has a class of 'container' to push everything to the middle
