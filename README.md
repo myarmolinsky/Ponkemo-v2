@@ -30,7 +30,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
   - What its egg hatches into
   - Spawn Rate (currently all 0 or -1)
   - List of Evolutions and how to get them
-  - Table of learnable moves and how to learn them (Only for first 359 Pokemon so far)
+  - Table of learnable moves and how to learn them (Only for first 358 Pokemon so far)
 - Egg Groups page showing all Egg Groups (currently only accessible by going to an egg group page via a Pokemon page or by going directly to the url)
   - Each Egg Group links to its respective Egg Group page
 - Egg Group page for each Egg Group showing all Pokemon in that Egg Group
