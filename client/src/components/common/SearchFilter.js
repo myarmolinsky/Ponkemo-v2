@@ -45,14 +45,17 @@ export const SearchFilter = ({ pokedex, setFilteredPokedex }) => {
 
   const onChange = (e) => {
     setSearchData({ ...searchData, [e.target.name]: e.target.value });
-    setFilteredPokedex(
-      pokedex.filter((pokemon) => checkSearchPokemon(pokemon))
-    );
   };
 
   useEffect(() => {
     setExpandSearchOptions(false);
   }, []);
+
+  useEffect(() => {
+    setFilteredPokedex(
+      pokedex.filter((pokemon) => checkSearchPokemon(pokemon))
+    );
+  }, [searchData]);
 
   const toggleSearchOptions = (e) => {
     e.preventDefault();
