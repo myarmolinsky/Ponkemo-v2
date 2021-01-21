@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { any } from "prop-types";
-import { PokemonContext } from "../../context";
+import { PokemonContext, UserContext } from "../../context";
 import Spinner from "../layout/Spinner";
 import NotFound from "../layout/NotFound";
 
@@ -17,14 +17,13 @@ export const Pokemon = ({ match }) => {
     loading,
   } = useContext(PokemonContext);
 
-  // TODO UserContext
-  let user = null;
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     getPokemon(match.params.id);
     getLastId();
-  }, [getPokemon, getLastId, match.params.id]);
+  }, [match.params.id]);
 
   // evolutionIndex is the index we are up to in the evolutionIds array
   let evolutionIndex = 0;

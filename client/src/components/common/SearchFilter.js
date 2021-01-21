@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { array, func } from "prop-types";
 
 export const SearchFilter = ({ pokedex, setFilteredPokedex }) => {
   const [searchData, setSearchData] = useState({
@@ -21,7 +22,7 @@ export const SearchFilter = ({ pokedex, setFilteredPokedex }) => {
     baseSpeedLess: 256,
   });
 
-  const [expandSearchOptions, setExpandSearchOptions] = useState();
+  const [expandSearchOptions, setExpandSearchOptions] = useState(false);
 
   const {
     search,
@@ -48,14 +49,10 @@ export const SearchFilter = ({ pokedex, setFilteredPokedex }) => {
   };
 
   useEffect(() => {
-    setExpandSearchOptions(false);
-  }, []);
-
-  useEffect(() => {
     setFilteredPokedex(
       pokedex.filter((pokemon) => checkSearchPokemon(pokemon))
     );
-  }, [searchData]);
+  }, [searchData, pokedex]);
 
   const toggleSearchOptions = (e) => {
     e.preventDefault();
@@ -113,13 +110,12 @@ export const SearchFilter = ({ pokedex, setFilteredPokedex }) => {
           }
     }
 
-    if (eggGroup !== "")
-      if (pokemon.breeding.eggGroups[0] !== eggGroup)
-        if (pokemon.breeding.eggGroups.length > 1) {
-          if (pokemon.breeding.eggGroups[1] !== eggGroup) return false;
-        } else {
-          return false;
-        }
+    if (eggGroup !== "") {
+      console.log(eggGroup);
+      if (!pokemon.breeding.eggGroups.includes(eggGroup)) {
+        return false;
+      }
+    }
 
     let hpGreater,
       hpLess,
@@ -495,4 +491,9 @@ export const SearchFilter = ({ pokedex, setFilteredPokedex }) => {
       )}
     </form>
   );
+};
+
+SearchFilter.propTypes = {
+  pokedex: array.isRequired,
+  setFilteredPokedex: func.isRequired,
 };
