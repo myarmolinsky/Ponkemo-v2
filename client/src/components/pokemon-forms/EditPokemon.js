@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
 import { any } from "prop-types";
-import { PokemonContext } from "../../context";
+import { PokemonContext, UserContext } from "../../context";
 import Spinner from "../layout/Spinner";
 import AccessDenied from "../layout/AccessDenied";
 import NotFound from "../layout/NotFound";
@@ -17,8 +17,7 @@ export const EditPokemon = ({ match }) => {
     loading,
   } = useContext(PokemonContext);
 
-  // TODO UserContext
-  let user = null;
+  const { user } = useContext(UserContext);
 
   let currentId = parseFloat(match.params.id);
 
