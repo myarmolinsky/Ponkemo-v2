@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import { UserContext } from "../../context";
 
-const Landing = ({ isAuthenticated }) => {
+export const Landing = () => {
+  const { isAuthenticated } = useContext(UserContext);
+
   if (isAuthenticated) {
     //we don't want logged in users to be sent to the landing page, instead we want to send them to the dashboard
     return <Redirect to="/dashboard" />;
@@ -31,13 +32,3 @@ const Landing = ({ isAuthenticated }) => {
     </section>
   );
 };
-
-Landing.propTypes = {
-  isAuthenticated: PropTypes.bool,
-};
-
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
-});
-
-export default connect(mapStateToProps)(Landing);

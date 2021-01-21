@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 
-const Types = () => {
+export const Types = () => {
   return (
     <Fragment>
       <h1 className="large text-primary">Types</h1>
@@ -101,5 +100,3 @@ const Types = () => {
     </Fragment>
   );
 };
-
-export default connect()(Types);

@@ -1,7 +1,7 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
 import axios from "axios";
 import { any } from "prop-types";
-import { setAlert } from "../../actions/alert";
+import { MiscContext } from "../";
 import { UserContext } from "./UserContext";
 import userReducer from "./userReducer";
 import {
@@ -16,6 +16,8 @@ import {
 import setAuthToken from "../../utils/setAuthToken";
 
 export const UserState = ({ children }) => {
+  const { setAlert } = useContext(MiscContext);
+
   const initialState = {
     token: localStorage.getItem("token"),
     isAuthenticated: null,
@@ -65,12 +67,12 @@ export const UserState = ({ children }) => {
         payload: res.data, //in this case, the payload will be a token
       });
 
-      dispatch(loadUser());
+      loadUser();
     } catch (err) {
       const errors = err.response.data.errors;
 
       if (errors) {
-        errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+        errors.forEach((error) => setAlert(error.msg, "danger"));
       }
       dispatch({
         type: REGISTER_FAIL,
@@ -96,12 +98,12 @@ export const UserState = ({ children }) => {
         payload: res.data, //in this case, the payload will be a token
       });
 
-      dispatch(loadUser());
+      loadUser();
     } catch (err) {
       const errors = err.response.data.errors;
 
       if (errors) {
-        errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+        errors.forEach((error) => setAlert(error.msg, "danger"));
       }
       dispatch({
         type: LOGIN_FAIL,

@@ -1,12 +1,12 @@
 import React, { Fragment, useState, useContext } from "react"; //we bring in the 'useState' hook because we are using a functional component
 import { Link, Redirect } from "react-router-dom";
-import { setAlert } from "../../actions/alert";
-import { UserContext } from "../../context";
+import { UserContext, MiscContext } from "../../context";
 
 //since it's a form, we need to have some component state because each input needs to have its own state
 //they also needs to have an 'onchange' handler so when we type in it, it updates the state
 export const Register = () => {
   const { register, isAuthenticated } = useContext(UserContext);
+  const { setAlert } = useContext(MiscContext);
 
   const [formData, setFormData] = useState(
     //pull this from useState()

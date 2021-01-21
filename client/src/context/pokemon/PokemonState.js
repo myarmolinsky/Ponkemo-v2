@@ -1,7 +1,7 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
 import axios from "axios";
 import { any } from "prop-types";
-import { setAlert } from "../../actions/alert";
+import { MiscContext } from "../";
 import { PokemonContext } from "./PokemonContext";
 import pokemonReducer from "./pokemonReducer";
 import {
@@ -15,6 +15,8 @@ import {
 } from "./types";
 
 export const PokemonState = ({ children }) => {
+  const { setAlert } = useContext(MiscContext);
+
   const initialState = {
     loading: true, //make sure the loading is done (we've already made a request to the backend and got a response)
     pokedex: [],
@@ -156,20 +158,16 @@ export const PokemonState = ({ children }) => {
 
       const res = await axios.post(`/api/pokemon/${id}`, realData, config);
 
-      dispatch(
-        setAlert(edit ? "Pokemon Updated" : "Pokemon Created", "success")
-      );
+      setAlert(edit ? "Pokemon Updated" : "Pokemon Created", "success");
 
       return dispatch({
         type: UPDATE_POKEMON,
         payload: res.data,
       });
     } catch (err) {
-      dispatch(
-        setAlert(
-          edit ? "Failed to Update Pokemon" : "Failed to Create Pokemon",
-          "danger"
-        )
+      setAlert(
+        edit ? "Failed to Update Pokemon" : "Failed to Create Pokemon",
+        "danger"
       );
 
       return dispatch({

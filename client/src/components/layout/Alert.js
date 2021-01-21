@@ -1,8 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React, { useContext } from "react";
+import { MiscContext } from "../../context";
 
-const Alert = ({ alerts }) => {
+export const Alert = () => {
+  let { alerts } = useContext(MiscContext);
+
   alerts = uniqueAlerts(alerts);
   return (
     alerts !== null &&
@@ -27,14 +28,3 @@ const uniqueAlerts = (alerts) => {
   });
   return uniqueAlerts;
 };
-
-Alert.propTypes = {
-  alerts: PropTypes.array.isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  //we want to map the state via connect()
-  alerts: state.alert,
-});
-
-export default connect(mapStateToProps)(Alert);

@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 
-const EggGroups = () => {
+export const EggGroups = () => {
   return (
     <Fragment>
       <h1 className="large text-primary">Egg Groups</h1>
@@ -91,5 +90,3 @@ const EggGroups = () => {
     </Fragment>
   );
 };
-
-export default connect()(EggGroups);

@@ -1,13 +1,10 @@
 import React, { Fragment } from "react"; //bring in react and Fragment
 import "./App.css";
 import { Navbar } from "./components/layout/Navbar";
-import Landing from "./components/layout/Landing";
+import { Landing } from "./components/layout/Landing";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; //import react router
 import Routes from "./components/routing/Routes";
-import { PokemonState, UserState } from "./context";
-// Redux
-import { Provider } from "react-redux"; //the Provider connects Redux and React
-import store from "./store"; //bring in the store
+import { PokemonState, UserState, MiscState } from "./context";
 import setAuthToken from "./utils/setAuthToken";
 
 if (localStorage.token) {
@@ -17,12 +14,9 @@ if (localStorage.token) {
 
 const App = () => {
   return (
-    <UserState>
-      <PokemonState>
-        <Provider store={store}>
-          {/*changed this from 'function App() {}' to an arrow function: 'const App =() => {}'*/}
-          {/*we pass our store into the Provider*/}
-          {/*for the Provider to work, we have to wrap everything inside it*/}
+    <MiscState>
+      <UserState>
+        <PokemonState>
           <Router>
             {/*for the router to work, we have to wrap everything inside it*/}
             <Fragment>
@@ -34,9 +28,9 @@ const App = () => {
               </Switch>
             </Fragment>
           </Router>
-        </Provider>
-      </PokemonState>
-    </UserState>
+        </PokemonState>
+      </UserState>
+    </MiscState>
   );
 };
 
