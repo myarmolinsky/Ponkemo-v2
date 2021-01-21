@@ -1,7 +1,11 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { array, func } from "prop-types";
+import { array, func, bool } from "prop-types";
 
-export const SearchFilter = ({ pokedex, setFilteredPokedex }) => {
+export const SearchFilter = ({
+  pokedex,
+  setFilteredPokedex,
+  showBothTypes,
+}) => {
   const [searchData, setSearchData] = useState({
     search: "",
     firstType: "",
@@ -253,31 +257,35 @@ export const SearchFilter = ({ pokedex, setFilteredPokedex }) => {
               <option value="Steel">Steel</option>
               <option value="Water">Water</option>
             </select>
-            <select
-              name="secondType"
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            >
-              <option defaultValue value=""></option>
-              <option value="Bug">Bug</option>
-              <option value="Dark">Dark</option>
-              <option value="Dragon">Dragon</option>
-              <option value="Electric">Electric</option>
-              <option value="Fairy">Fairy</option>
-              <option value="Fighting">Fighting</option>
-              <option value="Fire">Fire</option>
-              <option value="Flying">Flying</option>
-              <option value="Ghost">Ghost</option>
-              <option value="Grass">Grass</option>
-              <option value="Ground">Ground</option>
-              <option value="Ice">Ice</option>
-              <option value="Normal">Normal</option>
-              <option value="Poison">Poison</option>
-              <option value="Psychic">Psychic</option>
-              <option value="Rock">Rock</option>
-              <option value="Steel">Steel</option>
-              <option value="Water">Water</option>
-            </select>
+            {showBothTypes ? (
+              <select
+                name="secondType"
+                onChange={(e) => onChange(e)}
+                style={{ display: "table-cell" }}
+              >
+                <option defaultValue value=""></option>
+                <option value="Bug">Bug</option>
+                <option value="Dark">Dark</option>
+                <option value="Dragon">Dragon</option>
+                <option value="Electric">Electric</option>
+                <option value="Fairy">Fairy</option>
+                <option value="Fighting">Fighting</option>
+                <option value="Fire">Fire</option>
+                <option value="Flying">Flying</option>
+                <option value="Ghost">Ghost</option>
+                <option value="Grass">Grass</option>
+                <option value="Ground">Ground</option>
+                <option value="Ice">Ice</option>
+                <option value="Normal">Normal</option>
+                <option value="Poison">Poison</option>
+                <option value="Psychic">Psychic</option>
+                <option value="Rock">Rock</option>
+                <option value="Steel">Steel</option>
+                <option value="Water">Water</option>
+              </select>
+            ) : (
+              ""
+            )}
             <label
               style={{
                 display: "table-cell",
@@ -496,4 +504,9 @@ export const SearchFilter = ({ pokedex, setFilteredPokedex }) => {
 SearchFilter.propTypes = {
   pokedex: array.isRequired,
   setFilteredPokedex: func.isRequired,
+  showBothTypes: bool,
+};
+
+SearchFilter.defaultProps = {
+  showBothTypes: true,
 };
