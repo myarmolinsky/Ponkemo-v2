@@ -160,7 +160,7 @@ export const EditPokemon = ({ match }) => {
       });
 
     if (lastId === -1 || currentId > lastId) getLastId(); // get the last id so we know how many Pokemon we have
-  }, [getPokemon, getLastId, currentId, loading, lastId]);
+  }, [currentId, loading, lastId]);
 
   const {
     name,

@@ -10,7 +10,7 @@ export const Pokedex = () => {
 
   useEffect(() => {
     getAllPokemon();
-  }, []);
+  }, [getAllPokemon]);
 
   useEffect(() => {
     if (pokedex) {

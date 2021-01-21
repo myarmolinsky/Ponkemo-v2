@@ -15,13 +15,13 @@ export const Type = ({ match }) => {
 
   useEffect(() => {
     getAllPokemon();
-  }, []);
+  }, [getAllPokemon]);
 
   useEffect(() => {
     setType(
       pokedex.filter((pokemon) => pokemon.types.includes(match.params.type))
     );
-  }, [pokedex]);
+  }, [pokedex, match]);
 
   const toggleShowForms = (e) => {
     e.preventDefault();
