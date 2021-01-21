@@ -11,7 +11,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 ## Included Features
 
 - User sign up and log in
-- Pokedex (user does not have to be signed in to see this)
+- Pokedex (user does not have to be signed in to see this) (only shows every Pokemon before Absol for now since those are all the ones with movesets)
   - Each Pokemon on the Pokedex page links to its respective Pokemon page
   - Search filter to search for Pokemon by name, type, ability, egg group, and base stats
   - Toggle whether formes are shown (not shown by default)
