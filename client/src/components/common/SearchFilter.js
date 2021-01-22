@@ -115,7 +115,6 @@ export const SearchFilter = ({
     }
 
     if (eggGroup !== "") {
-      console.log(eggGroup);
       if (!pokemon.breeding.eggGroups.includes(eggGroup)) {
         return false;
       }
