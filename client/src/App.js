@@ -12,7 +12,7 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-const App = () => {
+export const App = () => {
   return (
     <MiscState>
       <UserState>
@@ -33,5 +33,3 @@ const App = () => {
     </MiscState>
   );
 };
-
-export default App;
