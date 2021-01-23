@@ -11,7 +11,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 ## Included Features
 
 - User sign up and log in
-- Pokedex (user does not have to be signed in to see this) (only shows every Pokemon before Absol for now since those are all the ones with movesets)
+- Pokedex (user does not have to be signed in to see this)
   - Each Pokemon on the Pokedex page links to its respective Pokemon page
   - Search filter to search for Pokemon by name, type, ability, egg group, and base stats
   - Toggle whether formes are shown (not shown by default)
@@ -30,7 +30,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
   - What its egg hatches into
   - Spawn Rate (currently all 0 or -1)
   - List of Evolutions and how to get them
-  - Table of learnable moves and how to learn them (Only for first 358 Pokemon so far)
+  - Table of learnable moves and how to learn them (Every Pokemon up until Absol so far)
 - Egg Groups page showing all Egg Groups (currently only accessible by going to an egg group page via a Pokemon page or by going directly to the url)
   - Each Egg Group links to its respective Egg Group page
 - Egg Group page for each Egg Group showing all Pokemon in that Egg Group

@@ -4,10 +4,9 @@ import {
   Button,
   Select,
   MenuItem,
-  Typography,
   Grid,
   TextField,
-  InputLabel,
+  Typography,
 } from "@material-ui/core";
 import { useStyles } from "./styles";
 
@@ -23,7 +22,7 @@ export const SearchFilter = ({
     firstType: " ",
     secondType: " ",
     ability: "",
-    eggGroup: "",
+    eggGroup: " ",
     baseHealthGreater: 0,
     baseHealthLess: 256,
     baseAttackGreater: 0,
@@ -43,7 +42,6 @@ export const SearchFilter = ({
   const {
     firstType,
     secondType,
-    ability,
     eggGroup,
     baseHealthGreater,
     baseHealthLess,
@@ -80,7 +78,7 @@ export const SearchFilter = ({
       firstType: " ",
       secondType: " ",
       ability: "",
-      eggGroup: "",
+      eggGroup: " ",
       baseHealthGreater: 0,
       baseHealthLess: 256,
       baseAttackGreater: 0,
@@ -117,7 +115,7 @@ export const SearchFilter = ({
         <Fragment>
           <Grid container justify="space-evenly" alignItems="flex-end">
             <Grid item>
-              <InputLabel>Type:</InputLabel>
+              <Typography variant="h6">Type:</Typography>
               <Select
                 name="firstType"
                 onChange={(e) => onChange(e)}
@@ -174,7 +172,7 @@ export const SearchFilter = ({
               )}
             </Grid>
             <Grid item>
-              <InputLabel>Ability:</InputLabel>
+              <Typography variant="h6">Ability:</Typography>
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -184,35 +182,34 @@ export const SearchFilter = ({
                 name="ability"
               />
             </Grid>
+            <Grid item>
+              <Typography variant="h6">Egg Group:</Typography>
+              <Select
+                name="eggGroup"
+                onChange={(e) => onChange(e)}
+                value={eggGroup}
+                variant="outlined"
+              >
+                <MenuItem value=" ">None</MenuItem>
+                <MenuItem value="Amorphous">Amorphous</MenuItem>
+                <MenuItem value="Bug">Bug</MenuItem>
+                <MenuItem value="Ditto">Ditto</MenuItem>
+                <MenuItem value="Dragon">Dragon</MenuItem>
+                <MenuItem value="Fairy">Fairy</MenuItem>
+                <MenuItem value="Field">Field</MenuItem>
+                <MenuItem value="Flying">Flying</MenuItem>
+                <MenuItem value="Grass">Grass</MenuItem>
+                <MenuItem value="Human-Like">Human-Like</MenuItem>
+                <MenuItem value="Legendary">Legendary</MenuItem>
+                <MenuItem value="Mineral">Mineral</MenuItem>
+                <MenuItem value="Monster">Monster</MenuItem>
+                <MenuItem value="Unown">Unown</MenuItem>
+                <MenuItem value="Water 1">Water 1</MenuItem>
+                <MenuItem value="Water 2">Water 2</MenuItem>
+                <MenuItem value="Water 3">Water 3</MenuItem>
+              </Select>
+            </Grid>
           </Grid>
-          <label style={{ display: "table-cell" }}>Egg Group:</label>
-          <select
-            name="eggGroup"
-            onChange={(e) => onChange(e)}
-            style={{
-              display: "table-cell",
-              width: "110%",
-              marginLeft: "-10%",
-            }}
-          >
-            <option defaultValue value=""></option>
-            <option value="Amorphous">Amorphous</option>
-            <option value="Bug">Bug</option>
-            <option value="Ditto">Ditto</option>
-            <option value="Dragon">Dragon</option>
-            <option value="Fairy">Fairy</option>
-            <option value="Field">Field</option>
-            <option value="Flying">Flying</option>
-            <option value="Grass">Grass</option>
-            <option value="Human-Like">Human-Like</option>
-            <option value="Legendary">Legendary</option>
-            <option value="Mineral">Mineral</option>
-            <option value="Monster">Monster</option>
-            <option value="Unown">Unown</option>
-            <option value="Water 1">Water 1</option>
-            <option value="Water 2">Water 2</option>
-            <option value="Water 3">Water 3</option>
-          </select>
           <hr />
           <div
             className="form-group"
@@ -474,7 +471,7 @@ const checkSearchPokemon = (pokemon, data) => {
     }
   }
 
-  if (eggGroup !== "") {
+  if (eggGroup !== " ") {
     if (!pokemon.breeding.eggGroups.includes(eggGroup)) {
       return false;
     }
