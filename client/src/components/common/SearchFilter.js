@@ -40,7 +40,25 @@ export const SearchFilter = ({
 
   const [expandSearchOptions, setExpandSearchOptions] = useState(false);
 
-  const { firstType, secondType, eggGroup } = searchData;
+  const {
+    search,
+    firstType,
+    secondType,
+    ability,
+    eggGroup,
+    baseHealthGreater,
+    baseHealthLess,
+    baseAttackGreater,
+    baseAttackLess,
+    baseDefenseGreater,
+    baseDefenseLess,
+    baseSpAttackGreater,
+    baseSpAttackLess,
+    baseSpDefenseGreater,
+    baseSpDefenseLess,
+    baseSpeedGreater,
+    baseSpeedLess,
+  } = searchData;
 
   const onChange = (e) => {
     setSearchData({ ...searchData, [e.target.name]: e.target.value });
@@ -88,13 +106,20 @@ export const SearchFilter = ({
         placeholder="Search for a Pokemon"
         name="search"
         onChange={(e) => onChange(e)}
+        value={search}
       />
       <Button
         variant="contained"
-        className={`${classes.root} ${classes.primary}`}
+        className={`${classes.button} ${classes.primary}`}
         onClick={(e) => toggleSearchOptions(e)}
       >
         Toggle Advanced Search Options
+      </Button>
+      <Button
+        onClick={() => clearSearch()}
+        className={`${classes.button} ${classes.dark}`}
+      >
+        Clear Search
       </Button>
       {expandSearchOptions && (
         <Fragment>
@@ -164,6 +189,7 @@ export const SearchFilter = ({
                 onChange={(e) => onChange(e)}
                 placeholder="Search for an ability"
                 name="ability"
+                value={ability}
               />
             </Grid>
             <Grid item>
@@ -204,6 +230,7 @@ export const SearchFilter = ({
                 placeholder="0"
                 name="baseHealthGreater"
                 onChange={(e) => onChange(e)}
+                value={baseHealthGreater}
               />
             </Grid>
             <Grid item xs={1}>
@@ -214,6 +241,7 @@ export const SearchFilter = ({
                 placeholder="256"
                 name="baseHealthLess"
                 onChange={(e) => onChange(e)}
+                value={baseHealthLess}
               />
             </Grid>
             <Grid item xs={1}>
@@ -224,6 +252,7 @@ export const SearchFilter = ({
                 placeholder="0"
                 name="baseAttackGreater"
                 onChange={(e) => onChange(e)}
+                value={baseAttackGreater}
               />
             </Grid>
             <Grid item xs={1}>
@@ -234,6 +263,7 @@ export const SearchFilter = ({
                 placeholder="256"
                 name="baseAttackLess"
                 onChange={(e) => onChange(e)}
+                value={baseAttackLess}
               />
             </Grid>
             <Grid item xs={1}>
@@ -244,6 +274,7 @@ export const SearchFilter = ({
                 placeholder="0"
                 name="baseDefenseGreater"
                 onChange={(e) => onChange(e)}
+                value={baseDefenseGreater}
               />
             </Grid>
             <Grid item xs={1}>
@@ -254,6 +285,7 @@ export const SearchFilter = ({
                 placeholder="256"
                 name="baseDefenseLess"
                 onChange={(e) => onChange(e)}
+                value={baseDefenseLess}
               />
             </Grid>
           </Grid>
@@ -266,6 +298,7 @@ export const SearchFilter = ({
                 placeholder="0"
                 name="baseSpAttackGreater"
                 onChange={(e) => onChange(e)}
+                value={baseSpAttackGreater}
               />
             </Grid>
             <Grid item xs={1}>
@@ -276,6 +309,7 @@ export const SearchFilter = ({
                 placeholder="256"
                 name="baseSpAttackLess"
                 onChange={(e) => onChange(e)}
+                value={baseSpAttackLess}
               />
             </Grid>
             <Grid item xs={1}>
@@ -286,6 +320,7 @@ export const SearchFilter = ({
                 placeholder="0"
                 name="baseSpDefenseGreater"
                 onChange={(e) => onChange(e)}
+                value={baseSpDefenseGreater}
               />
             </Grid>
             <Grid item xs={1}>
@@ -296,6 +331,7 @@ export const SearchFilter = ({
                 placeholder="256"
                 name="baseSpDefenseLess"
                 onChange={(e) => onChange(e)}
+                value={baseSpDefenseLess}
               />
             </Grid>
             <Grid item xs={1}>
@@ -306,6 +342,7 @@ export const SearchFilter = ({
                 placeholder="0"
                 name="baseSpeedGreater"
                 onChange={(e) => onChange(e)}
+                value={baseSpeedGreater}
               />
             </Grid>
             <Grid item xs={1}>
@@ -316,19 +353,10 @@ export const SearchFilter = ({
                 placeholder="256"
                 name="baseSpeedLess"
                 onChange={(e) => onChange(e)}
+                value={baseSpeedLess}
               />
             </Grid>
           </Grid>
-          <Divider className={classes.divider} />
-          <div className="form-group" style={{ display: "flex" }}>
-            <input
-              className="btn btn-dark"
-              type="reset"
-              value="Clear Search"
-              onClick={() => clearSearch()}
-              style={{ marginLeft: "auto" }}
-            />
-          </div>
           <Divider className={classes.divider} />
         </Fragment>
       )}

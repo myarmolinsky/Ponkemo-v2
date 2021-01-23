@@ -1,8 +1,13 @@
 import { makeStyles } from "@material-ui/styles";
 
 export const useStyles = makeStyles({
-  root: {
+  button: {
     color: "white",
+    margin: "1%",
+  },
+  sprite: {
+    height: "100px",
+    width: "100px",
   },
   primary: {
     background: "#17a2b8",
