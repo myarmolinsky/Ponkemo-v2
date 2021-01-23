@@ -1,2 +1,2 @@
-export * from "./SearchFilter/";
+export * from "./SearchFilter";
 export * from "./Dex";
