@@ -17,17 +17,13 @@ export const Pokedex = () => {
   return (
     <Fragment>
       {filteredPokedex === null || loading ? (
-        <Fragment>
-          <Spinner />
-        </Fragment>
+        <Spinner />
       ) : (
         <Fragment>
           <SearchFilter
             pokedex={pokedex}
             setFilteredPokedex={(filtered) => setFilteredPokedex(filtered)}
           />
-          <hr style={{ marginTop: "1em" }} />
-          <br />
           <Dex dex={filteredPokedex} />
         </Fragment>
       )}

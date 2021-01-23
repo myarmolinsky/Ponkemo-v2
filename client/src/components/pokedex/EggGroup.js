@@ -1,11 +1,15 @@
 import React, { Fragment, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { any } from "prop-types";
+import { Button } from "@material-ui/core";
+import { useStyles } from "../styles";
 import { PokemonContext } from "../../context";
 import Spinner from "../layout/Spinner";
 import { SearchFilter, Dex } from "../common";
 
 export const EggGroup = ({ match }) => {
+  const classes = useStyles();
+
   const { pokedex, loading } = useContext(PokemonContext);
 
   const [filteredPokedex, setFilteredPokedex] = useState([]);
@@ -19,33 +23,21 @@ export const EggGroup = ({ match }) => {
     );
   }, [pokedex, match]);
 
-  return (
+  return pokedex === null || loading ? (
+    <Spinner />
+  ) : (
     <Fragment>
-      {pokedex === null || loading ? (
-        <Fragment>
-          <Spinner />
-        </Fragment>
-      ) : (
-        <Fragment>
-          <Link to="/egggroups" className="btn btn-dark">
-            To Egg Groups
-          </Link>
-          <br />
-          <br />
-          <h1 className="large text-primary">
-            {match.params.eggGroup} Egg Group
-          </h1>
-          <Fragment>
-            <SearchFilter
-              pokedex={eggGroup}
-              setFilteredPokedex={(filtered) => setFilteredPokedex(filtered)}
-            />
-            <hr style={{ marginTop: "1em" }} />
-            <br />
-            <Dex dex={filteredPokedex} />
-          </Fragment>
-        </Fragment>
-      )}
+      <Button className={`${classes.button} ${classes.dark}`} size="large">
+        <Link to="/egggroups" style={{ color: "white" }}>
+          To Egg Groups
+        </Link>
+      </Button>
+      <h1 className="large text-primary">{match.params.eggGroup} Egg Group</h1>
+      <SearchFilter
+        pokedex={eggGroup}
+        setFilteredPokedex={(filtered) => setFilteredPokedex(filtered)}
+      />
+      <Dex dex={filteredPokedex} />
     </Fragment>
   );
 };
