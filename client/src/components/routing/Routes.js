@@ -3,16 +3,11 @@ import { Route, Switch } from "react-router-dom";
 import { Register } from "../auth/Register";
 import { Login } from "../auth/Login";
 import { Dashboard } from "../dashboard/Dashboard";
-import { Pokedex } from "../pokedex/Pokedex";
-import { Pokemon } from "../pokedex/Pokemon";
+import { Pokedex, Pokemon, EggGroup, EggGroups, Type, Types } from "../pokedex";
 import { EditPokemon } from "../pokemon-forms/EditPokemon";
 import { PrivateRoute } from "../routing/PrivateRoute";
 import NotFound from "../layout/NotFound";
 import { Alert } from "../layout/Alert";
-import { EggGroups } from "../pokedex/EggGroups";
-import { EggGroup } from "../pokedex/EggGroup";
-import { Types } from "../pokedex/Types";
-import { Type } from "../pokedex/Type";
 
 const Routes = () => {
   return (
