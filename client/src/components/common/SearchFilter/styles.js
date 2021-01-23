@@ -19,4 +19,8 @@ export const useStyles = makeStyles({
   success: {
     background: "#28a745",
   },
+  divider: {
+    marginTop: "2.5%",
+    marginBottom: "2.5%",
+  },
 });

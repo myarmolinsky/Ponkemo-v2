@@ -7,6 +7,7 @@ import {
   Grid,
   TextField,
   Typography,
+  Divider,
 } from "@material-ui/core";
 import { useStyles } from "./styles";
 
@@ -39,23 +40,7 @@ export const SearchFilter = ({
 
   const [expandSearchOptions, setExpandSearchOptions] = useState(false);
 
-  const {
-    firstType,
-    secondType,
-    eggGroup,
-    baseHealthGreater,
-    baseHealthLess,
-    baseAttackGreater,
-    baseAttackLess,
-    baseDefenseGreater,
-    baseDefenseLess,
-    baseSpAttackGreater,
-    baseSpAttackLess,
-    baseSpDefenseGreater,
-    baseSpDefenseLess,
-    baseSpeedGreater,
-    baseSpeedLess,
-  } = searchData;
+  const { firstType, secondType, eggGroup } = searchData;
 
   const onChange = (e) => {
     setSearchData({ ...searchData, [e.target.name]: e.target.value });
@@ -111,7 +96,7 @@ export const SearchFilter = ({
       >
         Toggle Advanced Search Options
       </Button>
-      {expandSearchOptions ? (
+      {expandSearchOptions && (
         <Fragment>
           <Grid container justify="space-evenly" alignItems="flex-end">
             <Grid item>
@@ -177,7 +162,6 @@ export const SearchFilter = ({
                 variant="outlined"
                 margin="normal"
                 onChange={(e) => onChange(e)}
-                type="text"
                 placeholder="Search for an ability"
                 name="ability"
               />
@@ -210,160 +194,132 @@ export const SearchFilter = ({
               </Select>
             </Grid>
           </Grid>
-          <hr />
-          <div
-            className="form-group"
-            style={{
-              paddingLeft: "40px",
-              display: "table",
-            }}
-          >
-            <label style={{ display: "table-cell" }}>Base Health {">"}</label>
-            <input
-              type="number"
-              placeholder="0"
-              name="baseHealthGreater"
-              value={baseHealthGreater}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Health {"<"}
-            </label>
-            <input
-              type="number"
-              placeholder="256"
-              name="baseHealthLess"
-              value={baseHealthLess}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Attack {">"}
-            </label>
-            <input
-              type="number"
-              placeholder="0"
-              name="baseAttackGreater"
-              value={baseAttackGreater}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Attack {"<"}
-            </label>
-            <input
-              type="number"
-              placeholder="256"
-              name="baseAttackLess"
-              value={baseAttackLess}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-          </div>
-          <div
-            className="form-group"
-            style={{
-              paddingLeft: "40px",
-              display: "table",
-            }}
-          >
-            <label style={{ display: "table-cell" }}>Base Defense {">"}</label>
-            <input
-              type="number"
-              placeholder="0"
-              name="baseDefenseGreater"
-              value={baseDefenseGreater}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Defense {"<"}
-            </label>
-            <input
-              type="number"
-              placeholder="256"
-              name="baseDefenseLess"
-              value={baseDefenseLess}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Special Attack {">"}
-            </label>
-            <input
-              type="number"
-              placeholder="0"
-              name="baseSpAttackGreater"
-              value={baseSpAttackGreater}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Special Attack {"<"}
-            </label>
-            <input
-              type="number"
-              placeholder="256"
-              name="baseSpAttackLess"
-              value={baseSpAttackLess}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-          </div>
-          <div
-            className="form-group"
-            style={{
-              paddingLeft: "40px",
-              display: "table",
-            }}
-          >
-            <label style={{ display: "table-cell" }}>
-              Base Special Defense {">"}
-            </label>
-            <input
-              type="number"
-              placeholder="0"
-              name="baseSpDefenseGreater"
-              value={baseSpDefenseGreater}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Special Defense {"<"}
-            </label>
-            <input
-              type="number"
-              placeholder="256"
-              name="baseSpDefenseLess"
-              value={baseSpDefenseLess}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Speed {">"}
-            </label>
-            <input
-              type="number"
-              placeholder="0"
-              name="baseSpeedGreater"
-              value={baseSpeedGreater}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Speed {"<"}
-            </label>
-            <input
-              type="number"
-              placeholder="256"
-              name="baseSpeedLess"
-              value={baseSpeedLess}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-          </div>
-          <hr style={{ marginTop: "1em" }} />
+          <Divider className={classes.divider} />
+          <Grid container justify="space-evenly" alignItems="flex-end">
+            <Grid item xs={1}>
+              <Typography variant="caption">Base HP {">"}</Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="baseHealthGreater"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+            <Grid item xs={1}>
+              <Typography variant="caption">Base HP {"<"}</Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                placeholder="256"
+                name="baseHealthLess"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+            <Grid item xs={1}>
+              <Typography variant="caption">Base Atk {">"}</Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="baseAttackGreater"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+            <Grid item xs={1}>
+              <Typography variant="caption">Base Atk {"<"}</Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                placeholder="256"
+                name="baseAttackLess"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+            <Grid item xs={1}>
+              <Typography variant="caption">Base Def {">"}</Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="baseDefenseGreater"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+            <Grid item xs={1}>
+              <Typography variant="caption">Base Def {"<"}</Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                placeholder="256"
+                name="baseDefenseLess"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+          </Grid>
+          <Grid container justify="space-evenly" alignItems="flex-end">
+            <Grid item xs={1}>
+              <Typography variant="caption">Base Sp Atk {">"}</Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="baseSpAttackGreater"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+            <Grid item xs={1}>
+              <Typography variant="caption">Base Sp Atk {"<"}</Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                placeholder="256"
+                name="baseSpAttackLess"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+            <Grid item xs={1}>
+              <Typography variant="caption">Base Sp Def {">"}</Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="baseSpDefenseGreater"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+            <Grid item xs={1}>
+              <Typography variant="caption">Base Sp Def {"<"}</Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                placeholder="256"
+                name="baseSpDefenseLess"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+            <Grid item xs={1}>
+              <Typography variant="caption">Base Spe {">"}</Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="baseSpeedGreater"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+            <Grid item xs={1}>
+              <Typography variant="caption">Base Spe {"<"}</Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                placeholder="256"
+                name="baseSpeedLess"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+          </Grid>
+          <Divider className={classes.divider} />
           <div className="form-group" style={{ display: "flex" }}>
             <input
               className="btn btn-dark"
@@ -373,10 +329,8 @@ export const SearchFilter = ({
               style={{ marginLeft: "auto" }}
             />
           </div>
-          <hr style={{ marginTop: "1em" }} />
+          <Divider className={classes.divider} />
         </Fragment>
-      ) : (
-        ""
       )}
     </form>
   );
