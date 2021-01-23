@@ -19,7 +19,4 @@ export const useStyles = makeStyles({
   success: {
     background: "#28a745",
   },
-  formControl: {
-    margin: "1%",
-  },
 });

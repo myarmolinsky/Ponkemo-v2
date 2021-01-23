@@ -1,6 +1,13 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { array, func, bool } from "prop-types";
-import { Button, Select, MenuItem, Typography, Grid } from "@material-ui/core";
+import {
+  Button,
+  Select,
+  MenuItem,
+  Typography,
+  Grid,
+  TextField,
+} from "@material-ui/core";
 import { useStyles } from "./styles";
 
 export const SearchFilter = ({
@@ -91,16 +98,14 @@ export const SearchFilter = ({
 
   return (
     <form className="search-form">
-      <div className="search-bar">
-        <i className="fas fa-search input-icon"></i>
-        <input
-          type="text"
-          placeholder="Search for a Pokemon"
-          name="search"
-          value={search}
-          onChange={(e) => onChange(e)}
-        ></input>
-      </div>
+      <TextField
+        variant="outlined"
+        margin="normal"
+        fullWidth
+        placeholder="Search for a Pokemon"
+        name="search"
+        onChange={(e) => onChange(e)}
+      ></TextField>
       <Button
         variant="contained"
         className={`${classes.root} ${classes.primary}`}
@@ -138,7 +143,9 @@ export const SearchFilter = ({
                 <MenuItem value="Steel">Steel</MenuItem>
                 <MenuItem value="Water">Water</MenuItem>
               </Select>
-              {showBothTypes ? (
+            </Grid>
+            {showBothTypes ? (
+              <Grid item>
                 <Select
                   name="secondType"
                   onChange={(e) => onChange(e)}
@@ -164,10 +171,10 @@ export const SearchFilter = ({
                   <MenuItem value="Steel">Steel</MenuItem>
                   <MenuItem value="Water">Water</MenuItem>
                 </Select>
-              ) : (
-                ""
-              )}
-            </Grid>
+              </Grid>
+            ) : (
+              ""
+            )}
           </Grid>
           <label
             style={{
@@ -447,20 +454,31 @@ const checkSearchPokemon = (pokemon, data) => {
   )
     return false;
 
-  if (firstType !== " ") if (!pokemon.types.includes(firstType)) return false;
-  if (secondType !== " ") if (!pokemon.types.includes(secondType)) return false;
+  if (firstType !== " ") {
+    if (!pokemon.types.includes(firstType)) {
+      return false;
+    }
+  }
+  if (secondType !== " ") {
+    if (!pokemon.types.includes(secondType)) {
+      return false;
+    }
+  }
 
   if (ability !== "") {
-    if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase()))
-      if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase()))
+    if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase())) {
+      if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase())) {
         if (pokemon.abilities.length > 1) {
           if (
             !pokemon.abilities[1].toUpperCase().includes(ability.toUpperCase())
-          )
+          ) {
             return false;
+          }
         } else {
           return false;
         }
+      }
+    }
   }
 
   if (eggGroup !== "") {
