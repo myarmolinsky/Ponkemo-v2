@@ -13,7 +13,7 @@ export const EggGroup = ({ match }) => {
 
   useEffect(() => {
     getAllPokemon();
-  }, [getAllPokemon]);
+  }, []);
 
   useEffect(() => {
     setEggGroup(

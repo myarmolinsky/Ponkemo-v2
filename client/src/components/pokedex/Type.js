@@ -13,7 +13,7 @@ export const Type = ({ match }) => {
 
   useEffect(() => {
     getAllPokemon();
-  }, [getAllPokemon]);
+  }, []);
 
   useEffect(() => {
     setType(

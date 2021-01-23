@@ -1,15 +1,19 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { array, func, bool } from "prop-types";
+import { Button, Select, MenuItem, Typography, Grid } from "@material-ui/core";
+import { useStyles } from "./styles";
 
 export const SearchFilter = ({
   pokedex,
   setFilteredPokedex,
   showBothTypes,
 }) => {
+  const classes = useStyles();
+
   const [searchData, setSearchData] = useState({
     search: "",
-    firstType: "",
-    secondType: "",
+    firstType: " ",
+    secondType: " ",
     ability: "",
     eggGroup: "",
     baseHealthGreater: 0,
@@ -95,8 +99,8 @@ export const SearchFilter = ({
     )
       return false;
 
-    if (firstType !== "") if (!pokemon.types.includes(firstType)) return false;
-    if (secondType !== "")
+    if (firstType !== " ") if (!pokemon.types.includes(firstType)) return false;
+    if (secondType !== " ")
       if (!pokemon.types.includes(secondType)) return false;
 
     if (ability !== "") {
@@ -175,8 +179,8 @@ export const SearchFilter = ({
   const clearSearch = () => {
     setSearchData({
       search: "",
-      firstType: "",
-      secondType: "",
+      firstType: " ",
+      secondType: " ",
       ability: "",
       eggGroup: "",
       baseHealthGreater: 0,
@@ -206,130 +210,118 @@ export const SearchFilter = ({
           onChange={(e) => onChange(e)}
         ></input>
       </div>
-      {!expandSearchOptions ? (
+      <Button
+        variant="contained"
+        className={`${classes.root} ${classes.primary}`}
+        onClick={(e) => toggleSearchOptions(e)}
+      >
+        Toggle Advanced Search Options
+      </Button>
+      {expandSearchOptions ? (
         <Fragment>
-          <button
-            className="btn btn-primary"
-            onClick={(e) => toggleSearchOptions(e)}
-          >
-            Show Advanced Search Options
-          </button>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <button
-            className="btn btn-primary"
-            onClick={(e) => toggleSearchOptions(e)}
-          >
-            Hide Advanced Search Options
-          </button>
-          <div
-            className="form-group"
+          <Typography variant="h6">Type:</Typography>
+          <Grid container>
+            <Grid item>
+              <Select
+                name="firstType"
+                onChange={(e) => onChange(e)}
+                value={firstType}
+              >
+                <MenuItem value=" ">None</MenuItem>
+                <MenuItem value="Bug">Bug</MenuItem>
+                <MenuItem value="Dark">Dark</MenuItem>
+                <MenuItem value="Dragon">Dragon</MenuItem>
+                <MenuItem value="Electric">Electric</MenuItem>
+                <MenuItem value="Fairy">Fairy</MenuItem>
+                <MenuItem value="Fighting">Fighting</MenuItem>
+                <MenuItem value="Fire">Fire</MenuItem>
+                <MenuItem value="Flying">Flying</MenuItem>
+                <MenuItem value="Ghost">Ghost</MenuItem>
+                <MenuItem value="Grass">Grass</MenuItem>
+                <MenuItem value="Ground">Ground</MenuItem>
+                <MenuItem value="Ice">Ice</MenuItem>
+                <MenuItem value="Normal">Normal</MenuItem>
+                <MenuItem value="Poison">Poison</MenuItem>
+                <MenuItem value="Psychic">Psychic</MenuItem>
+                <MenuItem value="Rock">Rock</MenuItem>
+                <MenuItem value="Steel">Steel</MenuItem>
+                <MenuItem value="Water">Water</MenuItem>
+              </Select>
+              {showBothTypes ? (
+                <Select
+                  name="secondType"
+                  onChange={(e) => onChange(e)}
+                  value={secondType}
+                >
+                  <MenuItem value=" ">None</MenuItem>
+                  <MenuItem value="Bug">Bug</MenuItem>
+                  <MenuItem value="Dark">Dark</MenuItem>
+                  <MenuItem value="Dragon">Dragon</MenuItem>
+                  <MenuItem value="Electric">Electric</MenuItem>
+                  <MenuItem value="Fairy">Fairy</MenuItem>
+                  <MenuItem value="Fighting">Fighting</MenuItem>
+                  <MenuItem value="Fire">Fire</MenuItem>
+                  <MenuItem value="Flying">Flying</MenuItem>
+                  <MenuItem value="Ghost">Ghost</MenuItem>
+                  <MenuItem value="Grass">Grass</MenuItem>
+                  <MenuItem value="Ground">Ground</MenuItem>
+                  <MenuItem value="Ice">Ice</MenuItem>
+                  <MenuItem value="Normal">Normal</MenuItem>
+                  <MenuItem value="Poison">Poison</MenuItem>
+                  <MenuItem value="Psychic">Psychic</MenuItem>
+                  <MenuItem value="Rock">Rock</MenuItem>
+                  <MenuItem value="Steel">Steel</MenuItem>
+                  <MenuItem value="Water">Water</MenuItem>
+                </Select>
+              ) : (
+                ""
+              )}
+            </Grid>
+          </Grid>
+          <label
             style={{
-              paddingLeft: "40px",
-              display: "table",
+              display: "table-cell",
+              paddingLeft: "1em",
             }}
           >
-            <label style={{ display: "table-cell" }}>Types:</label>
-            <select
-              name="firstType"
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell", marginLeft: "-100%" }}
-            >
-              <option defaultValue value=""></option>
-              <option value="Bug">Bug</option>
-              <option value="Dark">Dark</option>
-              <option value="Dragon">Dragon</option>
-              <option value="Electric">Electric</option>
-              <option value="Fairy">Fairy</option>
-              <option value="Fighting">Fighting</option>
-              <option value="Fire">Fire</option>
-              <option value="Flying">Flying</option>
-              <option value="Ghost">Ghost</option>
-              <option value="Grass">Grass</option>
-              <option value="Ground">Ground</option>
-              <option value="Ice">Ice</option>
-              <option value="Normal">Normal</option>
-              <option value="Poison">Poison</option>
-              <option value="Psychic">Psychic</option>
-              <option value="Rock">Rock</option>
-              <option value="Steel">Steel</option>
-              <option value="Water">Water</option>
-            </select>
-            {showBothTypes ? (
-              <select
-                name="secondType"
-                onChange={(e) => onChange(e)}
-                style={{ display: "table-cell" }}
-              >
-                <option defaultValue value=""></option>
-                <option value="Bug">Bug</option>
-                <option value="Dark">Dark</option>
-                <option value="Dragon">Dragon</option>
-                <option value="Electric">Electric</option>
-                <option value="Fairy">Fairy</option>
-                <option value="Fighting">Fighting</option>
-                <option value="Fire">Fire</option>
-                <option value="Flying">Flying</option>
-                <option value="Ghost">Ghost</option>
-                <option value="Grass">Grass</option>
-                <option value="Ground">Ground</option>
-                <option value="Ice">Ice</option>
-                <option value="Normal">Normal</option>
-                <option value="Poison">Poison</option>
-                <option value="Psychic">Psychic</option>
-                <option value="Rock">Rock</option>
-                <option value="Steel">Steel</option>
-                <option value="Water">Water</option>
-              </select>
-            ) : (
-              ""
-            )}
-            <label
-              style={{
-                display: "table-cell",
-                paddingLeft: "1em",
-              }}
-            >
-              Ability:
-            </label>
-            <input
-              type="text"
-              placeholder="Search for an ability"
-              name="ability"
-              value={ability}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell", marginLeft: "-45%" }}
-            ></input>
-            <label style={{ display: "table-cell" }}>Egg Group:</label>
-            <select
-              name="eggGroup"
-              onChange={(e) => onChange(e)}
-              style={{
-                display: "table-cell",
-                width: "110%",
-                marginLeft: "-10%",
-              }}
-            >
-              <option defaultValue value=""></option>
-              <option value="Amorphous">Amorphous</option>
-              <option value="Bug">Bug</option>
-              <option value="Ditto">Ditto</option>
-              <option value="Dragon">Dragon</option>
-              <option value="Fairy">Fairy</option>
-              <option value="Field">Field</option>
-              <option value="Flying">Flying</option>
-              <option value="Grass">Grass</option>
-              <option value="Human-Like">Human-Like</option>
-              <option value="Legendary">Legendary</option>
-              <option value="Mineral">Mineral</option>
-              <option value="Monster">Monster</option>
-              <option value="Unown">Unown</option>
-              <option value="Water 1">Water 1</option>
-              <option value="Water 2">Water 2</option>
-              <option value="Water 3">Water 3</option>
-            </select>
-          </div>
+            Ability:
+          </label>
+          <input
+            type="text"
+            placeholder="Search for an ability"
+            name="ability"
+            value={ability}
+            onChange={(e) => onChange(e)}
+            style={{ display: "table-cell", marginLeft: "-45%" }}
+          ></input>
+          <label style={{ display: "table-cell" }}>Egg Group:</label>
+          <select
+            name="eggGroup"
+            onChange={(e) => onChange(e)}
+            style={{
+              display: "table-cell",
+              width: "110%",
+              marginLeft: "-10%",
+            }}
+          >
+            <option defaultValue value=""></option>
+            <option value="Amorphous">Amorphous</option>
+            <option value="Bug">Bug</option>
+            <option value="Ditto">Ditto</option>
+            <option value="Dragon">Dragon</option>
+            <option value="Fairy">Fairy</option>
+            <option value="Field">Field</option>
+            <option value="Flying">Flying</option>
+            <option value="Grass">Grass</option>
+            <option value="Human-Like">Human-Like</option>
+            <option value="Legendary">Legendary</option>
+            <option value="Mineral">Mineral</option>
+            <option value="Monster">Monster</option>
+            <option value="Unown">Unown</option>
+            <option value="Water 1">Water 1</option>
+            <option value="Water 2">Water 2</option>
+            <option value="Water 3">Water 3</option>
+          </select>
           <hr />
           <div
             className="form-group"
@@ -495,6 +487,8 @@ export const SearchFilter = ({
           </div>
           <hr style={{ marginTop: "1em" }} />
         </Fragment>
+      ) : (
+        ""
       )}
     </form>
   );
