@@ -1,10 +1,14 @@
 import React, { Fragment, useState, useContext } from "react"; //we bring in the 'useState' hook because we are using a functional component
 import { Link, Redirect } from "react-router-dom";
+import { Button } from "@material-ui/core";
+import { useStyles } from "../styles";
 import { UserContext, MiscContext } from "../../context";
 
 //since it's a form, we need to have some component state because each input needs to have its own state
 //they also needs to have an 'onchange' handler so when we type in it, it updates the state
 export const Register = () => {
+  const classes = useStyles();
+
   const { register, isAuthenticated } = useContext(UserContext);
   const { setAlert } = useContext(MiscContext);
 
@@ -89,7 +93,12 @@ export const Register = () => {
             onChange={(e) => onChange(e)}
           />
         </div>
-        <input type="submit" className="btn btn-primary" value="Register" />
+        <Button
+          className={`${classes.button} ${classes.active} ${classes.primary}`}
+          type="submit"
+        >
+          Register
+        </Button>
       </form>
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
