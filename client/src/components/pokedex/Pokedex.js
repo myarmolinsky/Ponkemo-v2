@@ -4,13 +4,9 @@ import Spinner from "../layout/Spinner";
 import { SearchFilter, Dex } from "../common";
 
 export const Pokedex = () => {
-  const { getAllPokemon, pokedex, loading } = useContext(PokemonContext);
+  const { pokedex, loading } = useContext(PokemonContext);
 
   const [filteredPokedex, setFilteredPokedex] = useState([]);
-
-  useEffect(() => {
-    getAllPokemon();
-  }, []);
 
   useEffect(() => {
     if (pokedex) {

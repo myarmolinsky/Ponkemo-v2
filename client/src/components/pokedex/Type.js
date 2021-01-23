@@ -6,14 +6,10 @@ import Spinner from "../layout/Spinner";
 import { SearchFilter, Dex } from "../common";
 
 export const Type = ({ match }) => {
-  const { getAllPokemon, pokedex, loading } = useContext(PokemonContext);
+  const { pokedex, loading } = useContext(PokemonContext);
 
   const [filteredPokedex, setFilteredPokedex] = useState([]);
   const [type, setType] = useState([]);
-
-  useEffect(() => {
-    getAllPokemon();
-  }, []);
 
   useEffect(() => {
     setType(

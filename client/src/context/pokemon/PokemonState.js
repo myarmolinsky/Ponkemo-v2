@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer, useContext, useEffect } from "react";
 import axios from "axios";
 import { any } from "prop-types";
 import { MiscContext } from "../";
@@ -15,6 +15,10 @@ import {
 } from "./types";
 
 export const PokemonState = ({ children }) => {
+  useEffect(() => {
+    getAllPokemon();
+  }, []);
+
   const { setAlert } = useContext(MiscContext);
 
   const initialState = {
