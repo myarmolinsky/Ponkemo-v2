@@ -7,6 +7,7 @@ import {
   Typography,
   Grid,
   TextField,
+  InputLabel,
 } from "@material-ui/core";
 import { useStyles } from "./styles";
 
@@ -40,7 +41,6 @@ export const SearchFilter = ({
   const [expandSearchOptions, setExpandSearchOptions] = useState(false);
 
   const {
-    search,
     firstType,
     secondType,
     ability,
@@ -105,7 +105,7 @@ export const SearchFilter = ({
         placeholder="Search for a Pokemon"
         name="search"
         onChange={(e) => onChange(e)}
-      ></TextField>
+      />
       <Button
         variant="contained"
         className={`${classes.root} ${classes.primary}`}
@@ -115,13 +115,14 @@ export const SearchFilter = ({
       </Button>
       {expandSearchOptions ? (
         <Fragment>
-          <Typography variant="h6">Type:</Typography>
-          <Grid container>
+          <Grid container justify="space-evenly" alignItems="flex-end">
             <Grid item>
+              <InputLabel>Type:</InputLabel>
               <Select
                 name="firstType"
                 onChange={(e) => onChange(e)}
                 value={firstType}
+                variant="outlined"
               >
                 <MenuItem value=" ">None</MenuItem>
                 <MenuItem value="Bug">Bug</MenuItem>
@@ -143,13 +144,12 @@ export const SearchFilter = ({
                 <MenuItem value="Steel">Steel</MenuItem>
                 <MenuItem value="Water">Water</MenuItem>
               </Select>
-            </Grid>
-            {showBothTypes ? (
-              <Grid item>
+              {showBothTypes && (
                 <Select
                   name="secondType"
                   onChange={(e) => onChange(e)}
                   value={secondType}
+                  variant="outlined"
                 >
                   <MenuItem value=" ">None</MenuItem>
                   <MenuItem value="Bug">Bug</MenuItem>
@@ -171,27 +171,20 @@ export const SearchFilter = ({
                   <MenuItem value="Steel">Steel</MenuItem>
                   <MenuItem value="Water">Water</MenuItem>
                 </Select>
-              </Grid>
-            ) : (
-              ""
-            )}
+              )}
+            </Grid>
+            <Grid item>
+              <InputLabel>Ability:</InputLabel>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                onChange={(e) => onChange(e)}
+                type="text"
+                placeholder="Search for an ability"
+                name="ability"
+              />
+            </Grid>
           </Grid>
-          <label
-            style={{
-              display: "table-cell",
-              paddingLeft: "1em",
-            }}
-          >
-            Ability:
-          </label>
-          <input
-            type="text"
-            placeholder="Search for an ability"
-            name="ability"
-            value={ability}
-            onChange={(e) => onChange(e)}
-            style={{ display: "table-cell", marginLeft: "-45%" }}
-          ></input>
           <label style={{ display: "table-cell" }}>Egg Group:</label>
           <select
             name="eggGroup"
