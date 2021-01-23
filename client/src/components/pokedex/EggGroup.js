@@ -27,7 +27,10 @@ export const EggGroup = ({ match }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <Button className={`${classes.button} ${classes.dark}`} size="large">
+      <Button
+        className={`${classes.button} ${classes.active} ${classes.dark}`}
+        size="large"
+      >
         <Link to="/egggroups" style={{ color: "white" }}>
           To Egg Groups
         </Link>

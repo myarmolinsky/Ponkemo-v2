@@ -2,8 +2,10 @@ import { makeStyles } from "@material-ui/styles";
 
 export const useStyles = makeStyles({
   button: {
-    color: "white",
     margin: "1%",
+  },
+  active: {
+    color: "white",
   },
   sprite: {
     height: "100px",

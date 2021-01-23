@@ -111,14 +111,14 @@ export const SearchFilter = ({
         />
         <Button
           variant="contained"
-          className={`${classes.button} ${classes.primary}`}
+          className={`${classes.button} ${classes.active} ${classes.primary}`}
           onClick={(e) => toggleSearchOptions(e)}
         >
           Toggle Advanced Search Options
         </Button>
         <Button
           onClick={() => clearSearch()}
-          className={`${classes.button} ${classes.dark}`}
+          className={`${classes.button} ${classes.active} ${classes.dark}`}
         >
           Clear Search
         </Button>

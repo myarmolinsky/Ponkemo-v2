@@ -24,14 +24,14 @@ export const Dex = ({ dex }) => {
     <Fragment>
       <Button
         variant="contained"
-        className={`${classes.button} ${classes.primary}`}
+        className={`${classes.button} ${classes.active} ${classes.primary}`}
         onClick={(e) => toggleShowFormes(e)}
       >
         Toggle Formes
       </Button>
       <Button
         variant="contained"
-        className={`${classes.button} ${classes.primary}`}
+        className={`${classes.button} ${classes.active} ${classes.primary}`}
         onClick={(e) => toggleShinySprites(e)}
       >
         Toggle Shiny Sprites

@@ -25,7 +25,10 @@ export const Type = ({ match }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <Button className={`${classes.button} ${classes.dark}`} size="large">
+      <Button
+        className={`${classes.button} ${classes.active} ${classes.dark}`}
+        size="large"
+      >
         <Link to="/types" style={{ color: "white" }}>
           To Types
         </Link>

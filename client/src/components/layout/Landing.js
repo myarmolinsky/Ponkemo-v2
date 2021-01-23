@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { Button } from "@material-ui/core";
+import { useStyles } from "../styles";
 import { UserContext } from "../../context";
 
 export const Landing = () => {
+  const classes = useStyles();
+
   const { isAuthenticated } = useContext(UserContext);
 
   if (isAuthenticated) {
@@ -19,13 +23,21 @@ export const Landing = () => {
             Log in or create an account so you can catch, train, and battle
             Pokemon!
           </p>
-          <div className="buttons">
-            <Link to="/register" className="btn btn-primary">
-              Sign Up
-            </Link>
-            <Link to="/login" className="btn btn-light">
-              Login
-            </Link>
+          <div>
+            <Button
+              className={`${classes.button} ${classes.active} ${classes.dark}`}
+            >
+              <Link to="/login" style={{ color: "white" }}>
+                Login
+              </Link>
+            </Button>
+            <Button
+              className={`${classes.button} ${classes.active} ${classes.primary}`}
+            >
+              <Link to="/register" style={{ color: "white" }}>
+                Sign Up
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
