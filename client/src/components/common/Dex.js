@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { array } from "prop-types";
-import { Button, Divider, Typography, Avatar, Grid } from "@material-ui/core";
+import { Button, Divider, Typography, Grid } from "@material-ui/core";
 import { useStyles } from "../styles";
 
 export const Dex = ({ dex }) => {

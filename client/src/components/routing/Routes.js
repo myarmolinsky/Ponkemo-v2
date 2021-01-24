@@ -3,8 +3,15 @@ import { Route, Switch } from "react-router-dom";
 import { Register } from "../auth/Register";
 import { Login } from "../auth/Login";
 import { Dashboard } from "../dashboard/Dashboard";
-import { Pokedex, Pokemon, EggGroup, EggGroups, Type, Types } from "../pokedex";
-import { EditPokemon } from "../pokemon-forms/EditPokemon";
+import {
+  Pokedex,
+  Pokemon,
+  EggGroup,
+  EggGroups,
+  Type,
+  Types,
+  EditPokemon,
+} from "../pokedex";
 import { PrivateRoute } from "../routing/PrivateRoute";
 import NotFound from "../layout/NotFound";
 import { Alert } from "../layout/Alert";

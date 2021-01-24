@@ -159,7 +159,9 @@ export const EditPokemon = ({ match }) => {
         genderRatio: loading || !pokemon.genderRatio ? 0 : pokemon.genderRatio,
       });
 
-    if (lastId === -1 || currentId > lastId) getLastId(); // get the last id so we know how many Pokemon we have
+    if (lastId === -1 || currentId > lastId) {
+      getLastId(); // get the last id so we know how many Pokemon we have
+    }
   }, [currentId, loading, lastId]);
 
   const {
