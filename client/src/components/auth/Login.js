@@ -1,12 +1,9 @@
 import React, { Fragment, useState, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import { useStyles } from "../styles";
 import { UserContext } from "../../context";
 
 export const Login = () => {
-  const classes = useStyles();
-
   const { login, isAuthenticated } = useContext(UserContext);
 
   const [formData, setFormData] = useState({
@@ -57,10 +54,7 @@ export const Login = () => {
             required
           />
         </div>
-        <Button
-          className={`${classes.button} ${classes.active} ${classes.primary}`}
-          type="submit"
-        >
+        <Button color="primary" type="submit" variant="contained">
           Login
         </Button>
       </form>

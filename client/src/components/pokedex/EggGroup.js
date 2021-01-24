@@ -2,14 +2,11 @@ import React, { Fragment, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { any } from "prop-types";
 import { Button } from "@material-ui/core";
-import { useStyles } from "../styles";
 import { PokemonContext } from "../../context";
 import Spinner from "../layout/Spinner";
 import { SearchFilter, Dex } from "../common";
 
 export const EggGroup = ({ match }) => {
-  const classes = useStyles();
-
   const { pokedex, loading } = useContext(PokemonContext);
 
   const [filteredPokedex, setFilteredPokedex] = useState([]);
@@ -27,10 +24,7 @@ export const EggGroup = ({ match }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <Button
-        className={`${classes.button} ${classes.active} ${classes.dark}`}
-        size="large"
-      >
+      <Button variant="contained" color="secondary" size="large">
         <Link to="/egggroups" style={{ color: "white" }}>
           To Egg Groups
         </Link>

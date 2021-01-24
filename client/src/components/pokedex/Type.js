@@ -2,14 +2,11 @@ import React, { Fragment, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { any } from "prop-types";
 import { Button } from "@material-ui/core";
-import { useStyles } from "../styles";
 import { PokemonContext } from "../../context";
 import Spinner from "../layout/Spinner";
 import { SearchFilter, Dex } from "../common";
 
 export const Type = ({ match }) => {
-  const classes = useStyles();
-
   const { pokedex, loading } = useContext(PokemonContext);
 
   const [filteredPokedex, setFilteredPokedex] = useState([]);
@@ -25,10 +22,7 @@ export const Type = ({ match }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <Button
-        className={`${classes.button} ${classes.active} ${classes.dark}`}
-        size="large"
-      >
+      <Button size="large" variant="contained" color="secondary">
         <Link to="/types" style={{ color: "white" }}>
           To Types
         </Link>

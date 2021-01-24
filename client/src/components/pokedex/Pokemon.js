@@ -2,14 +2,11 @@ import React, { Fragment, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { any } from "prop-types";
 import { Button, Grid } from "@material-ui/core";
-import { useStyles } from "../styles";
 import { PokemonContext, UserContext } from "../../context";
 import Spinner from "../layout/Spinner";
 import NotFound from "../layout/NotFound";
 
 export const Pokemon = ({ match }) => {
-  const classes = useStyles();
-
   const {
     getPokemon,
     getLastId,
@@ -43,42 +40,50 @@ export const Pokemon = ({ match }) => {
         <NotFound />
       ) : (
         <Fragment>
-          {/* If there is a previous pokemon, link to its page */}
-          <Button
-            className={`${classes.button} ${
-              pokemon.id > 1
-                ? `${classes.active} ${classes.dark}`
-                : `${classes.light}`
-            }`}
-            size="large"
-          >
-            <Link
-              to={`/pokedex/${
-                pokemon.id > 1 ? Math.ceil(pokemon.id) - 1 : pokemon.id
-              }`}
-              style={{ color: `${pokemon.id > 1 ? "white" : "black"}` }}
-            >
-              Previous Pokemon
-            </Link>
-          </Button>
-          {/* If there is a next pokemon, link to its page */}
-          <Button
-            className={`${classes.button} ${
-              pokemon.id < lastId
-                ? `${classes.active} ${classes.dark}`
-                : `${classes.light}`
-            }`}
-            size="large"
-          >
-            <Link
-              to={`/pokedex/${
-                pokemon.id < lastId ? Math.floor(pokemon.id) + 1 : pokemon.id
-              }`}
-              style={{ color: `${pokemon.id < lastId ? "white" : "black"}` }}
-            >
-              Next Pokemon
-            </Link>
-          </Button>
+          <Grid container justify="space-evenly">
+            <Grid item xs={5}>
+              {/* If there is a previous pokemon, link to its page */}
+              <Button
+                color={`${pokemon.id > 1 ? "secondary" : "default"}`}
+                size="large"
+                variant="contained"
+                fullWidth
+              >
+                <Link
+                  to={`/pokedex/${
+                    pokemon.id > 1 ? Math.ceil(pokemon.id) - 1 : pokemon.id
+                  }`}
+                  style={{ color: `${pokemon.id > 1 ? "white" : "black"}` }}
+                >
+                  Previous Pokemon
+                </Link>
+              </Button>
+            </Grid>
+            <Grid item xs={5}>
+              {/* If there is a next pokemon, link to its page */}
+              {pokemon.id < lastId && (
+                <Button
+                  color={`${pokemon.id < lastId ? "secondary" : "default"}`}
+                  size="large"
+                  variant="contained"
+                  fullWidth
+                >
+                  <Link
+                    to={`/pokedex/${
+                      pokemon.id < lastId
+                        ? Math.floor(pokemon.id) + 1
+                        : pokemon.id
+                    }`}
+                    style={{
+                      color: `${pokemon.id < lastId ? "white" : "black"}`,
+                    }}
+                  >
+                    Next Pokemon
+                  </Link>
+                </Button>
+              )}
+            </Grid>
+          </Grid>
           <div style={{ textAlign: "center" }}>
             <h1 className="large text-primary">
               {/* Name*/}

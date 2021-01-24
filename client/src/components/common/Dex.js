@@ -22,20 +22,26 @@ export const Dex = ({ dex }) => {
 
   return (
     <Fragment>
-      <Button
-        variant="contained"
-        className={`${classes.button} ${classes.active} ${classes.primary}`}
-        onClick={(e) => toggleShowFormes(e)}
-      >
-        Toggle Formes
-      </Button>
-      <Button
-        variant="contained"
-        className={`${classes.button} ${classes.active} ${classes.primary}`}
-        onClick={(e) => toggleShinySprites(e)}
-      >
-        Toggle Shiny Sprites
-      </Button>
+      <Grid container spacing={1}>
+        <Grid item>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={(e) => toggleShowFormes(e)}
+          >
+            Toggle Formes
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={(e) => toggleShinySprites(e)}
+          >
+            Toggle Shiny Sprites
+          </Button>
+        </Grid>
+      </Grid>
       <Divider className={classes.divider} />
       <Grid container>
         {dex.map(
@@ -50,21 +56,24 @@ export const Dex = ({ dex }) => {
                   {/* Pokemon's sprite */}
                   <div className="pokedex-item">
                     {!shinySprites ? (
-                      <Avatar
-                        className={classes.sprite}
+                      <img
+                        // className={classes.sprite}
+                        className="sprite"
                         src={pokemon.sprite}
                         alt={pokemon.name}
-                        variant="square"
+                        // variant="square"
                       />
                     ) : (
-                      <Avatar
-                        className={classes.sprite}
+                      <img
+                        // className={classes.sprite}
+                        className="sprite"
                         src={pokemon.shinySprite}
                         alt={pokemon.name}
-                        variant="square"
+                        // variant="square"
                       />
                     )}
                     {/* Pokemon's name */}
+                    <br />
                     <Typography variant="caption">{pokemon.name}</Typography>
                   </div>
                 </Link>

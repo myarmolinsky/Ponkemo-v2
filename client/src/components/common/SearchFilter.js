@@ -109,19 +109,26 @@ export const SearchFilter = ({
           onChange={(e) => onChange(e)}
           value={search}
         />
-        <Button
-          variant="contained"
-          className={`${classes.button} ${classes.active} ${classes.primary}`}
-          onClick={(e) => toggleSearchOptions(e)}
-        >
-          Toggle Advanced Search Options
-        </Button>
-        <Button
-          onClick={() => clearSearch()}
-          className={`${classes.button} ${classes.active} ${classes.dark}`}
-        >
-          Clear Search
-        </Button>
+        <Grid container spacing={1}>
+          <Grid item>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={(e) => toggleSearchOptions(e)}
+            >
+              Toggle Advanced Search Options
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              onClick={() => clearSearch()}
+              variant="contained"
+              color="secondary"
+            >
+              Clear Search
+            </Button>
+          </Grid>
+        </Grid>
         {expandSearchOptions && (
           <Fragment>
             <Grid container justify="space-evenly" alignItems="flex-end">

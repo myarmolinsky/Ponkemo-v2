@@ -1,12 +1,9 @@
 import React, { useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { Button } from "@material-ui/core";
-import { useStyles } from "../styles";
+import { Button, Grid } from "@material-ui/core";
 import { UserContext } from "../../context";
 
 export const Landing = () => {
-  const classes = useStyles();
-
   const { isAuthenticated } = useContext(UserContext);
 
   if (isAuthenticated) {
@@ -23,22 +20,22 @@ export const Landing = () => {
             Log in or create an account so you can catch, train, and battle
             Pokemon!
           </p>
-          <div>
-            <Button
-              className={`${classes.button} ${classes.active} ${classes.dark}`}
-            >
-              <Link to="/login" style={{ color: "white" }}>
-                Login
-              </Link>
-            </Button>
-            <Button
-              className={`${classes.button} ${classes.active} ${classes.primary}`}
-            >
-              <Link to="/register" style={{ color: "white" }}>
-                Sign Up
-              </Link>
-            </Button>
-          </div>
+          <Grid container justify="center" spacing={1}>
+            <Grid item xs={2}>
+              <Button variant="contained" color="primary" fullWidth>
+                <Link to="/login" style={{ color: "white" }}>
+                  Login
+                </Link>
+              </Button>
+            </Grid>
+            <Grid item xs={2}>
+              <Button variant="contained" color="secondary" fullWidth>
+                <Link to="/register" style={{ color: "white" }}>
+                  Sign Up
+                </Link>
+              </Button>
+            </Grid>
+          </Grid>
         </div>
       </div>
     </section>
