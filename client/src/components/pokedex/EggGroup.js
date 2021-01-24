@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { any } from "prop-types";
 import { Button } from "@material-ui/core";
 import { PokemonContext } from "../../context";
-import Spinner from "../layout/Spinner";
+import { Spinner } from "../layout";
 import { SearchFilter, Dex } from "../common";
 
 export const EggGroup = ({ match }) => {

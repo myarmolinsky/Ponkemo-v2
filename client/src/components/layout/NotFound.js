@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const NotFound = () => {
+export const NotFound = () => {
   return (
     <Fragment>
       <h1 className="x-large text-primary">
@@ -10,5 +10,3 @@ const NotFound = () => {
     </Fragment>
   );
 };
-
-export default NotFound;

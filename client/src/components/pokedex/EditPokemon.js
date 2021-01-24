@@ -1,9 +1,7 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
 import { any } from "prop-types";
 import { PokemonContext, UserContext } from "../../context";
-import Spinner from "../layout/Spinner";
-import AccessDenied from "../layout/AccessDenied";
-import NotFound from "../layout/NotFound";
+import { NotFound, Spinner, AccessDenied } from "../layout";
 
 export const EditPokemon = ({ match }) => {
   const {

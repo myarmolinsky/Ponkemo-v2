@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { any } from "prop-types";
 import { Button, Grid } from "@material-ui/core";
 import { PokemonContext, UserContext } from "../../context";
-import Spinner from "../layout/Spinner";
-import NotFound from "../layout/NotFound";
+import { Spinner, NotFound } from "../layout";
 
 export const Pokemon = ({ match }) => {
   const {

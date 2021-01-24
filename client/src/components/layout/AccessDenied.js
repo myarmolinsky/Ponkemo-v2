@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const AccessDenied = () => {
+export const AccessDenied = () => {
   return (
     <Fragment>
       <h1 className="x-large text-primary">
@@ -10,5 +10,3 @@ const AccessDenied = () => {
     </Fragment>
   );
 };
-
-export default AccessDenied;

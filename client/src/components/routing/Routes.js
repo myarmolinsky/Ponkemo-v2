@@ -13,8 +13,7 @@ import {
   EditPokemon,
 } from "../pokedex";
 import { PrivateRoute } from "../routing/PrivateRoute";
-import NotFound from "../layout/NotFound";
-import { Alert } from "../layout/Alert";
+import { Alert, NotFound } from "../layout";
 
 const Routes = () => {
   return (

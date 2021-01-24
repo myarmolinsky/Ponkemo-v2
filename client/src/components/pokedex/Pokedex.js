@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
 import { PokemonContext } from "../../context";
-import Spinner from "../layout/Spinner";
+import { Spinner } from "../layout";
 import { SearchFilter, Dex } from "../common";
 
 export const Pokedex = () => {

@@ -1,7 +1,6 @@
 import React, { Fragment } from "react"; //bring in react and Fragment
 import "./App.css";
-import { Navbar } from "./components/layout/Navbar";
-import { Landing } from "./components/layout/Landing";
+import { Navbar, Landing } from "./components/layout";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; //import react router
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Routes from "./components/routing/Routes";
