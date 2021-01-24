@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { Button, Grid } from "@material-ui/core";
 import { UserContext } from "../../context";
 
 export const Landing = () => {
@@ -19,14 +20,22 @@ export const Landing = () => {
             Log in or create an account so you can catch, train, and battle
             Pokemon!
           </p>
-          <div className="buttons">
-            <Link to="/register" className="btn btn-primary">
-              Sign Up
-            </Link>
-            <Link to="/login" className="btn btn-light">
-              Login
-            </Link>
-          </div>
+          <Grid container justify="center" spacing={1}>
+            <Grid item xs={2}>
+              <Button variant="contained" color="primary" fullWidth>
+                <Link to="/login" style={{ color: "white" }}>
+                  Login
+                </Link>
+              </Button>
+            </Grid>
+            <Grid item xs={2}>
+              <Button variant="contained" color="secondary" fullWidth>
+                <Link to="/register" style={{ color: "white" }}>
+                  Sign Up
+                </Link>
+              </Button>
+            </Grid>
+          </Grid>
         </div>
       </div>
     </section>

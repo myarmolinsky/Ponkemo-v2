@@ -6,12 +6,12 @@ This project is my personal take on the Pokemon franchise, seeking to implement 
 
 I have attempted this project once before and in a way this a reinvention/reboot of it, however at its core this project is intended to achieve all the goals I failed to achieve in my first attempt of the project and more. In regards to the first project I am referring to, it is called Ponkemo and its repository can be found at this link: https://github.com/myarmolinsky/Ponkemo. To summarize that project, it is a Pokemon catching and training simulator: just a mere fraction of what I intended on implementing. Due to a lack of foresight on my behalf in regards to the technologies I was using to tackle the ambitious ideas I held in my mind, I ended that project.
 
-I planned to return to the project once I felt more comfortable with a JavaScript based stack, and now I have; I am using the MERN stack to develop this project. Below you will find a growing list of features I have included and features I will include.
+I planned to return to the project once I felt more comfortable with a JavaScript based stack, and now I have; I am using the MERN (Mongoose, Express, React, Node) stack to develop this project. Below you will find a growing list of features I have included and features I will include.
 
 ## Included Features
 
 - User sign up and log in
-- Pokedex (user does not have to be signed in to see this) (only shows every Pokemon before Absol for now since those are all the ones with movesets)
+- Pokedex (user does not have to be signed in to see this)
   - Each Pokemon on the Pokedex page links to its respective Pokemon page
   - Search filter to search for Pokemon by name, type, ability, egg group, and base stats
   - Toggle whether formes are shown (not shown by default)
@@ -30,7 +30,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
   - What its egg hatches into
   - Spawn Rate (currently all 0 or -1)
   - List of Evolutions and how to get them
-  - Table of learnable moves and how to learn them (Only for first 358 Pokemon so far)
+  - Table of learnable moves and how to learn them (Every Pokemon up until Absol so far)
 - Egg Groups page showing all Egg Groups (currently only accessible by going to an egg group page via a Pokemon page or by going directly to the url)
   - Each Egg Group links to its respective Egg Group page
 - Egg Group page for each Egg Group showing all Pokemon in that Egg Group

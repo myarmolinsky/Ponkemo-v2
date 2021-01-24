@@ -1,9 +1,7 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
 import { any } from "prop-types";
 import { PokemonContext, UserContext } from "../../context";
-import Spinner from "../layout/Spinner";
-import AccessDenied from "../layout/AccessDenied";
-import NotFound from "../layout/NotFound";
+import { NotFound, Spinner, AccessDenied } from "../layout";
 
 export const EditPokemon = ({ match }) => {
   const {
@@ -159,7 +157,9 @@ export const EditPokemon = ({ match }) => {
         genderRatio: loading || !pokemon.genderRatio ? 0 : pokemon.genderRatio,
       });
 
-    if (lastId === -1 || currentId > lastId) getLastId(); // get the last id so we know how many Pokemon we have
+    if (lastId === -1 || currentId > lastId) {
+      getLastId(); // get the last id so we know how many Pokemon we have
+    }
   }, [currentId, loading, lastId]);
 
   const {

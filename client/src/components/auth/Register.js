@@ -1,5 +1,6 @@
-import React, { Fragment, useState, useContext } from "react"; //we bring in the 'useState' hook because we are using a functional component
+import React, { useState, useContext } from "react"; //we bring in the 'useState' hook because we are using a functional component
 import { Link, Redirect } from "react-router-dom";
+import { Button, TextField, Grid } from "@material-ui/core";
 import { UserContext, MiscContext } from "../../context";
 
 //since it's a form, we need to have some component state because each input needs to have its own state
@@ -45,55 +46,70 @@ export const Register = () => {
   }
 
   return (
-    <Fragment>
+    <div
+      style={{
+        textAlign: "center",
+        position: "absolute",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+        zIndex: -1,
+      }}
+    >
       <h1 className="large text-primary">Sign Up</h1>
-      <p className="lead">
-        <i className="fas fa-user"></i> Create Your Account
-      </p>
       <form className="form" onSubmit={(e) => onSubmit(e)}>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Username"
-            name="username"
-            value={username} // set the 'Username' part of the form to the 'name' value we get from the state 'formData'
-            onChange={(e) => onChange(e)} //we need an onChange handler to be able to type inside the component
-            //the goal is to call 'setFormData()' and to update the 'name' field in the state
-            //we could call 'setFormData()' directly but we are calling a seperate onChange function instead
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            value={email}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            name="password2"
-            value={password2}
-            onChange={(e) => onChange(e)}
-          />
-        </div>
-        <input type="submit" className="btn btn-primary" value="Register" />
+        <Grid container direction="column">
+          <Grid item>
+            <TextField
+              placeholder="Username"
+              name="username"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              required
+              margin="normal"
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              placeholder="Email Address"
+              name="email"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              required
+              margin="normal"
+              type="email"
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              placeholder="Password"
+              name="password"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              required
+              margin="normal"
+              type="password"
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              placeholder="Confirm Password"
+              name="password2"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              required
+              margin="normal"
+              type="password"
+            />
+          </Grid>
+        </Grid>
+        <Button variant="contained" color="primary" type="submit">
+          Register
+        </Button>
       </form>
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
       </p>
-    </Fragment>
+    </div>
   );
 };

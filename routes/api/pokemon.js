@@ -7,7 +7,7 @@ const Pokemon = require("../../models/Pokemon");
 // @access Public
 router.get("/", async (req, res) => {
   try {
-    const pokedex = await Pokemon.find({});
+    const pokedex = await Pokemon.find({}).limit(50); // Limit results for now to speed up loading
     res.json(pokedex);
   } catch (err) {
     console.error(err.message);

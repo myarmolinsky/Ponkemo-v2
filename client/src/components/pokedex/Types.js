@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export const Types = () => {
   return (
-    <Fragment>
+    <div style={{ textAlign: "center" }}>
       <h1 className="large text-primary">Types</h1>
       <ul>
         <li>
@@ -97,6 +97,6 @@ export const Types = () => {
           </span>
         </li>
       </ul>
-    </Fragment>
+    </div>
   );
 };

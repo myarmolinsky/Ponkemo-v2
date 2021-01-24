@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer, useContext, useEffect } from "react";
 import axios from "axios";
 import { any } from "prop-types";
 import { MiscContext } from "../";
@@ -17,6 +17,10 @@ import setAuthToken from "../../utils/setAuthToken";
 
 export const UserState = ({ children }) => {
   const { setAlert } = useContext(MiscContext);
+
+  useEffect(() => {
+    loadUser();
+  }, []);
 
   const initialState = {
     token: localStorage.getItem("token"),

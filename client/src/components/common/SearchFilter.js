@@ -1,17 +1,29 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { array, func, bool } from "prop-types";
+import {
+  Button,
+  Select,
+  MenuItem,
+  Grid,
+  TextField,
+  Typography,
+  Divider,
+} from "@material-ui/core";
+import { useStyles } from "../styles";
 
 export const SearchFilter = ({
   pokedex,
   setFilteredPokedex,
   showBothTypes,
 }) => {
+  const classes = useStyles();
+
   const [searchData, setSearchData] = useState({
     search: "",
-    firstType: "",
-    secondType: "",
+    firstType: " ",
+    secondType: " ",
     ability: "",
-    eggGroup: "",
+    eggGroup: " ",
     baseHealthGreater: 0,
     baseHealthLess: 256,
     baseAttackGreater: 0,
@@ -54,7 +66,7 @@ export const SearchFilter = ({
 
   useEffect(() => {
     setFilteredPokedex(
-      pokedex.filter((pokemon) => checkSearchPokemon(pokemon))
+      pokedex.filter((pokemon) => checkSearchPokemon(pokemon, searchData))
     );
   }, [searchData, pokedex]);
 
@@ -63,123 +75,13 @@ export const SearchFilter = ({
     setExpandSearchOptions(!expandSearchOptions);
   };
 
-  const checkSearchPokemon = (pokemon) => {
-    if (
-      !pokemon.name.toUpperCase().includes(search.toUpperCase()) ||
-      (search === " " &&
-        (pokemon.name.includes("Basculin") ||
-          pokemon.name.includes("Deoxys") ||
-          pokemon.name.includes("Wormadam") ||
-          pokemon.name.includes("Giratina") ||
-          pokemon.name.includes("Shaymin") ||
-          pokemon.name.includes("Tornadus") ||
-          pokemon.name.includes("Thundurus") ||
-          pokemon.name.includes("Landorus") ||
-          pokemon.name.includes("Meloetta") ||
-          pokemon.name.includes("Aegislash") ||
-          pokemon.name.includes("Pumpkaboo") ||
-          pokemon.name.includes("Gourgeist") ||
-          pokemon.name.includes("Zygarde") ||
-          pokemon.name.includes("Hoopa") ||
-          pokemon.name.includes("Oricorio") ||
-          pokemon.name.includes("Lycanroc") ||
-          pokemon.name.includes("Wishiwashi") ||
-          pokemon.name.includes("Minior") ||
-          pokemon.name.includes("Toxtricity") ||
-          pokemon.name.includes("Eiscue") ||
-          pokemon.name.includes("Morpeko") ||
-          pokemon.name.includes("Zacian") ||
-          pokemon.name.includes("Zamazenta"))) ||
-      (search === "-" &&
-        (pokemon.name.includes("Arceus") || pokemon.name.includes("Basculin")))
-    )
-      return false;
-
-    if (firstType !== "") if (!pokemon.types.includes(firstType)) return false;
-    if (secondType !== "")
-      if (!pokemon.types.includes(secondType)) return false;
-
-    if (ability !== "") {
-      if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase()))
-        if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase()))
-          if (pokemon.abilities.length > 1) {
-            if (
-              !pokemon.abilities[1]
-                .toUpperCase()
-                .includes(ability.toUpperCase())
-            )
-              return false;
-          } else {
-            return false;
-          }
-    }
-
-    if (eggGroup !== "") {
-      console.log(eggGroup);
-      if (!pokemon.breeding.eggGroups.includes(eggGroup)) {
-        return false;
-      }
-    }
-
-    let hpGreater,
-      hpLess,
-      atkGreater,
-      atkLess,
-      defGreater,
-      defLess,
-      spaGreater,
-      spaLess,
-      spdGreater,
-      spdLess,
-      speGreater,
-      speLess;
-
-    if (baseHealthGreater === "") hpGreater = 0;
-    else hpGreater = parseFloat(baseHealthGreater);
-    if (baseHealthLess === "") hpLess = 256;
-    else hpLess = parseFloat(baseHealthLess);
-    if (pokemon.baseStats.hp <= hpGreater || pokemon.baseStats.hp >= hpLess)
-      return false;
-    if (baseAttackGreater === "") atkGreater = 0;
-    else atkGreater = parseFloat(baseAttackGreater);
-    if (baseAttackLess === "") atkLess = 256;
-    else atkLess = parseFloat(baseAttackLess);
-    if (pokemon.baseStats.atk <= atkGreater || pokemon.baseStats.atk >= atkLess)
-      return false;
-    if (baseDefenseGreater === "") defGreater = 0;
-    else defGreater = parseFloat(baseDefenseGreater);
-    if (baseDefenseLess === "") defLess = 256;
-    else defLess = parseFloat(baseDefenseLess);
-    if (pokemon.baseStats.def <= defGreater || pokemon.baseStats.def >= defLess)
-      return false;
-    if (baseSpAttackGreater === "") spaGreater = 0;
-    else spaGreater = parseFloat(baseSpAttackGreater);
-    if (baseSpAttackLess === "") spaLess = 256;
-    else spaLess = parseFloat(baseSpAttackLess);
-    if (pokemon.baseStats.spA <= spaGreater || pokemon.baseStats.spA >= spaLess)
-      return false;
-    if (baseSpDefenseGreater === "") spdGreater = 0;
-    else spdGreater = parseFloat(baseSpDefenseGreater);
-    if (baseSpDefenseLess === "") spdLess = 256;
-    else spdLess = parseFloat(baseSpDefenseLess);
-    if (pokemon.baseStats.spD <= spdGreater || pokemon.baseStats.spD >= spdLess)
-      return false;
-    if (baseSpeedGreater === "") speGreater = 0;
-    else speGreater = parseFloat(baseSpeedGreater);
-    if (baseSpeedLess === "") speLess = 256;
-    else speLess = parseFloat(baseSpeedLess);
-    if (pokemon.baseStats.spe <= speGreater || pokemon.baseStats.spe >= speLess)
-      return false;
-    return true;
-  };
-
   const clearSearch = () => {
     setSearchData({
       search: "",
-      firstType: "",
-      secondType: "",
+      firstType: " ",
+      secondType: " ",
       ability: "",
-      eggGroup: "",
+      eggGroup: " ",
       baseHealthGreater: 0,
       baseHealthLess: 256,
       baseAttackGreater: 0,
@@ -196,308 +98,278 @@ export const SearchFilter = ({
   };
 
   return (
-    <form className="search-form">
-      <div className="search-bar">
-        <i className="fas fa-search input-icon"></i>
-        <input
-          type="text"
+    <>
+      <form className="search-form">
+        <TextField
+          variant="outlined"
+          margin="normal"
+          fullWidth
           placeholder="Search for a Pokemon"
           name="search"
-          value={search}
           onChange={(e) => onChange(e)}
-        ></input>
-      </div>
-      {!expandSearchOptions ? (
-        <Fragment>
-          <button
-            className="btn btn-primary"
-            onClick={(e) => toggleSearchOptions(e)}
-          >
-            Show Advanced Search Options
-          </button>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <button
-            className="btn btn-primary"
-            onClick={(e) => toggleSearchOptions(e)}
-          >
-            Hide Advanced Search Options
-          </button>
-          <div
-            className="form-group"
-            style={{
-              paddingLeft: "40px",
-              display: "table",
-            }}
-          >
-            <label style={{ display: "table-cell" }}>Types:</label>
-            <select
-              name="firstType"
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell", marginLeft: "-100%" }}
+          value={search}
+        />
+        <Grid container spacing={1}>
+          <Grid item>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={(e) => toggleSearchOptions(e)}
             >
-              <option defaultValue value=""></option>
-              <option value="Bug">Bug</option>
-              <option value="Dark">Dark</option>
-              <option value="Dragon">Dragon</option>
-              <option value="Electric">Electric</option>
-              <option value="Fairy">Fairy</option>
-              <option value="Fighting">Fighting</option>
-              <option value="Fire">Fire</option>
-              <option value="Flying">Flying</option>
-              <option value="Ghost">Ghost</option>
-              <option value="Grass">Grass</option>
-              <option value="Ground">Ground</option>
-              <option value="Ice">Ice</option>
-              <option value="Normal">Normal</option>
-              <option value="Poison">Poison</option>
-              <option value="Psychic">Psychic</option>
-              <option value="Rock">Rock</option>
-              <option value="Steel">Steel</option>
-              <option value="Water">Water</option>
-            </select>
-            {showBothTypes ? (
-              <select
-                name="secondType"
-                onChange={(e) => onChange(e)}
-                style={{ display: "table-cell" }}
-              >
-                <option defaultValue value=""></option>
-                <option value="Bug">Bug</option>
-                <option value="Dark">Dark</option>
-                <option value="Dragon">Dragon</option>
-                <option value="Electric">Electric</option>
-                <option value="Fairy">Fairy</option>
-                <option value="Fighting">Fighting</option>
-                <option value="Fire">Fire</option>
-                <option value="Flying">Flying</option>
-                <option value="Ghost">Ghost</option>
-                <option value="Grass">Grass</option>
-                <option value="Ground">Ground</option>
-                <option value="Ice">Ice</option>
-                <option value="Normal">Normal</option>
-                <option value="Poison">Poison</option>
-                <option value="Psychic">Psychic</option>
-                <option value="Rock">Rock</option>
-                <option value="Steel">Steel</option>
-                <option value="Water">Water</option>
-              </select>
-            ) : (
-              ""
-            )}
-            <label
-              style={{
-                display: "table-cell",
-                paddingLeft: "1em",
-              }}
-            >
-              Ability:
-            </label>
-            <input
-              type="text"
-              placeholder="Search for an ability"
-              name="ability"
-              value={ability}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell", marginLeft: "-45%" }}
-            ></input>
-            <label style={{ display: "table-cell" }}>Egg Group:</label>
-            <select
-              name="eggGroup"
-              onChange={(e) => onChange(e)}
-              style={{
-                display: "table-cell",
-                width: "110%",
-                marginLeft: "-10%",
-              }}
-            >
-              <option defaultValue value=""></option>
-              <option value="Amorphous">Amorphous</option>
-              <option value="Bug">Bug</option>
-              <option value="Ditto">Ditto</option>
-              <option value="Dragon">Dragon</option>
-              <option value="Fairy">Fairy</option>
-              <option value="Field">Field</option>
-              <option value="Flying">Flying</option>
-              <option value="Grass">Grass</option>
-              <option value="Human-Like">Human-Like</option>
-              <option value="Legendary">Legendary</option>
-              <option value="Mineral">Mineral</option>
-              <option value="Monster">Monster</option>
-              <option value="Unown">Unown</option>
-              <option value="Water 1">Water 1</option>
-              <option value="Water 2">Water 2</option>
-              <option value="Water 3">Water 3</option>
-            </select>
-          </div>
-          <hr />
-          <div
-            className="form-group"
-            style={{
-              paddingLeft: "40px",
-              display: "table",
-            }}
-          >
-            <label style={{ display: "table-cell" }}>Base Health {">"}</label>
-            <input
-              type="number"
-              placeholder="0"
-              name="baseHealthGreater"
-              value={baseHealthGreater}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Health {"<"}
-            </label>
-            <input
-              type="number"
-              placeholder="256"
-              name="baseHealthLess"
-              value={baseHealthLess}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Attack {">"}
-            </label>
-            <input
-              type="number"
-              placeholder="0"
-              name="baseAttackGreater"
-              value={baseAttackGreater}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Attack {"<"}
-            </label>
-            <input
-              type="number"
-              placeholder="256"
-              name="baseAttackLess"
-              value={baseAttackLess}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-          </div>
-          <div
-            className="form-group"
-            style={{
-              paddingLeft: "40px",
-              display: "table",
-            }}
-          >
-            <label style={{ display: "table-cell" }}>Base Defense {">"}</label>
-            <input
-              type="number"
-              placeholder="0"
-              name="baseDefenseGreater"
-              value={baseDefenseGreater}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Defense {"<"}
-            </label>
-            <input
-              type="number"
-              placeholder="256"
-              name="baseDefenseLess"
-              value={baseDefenseLess}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Special Attack {">"}
-            </label>
-            <input
-              type="number"
-              placeholder="0"
-              name="baseSpAttackGreater"
-              value={baseSpAttackGreater}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Special Attack {"<"}
-            </label>
-            <input
-              type="number"
-              placeholder="256"
-              name="baseSpAttackLess"
-              value={baseSpAttackLess}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-          </div>
-          <div
-            className="form-group"
-            style={{
-              paddingLeft: "40px",
-              display: "table",
-            }}
-          >
-            <label style={{ display: "table-cell" }}>
-              Base Special Defense {">"}
-            </label>
-            <input
-              type="number"
-              placeholder="0"
-              name="baseSpDefenseGreater"
-              value={baseSpDefenseGreater}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Special Defense {"<"}
-            </label>
-            <input
-              type="number"
-              placeholder="256"
-              name="baseSpDefenseLess"
-              value={baseSpDefenseLess}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Speed {">"}
-            </label>
-            <input
-              type="number"
-              placeholder="0"
-              name="baseSpeedGreater"
-              value={baseSpeedGreater}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-            <label style={{ display: "table-cell", paddingLeft: "1em" }}>
-              Base Speed {"<"}
-            </label>
-            <input
-              type="number"
-              placeholder="256"
-              name="baseSpeedLess"
-              value={baseSpeedLess}
-              onChange={(e) => onChange(e)}
-              style={{ display: "table-cell" }}
-            ></input>
-          </div>
-          <hr style={{ marginTop: "1em" }} />
-          <div className="form-group" style={{ display: "flex" }}>
-            <input
-              className="btn btn-dark"
-              type="reset"
-              value="Clear Search"
+              Toggle Advanced Search Options
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
               onClick={() => clearSearch()}
-              style={{ marginLeft: "auto" }}
-            />
-          </div>
-          <hr style={{ marginTop: "1em" }} />
-        </Fragment>
-      )}
-    </form>
+              variant="contained"
+              color="secondary"
+            >
+              Clear Search
+            </Button>
+          </Grid>
+        </Grid>
+        {expandSearchOptions && (
+          <Fragment>
+            <Grid container justify="space-evenly" alignItems="flex-end">
+              <Grid item>
+                <Typography variant="h6">Type:</Typography>
+                <Select
+                  name="firstType"
+                  onChange={(e) => onChange(e)}
+                  value={firstType}
+                  variant="outlined"
+                >
+                  <MenuItem value=" ">None</MenuItem>
+                  <MenuItem value="Bug">Bug</MenuItem>
+                  <MenuItem value="Dark">Dark</MenuItem>
+                  <MenuItem value="Dragon">Dragon</MenuItem>
+                  <MenuItem value="Electric">Electric</MenuItem>
+                  <MenuItem value="Fairy">Fairy</MenuItem>
+                  <MenuItem value="Fighting">Fighting</MenuItem>
+                  <MenuItem value="Fire">Fire</MenuItem>
+                  <MenuItem value="Flying">Flying</MenuItem>
+                  <MenuItem value="Ghost">Ghost</MenuItem>
+                  <MenuItem value="Grass">Grass</MenuItem>
+                  <MenuItem value="Ground">Ground</MenuItem>
+                  <MenuItem value="Ice">Ice</MenuItem>
+                  <MenuItem value="Normal">Normal</MenuItem>
+                  <MenuItem value="Poison">Poison</MenuItem>
+                  <MenuItem value="Psychic">Psychic</MenuItem>
+                  <MenuItem value="Rock">Rock</MenuItem>
+                  <MenuItem value="Steel">Steel</MenuItem>
+                  <MenuItem value="Water">Water</MenuItem>
+                </Select>
+                {showBothTypes && (
+                  <Select
+                    name="secondType"
+                    onChange={(e) => onChange(e)}
+                    value={secondType}
+                    variant="outlined"
+                  >
+                    <MenuItem value=" ">None</MenuItem>
+                    <MenuItem value="Bug">Bug</MenuItem>
+                    <MenuItem value="Dark">Dark</MenuItem>
+                    <MenuItem value="Dragon">Dragon</MenuItem>
+                    <MenuItem value="Electric">Electric</MenuItem>
+                    <MenuItem value="Fairy">Fairy</MenuItem>
+                    <MenuItem value="Fighting">Fighting</MenuItem>
+                    <MenuItem value="Fire">Fire</MenuItem>
+                    <MenuItem value="Flying">Flying</MenuItem>
+                    <MenuItem value="Ghost">Ghost</MenuItem>
+                    <MenuItem value="Grass">Grass</MenuItem>
+                    <MenuItem value="Ground">Ground</MenuItem>
+                    <MenuItem value="Ice">Ice</MenuItem>
+                    <MenuItem value="Normal">Normal</MenuItem>
+                    <MenuItem value="Poison">Poison</MenuItem>
+                    <MenuItem value="Psychic">Psychic</MenuItem>
+                    <MenuItem value="Rock">Rock</MenuItem>
+                    <MenuItem value="Steel">Steel</MenuItem>
+                    <MenuItem value="Water">Water</MenuItem>
+                  </Select>
+                )}
+              </Grid>
+              <Grid item>
+                <Typography variant="h6">Ability:</Typography>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  onChange={(e) => onChange(e)}
+                  placeholder="Search for an ability"
+                  name="ability"
+                  value={ability}
+                />
+              </Grid>
+              <Grid item>
+                <Typography variant="h6">Egg Group:</Typography>
+                <Select
+                  name="eggGroup"
+                  onChange={(e) => onChange(e)}
+                  value={eggGroup}
+                  variant="outlined"
+                >
+                  <MenuItem value=" ">None</MenuItem>
+                  <MenuItem value="Amorphous">Amorphous</MenuItem>
+                  <MenuItem value="Bug">Bug</MenuItem>
+                  <MenuItem value="Ditto">Ditto</MenuItem>
+                  <MenuItem value="Dragon">Dragon</MenuItem>
+                  <MenuItem value="Fairy">Fairy</MenuItem>
+                  <MenuItem value="Field">Field</MenuItem>
+                  <MenuItem value="Flying">Flying</MenuItem>
+                  <MenuItem value="Grass">Grass</MenuItem>
+                  <MenuItem value="Human-Like">Human-Like</MenuItem>
+                  <MenuItem value="Legendary">Legendary</MenuItem>
+                  <MenuItem value="Mineral">Mineral</MenuItem>
+                  <MenuItem value="Monster">Monster</MenuItem>
+                  <MenuItem value="Unown">Unown</MenuItem>
+                  <MenuItem value="Water 1">Water 1</MenuItem>
+                  <MenuItem value="Water 2">Water 2</MenuItem>
+                  <MenuItem value="Water 3">Water 3</MenuItem>
+                </Select>
+              </Grid>
+            </Grid>
+            <Divider className={classes.divider} />
+            <Grid container justify="space-evenly" alignItems="flex-end">
+              <Grid item xs={1}>
+                <Typography variant="caption">Base HP {">"}</Typography>
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  placeholder="0"
+                  name="baseHealthGreater"
+                  onChange={(e) => onChange(e)}
+                  value={baseHealthGreater}
+                />
+              </Grid>
+              <Grid item xs={1}>
+                <Typography variant="caption">Base HP {"<"}</Typography>
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  placeholder="256"
+                  name="baseHealthLess"
+                  onChange={(e) => onChange(e)}
+                  value={baseHealthLess}
+                />
+              </Grid>
+              <Grid item xs={1}>
+                <Typography variant="caption">Base Atk {">"}</Typography>
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  placeholder="0"
+                  name="baseAttackGreater"
+                  onChange={(e) => onChange(e)}
+                  value={baseAttackGreater}
+                />
+              </Grid>
+              <Grid item xs={1}>
+                <Typography variant="caption">Base Atk {"<"}</Typography>
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  placeholder="256"
+                  name="baseAttackLess"
+                  onChange={(e) => onChange(e)}
+                  value={baseAttackLess}
+                />
+              </Grid>
+              <Grid item xs={1}>
+                <Typography variant="caption">Base Def {">"}</Typography>
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  placeholder="0"
+                  name="baseDefenseGreater"
+                  onChange={(e) => onChange(e)}
+                  value={baseDefenseGreater}
+                />
+              </Grid>
+              <Grid item xs={1}>
+                <Typography variant="caption">Base Def {"<"}</Typography>
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  placeholder="256"
+                  name="baseDefenseLess"
+                  onChange={(e) => onChange(e)}
+                  value={baseDefenseLess}
+                />
+              </Grid>
+            </Grid>
+            <Grid container justify="space-evenly" alignItems="flex-end">
+              <Grid item xs={1}>
+                <Typography variant="caption">Base Sp Atk {">"}</Typography>
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  placeholder="0"
+                  name="baseSpAttackGreater"
+                  onChange={(e) => onChange(e)}
+                  value={baseSpAttackGreater}
+                />
+              </Grid>
+              <Grid item xs={1}>
+                <Typography variant="caption">Base Sp Atk {"<"}</Typography>
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  placeholder="256"
+                  name="baseSpAttackLess"
+                  onChange={(e) => onChange(e)}
+                  value={baseSpAttackLess}
+                />
+              </Grid>
+              <Grid item xs={1}>
+                <Typography variant="caption">Base Sp Def {">"}</Typography>
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  placeholder="0"
+                  name="baseSpDefenseGreater"
+                  onChange={(e) => onChange(e)}
+                  value={baseSpDefenseGreater}
+                />
+              </Grid>
+              <Grid item xs={1}>
+                <Typography variant="caption">Base Sp Def {"<"}</Typography>
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  placeholder="256"
+                  name="baseSpDefenseLess"
+                  onChange={(e) => onChange(e)}
+                  value={baseSpDefenseLess}
+                />
+              </Grid>
+              <Grid item xs={1}>
+                <Typography variant="caption">Base Spe {">"}</Typography>
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  placeholder="0"
+                  name="baseSpeedGreater"
+                  onChange={(e) => onChange(e)}
+                  value={baseSpeedGreater}
+                />
+              </Grid>
+              <Grid item xs={1}>
+                <Typography variant="caption">Base Spe {"<"}</Typography>
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  placeholder="256"
+                  name="baseSpeedLess"
+                  onChange={(e) => onChange(e)}
+                  value={baseSpeedLess}
+                />
+              </Grid>
+            </Grid>
+          </Fragment>
+        )}
+      </form>
+      <Divider className={classes.divider} />
+    </>
   );
 };
 
@@ -509,4 +381,141 @@ SearchFilter.propTypes = {
 
 SearchFilter.defaultProps = {
   showBothTypes: true,
+};
+
+const checkSearchPokemon = (pokemon, data) => {
+  const {
+    search,
+    firstType,
+    secondType,
+    ability,
+    eggGroup,
+    baseHealthGreater,
+    baseHealthLess,
+    baseAttackGreater,
+    baseAttackLess,
+    baseDefenseGreater,
+    baseDefenseLess,
+    baseSpAttackGreater,
+    baseSpAttackLess,
+    baseSpDefenseGreater,
+    baseSpDefenseLess,
+    baseSpeedGreater,
+    baseSpeedLess,
+  } = data;
+
+  if (
+    !pokemon.name.toUpperCase().includes(data.search.toUpperCase()) ||
+    (search === " " &&
+      (pokemon.name.includes("Basculin") ||
+        pokemon.name.includes("Deoxys") ||
+        pokemon.name.includes("Wormadam") ||
+        pokemon.name.includes("Giratina") ||
+        pokemon.name.includes("Shaymin") ||
+        pokemon.name.includes("Tornadus") ||
+        pokemon.name.includes("Thundurus") ||
+        pokemon.name.includes("Landorus") ||
+        pokemon.name.includes("Meloetta") ||
+        pokemon.name.includes("Aegislash") ||
+        pokemon.name.includes("Pumpkaboo") ||
+        pokemon.name.includes("Gourgeist") ||
+        pokemon.name.includes("Zygarde") ||
+        pokemon.name.includes("Hoopa") ||
+        pokemon.name.includes("Oricorio") ||
+        pokemon.name.includes("Lycanroc") ||
+        pokemon.name.includes("Wishiwashi") ||
+        pokemon.name.includes("Minior") ||
+        pokemon.name.includes("Toxtricity") ||
+        pokemon.name.includes("Eiscue") ||
+        pokemon.name.includes("Morpeko") ||
+        pokemon.name.includes("Zacian") ||
+        pokemon.name.includes("Zamazenta"))) ||
+    (search === "-" &&
+      (pokemon.name.includes("Arceus") || pokemon.name.includes("Basculin")))
+  )
+    return false;
+
+  if (firstType !== " ") {
+    if (!pokemon.types.includes(firstType)) {
+      return false;
+    }
+  }
+  if (secondType !== " ") {
+    if (!pokemon.types.includes(secondType)) {
+      return false;
+    }
+  }
+
+  if (ability !== "") {
+    if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase())) {
+      if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase())) {
+        if (pokemon.abilities.length > 1) {
+          if (
+            !pokemon.abilities[1].toUpperCase().includes(ability.toUpperCase())
+          ) {
+            return false;
+          }
+        } else {
+          return false;
+        }
+      }
+    }
+  }
+
+  if (eggGroup !== " ") {
+    if (!pokemon.breeding.eggGroups.includes(eggGroup)) {
+      return false;
+    }
+  }
+
+  let hpGreater,
+    hpLess,
+    atkGreater,
+    atkLess,
+    defGreater,
+    defLess,
+    spaGreater,
+    spaLess,
+    spdGreater,
+    spdLess,
+    speGreater,
+    speLess;
+
+  if (baseHealthGreater === "") hpGreater = 0;
+  else hpGreater = parseFloat(baseHealthGreater);
+  if (baseHealthLess === "") hpLess = 256;
+  else hpLess = parseFloat(baseHealthLess);
+  if (pokemon.baseStats.hp <= hpGreater || pokemon.baseStats.hp >= hpLess)
+    return false;
+  if (baseAttackGreater === "") atkGreater = 0;
+  else atkGreater = parseFloat(baseAttackGreater);
+  if (baseAttackLess === "") atkLess = 256;
+  else atkLess = parseFloat(baseAttackLess);
+  if (pokemon.baseStats.atk <= atkGreater || pokemon.baseStats.atk >= atkLess)
+    return false;
+  if (baseDefenseGreater === "") defGreater = 0;
+  else defGreater = parseFloat(baseDefenseGreater);
+  if (baseDefenseLess === "") defLess = 256;
+  else defLess = parseFloat(baseDefenseLess);
+  if (pokemon.baseStats.def <= defGreater || pokemon.baseStats.def >= defLess)
+    return false;
+  if (baseSpAttackGreater === "") spaGreater = 0;
+  else spaGreater = parseFloat(baseSpAttackGreater);
+  if (baseSpAttackLess === "") spaLess = 256;
+  else spaLess = parseFloat(baseSpAttackLess);
+  if (pokemon.baseStats.spA <= spaGreater || pokemon.baseStats.spA >= spaLess)
+    return false;
+  if (baseSpDefenseGreater === "") spdGreater = 0;
+  else spdGreater = parseFloat(baseSpDefenseGreater);
+  if (baseSpDefenseLess === "") spdLess = 256;
+  else spdLess = parseFloat(baseSpDefenseLess);
+  if (pokemon.baseStats.spD <= spdGreater || pokemon.baseStats.spD >= spdLess)
+    return false;
+  if (baseSpeedGreater === "") speGreater = 0;
+  else speGreater = parseFloat(baseSpeedGreater);
+  if (baseSpeedLess === "") speLess = 256;
+  else speLess = parseFloat(baseSpeedLess);
+  if (pokemon.baseStats.spe <= speGreater || pokemon.baseStats.spe >= speLess)
+    return false;
+  return true;
 };

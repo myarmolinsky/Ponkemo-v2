@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { any } from "prop-types";
+import { Button, Grid } from "@material-ui/core";
 import { PokemonContext, UserContext } from "../../context";
-import Spinner from "../layout/Spinner";
-import NotFound from "../layout/NotFound";
+import { Spinner, NotFound } from "../layout";
 
 export const Pokemon = ({ match }) => {
   const {
@@ -31,9 +31,7 @@ export const Pokemon = ({ match }) => {
   return (
     <Fragment>
       {loading || pokemon === null ? (
-        <Fragment>
-          <Spinner />
-        </Fragment>
+        <Spinner />
       ) : (match.params.id > lastId &&
           Math.floor(match.params.id) !== lastId) ||
         match.params.id < 1 ? (
@@ -41,293 +39,312 @@ export const Pokemon = ({ match }) => {
         <NotFound />
       ) : (
         <Fragment>
-          <div className="buttons">
-            {/* If there is a previous pokemon, have a link to its page */}
-            <Link
-              to={
-                pokemon.id > 1
-                  ? () => {
-                      return `/pokedex/${Math.ceil(pokemon.id) - 1}`;
-                    }
-                  : () => {
-                      return;
-                    }
-              }
-              className={pokemon.id > 1 ? "btn btn-dark" : "btn btn-light"}
-            >
-              Previous Pokemon
-            </Link>
-            {/* If there is a next pokemon, have a link to its page */}
-            <Link
-              to={
-                pokemon.id < lastId
-                  ? () => {
-                      return `/pokedex/${Math.floor(pokemon.id) + 1}`;
-                    }
-                  : () => {
-                      return;
-                    }
-              }
-              className={pokemon.id < lastId ? "btn btn-dark" : "btn btn-light"}
-            >
-              Next Pokemon
-            </Link>
-          </div>
-          <h1 className="large text-primary">
-            {/* Name*/}
-            {pokemon.name} {/* Edit link for users with "admin" privileges */}
-            {user !== null && user.privileges === "admin" ? (
-              <Link
-                className="lead edit-link"
-                to={`/pokedex/${pokemon.id}/edit`}
+          <Grid container justify="space-evenly">
+            <Grid item xs={5}>
+              {/* If there is a previous pokemon, link to its page */}
+              <Button
+                color={`${pokemon.id > 1 ? "secondary" : "default"}`}
+                size="large"
+                variant="contained"
+                fullWidth
               >
-                Edit
-              </Link>
-            ) : (
-              ""
-            )}
-          </h1>
-          {/* Sprite */}
-          <img className="sprite" src={pokemon.sprite} alt={pokemon.name} />
-          {/* Shiny Sprite */}
-          <img
-            className="sprite"
-            src={pokemon.shinySprite}
-            alt={`Shiny ${pokemon.name}`}
-          />
-          {/* Formes */}
-          <div className="lead">
-            {formes.length > 1 ? (
+                <Link
+                  to={`/pokedex/${
+                    pokemon.id > 1 ? Math.ceil(pokemon.id) - 1 : pokemon.id
+                  }`}
+                  style={{ color: `${pokemon.id > 1 ? "white" : "black"}` }}
+                >
+                  Previous Pokemon
+                </Link>
+              </Button>
+            </Grid>
+            <Grid item xs={5}>
+              {/* If there is a next pokemon, link to its page */}
+              {pokemon.id < lastId && (
+                <Button
+                  color={`${pokemon.id < lastId ? "secondary" : "default"}`}
+                  size="large"
+                  variant="contained"
+                  fullWidth
+                >
+                  <Link
+                    to={`/pokedex/${
+                      pokemon.id < lastId
+                        ? Math.floor(pokemon.id) + 1
+                        : pokemon.id
+                    }`}
+                    style={{
+                      color: `${pokemon.id < lastId ? "white" : "black"}`,
+                    }}
+                  >
+                    Next Pokemon
+                  </Link>
+                </Button>
+              )}
+            </Grid>
+          </Grid>
+          <div style={{ textAlign: "center" }}>
+            <h1 className="large text-primary">
+              {/* Name*/}
+              {pokemon.name} {/* Edit link for users with "admin" privileges */}
+              {user !== null && user.privileges === "admin" && (
+                <Link
+                  className="lead edit-link"
+                  to={`/pokedex/${pokemon.id}/edit`}
+                >
+                  Edit
+                </Link>
+              )}
+            </h1>
+            {/* Sprite */}
+            <img className="sprite" src={pokemon.sprite} alt={pokemon.name} />
+            {/* Shiny Sprite */}
+            <img
+              className="sprite"
+              src={pokemon.shinySprite}
+              alt={`Shiny ${pokemon.name}`}
+            />
+            {/* Formes */}
+            <div className="lead">
+              {formes.length > 1 && (
+                <Fragment>
+                  Formes: <br />
+                  {formes.map(
+                    (
+                      item // for each item in formes
+                    ) =>
+                      item.name !== pokemon.name && (
+                        <Link key={item.name} to={`/pokedex/${item.id}`}>
+                          {/* Create a link leading to the pokemon's page */}
+                          <div className="pokedex-item">
+                            <img
+                              src={item.sprite}
+                              className="sprite pokedex-sprite"
+                              alt={item.name}
+                            />
+                            {/* Pokemon's sprite */}
+                            <span className="caption">[{item.name}]</span>
+                            {/* Pokemon's name */}
+                          </div>
+                        </Link>
+                      )
+                  )}
+                </Fragment>
+              )}
+            </div>
+            {/* Types */}
+            <p className="lead">
+              Types:{" "}
+              <Link to={`/types/${pokemon.types[0]}`}>{pokemon.types[0]}</Link>
+              {pokemon.types.length > 1 && ", "}
+              {pokemon.types.length > 1 && (
+                <Link to={`/types/${pokemon.types[1]}`}>
+                  {pokemon.types[1]}
+                </Link>
+              )}
+            </p>
+            {/* Abilities */}
+            <p className="lead">
+              {pokemon.abilities.length > 1 ? "Abilities: " : "Ability: "}
+              {pokemon.abilities[0]}
+              {pokemon.abilities.length > 1 && ", " + pokemon.abilities[1]}
+            </p>
+            {/* Hidden Ability */}
+            {pokemon.hiddenAbility !== "" && (
               <Fragment>
-                Formes: <br />
-                {formes.map((
-                  item // for each item in formes
-                ) =>
-                  item.name !== pokemon.name ? (
-                    <Link key={item.name} to={`/pokedex/${item.id}`}>
-                      {/* Create a link leading to the pokemon's page */}
-                      <div className="pokedex-item">
-                        <img
-                          src={item.sprite}
-                          className="sprite pokedex-sprite"
-                          alt={item.name}
-                        />
-                        {/* Pokemon's sprite */}
-                        <span className="caption">[{item.name}]</span>
-                        {/* Pokemon's name */}
-                      </div>
-                    </Link>
-                  ) : (
-                    ""
-                  )
-                )}
+                <p className="lead">Hidden Ability: {pokemon.hiddenAbility}</p>
+              </Fragment>
+            )}
+            {/* Weight in kg */}
+            <p className="lead">Weight: {pokemon.weight} kg</p>
+            {/* Base Friendship */}
+            <p className="lead">Base Friendship: {pokemon.baseFriendship}</p>
+            {/* Gender Ratio */}
+            <p className="lead">
+              Gender Ratio:{" "}
+              {pokemon.genderRatio !== -1
+                ? pokemon.genderRatio +
+                  "% Male and " +
+                  (100 - pokemon.genderRatio) +
+                  "% Female "
+                : "Genderless"}
+            </p>
+            {/* Base Stats */}
+            <p className="lead">Base Stats:</p>
+            <Grid container justify="space-evenly">
+              <Grid item xs={2}>
+                Health: {pokemon.baseStats.hp}
+              </Grid>
+              <Grid item xs={2}>
+                Attack: {pokemon.baseStats.atk}
+              </Grid>
+              <Grid item xs={2}>
+                Defense: {pokemon.baseStats.def}
+              </Grid>
+              <Grid item xs={2}>
+                Special Attack: {pokemon.baseStats.spA}
+              </Grid>
+              <Grid item xs={2}>
+                Special Defense: {pokemon.baseStats.spD}
+              </Grid>
+              <Grid item xs={2}>
+                Speed: {pokemon.baseStats.spe}
+              </Grid>
+            </Grid>
+            <br />
+            {/* Egg Groups */}
+            <p className="lead">
+              Egg Groups:{" "}
+              <Link to={`/egggroups/${pokemon.breeding.eggGroups[0]}`}>
+                {pokemon.breeding.eggGroups[0]}
+              </Link>
+              {pokemon.breeding.eggGroups.length > 1 && ", "}
+              {/* must run another ternary separately because when you append jsx to a string, it comes out as [Object object] instead of what it's meant to be */}
+              {pokemon.breeding.eggGroups.length > 1 && (
+                <Link to={`/egggroups/${pokemon.breeding.eggGroups[1]}`}>
+                  {pokemon.breeding.eggGroups[1]}
+                </Link>
+              )}
+            </p>
+            {pokemon.breeding.egg !== pokemon.breeding.altEgg ? (
+              <Fragment>
+                {/* Pokemon that hatches from the egg if it is a male */}
+                <p className="lead">
+                  Male Egg:{" "}
+                  <Link to={`/pokedex/${eggIds[0]}`}>
+                    {pokemon.breeding.egg}
+                  </Link>
+                </p>
+                {/* Pokemon that hatches from the egg if it is a female */}
+                <p className="lead">
+                  Female Egg:{" "}
+                  <Link to={`/pokedex/${eggIds[1]}`}>
+                    {pokemon.breeding.altEgg}
+                  </Link>
+                </p>
               </Fragment>
             ) : (
-              " "
+              <Fragment>
+                {/* if male and female eggs are the same */}
+                <p className="lead">
+                  Egg:{" "}
+                  <Link to={`/pokedex/${eggIds[0]}`}>
+                    {pokemon.breeding.egg}
+                  </Link>
+                </p>
+              </Fragment>
+            )}
+            {/* Spawn Rate */}
+            <p className="lead">Spawn Rate: {pokemon.spawnRate}</p>
+            {/* Show what the pokemon evolves into only if the Pokemon evolves into something */}
+            {pokemon.stages.current !== pokemon.stages.max && (
+              <Fragment>
+                <p className="lead">Evolves into:</p>
+                {/* Show each evolution and how to obtain it */}
+                <p>
+                  {pokemon.evolutionDetails.map((item) => {
+                    // the name of the evolution is a link to the evolution
+                    let listItem = (
+                      <li key={item.evolution}>
+                        <Link to={`/pokedex/${evolutionIds[evolutionIndex]}`}>
+                          {item.evolution}
+                        </Link>{" "}
+                        {evolutionCondition(item.condition)}
+                      </li>
+                    );
+                    // increase evolutionIndex by one
+                    evolutionIndex++;
+                    // return the list item
+                    return listItem;
+                  })}
+                </p>
+                <br />
+              </Fragment>
+            )}
+            {/* Show moves only if the Pokemon has moves (ex. Megas do not have moves) */}
+            {pokemon.moves.length > 1 && (
+              <Fragment>
+                <p className="lead">Moves:</p>
+                {/* Show the move and the ways the Pokemon can learn it */}
+                <table className="moves-table">
+                  <thead>
+                    <tr>
+                      <th className="move-cell move-head">Move</th>
+                      <th className="move-cell move-head">Level(s)</th>
+                      <th className="move-cell move-head">Evolution</th>
+                      <th className="move-cell move-head">TM</th>
+                      <th className="move-cell move-head">Egg</th>
+                      <th className="move-cell move-head">Tutor</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {pokemon.moves.map((item) => (
+                      <tr key={item.name}>
+                        <td className="move-cell move-body move-name">
+                          {item.name}
+                        </td>
+                        <td className="move-cell move-body none-move-name">
+                          {learnMoveCondition(item.learnConditions)}
+                        </td>
+                        <td className="move-cell move-body none-move-name">
+                          {item.learnConditions.includes("Evolve") ? (
+                            <i
+                              className="fas fa-check"
+                              style={{ color: "green" }}
+                            ></i>
+                          ) : (
+                            <i
+                              className="fas fa-times"
+                              style={{ color: "red" }}
+                            ></i>
+                          )}
+                        </td>
+                        <td className="move-cell move-body none-move-name">
+                          {item.learnConditions.includes("TM") ? (
+                            <i
+                              className="fas fa-check"
+                              style={{ color: "green" }}
+                            ></i>
+                          ) : (
+                            <i
+                              className="fas fa-times"
+                              style={{ color: "red" }}
+                            ></i>
+                          )}
+                        </td>
+                        <td className="move-cell move-body none-move-name">
+                          {item.learnConditions.includes("Egg") ? (
+                            <i
+                              className="fas fa-check"
+                              style={{ color: "green" }}
+                            ></i>
+                          ) : (
+                            <i
+                              className="fas fa-times"
+                              style={{ color: "red" }}
+                            ></i>
+                          )}
+                        </td>
+                        <td className="move-cell move-body none-move-name">
+                          {item.learnConditions.includes("Tutor") ? (
+                            <i
+                              className="fas fa-check"
+                              style={{ color: "green" }}
+                            ></i>
+                          ) : (
+                            <i
+                              className="fas fa-times"
+                              style={{ color: "red" }}
+                            ></i>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </Fragment>
             )}
           </div>
-          {/* Types */}
-          <p className="lead">
-            Types:{" "}
-            <Link to={`/types/${pokemon.types[0]}`}>{pokemon.types[0]}</Link>
-            {pokemon.types.length > 1 ? ", " : ""}
-            {pokemon.types.length > 1 ? (
-              <Link to={`/types/${pokemon.types[1]}`}>{pokemon.types[1]}</Link>
-            ) : (
-              ""
-            )}
-          </p>
-          {/* Abilities */}
-          <p className="lead">
-            {pokemon.abilities.length > 1 ? "Abilities:" : "Ability:"}{" "}
-            {pokemon.abilities[0]}
-            {pokemon.abilities.length > 1 ? ", " + pokemon.abilities[1] : ""}
-          </p>
-          {/* Hidden Ability */}
-          {pokemon.hiddenAbility !== "" ? (
-            <Fragment>
-              <p className="lead">Hidden Ability: {pokemon.hiddenAbility}</p>
-            </Fragment>
-          ) : (
-            ""
-          )}
-          {/* Weight in kg */}
-          <p className="lead">Weight: {pokemon.weight} kg</p>
-          {/* Base Friendship */}
-          <p className="lead">Base Friendship: {pokemon.baseFriendship}</p>
-          {/* Gender Ratio */}
-          <p className="lead">
-            Gender Ratio:{" "}
-            {pokemon.genderRatio !== -1
-              ? pokemon.genderRatio +
-                "% Male and " +
-                (100 - pokemon.genderRatio) +
-                "% Female "
-              : "Genderless"}
-          </p>
-          {/* Base Stats */}
-          <p className="lead">Base Stats:</p>
-          <p>Health: {pokemon.baseStats.hp}</p>
-          <p>Attack: {pokemon.baseStats.atk}</p>
-          <p>Defense: {pokemon.baseStats.def}</p>
-          <p>Special Attack: {pokemon.baseStats.spA}</p>
-          <p>Special Defense: {pokemon.baseStats.spD}</p>
-          <p>Speed: {pokemon.baseStats.spe}</p>
-          <br />
-          {/* Egg Groups */}
-          <p className="lead">
-            Egg Groups:{" "}
-            <Link to={`/egggroups/${pokemon.breeding.eggGroups[0]}`}>
-              {pokemon.breeding.eggGroups[0]}
-            </Link>
-            {pokemon.breeding.eggGroups.length > 1 ? ", " : ""}
-            {/* must run another ternary separately because when you append jsx to a string, it comes out as [Object object] instead of what it's meant to be */}
-            {pokemon.breeding.eggGroups.length > 1 ? (
-              <Link to={`/egggroups/${pokemon.breeding.eggGroups[1]}`}>
-                {pokemon.breeding.eggGroups[1]}
-              </Link>
-            ) : (
-              ""
-            )}
-          </p>
-          {pokemon.breeding.egg !== pokemon.breeding.altEgg ? (
-            <Fragment>
-              {/* Pokemon that hatches from the egg if it is a male */}
-              <p className="lead">
-                Male Egg:{" "}
-                <Link to={`/pokedex/${eggIds[0]}`}>{pokemon.breeding.egg}</Link>
-              </p>
-              {/* Pokemon that hatches from the egg if it is a female */}
-              <p className="lead">
-                Female Egg:{" "}
-                <Link to={`/pokedex/${eggIds[1]}`}>
-                  {pokemon.breeding.altEgg}
-                </Link>
-              </p>
-            </Fragment>
-          ) : (
-            <Fragment>
-              {/* if male and female eggs are the same */}
-              <p className="lead">
-                Egg:{" "}
-                <Link to={`/pokedex/${eggIds[0]}`}>{pokemon.breeding.egg}</Link>
-              </p>
-            </Fragment>
-          )}
-          {/* Spawn Rate */}
-          <p className="lead">Spawn Rate: {pokemon.spawnRate}</p>
-          {/* Show what the pokemon evolves into only if the Pokemon evolves into something */}
-          {pokemon.stages.current !== pokemon.stages.max ? (
-            <Fragment>
-              <p className="lead">Evolves into:</p>
-              {/* Show each evolution and how to obtain it */}
-              <p>
-                {pokemon.evolutionDetails.map((item) => {
-                  // the name of the evolution is a link to the evolution
-                  let listItem = (
-                    <li key={item.evolution}>
-                      <Link to={`/pokedex/${evolutionIds[evolutionIndex]}`}>
-                        {item.evolution}
-                      </Link>{" "}
-                      {evolutionCondition(item.condition)}
-                    </li>
-                  );
-                  // increase evolutionIndex by one
-                  evolutionIndex++;
-                  // return the list item
-                  return listItem;
-                })}
-              </p>
-              <br />
-            </Fragment>
-          ) : (
-            ""
-          )}
-          {/* Show moves only if the Pokemon has moves (ex. Megas do not have moves) */}
-          {pokemon.moves.length < 1 ? (
-            ""
-          ) : (
-            <Fragment>
-              <p className="lead">Moves:</p>
-              {/* Show the move and the ways the Pokemon can learn it */}
-              <table className="moves-table">
-                <thead>
-                  <tr>
-                    <th className="move-cell move-head">Move</th>
-                    <th className="move-cell move-head">Level(s)</th>
-                    <th className="move-cell move-head">Evolution</th>
-                    <th className="move-cell move-head">TM</th>
-                    <th className="move-cell move-head">Egg</th>
-                    <th className="move-cell move-head">Tutor</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {pokemon.moves.map((item) => (
-                    <tr key={item.name}>
-                      <td className="move-cell move-body move-name">
-                        {item.name}
-                      </td>
-                      <td className="move-cell move-body none-move-name">
-                        {learnMoveCondition(item.learnConditions)}
-                      </td>
-                      <td className="move-cell move-body none-move-name">
-                        {item.learnConditions.includes("Evolve") ? (
-                          <i
-                            className="fas fa-check"
-                            style={{ color: "green" }}
-                          ></i>
-                        ) : (
-                          <i
-                            className="fas fa-times"
-                            style={{ color: "red" }}
-                          ></i>
-                        )}
-                      </td>
-                      <td className="move-cell move-body none-move-name">
-                        {item.learnConditions.includes("TM") ? (
-                          <i
-                            className="fas fa-check"
-                            style={{ color: "green" }}
-                          ></i>
-                        ) : (
-                          <i
-                            className="fas fa-times"
-                            style={{ color: "red" }}
-                          ></i>
-                        )}
-                      </td>
-                      <td className="move-cell move-body none-move-name">
-                        {item.learnConditions.includes("Egg") ? (
-                          <i
-                            className="fas fa-check"
-                            style={{ color: "green" }}
-                          ></i>
-                        ) : (
-                          <i
-                            className="fas fa-times"
-                            style={{ color: "red" }}
-                          ></i>
-                        )}
-                      </td>
-                      <td className="move-cell move-body none-move-name">
-                        {item.learnConditions.includes("Tutor") ? (
-                          <i
-                            className="fas fa-check"
-                            style={{ color: "green" }}
-                          ></i>
-                        ) : (
-                          <i
-                            className="fas fa-times"
-                            style={{ color: "red" }}
-                          ></i>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </Fragment>
-          )}
         </Fragment>
       )}
     </Fragment>

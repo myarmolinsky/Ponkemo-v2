@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export const EggGroups = () => {
   return (
-    <Fragment>
+    <div style={{ textAlign: "center" }}>
       <h1 className="large text-primary">Egg Groups</h1>
       <ul>
         <li>
@@ -87,6 +87,6 @@ export const EggGroups = () => {
           </span>
         </li>
       </ul>
-    </Fragment>
+    </div>
   );
 };

@@ -1,5 +1,6 @@
-import React, { Fragment, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { Button, TextField, Grid } from "@material-ui/core";
 import { UserContext } from "../../context";
 
 export const Login = () => {
@@ -26,38 +27,48 @@ export const Login = () => {
   }
 
   return (
-    <Fragment>
+    <div
+      style={{
+        textAlign: "center",
+        position: "absolute",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+        zIndex: -1,
+      }}
+    >
       <h1 className="large text-primary">Sign In</h1>
-      <p className="lead">
-        <i className="fas fa-user"></i> Sign Into Your Account
-      </p>
       <form className="form" onSubmit={(e) => onSubmit(e)}>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Username"
-            name="username"
-            value={username}
-            onChange={(e) => onChange(e)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            minLength="6"
-            value={password}
-            onChange={(e) => onChange(e)}
-            required
-          />
-        </div>
-        <input type="submit" className="btn btn-primary" value="Login" />
+        <Grid container direction="column">
+          <Grid item>
+            <TextField
+              placeholder="Username"
+              name="username"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              required
+              margin="normal"
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              placeholder="Password"
+              name="password"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              required
+              margin="normal"
+              type="password"
+            />
+          </Grid>
+        </Grid>
+        <Button color="primary" type="submit" variant="contained">
+          Login
+        </Button>
       </form>
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>
       </p>
-    </Fragment>
+    </div>
   );
 };

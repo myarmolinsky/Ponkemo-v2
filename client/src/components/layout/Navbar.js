@@ -54,7 +54,7 @@ export const Navbar = () => {
   //this nav tag came from the 'index.html' provided by the course
   return (
     //changed instances of 'class' to 'className'
-    <nav className="navbar bg-dark">
+    <nav className="navbar">
       <h1>
         <Link to="/">
           <i className="fas fa-grin-beam"></i> Ponkemo
