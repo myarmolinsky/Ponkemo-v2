@@ -54,24 +54,28 @@ router.get("/:id", async (req, res) => {
     //   }
     // }
 
-    // // pokemon formes
-    // let formes = [];
-    // let formeId = Math.floor(id);
-    // let forme = await Pokemon.findOne({ id: formeId });
-    // while (forme) {
-    //   formes.push(forme);
-    //   formeId += 0.01;
-    //   formeId = parseFloat(parseFloat(formeId).toFixed(2)); // this fixes the calculation issue that may arise
-    //   forme = await Pokemon.findOne({ id: formeId });
-    // }
-
     // let payload = {
     //   pokemon,
     //   evolutionIds,
     //   eggIds,
-    //   formes,
     // };
     res.json(pokemon);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route GET api/pokemon/formes/:id
+// @desc Get a Pokemon's formes by the id provided
+// @access Public
+router.get("/formes/:id", async (req, res) => {
+  try {
+    let id = parseFloat(req.params.id);
+    const formes = await Pokemon.find({
+      id: { $lt: Math.floor(id) + 1, $gte: Math.floor(id) },
+    });
+    res.json(formes);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

@@ -1,5 +1,6 @@
 import {
   LOAD_POKEMON,
+  LOAD_POKEMON_FORMES,
   LOAD_ALL_POKEMON,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
@@ -15,6 +16,7 @@ export default function (state, action) {
       return {
         ...state,
         pokemon: null,
+        formes: [],
       };
     case LOAD_POKEMON:
       return {
@@ -22,7 +24,12 @@ export default function (state, action) {
         pokemon: payload,
         // evolutionIds: payload.evolutionIds,
         // eggIds: payload.eggIds,
-        // formes: payload.formes,
+        loading: false,
+      };
+    case LOAD_POKEMON_FORMES:
+      return {
+        ...state,
+        formes: payload,
         loading: false,
       };
     case LOAD_ALL_POKEMON:
@@ -38,7 +45,7 @@ export default function (state, action) {
         pokemon: null,
         // evolutionIds: [],
         // eggIds: [],
-        // formes: [],
+        formes: [],
         loading: false,
       };
     case UPDATE_POKEMON:

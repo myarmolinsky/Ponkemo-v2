@@ -11,20 +11,18 @@ export const Pokemon = ({ match }) => {
     pokemon,
     // evolutionIds,
     // eggIds,
-    // formes,
+    formes,
     lastId,
     loading,
   } = useContext(PokemonContext);
 
   // TODO
-  let formes,
-    eggIds,
+  let eggIds,
     evolutionIds = [];
 
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     getPokemon(match.params.id);
   }, [match.params.id]);
 
@@ -106,33 +104,31 @@ export const Pokemon = ({ match }) => {
               alt={`Shiny ${pokemon.name}`}
             />
             {/* Formes */}
-            {/* <div className="lead">
+            <div className="lead">
               {formes.length > 1 && (
                 <Fragment>
                   Formes: <br />
                   {formes.map(
-                    (
-                      item // for each item in formes
-                    ) =>
-                      item.name !== pokemon.name && (
-                        <Link key={item.name} to={`/pokedex/${item.id}`}>
-                          {/* Create a link leading to the pokemon's page 
+                    (poke) =>
+                      poke.name !== pokemon.name && (
+                        <Link key={poke.name} to={`/pokedex/${poke.id}`}>
+                          {/* Create a link leading to the pokemon's page */}
                           <div className="pokedex-item">
                             <img
-                              src={item.sprite}
+                              src={poke.sprite}
                               className="sprite pokedex-sprite"
-                              alt={item.name}
+                              alt={poke.name}
                             />
-                            {/* Pokemon's sprite 
-                            <span className="caption">[{item.name}]</span>
-                            {/* Pokemon's name 
+                            {/* Pokemon's sprite */}
+                            <span className="caption">{poke.name}</span>
+                            {/* Pokemon's name */}
                           </div>
                         </Link>
                       )
                   )}
                 </Fragment>
               )}
-            </div> */}
+            </div>
             {/* Types */}
             <p className="lead">
               Types:{" "}
