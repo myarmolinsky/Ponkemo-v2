@@ -8,21 +8,25 @@ import { Spinner, NotFound } from "../layout";
 export const Pokemon = ({ match }) => {
   const {
     getPokemon,
-    getLastId,
+    // getLastId,
     pokemon,
-    evolutionIds,
-    eggIds,
-    formes,
+    // evolutionIds,
+    // eggIds,
+    // formes,
     lastId,
     loading,
   } = useContext(PokemonContext);
+
+  // TODO
+  let formes,
+    eggIds,
+    evolutionIds = [];
 
   const { user } = useContext(UserContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     getPokemon(match.params.id);
-    getLastId();
   }, [match.params.id]);
 
   // evolutionIndex is the index we are up to in the evolutionIds array
@@ -60,27 +64,25 @@ export const Pokemon = ({ match }) => {
             </Grid>
             <Grid item xs={5}>
               {/* If there is a next pokemon, link to its page */}
-              {pokemon.id < lastId && (
-                <Button
-                  color={`${pokemon.id < lastId ? "secondary" : "default"}`}
-                  size="large"
-                  variant="contained"
-                  fullWidth
+              <Button
+                color={`${pokemon.id < lastId ? "secondary" : "default"}`}
+                size="large"
+                variant="contained"
+                fullWidth
+              >
+                <Link
+                  to={`/pokedex/${
+                    pokemon.id < lastId
+                      ? Math.floor(pokemon.id) + 1
+                      : pokemon.id
+                  }`}
+                  style={{
+                    color: `${pokemon.id < lastId ? "white" : "black"}`,
+                  }}
                 >
-                  <Link
-                    to={`/pokedex/${
-                      pokemon.id < lastId
-                        ? Math.floor(pokemon.id) + 1
-                        : pokemon.id
-                    }`}
-                    style={{
-                      color: `${pokemon.id < lastId ? "white" : "black"}`,
-                    }}
-                  >
-                    Next Pokemon
-                  </Link>
-                </Button>
-              )}
+                  Next Pokemon
+                </Link>
+              </Button>
             </Grid>
           </Grid>
           <div style={{ textAlign: "center" }}>
@@ -105,7 +107,7 @@ export const Pokemon = ({ match }) => {
               alt={`Shiny ${pokemon.name}`}
             />
             {/* Formes */}
-            <div className="lead">
+            {/* <div className="lead">
               {formes.length > 1 && (
                 <Fragment>
                   Formes: <br />
@@ -115,23 +117,23 @@ export const Pokemon = ({ match }) => {
                     ) =>
                       item.name !== pokemon.name && (
                         <Link key={item.name} to={`/pokedex/${item.id}`}>
-                          {/* Create a link leading to the pokemon's page */}
+                          {/* Create a link leading to the pokemon's page 
                           <div className="pokedex-item">
                             <img
                               src={item.sprite}
                               className="sprite pokedex-sprite"
                               alt={item.name}
                             />
-                            {/* Pokemon's sprite */}
+                            {/* Pokemon's sprite 
                             <span className="caption">[{item.name}]</span>
-                            {/* Pokemon's name */}
+                            {/* Pokemon's name 
                           </div>
                         </Link>
                       )
                   )}
                 </Fragment>
               )}
-            </div>
+            </div> */}
             {/* Types */}
             <p className="lead">
               Types:{" "}
@@ -192,14 +194,14 @@ export const Pokemon = ({ match }) => {
               </Grid>
             </Grid>
             <br />
-            {/* Egg Groups */}
+            {/* Egg Groups
             <p className="lead">
               Egg Groups:{" "}
               <Link to={`/egggroups/${pokemon.breeding.eggGroups[0]}`}>
                 {pokemon.breeding.eggGroups[0]}
               </Link>
               {pokemon.breeding.eggGroups.length > 1 && ", "}
-              {/* must run another ternary separately because when you append jsx to a string, it comes out as [Object object] instead of what it's meant to be */}
+              {/* must run another ternary separately because when you append jsx to a string, it comes out as [Object object] instead of what it's meant to be 
               {pokemon.breeding.eggGroups.length > 1 && (
                 <Link to={`/egggroups/${pokemon.breeding.eggGroups[1]}`}>
                   {pokemon.breeding.eggGroups[1]}
@@ -208,14 +210,14 @@ export const Pokemon = ({ match }) => {
             </p>
             {pokemon.breeding.egg !== pokemon.breeding.altEgg ? (
               <Fragment>
-                {/* Pokemon that hatches from the egg if it is a male */}
+                {/* Pokemon that hatches from the egg if it is a male 
                 <p className="lead">
                   Male Egg:{" "}
                   <Link to={`/pokedex/${eggIds[0]}`}>
                     {pokemon.breeding.egg}
                   </Link>
                 </p>
-                {/* Pokemon that hatches from the egg if it is a female */}
+                {/* Pokemon that hatches from the egg if it is a female 
                 <p className="lead">
                   Female Egg:{" "}
                   <Link to={`/pokedex/${eggIds[1]}`}>
@@ -225,7 +227,7 @@ export const Pokemon = ({ match }) => {
               </Fragment>
             ) : (
               <Fragment>
-                {/* if male and female eggs are the same */}
+                {/* if male and female eggs are the same 
                 <p className="lead">
                   Egg:{" "}
                   <Link to={`/pokedex/${eggIds[0]}`}>
@@ -233,14 +235,14 @@ export const Pokemon = ({ match }) => {
                   </Link>
                 </p>
               </Fragment>
-            )}
+            )} */}
             {/* Spawn Rate */}
             <p className="lead">Spawn Rate: {pokemon.spawnRate}</p>
             {/* Show what the pokemon evolves into only if the Pokemon evolves into something */}
-            {pokemon.stages.current !== pokemon.stages.max && (
+            {/* {pokemon.stages.current !== pokemon.stages.max && (
               <Fragment>
                 <p className="lead">Evolves into:</p>
-                {/* Show each evolution and how to obtain it */}
+                {/* Show each evolution and how to obtain it 
                 <p>
                   {pokemon.evolutionDetails.map((item) => {
                     // the name of the evolution is a link to the evolution
@@ -260,7 +262,7 @@ export const Pokemon = ({ match }) => {
                 </p>
                 <br />
               </Fragment>
-            )}
+            )} */}
             {/* Show moves only if the Pokemon has moves (ex. Megas do not have moves) */}
             {pokemon.moves.length > 1 && (
               <Fragment>

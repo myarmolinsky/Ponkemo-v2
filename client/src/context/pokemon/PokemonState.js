@@ -25,12 +25,10 @@ export const PokemonState = ({ children }) => {
     loading: true, //make sure the loading is done (we've already made a request to the backend and got a response)
     pokedex: [],
     pokemon: null,
-    nextPokemonId: -1,
-    previousPokemonId: -1,
-    evolutionIds: [],
-    eggIds: [],
-    formes: [],
     lastId: -1,
+    // evolutionIds: [],
+    // eggIds: [],
+    // formes: [],
   };
   const [state, dispatch] = useReducer(pokemonReducer, initialState);
   // Load Pokedex
@@ -50,21 +48,21 @@ export const PokemonState = ({ children }) => {
     }
   };
 
-  const getLastId = async () => {
-    try {
-      const res = await axios.get(`/api/pokemon/lastId`);
+  // const getLastId = async () => {
+  //   try {
+  //     const res = await axios.get(`/api/pokemon/lastId`);
 
-      return dispatch({
-        type: GET_LAST_ID,
-        payload: res.data,
-      });
-    } catch (err) {
-      return dispatch({
-        type: POKEMON_NOT_FOUND,
-        payload: { msg: "Pokemon not found", status: 404 },
-      });
-    }
-  };
+  //     return dispatch({
+  //       type: GET_LAST_ID,
+  //       payload: res.data,
+  //     });
+  //   } catch (err) {
+  //     return dispatch({
+  //       type: POKEMON_NOT_FOUND,
+  //       payload: { msg: "Pokemon not found", status: 404 },
+  //     });
+  //   }
+  // };
 
   // Load Pokemon
   const getPokemon = async (id) => {
@@ -186,7 +184,7 @@ export const PokemonState = ({ children }) => {
       value={{
         ...state,
         getAllPokemon,
-        getLastId,
+        // getLastId,
         getPokemon,
         updatePokemon,
       }}
