@@ -26,7 +26,7 @@ export const Pokemon = ({ match }) => {
 
   return (
     <Fragment>
-      {loading || pokemon === null ? (
+      {loading || !pokemon ? (
         <Spinner />
       ) : (match.params.id > lastId &&
           Math.floor(match.params.id) !== lastId) ||
@@ -39,41 +39,45 @@ export const Pokemon = ({ match }) => {
             <Grid item xs={5}>
               {/* If there is a previous pokemon, link to its page */}
               <Button
-                color={`${pokemon.id > 1 ? "secondary" : "default"}`}
+                color={`${match.params.id > 1 ? "secondary" : "default"}`}
                 size="large"
                 variant="contained"
                 fullWidth
               >
-                <Link
-                  to={`/pokedex/${
-                    pokemon.id > 1 ? Math.ceil(pokemon.id) - 1 : pokemon.id
+                <a
+                  href={`/pokedex/${
+                    match.params.id > 1
+                      ? Math.ceil(match.params.id) - 1
+                      : match.params.id
                   }`}
-                  style={{ color: `${pokemon.id > 1 ? "white" : "black"}` }}
+                  style={{
+                    color: `${match.params.id > 1 ? "white" : "black"}`,
+                  }}
                 >
                   Previous Pokemon
-                </Link>
+                </a>
               </Button>
             </Grid>
             <Grid item xs={5}>
               {/* If there is a next pokemon, link to its page */}
               <Button
-                color={`${pokemon.id < lastId ? "secondary" : "default"}`}
+                color={`${match.params.id < lastId ? "secondary" : "default"}`}
                 size="large"
                 variant="contained"
                 fullWidth
               >
-                <Link
-                  to={`/pokedex/${
-                    pokemon.id < lastId
-                      ? Math.floor(pokemon.id) + 1
-                      : pokemon.id
+                <a
+                  href={`/pokedex/${
+                    match.params.id < lastId
+                      ? Math.floor(match.params.id) + 1
+                      : match.params.id
                   }`}
                   style={{
-                    color: `${pokemon.id < lastId ? "white" : "black"}`,
+                    color: `${match.params.id < lastId ? "white" : "black"}`,
                   }}
                 >
                   Next Pokemon
-                </Link>
+                </a>
               </Button>
             </Grid>
           </Grid>
@@ -84,7 +88,7 @@ export const Pokemon = ({ match }) => {
               {user !== null && user.privileges === "admin" && (
                 <Link
                   className="lead edit-link"
-                  to={`/pokedex/${pokemon.id}/edit`}
+                  to={`/pokedex/${match.params.id}/edit`}
                 >
                   Edit
                 </Link>
@@ -106,7 +110,7 @@ export const Pokemon = ({ match }) => {
                   {formes.map(
                     (poke) =>
                       poke.name !== pokemon.name && (
-                        <Link key={poke.name} to={`/pokedex/${poke.id}`}>
+                        <a key={poke.name} href={`/pokedex/${poke.id}`}>
                           {/* Create a link leading to the pokemon's page */}
                           <div className="pokedex-item">
                             <img
@@ -118,7 +122,7 @@ export const Pokemon = ({ match }) => {
                             <span className="caption">{poke.name}</span>
                             {/* Pokemon's name */}
                           </div>
-                        </Link>
+                        </a>
                       )
                   )}
                 </Fragment>
@@ -202,17 +206,15 @@ export const Pokemon = ({ match }) => {
               <p className="lead">
                 {pokemon.breeding.egg !== pokemon.breeding.altEgg && "Male "}
                 Egg:{" "}
-                <Link to={`/pokedex/${eggs[0].id}`}>
-                  {pokemon.breeding.egg}
-                </Link>
+                <a href={`/pokedex/${eggs[0].id}`}>{pokemon.breeding.egg}</a>
               </p>
               {/* Pokemon that hatches from the egg if it is a female */}
               {pokemon.breeding.egg !== pokemon.breeding.altEgg && (
                 <p className="lead">
                   Female Egg:{" "}
-                  <Link to={`/pokedex/${eggs[1].id}`}>
+                  <a href={`/pokedex/${eggs[1].id}`}>
                     {pokemon.breeding.altEgg}
-                  </Link>
+                  </a>
                 </p>
               )}
             </Fragment>
@@ -228,7 +230,7 @@ export const Pokemon = ({ match }) => {
                     // the name of the evolution is a link to the evolution
                     let listItem = (
                       <li key={poke.id} style={{ listStyleType: "none" }}>
-                        <Link to={`/pokedex/${poke.id}`}>{poke.name}</Link>{" "}
+                        <a href={`/pokedex/${poke.id}`}>{poke.name}</a>{" "}
                         {evolutionCondition(
                           pokemon.evolutionDetails[evolutionCount].condition
                         )}
