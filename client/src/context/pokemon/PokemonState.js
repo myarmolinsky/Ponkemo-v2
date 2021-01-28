@@ -52,7 +52,7 @@ export const PokemonState = ({ children }) => {
 
   // Load Pokemon
   const getPokemon = async (id) => {
-    // dispatch({ type: CLEAR_POKEMON });
+    dispatch({ type: CLEAR_POKEMON });
 
     getFormes(id);
     getEggs(id);
