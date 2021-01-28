@@ -20,27 +20,7 @@ router.get("/", async (req, res) => {
 // @access Public
 router.get("/:id", async (req, res) => {
   try {
-    let id = parseFloat(req.params.id);
-    const pokemon = await Pokemon.findOne({ id });
-
-    // // evolutionIds is an array that contains the ids of the evolutions of the pokemon
-    // let evolutionIds = [];
-    // // loop through the evolutionDetails array to find push the id of each evolution onto the evolutionIds array
-    // if (pokemon.evolutionDetails)
-    //   for (let i = 0; i < pokemon.evolutionDetails.length; i++) {
-    //     let evolutionName = pokemon.evolutionDetails[i].evolution;
-    //     let evolution = await Pokemon.findOne({ name: evolutionName });
-    //     if (evolution) evolutionIds.push(evolution.id);
-    //     else {
-    //       console.log("Cannot find evolution at index " + i);
-    //       evolutionIds.push(-1);
-    //     }
-    //   }
-
-    // let payload = {
-    //   pokemon,
-    //   evolutionIds,
-    // };
+    const pokemon = await Pokemon.findOne({ id: req.params.id });
     res.json(pokemon);
   } catch (err) {
     console.error(err.message);
@@ -53,9 +33,11 @@ router.get("/:id", async (req, res) => {
 // @access Public
 router.get("/formes/:id", async (req, res) => {
   try {
-    let id = parseFloat(req.params.id);
     const formes = await Pokemon.find({
-      id: { $lt: Math.floor(id) + 1, $gte: Math.floor(id) },
+      id: {
+        $lt: Math.floor(req.params.id) + 1,
+        $gte: Math.floor(req.params.id),
+      },
     });
     res.json(formes);
   } catch (err) {
@@ -69,8 +51,7 @@ router.get("/formes/:id", async (req, res) => {
 // @access Public
 router.get("/eggs/:id", async (req, res) => {
   try {
-    let id = parseFloat(req.params.id);
-    const pokemon = await Pokemon.findOne({ id });
+    const pokemon = await Pokemon.findOne({ id: req.params.id });
     let eggs = [];
     let egg = await Pokemon.findOne({ name: pokemon.breeding.egg });
     eggs.push(egg);
@@ -79,6 +60,27 @@ router.get("/eggs/:id", async (req, res) => {
       eggs.push(egg);
     }
     res.json(eggs);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route GET api/pokemon/eggs/:id
+// @desc Get a Pokemon's eggs by the id provided
+// @access Public
+router.get("/evolutions/:id", async (req, res) => {
+  try {
+    const pokemon = await Pokemon.findOne({ id: req.params.id });
+    let evolutions = [];
+    let evolution;
+    for (let i = 0; i < pokemon.evolutionDetails.length; i++) {
+      evolution = await Pokemon.findOne({
+        name: pokemon.evolutionDetails[i].evolution,
+      });
+      evolutions.push(evolution);
+    }
+    res.json(evolutions);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

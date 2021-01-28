@@ -9,15 +9,12 @@ export const Pokemon = ({ match }) => {
   const {
     getPokemon,
     pokemon,
-    // evolutionIds,
+    evolutions,
     eggs,
     formes,
     lastId,
     loading,
   } = useContext(PokemonContext);
-
-  // TODO
-  let evolutionIds = [];
 
   const { user } = useContext(UserContext);
 
@@ -25,8 +22,7 @@ export const Pokemon = ({ match }) => {
     getPokemon(match.params.id);
   }, [match.params.id]);
 
-  // evolutionIndex is the index we are up to in the evolutionIds array
-  let evolutionIndex = 0;
+  let evolutionCount = 0;
 
   return (
     <Fragment>
@@ -223,30 +219,29 @@ export const Pokemon = ({ match }) => {
             {/* Spawn Rate */}
             <p className="lead">Spawn Rate: {pokemon.spawnRate}</p>
             {/* Show what the pokemon evolves into only if the Pokemon evolves into something */}
-            {/* {pokemon.stages.current !== pokemon.stages.max && (
+            {evolutions.length > 0 && (
               <Fragment>
                 <p className="lead">Evolves into:</p>
-                {/* Show each evolution and how to obtain it 
+                {/* Show each evolution and how to obtain it */}
                 <p>
-                  {pokemon.evolutionDetails.map((item) => {
+                  {evolutions.map((poke) => {
                     // the name of the evolution is a link to the evolution
                     let listItem = (
-                      <li key={item.evolution}>
-                        <Link to={`/pokedex/${evolutionIds[evolutionIndex]}`}>
-                          {item.evolution}
-                        </Link>{" "}
-                        {evolutionCondition(item.condition)}
+                      <li key={poke.id} style={{ listStyleType: "none" }}>
+                        <Link to={`/pokedex/${poke.id}`}>{poke.name}</Link>{" "}
+                        {evolutionCondition(
+                          pokemon.evolutionDetails[evolutionCount].condition
+                        )}
                       </li>
                     );
-                    // increase evolutionIndex by one
-                    evolutionIndex++;
+                    evolutionCount++;
                     // return the list item
                     return listItem;
                   })}
                 </p>
                 <br />
               </Fragment>
-            )} */}
+            )}
             {/* Show moves only if the Pokemon has moves (ex. Megas do not have moves) */}
             {pokemon.moves.length > 1 && (
               <Fragment>
