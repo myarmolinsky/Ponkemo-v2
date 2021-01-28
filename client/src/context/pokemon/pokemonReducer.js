@@ -17,10 +17,11 @@ export default function (state, action) {
     case CLEAR_POKEMON:
       return {
         ...state,
-        pokemon: null,
+        pokemon: {},
         formes: [],
         eggs: [],
         evolutions: [],
+        loading: false,
       };
     case LOAD_POKEMON:
       return {
@@ -56,7 +57,7 @@ export default function (state, action) {
     case POKEMON_NOT_FOUND:
       return {
         ...state,
-        pokemon: null,
+        pokemon: {},
         evolutions: [],
         eggs: [],
         formes: [],

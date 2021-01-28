@@ -27,7 +27,7 @@ export const PokemonState = ({ children }) => {
     loading: true, //make sure the loading is done (we've already made a request to the backend and got a response)
     pokedex: [],
     lastId: -1,
-    pokemon: null,
+    pokemon: {},
     evolutions: [],
     eggs: [],
     formes: [],
@@ -52,7 +52,7 @@ export const PokemonState = ({ children }) => {
 
   // Load Pokemon
   const getPokemon = async (id) => {
-    dispatch({ type: CLEAR_POKEMON });
+    // dispatch({ type: CLEAR_POKEMON });
 
     getFormes(id);
     getEggs(id);
@@ -116,6 +116,13 @@ export const PokemonState = ({ children }) => {
       });
     }
   };
+
+  // const setLoading = (bool) => {
+  //   dispatch({
+  //     type: SET_LOADING,
+  //     payload: bool,
+  //   });
+  // };
 
   // Create or Update Pokemon
   const updatePokemon = async (id, formData, edit = true) => {
@@ -222,6 +229,7 @@ export const PokemonState = ({ children }) => {
         getPokemon,
         getFormes,
         getEggs,
+        // setLoading,
         getEvolutions,
         updatePokemon,
       }}

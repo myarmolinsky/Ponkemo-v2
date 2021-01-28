@@ -58,7 +58,6 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
   - Edit abilities (admin-privilege users only)
 - Itemdex
   - Edit items (admin-privilege users only)
-- Fix notFound showing up while loading a Pokemon even though the Pokemon exists (should show spinner instead)
 - Users have spawnCounter, item tier points, Pokemon tier points
   - spawnCounter is used for spawning Pokemon, it ensures that it is harder to get a rarer Pokemon
 - Spawnrates

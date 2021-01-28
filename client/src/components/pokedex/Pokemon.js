@@ -26,11 +26,9 @@ export const Pokemon = ({ match }) => {
 
   return (
     <Fragment>
-      {loading || !pokemon ? (
+      {loading || lastId === -1 ? (
         <Spinner />
-      ) : (match.params.id > lastId &&
-          Math.floor(match.params.id) !== lastId) ||
-        match.params.id < 1 ? (
+      ) : match.params.id > lastId || match.params.id < 1 || !pokemon ? (
         // if the page the user is trying to go to a Pokemon that does not exist
         <NotFound />
       ) : (
