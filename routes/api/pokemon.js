@@ -7,7 +7,7 @@ const Pokemon = require("../../models/Pokemon");
 // @access Public
 router.get("/", async (req, res) => {
   try {
-    const pokedex = await Pokemon.find().limit(50).sort({ id: 1 }); // Limit results for now to speed up loading
+    const pokedex = await Pokemon.find().sort({ id: 1 });
     res.json(pokedex);
   } catch (err) {
     console.error(err.message);
@@ -76,6 +76,27 @@ router.get("/formes/:id", async (req, res) => {
       id: { $lt: Math.floor(id) + 1, $gte: Math.floor(id) },
     });
     res.json(formes);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route GET api/pokemon/eggs/:id
+// @desc Get a Pokemon's eggs by the id provided
+// @access Public
+router.get("/eggs/:id", async (req, res) => {
+  try {
+    let id = parseFloat(req.params.id);
+    const pokemon = await Pokemon.findOne({ id });
+    let eggs = [];
+    let egg = await Pokemon.findOne({ name: pokemon.breeding.egg });
+    eggs.push(egg);
+    if (pokemon.breeding.egg !== pokemon.breeding.altEgg) {
+      egg = await Pokemon.findOne({ name: pokemon.breeding.altEgg });
+      eggs.push(egg);
+    }
+    res.json(eggs);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

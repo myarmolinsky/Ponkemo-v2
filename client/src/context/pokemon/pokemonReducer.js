@@ -1,6 +1,7 @@
 import {
   LOAD_POKEMON,
   LOAD_POKEMON_FORMES,
+  LOAD_POKEMON_EGGS,
   LOAD_ALL_POKEMON,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
@@ -17,19 +18,25 @@ export default function (state, action) {
         ...state,
         pokemon: null,
         formes: [],
+        eggs: [],
       };
     case LOAD_POKEMON:
       return {
         ...state,
         pokemon: payload,
         // evolutionIds: payload.evolutionIds,
-        // eggIds: payload.eggIds,
         loading: false,
       };
     case LOAD_POKEMON_FORMES:
       return {
         ...state,
         formes: payload,
+        loading: false,
+      };
+    case LOAD_POKEMON_EGGS:
+      return {
+        ...state,
+        eggs: payload,
         loading: false,
       };
     case LOAD_ALL_POKEMON:

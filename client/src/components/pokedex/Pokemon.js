@@ -10,15 +10,14 @@ export const Pokemon = ({ match }) => {
     getPokemon,
     pokemon,
     // evolutionIds,
-    // eggIds,
+    eggs,
     formes,
     lastId,
     loading,
   } = useContext(PokemonContext);
 
   // TODO
-  let eggIds,
-    evolutionIds = [];
+  let evolutionIds = [];
 
   const { user } = useContext(UserContext);
 
@@ -189,48 +188,38 @@ export const Pokemon = ({ match }) => {
               </Grid>
             </Grid>
             <br />
-            {/* Egg Groups
             <p className="lead">
               Egg Groups:{" "}
               <Link to={`/egggroups/${pokemon.breeding.eggGroups[0]}`}>
                 {pokemon.breeding.eggGroups[0]}
               </Link>
               {pokemon.breeding.eggGroups.length > 1 && ", "}
-              {/* must run another ternary separately because when you append jsx to a string, it comes out as [Object object] instead of what it's meant to be 
+              {/* must run another ternary separately because when you append jsx to a string, it comes out as [Object object] instead of what it's meant to be */}
               {pokemon.breeding.eggGroups.length > 1 && (
                 <Link to={`/egggroups/${pokemon.breeding.eggGroups[1]}`}>
                   {pokemon.breeding.eggGroups[1]}
                 </Link>
               )}
             </p>
-            {pokemon.breeding.egg !== pokemon.breeding.altEgg ? (
-              <Fragment>
-                {/* Pokemon that hatches from the egg if it is a male 
-                <p className="lead">
-                  Male Egg:{" "}
-                  <Link to={`/pokedex/${eggIds[0]}`}>
-                    {pokemon.breeding.egg}
-                  </Link>
-                </p>
-                {/* Pokemon that hatches from the egg if it is a female 
+            <Fragment>
+              {/* Pokemon that hatches from the egg if it is a male */}
+              <p className="lead">
+                {pokemon.breeding.egg !== pokemon.breeding.altEgg && "Male "}
+                Egg:{" "}
+                <Link to={`/pokedex/${eggs[0].id}`}>
+                  {pokemon.breeding.egg}
+                </Link>
+              </p>
+              {/* Pokemon that hatches from the egg if it is a female */}
+              {pokemon.breeding.egg !== pokemon.breeding.altEgg && (
                 <p className="lead">
                   Female Egg:{" "}
-                  <Link to={`/pokedex/${eggIds[1]}`}>
+                  <Link to={`/pokedex/${eggs[1].id}`}>
                     {pokemon.breeding.altEgg}
                   </Link>
                 </p>
-              </Fragment>
-            ) : (
-              <Fragment>
-                {/* if male and female eggs are the same 
-                <p className="lead">
-                  Egg:{" "}
-                  <Link to={`/pokedex/${eggIds[0]}`}>
-                    {pokemon.breeding.egg}
-                  </Link>
-                </p>
-              </Fragment>
-            )} */}
+              )}
+            </Fragment>
             {/* Spawn Rate */}
             <p className="lead">Spawn Rate: {pokemon.spawnRate}</p>
             {/* Show what the pokemon evolves into only if the Pokemon evolves into something */}

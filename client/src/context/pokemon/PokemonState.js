@@ -7,6 +7,7 @@ import pokemonReducer from "./pokemonReducer";
 import {
   LOAD_POKEMON,
   LOAD_POKEMON_FORMES,
+  LOAD_POKEMON_EGGS,
   LOAD_ALL_POKEMON,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
@@ -27,7 +28,7 @@ export const PokemonState = ({ children }) => {
     pokemon: null,
     lastId: -1,
     // evolutionIds: [],
-    // eggIds: [],
+    eggIds: [],
     formes: [],
   };
   const [state, dispatch] = useReducer(pokemonReducer, initialState);
@@ -53,6 +54,7 @@ export const PokemonState = ({ children }) => {
     dispatch({ type: CLEAR_POKEMON });
 
     getFormes(id);
+    getEggs(id);
 
     try {
       const res = await axios.get(`/api/pokemon/${id}`);
@@ -73,6 +75,21 @@ export const PokemonState = ({ children }) => {
       const res = await axios.get(`/api/pokemon/formes/${id}`);
       return dispatch({
         type: LOAD_POKEMON_FORMES,
+        payload: res.data,
+      });
+    } catch (err) {
+      return dispatch({
+        type: POKEMON_NOT_FOUND,
+        payload: { msg: "Pokemon not found", status: 404 },
+      });
+    }
+  };
+
+  const getEggs = async (id) => {
+    try {
+      const res = await axios.get(`/api/pokemon/eggs/${id}`);
+      return dispatch({
+        type: LOAD_POKEMON_EGGS,
         payload: res.data,
       });
     } catch (err) {
@@ -187,6 +204,7 @@ export const PokemonState = ({ children }) => {
         getAllPokemon,
         getPokemon,
         getFormes,
+        getEggs,
         updatePokemon,
       }}
     >
