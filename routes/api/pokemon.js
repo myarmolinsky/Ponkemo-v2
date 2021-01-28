@@ -37,6 +37,7 @@ router.get("/formes/:id", async (req, res) => {
       id: {
         $lt: Math.floor(req.params.id) + 1,
         $gte: Math.floor(req.params.id),
+        $ne: req.params.id,
       },
     });
     res.json(formes);
@@ -53,11 +54,20 @@ router.get("/eggs/:id", async (req, res) => {
   try {
     const pokemon = await Pokemon.findOne({ id: req.params.id });
     let eggs = [];
-    let egg = await Pokemon.findOne({ name: pokemon.breeding.egg });
-    eggs.push(egg);
-    if (pokemon.breeding.egg !== pokemon.breeding.altEgg) {
-      egg = await Pokemon.findOne({ name: pokemon.breeding.altEgg });
+    let egg;
+    if (pokemon.name === pokemon.breeding.egg) {
+      eggs.push(pokemon);
+    } else {
+      egg = await Pokemon.findOne({ name: pokemon.breeding.egg });
       eggs.push(egg);
+    }
+    if (pokemon.breeding.egg !== pokemon.breeding.altEgg) {
+      if (pokemon.name === pokemon.breeding.altEgg) {
+        egg.push(pokemon);
+      } else {
+        egg = await Pokemon.findOne({ name: pokemon.breeding.altEgg });
+        eggs.push(egg);
+      }
     }
     res.json(eggs);
   } catch (err) {

@@ -28,7 +28,10 @@ export const Pokemon = ({ match }) => {
     <Fragment>
       {loading || lastId === -1 ? (
         <Spinner />
-      ) : match.params.id > lastId || match.params.id < 1 || !pokemon ? (
+      ) : isNaN(match.params.id) ||
+        match.params.id > lastId ||
+        match.params.id < 1 ||
+        !pokemon ? (
         // if the page the user is trying to go to a Pokemon that does not exist
         <NotFound />
       ) : (
@@ -102,27 +105,24 @@ export const Pokemon = ({ match }) => {
             />
             {/* Formes */}
             <div className="lead">
-              {formes.length > 1 && (
+              {formes.length > 0 && (
                 <Fragment>
                   Formes: <br />
-                  {formes.map(
-                    (poke) =>
-                      poke.name !== pokemon.name && (
-                        <a key={poke.name} href={`/pokedex/${poke.id}`}>
-                          {/* Create a link leading to the pokemon's page */}
-                          <div className="pokedex-item">
-                            <img
-                              src={poke.sprite}
-                              className="sprite pokedex-sprite"
-                              alt={poke.name}
-                            />
-                            {/* Pokemon's sprite */}
-                            <span className="caption">{poke.name}</span>
-                            {/* Pokemon's name */}
-                          </div>
-                        </a>
-                      )
-                  )}
+                  {formes.map((poke) => (
+                    <a key={poke.name} href={`/pokedex/${poke.id}`}>
+                      {/* Create a link leading to the pokemon's page */}
+                      <div className="pokedex-item">
+                        <img
+                          src={poke.sprite}
+                          className="sprite pokedex-sprite"
+                          alt={poke.name}
+                        />
+                        {/* Pokemon's sprite */}
+                        <span className="caption">{poke.name}</span>
+                        {/* Pokemon's name */}
+                      </div>
+                    </a>
+                  ))}
                 </Fragment>
               )}
             </div>
