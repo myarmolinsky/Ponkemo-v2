@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/myarmolinsky/Ponkemo-v2#readme",
   "dependencies": {
-    "@material-ui/styles": "^4.11.2",
     "bcryptjs": "^2.4.3",
     "config": "^3.2.4",
     "express": "^4.17.1",
