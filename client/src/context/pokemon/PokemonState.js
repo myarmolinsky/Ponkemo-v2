@@ -11,7 +11,6 @@ import {
   CLEAR_POKEMON,
   UPDATE_POKEMON,
   UPDATE_POKEMON_FAILED,
-  GET_LAST_ID,
 } from "./types";
 
 export const PokemonState = ({ children }) => {
@@ -47,22 +46,6 @@ export const PokemonState = ({ children }) => {
       });
     }
   };
-
-  // const getLastId = async () => {
-  //   try {
-  //     const res = await axios.get(`/api/pokemon/lastId`);
-
-  //     return dispatch({
-  //       type: GET_LAST_ID,
-  //       payload: res.data,
-  //     });
-  //   } catch (err) {
-  //     return dispatch({
-  //       type: POKEMON_NOT_FOUND,
-  //       payload: { msg: "Pokemon not found", status: 404 },
-  //     });
-  //   }
-  // };
 
   // Load Pokemon
   const getPokemon = async (id) => {
@@ -184,7 +167,6 @@ export const PokemonState = ({ children }) => {
       value={{
         ...state,
         getAllPokemon,
-        // getLastId,
         getPokemon,
         updatePokemon,
       }}

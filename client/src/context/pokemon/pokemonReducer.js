@@ -5,7 +5,6 @@ import {
   CLEAR_POKEMON,
   UPDATE_POKEMON,
   UPDATE_POKEMON_FAILED,
-  GET_LAST_ID,
 } from "./types";
 
 export default function (state, action) {
@@ -21,8 +20,6 @@ export default function (state, action) {
       return {
         ...state,
         pokemon: payload,
-        // nextPokemonId: payload.nextPokemonId,
-        // previousPokemonId: payload.previousPokemonId,
         // evolutionIds: payload.evolutionIds,
         // eggIds: payload.eggIds,
         // formes: payload.formes,
@@ -35,17 +32,10 @@ export default function (state, action) {
         lastId: payload.length,
         loading: false,
       };
-    // case GET_LAST_ID:
-    //   return {
-    //     ...state,
-    //     lastId: payload,
-    //   };
     case POKEMON_NOT_FOUND:
       return {
         ...state,
         pokemon: null,
-        // nextPokemonId: -1,
-        // previousPokemonId: -1,
         // evolutionIds: [],
         // eggIds: [],
         // formes: [],

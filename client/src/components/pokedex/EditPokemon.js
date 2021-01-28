@@ -4,16 +4,13 @@ import { PokemonContext, UserContext } from "../../context";
 import { NotFound, Spinner, AccessDenied } from "../layout";
 
 export const EditPokemon = ({ match }) => {
-  const {
-    getPokemon,
-    getLastId,
-    updatePokemon,
-    pokemon,
-    nextPokemonId,
-    previousPokemonId,
-    lastId,
-    loading,
-  } = useContext(PokemonContext);
+  const { getPokemon, updatePokemon, pokemon, lastId, loading } = useContext(
+    PokemonContext
+  );
+
+  // TODO
+  let previousPokemonId = 1;
+  let nextPokemonId = 3;
 
   const { user } = useContext(UserContext);
 
@@ -157,9 +154,10 @@ export const EditPokemon = ({ match }) => {
         genderRatio: loading || !pokemon.genderRatio ? 0 : pokemon.genderRatio,
       });
 
-    if (lastId === -1 || currentId > lastId) {
-      getLastId(); // get the last id so we know how many Pokemon we have
-    }
+    // TODO
+    // if (lastId === -1 || currentId > lastId) {
+    //   getLastId(); // get the last id so we know how many Pokemon we have
+    // }
   }, [currentId, loading, lastId]);
 
   const {

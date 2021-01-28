@@ -8,7 +8,6 @@ import { Spinner, NotFound } from "../layout";
 export const Pokemon = ({ match }) => {
   const {
     getPokemon,
-    // getLastId,
     pokemon,
     // evolutionIds,
     // eggIds,

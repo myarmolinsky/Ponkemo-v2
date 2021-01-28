@@ -15,63 +15,13 @@ router.get("/", async (req, res) => {
   }
 });
 
-// @route GET api/pokemon/lastId
-// @desc Get last id in pokedex
-// @access Public
-// router.get("/lastId", async (req, res) => {
-//   try {
-//     let pokedex = await Pokemon.find({});
-//     let lastId = -1;
-//     for (let i = 0; i < pokedex.length; i++) {
-//       if (pokedex[i].id > lastId && pokedex[i].id === Math.floor(pokedex[i].id))
-//         lastId = pokedex[i].id;
-//     }
-//     res.json(lastId);
-//   } catch (err) {
-//     console.error(err.message);
-//     res.status(500).send("Server Error");
-//   }
-// });
-
 // @route GET api/pokemon/:id
 // @desc Get a Pokemon by the id provided
 // @access Public
 router.get("/:id", async (req, res) => {
   try {
-    // const pokedex = await Pokemon.find({});
-    // let lastId = -1;
-    // for (let i = 0; i < pokedex.length; i++) {
-    //   if (pokedex[i].id > lastId && pokedex[i].id === Math.floor(pokedex[i].id))
-    //     lastId = pokedex[i].id;
-    // }
-
     let id = parseFloat(req.params.id);
     const pokemon = await Pokemon.findOne({ id });
-
-    // // the id of the next pokemon
-    // let nextPokemonId = -1;
-    // let nextId = (id + 0.01).toFixed(2);
-    // let nextPokemon = await Pokemon.findOne({ id: nextId });
-    // if (nextPokemon) nextPokemonId = nextId;
-    // else nextPokemonId = Math.ceil(nextId);
-
-    // // the id of the previous pokemon
-    // let previousPokemonId = -1;
-    // // if the id is not an integer, decrease it by 0.01
-    // if (Math.floor(id) !== id) previousPokemonId = (id - 0.01).toFixed(2);
-    // else {
-    //   // otherwise decrease it by 0.99 (4 -> 3.01) and count upwards until we reach an id with no pokemon attached to it
-    //   let previousId = (id - 0.99).toFixed(2);
-    //   let previousPokemon = await Pokemon.findOne({ id: previousId });
-    //   while (previousPokemon) {
-    //     previousId = parseFloat(previousId + 0.01);
-    //     previousPokemon = await Pokemon.findOne({ id: previousId });
-    //   }
-    //   previousPokemonId = (previousId - 0.01).toFixed(2); // decrease previousId by 1 because previousId is currently the id not attached to a pokemon
-    //   if (previousPokemonId < id - 1)
-    //     // calculation issue occurs when subtracting 0.01 from an integer so round up if the issue does occur
-    //     previousPokemonId = Math.ceil(previousPokemonId);
-    // }
 
     // // evolutionIds is an array that contains the ids of the evolutions of the pokemon
     // let evolutionIds = [];
@@ -117,8 +67,6 @@ router.get("/:id", async (req, res) => {
 
     // let payload = {
     //   pokemon,
-    //   nextPokemonId,
-    //   previousPokemonId,
     //   evolutionIds,
     //   eggIds,
     //   formes,
