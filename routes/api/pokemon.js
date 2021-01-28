@@ -37,27 +37,9 @@ router.get("/:id", async (req, res) => {
     //     }
     //   }
 
-    // // eggIds is an array that contains the ids of the egg and altEgg of the pokemon
-    // let eggIds = [];
-    // if (pokemon.breeding) {
-    //   let egg = await Pokemon.findOne({ name: pokemon.breeding.egg });
-    //   if (egg) eggIds.push(egg.id);
-    //   else {
-    //     console.log("Cannot find egg");
-    //     eggIds.push(-1);
-    //   }
-    //   egg = await Pokemon.findOne({ name: pokemon.breeding.altEgg });
-    //   if (egg) eggIds.push(egg.id);
-    //   else {
-    //     console.log("Cannot find altEgg");
-    //     eggIds.push(-1);
-    //   }
-    // }
-
     // let payload = {
     //   pokemon,
     //   evolutionIds,
-    //   eggIds,
     // };
     res.json(pokemon);
   } catch (err) {
