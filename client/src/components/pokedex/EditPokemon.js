@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
 import { any } from "prop-types";
+import { Button, Grid, TextField } from "@material-ui/core";
 import { PokemonContext, UserContext } from "../../context";
 import { NotFound, Spinner, AccessDenied } from "../layout";
 
@@ -13,8 +14,6 @@ export const EditPokemon = ({ match }) => {
   let nextPokemonId = 3;
 
   const { user } = useContext(UserContext);
-
-  let currentId = parseFloat(match.params.id);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -34,7 +33,7 @@ export const EditPokemon = ({ match }) => {
     spawnRate: 0,
     moves: "[]",
     evolutionDetails: "[]",
-    id: currentId,
+    id: match.params.id,
     eggGroups: "",
     egg: "",
     altEgg: "",
@@ -45,7 +44,7 @@ export const EditPokemon = ({ match }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    getPokemon(currentId); // get the Pokemon with the matching id
+    getPokemon(match.params.id); // get the Pokemon with the matching id
 
     if (pokemon)
       // if we're editing an existing Pokemon
@@ -122,7 +121,7 @@ export const EditPokemon = ({ match }) => {
                 .join("\n},\n")
                 .split("}]")
                 .join("\n}]"),
-        id: loading || !pokemon.id ? currentId : pokemon.id,
+        id: loading || !pokemon.id ? match.params.id : pokemon.id,
         eggGroups:
           loading ||
           !pokemon.breeding ||
@@ -153,12 +152,7 @@ export const EditPokemon = ({ match }) => {
             : pokemon.stages.max,
         genderRatio: loading || !pokemon.genderRatio ? 0 : pokemon.genderRatio,
       });
-
-    // TODO
-    // if (lastId === -1 || currentId > lastId) {
-    //   getLastId(); // get the last id so we know how many Pokemon we have
-    // }
-  }, [currentId, loading, lastId]);
+  }, [match.params.id, loading]);
 
   const {
     name,
@@ -193,13 +187,13 @@ export const EditPokemon = ({ match }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     // if we are making a new Pokemon reload the page after creating it so that all the proper data loads (otherwise the buttons don't work properly)
-    if (currentId > lastId) {
-      updatePokemon(currentId, formData, false);
+    if (match.params.id > lastId) {
+      updatePokemon(match.params.id, formData, false);
       window.location.reload();
-    } else updatePokemon(currentId, formData); // if we are editing an existing Pokemon
+    } else updatePokemon(match.params.id, formData); // if we are editing an existing Pokemon
     // if we edited the pokemon's id, load the page connected to its new id
     let splitUrl = window.location.href.split("/");
-    if (id !== currentId) {
+    if (id !== match.params.id) {
       splitUrl.pop();
       splitUrl.pop();
       window.open(splitUrl.join("/") + "/" + id + "/edit", "_self");
@@ -208,48 +202,63 @@ export const EditPokemon = ({ match }) => {
 
   // if there is a previous Pokemon, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
   const previousPokemonButton = () => {
-    if (currentId > 1)
+    if (match.params.id > 1)
       return (
-        <a className="btn btn-dark" href={`/pokedex/${previousPokemonId}/edit`}>
+        <a
+          href={`/pokedex/${previousPokemonId}/edit`}
+          style={{
+            color: `${match.params.id > 1 ? "white" : "black"}`,
+          }}
+        >
           Previous Pokemon
         </a>
       );
-    else return <button className="btn btn-light">Previous Pokemon</button>;
+    else return "Previous Pokemon";
   };
 
   // if there is a next Pokemon, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
   const nextPokemonButton = () => {
-    if (currentId < lastId) {
+    if (match.params.id < lastId) {
       return (
-        <a className="btn btn-dark" href={`/pokedex/${nextPokemonId}/edit`}>
+        <a
+          href={`/pokedex/${nextPokemonId}/edit`}
+          style={{
+            color: "white",
+          }}
+        >
           Next Pokemon
         </a>
       );
-    } else return <button className="btn btn-light">Next Pokemon</button>;
+    } else return "Next Pokemon";
   };
 
   // if you're not on the new Pokemon's page, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
   const newPokemonButton = () => {
-    if (Math.floor(currentId) <= lastId) {
+    if (Math.floor(match.params.id) <= lastId) {
       return (
-        <a className="btn btn-dark" href={`/pokedex/${lastId + 1}/edit`}>
+        <a
+          href={`/pokedex/${lastId + 1}/edit`}
+          style={{
+            color: "white",
+          }}
+        >
           Add a New Pokemon
         </a>
       );
-    } else return <button className="btn btn-light">Add a New Pokemon</button>;
+    } else return "Add a New Pokemon";
   };
 
   // if you're on a new Pokemon's page and it doesn't exist yet, return a grayed out button that takes you nowhere, otherwise return an <a> tag to it's normal page
   const cancelButton = () => {
-    if (currentId > lastId) {
+    if (match.params.id > lastId) {
       return (
-        <a className="lead edit-link" href={`/pokedex/${currentId - 1}/`}>
+        <a className="lead edit-link" href={`/pokedex/${lastId}/`}>
           Cancel
         </a>
       );
     } else
       return (
-        <a className="lead edit-link" href={`/pokedex/${currentId}/`}>
+        <a className="lead edit-link" href={`/pokedex/${match.params.id}/`}>
           Cancel
         </a>
       );
@@ -257,33 +266,69 @@ export const EditPokemon = ({ match }) => {
 
   return (
     <Fragment>
-      {user === null || loading || pokemon === null ? (
+      {!user || loading ? (
         <Spinner />
       ) : user.privileges !== "admin" ? (
         // if the user does not have "admin" privileges
         <AccessDenied />
-      ) : currentId > lastId + 1 || currentId < 1 ? (
+      ) : isNaN(match.params.id) ||
+        match.params.id > lastId + 1 ||
+        match.params.id < 1 ||
+        !pokemon ? (
         // if the page the user is trying to go to a Pokemon that does not exist
         <NotFound />
       ) : (
         <Fragment>
-          <div className="buttons">
-            {/* Link does not reload the page so I have to use <a> tags so I use these functions to determine which <a> tag to return depending on the page we're on */}
-            {previousPokemonButton()}
-            {nextPokemonButton()}
-            {newPokemonButton()}
-            {cancelButton()}
-          </div>
-          <form className="form" onSubmit={(e) => onSubmit(e)}>
-            <div className="form-group">
+          {/* Link does not reload the page so I have to use <a> tags so I use these functions to determine which <a> tag to return depending on the page we're on */}
+          <Grid container justify="space-evenly">
+            <Grid item xs={3}>
+              {/* If there is a previous pokemon, link to its page */}
+              <Button
+                color={`${match.params.id > 1 ? "secondary" : "default"}`}
+                size="large"
+                variant="contained"
+                fullWidth
+              >
+                {previousPokemonButton()}
+              </Button>
+            </Grid>
+            <Grid item xs={3}>
+              {/* If there is a next pokemon, link to its page */}
+              <Button
+                color={`${match.params.id < lastId ? "secondary" : "default"}`}
+                size="large"
+                variant="contained"
+                fullWidth
+              >
+                {nextPokemonButton()}
+              </Button>
+            </Grid>
+            <Grid item xs={3}>
+              <Button
+                color={`${
+                  match.params.id < lastId + 1 ? "secondary" : "default"
+                }`}
+                size="large"
+                variant="contained"
+                fullWidth
+              >
+                {newPokemonButton()}
+              </Button>
+            </Grid>
+            <Grid item xs={1}>
+              {cancelButton()}
+            </Grid>
+          </Grid>
+          <form onSubmit={(e) => onSubmit(e)}>
+            <div>
               {/* ID */}
-              <span className="lead">ID: </span>
-              <input
-                type="text"
-                placeholder={id}
+              <TextField
+                label="ID"
+                placeholder="ID"
                 name="id"
-                value={id}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
               />
               {/* Name */}
               <span className="lead">Name: </span>

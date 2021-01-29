@@ -57,10 +57,11 @@ export const Register = () => {
       }}
     >
       <h1 className="large text-primary">Sign Up</h1>
-      <form className="form" onSubmit={(e) => onSubmit(e)}>
+      <form onSubmit={(e) => onSubmit(e)}>
         <Grid container direction="column">
           <Grid item>
             <TextField
+              label="Username"
               placeholder="Username"
               name="username"
               onChange={(e) => onChange(e)}
@@ -71,6 +72,7 @@ export const Register = () => {
           </Grid>
           <Grid item>
             <TextField
+              label="Email Address"
               placeholder="Email Address"
               name="email"
               onChange={(e) => onChange(e)}
@@ -82,6 +84,7 @@ export const Register = () => {
           </Grid>
           <Grid item>
             <TextField
+              label="Password"
               placeholder="Password"
               name="password"
               onChange={(e) => onChange(e)}
@@ -93,7 +96,8 @@ export const Register = () => {
           </Grid>
           <Grid item>
             <TextField
-              placeholder="Confirm Password"
+              label="Re-enter Password"
+              placeholder="Re-enter Password"
               name="password2"
               onChange={(e) => onChange(e)}
               variant="outlined"

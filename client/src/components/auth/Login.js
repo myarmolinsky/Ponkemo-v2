@@ -38,10 +38,11 @@ export const Login = () => {
       }}
     >
       <h1 className="large text-primary">Sign In</h1>
-      <form className="form" onSubmit={(e) => onSubmit(e)}>
+      <form onSubmit={(e) => onSubmit(e)}>
         <Grid container direction="column">
           <Grid item>
             <TextField
+              label="Username"
               placeholder="Username"
               name="username"
               onChange={(e) => onChange(e)}
@@ -52,6 +53,7 @@ export const Login = () => {
           </Grid>
           <Grid item>
             <TextField
+              label="Password"
               placeholder="Password"
               name="password"
               onChange={(e) => onChange(e)}
