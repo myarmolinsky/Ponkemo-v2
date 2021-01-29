@@ -324,217 +324,225 @@ export const EditPokemon = ({ match }) => {
               {/* ID */}
               <TextField
                 label="ID"
-                placeholder="ID"
                 name="id"
                 onChange={(e) => onChange(e)}
                 variant="outlined"
                 margin="normal"
+                value={id}
               />
               {/* Name */}
-              <span className="lead">Name: </span>
-              <input
-                type="text"
-                placeholder={name}
+              <TextField
+                label="Name"
                 name="name"
-                value={name}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={name}
               />
               {/* Sprite */}
-              <span className="lead">Sprite URL: </span>
-              <input
-                type="text"
-                placeholder={sprite}
+              <TextField
+                label="Sprite URL"
                 name="sprite"
-                value={sprite}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={sprite}
+                fullWidth
               />
               {/* Shiny Sprite */}
-              <span className="lead">Shiny Sprite URL: </span>
-              <input
-                type="text"
-                placeholder={shinySprite}
+              <TextField
+                label="Shiny Sprite URL"
                 name="shinySprite"
-                value={shinySprite}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={shinySprite}
+                fullWidth
               />
               {/* Types */}
-              <span className="lead">Types: </span>
-              <input
-                type="text"
-                placeholder={types}
+              <TextField
+                label="Types"
                 name="types"
-                value={types}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={types}
               />
               {/* Abilities */}
-              <span className="lead">Abilities: </span>
-              <input
-                type="text"
-                placeholder={abilities}
+              <TextField
+                label="Abilities"
                 name="abilities"
-                value={abilities}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={abilities}
               />
               {/* Hidden Ability */}
-              <span className="lead">Hidden Ability: </span>
-              <input
-                type="text"
-                placeholder={hiddenAbility}
+              <TextField
+                label="Hidden Ability"
                 name="hiddenAbility"
-                value={hiddenAbility}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={hiddenAbility}
               />
               {/* Weight in kg */}
-              <span className="lead">Weight (kg): </span>
-              <input
-                type="text"
-                placeholder={weight}
+              <TextField
+                label="Weight (kg)"
                 name="weight"
-                value={weight}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={weight}
               />
               {/* Base Friendship */}
-              <span className="lead">Base Friendship: </span>
-              <input
-                type="text"
-                placeholder={baseFriendship}
+              <TextField
+                label="Base Friendship"
                 name="baseFriendship"
-                value={baseFriendship}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={baseFriendship}
               />
               {/* Gender Ratio */}
-              <span className="lead">Gender Ratio: </span>
-              <input
-                type="text"
-                placeholder={genderRatio}
+              <TextField
+                label="Gender Ratio"
                 name="genderRatio"
-                value={genderRatio}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={genderRatio}
               />
               {/* Spawn Rate */}
-              <span className="lead">Spawn Rate: </span>
-              <input
-                type="text"
-                placeholder={spawnRate}
+              <TextField
+                label="Spawn Rate"
                 name="spawnRate"
-                value={spawnRate}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={spawnRate}
               />
               {/* Current Stage */}
-              <span className="lead">Current Stage: </span>
-              <input
-                type="text"
-                placeholder={currentStage}
+              <TextField
+                label="Current Stage"
                 name="currentStage"
-                value={currentStage}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={currentStage}
               />
               {/* Max Stage */}
-              <span className="lead">Max Stage: </span>
-              <input
-                type="text"
-                placeholder={maxStage}
+              <TextField
+                label="Max Stage"
                 name="maxStage"
-                value={maxStage}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={maxStage}
               />
               {/* Evolution Details */}
-              <span className="lead">Evolution Details: </span>
-              <textarea
-                rows="5"
-                type="text"
-                placeholder={evolutionDetails}
+              <TextField
+                label="Evolution Details"
                 name="evolutionDetails"
-                value={evolutionDetails}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={evolutionDetails}
+                multiline
+                rows={5}
+                fullWidth
               />
               {/* Base Stats */}
-              <span className="lead">Health Base Stat: </span>
-              <input
-                type="text"
-                placeholder={hp}
+              <TextField
+                label="Base Health"
                 name="hp"
+                onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
                 value={hp}
-                onChange={(e) => onChange(e)}
               />
-              <span className="lead">Attack Base Stat: </span>
-              <input
-                type="text"
-                placeholder={atk}
+              <TextField
+                label="Base Attack"
                 name="atk"
+                onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
                 value={atk}
-                onChange={(e) => onChange(e)}
               />
-              <span className="lead">Defense Base Stat: </span>
-              <input
-                type="text"
-                placeholder={def}
+              <TextField
+                label="Base Defense"
                 name="def"
+                onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
                 value={def}
-                onChange={(e) => onChange(e)}
               />
-              <span className="lead">Special Attack Base Stat: </span>
-              <input
-                type="text"
-                placeholder={spA}
+              <TextField
+                label="Base Special Attack"
                 name="spA"
+                onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
                 value={spA}
-                onChange={(e) => onChange(e)}
               />
-              <span className="lead">Special Defense Base Stat: </span>
-              <input
-                type="text"
-                placeholder={spD}
+              <TextField
+                label="Base Special Defense"
                 name="spD"
+                onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
                 value={spD}
-                onChange={(e) => onChange(e)}
               />
-              <span className="lead">Speed Base Stat: </span>
-              <input
-                type="text"
-                placeholder={spe}
+              <TextField
+                label="Base Speed"
                 name="spe"
-                value={spe}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={spe}
               />
               {/* Egg Groups */}
-              <span className="lead">Egg Groups: </span>
-              <input
-                type="text"
-                placeholder={eggGroups}
+              <TextField
+                label="Egg Groups"
                 name="eggGroups"
-                value={eggGroups}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={eggGroups}
               />
               {/* Pokemon that hatches from the egg if it is a male */}
-              <span className="lead">Male Egg: </span>
-              <input
-                type="text"
-                placeholder={egg}
+              <TextField
+                label="Male Egg"
                 name="egg"
-                value={egg}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={egg}
               />
               {/* Pokemon that hatches from the egg if it is a female */}
-              <span className="lead">Female Egg: </span>
-              <input
-                type="text"
-                placeholder={altEgg}
+              <TextField
+                label="Female Egg"
                 name="altEgg"
-                value={altEgg}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={altEgg}
               />
               {/* Moves */}
-              <span className="lead">Moves: </span>
-              <textarea
-                rows="30"
-                type="text"
-                placeholder={moves}
+              <TextField
+                label="Moves"
                 name="moves"
-                value={moves}
                 onChange={(e) => onChange(e)}
+                variant="outlined"
+                margin="normal"
+                value={moves}
+                multiline
+                rows={30}
+                fullWidth
               />
-              <input type="submit" className="btn btn-primary my-1" />
+              <Button color="primary" type="submit" variant="contained">
+                Submit
+              </Button>
             </div>
           </form>
         </Fragment>
