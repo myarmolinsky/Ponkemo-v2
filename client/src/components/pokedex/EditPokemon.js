@@ -43,7 +43,8 @@ export const EditPokemon = ({ match }) => {
     moves: "[]",
     evolutionDetails: "[]",
     id: match.params.id,
-    eggGroups: "",
+    firstEggGroup: " ",
+    secondEggGroup: " ",
     egg: "",
     altEgg: "",
     currentStage: 0,
@@ -62,9 +63,14 @@ export const EditPokemon = ({ match }) => {
         name: pokemon.name,
         sprite: pokemon.sprite,
         shinySprite: pokemon.shinySprite,
-        firstType: pokemon.types && pokemon.types[0],
+        firstType:
+          pokemon.types && pokemon.types.length > 0 && pokemon.types[0] !== ""
+            ? pokemon.types[0]
+            : " ",
         secondType:
-          pokemon.types && pokemon.types.length > 1 && pokemon.types[1],
+          pokemon.types && pokemon.types.length > 1 && pokemon.types[1] !== ""
+            ? pokemon.types[1]
+            : " ",
         abilities: pokemon.abilities && pokemon.abilities.join(", "),
         hiddenAbility: pokemon.hiddenAbility,
         weight: pokemon.weight,
@@ -99,7 +105,18 @@ export const EditPokemon = ({ match }) => {
             .split("}]")
             .join("\n}]"),
         id: match.params.id,
-        eggGroups: pokemon.breeding && pokemon.breeding.eggGroups.join(", "),
+        firstEggGroup:
+          pokemon.breeding &&
+          pokemon.breeding.eggGroups.length > 0 &&
+          pokemon.breeding.eggGroups[0] !== ""
+            ? pokemon.breeding.eggGroups[0]
+            : " ",
+        secondEggGroup:
+          pokemon.breeding &&
+          pokemon.breeding.eggGroups.length > 1 &&
+          pokemon.breeding.eggGroups[1] !== ""
+            ? pokemon.breeding.eggGroups[1]
+            : " ",
         egg: pokemon.breeding && pokemon.breeding.egg,
         altEgg: pokemon.breeding && pokemon.breeding.altEgg,
         currentStage: pokemon.stages && pokemon.stages.current,
@@ -127,7 +144,8 @@ export const EditPokemon = ({ match }) => {
     spawnRate,
     moves,
     id,
-    eggGroups,
+    firstEggGroup,
+    secondEggGroup,
     egg,
     altEgg,
     currentStage,
@@ -238,65 +256,94 @@ export const EditPokemon = ({ match }) => {
         </Grid>
       </Grid>
       <form onSubmit={(e) => onSubmit(e)}>
-        {/* ID */}
-        <TextField
-          label="ID"
-          name="id"
-          type="number"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={id}
-        />
-        {/* Name */}
-        <TextField
-          label="Name"
-          name="name"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={name}
-        />
-        {/* Weight in kg */}
-        <TextField
-          label="Weight (kg)"
-          type="number"
-          name="weight"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={weight}
-        />
-        {/* Base Friendship */}
-        <TextField
-          label="Base Friendship"
-          type="number"
-          name="baseFriendship"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={baseFriendship}
-        />
-        {/* Gender Ratio */}
-        <TextField
-          label="Gender Ratio"
-          type="number"
-          name="genderRatio"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={genderRatio}
-        />
-        {/* Spawn Rate */}
-        <TextField
-          label="Spawn Rate"
-          type="number"
-          name="spawnRate"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={spawnRate}
-        />
+        <Grid container justify="space-evenly" alignItems="flex-end">
+          <Grid item>
+            {/* ID */}
+            <TextField
+              label="ID"
+              name="id"
+              type="number"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={id}
+            />
+          </Grid>
+          <Grid item>
+            {/* Name */}
+            <TextField
+              label="Name"
+              name="name"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={name}
+            />
+          </Grid>
+          <Grid item>
+            {/* Types */}
+            <FormControl variant="outlined" margin="normal">
+              <InputLabel id="first-type-label">First Type</InputLabel>
+              <Select
+                labelId="first-type-label"
+                label="First Type"
+                name="firstType"
+                onChange={(e) => onChange(e)}
+                value={firstType}
+              >
+                <MenuItem value=" ">None</MenuItem>
+                <MenuItem value="Bug">Bug</MenuItem>
+                <MenuItem value="Dark">Dark</MenuItem>
+                <MenuItem value="Dragon">Dragon</MenuItem>
+                <MenuItem value="Electric">Electric</MenuItem>
+                <MenuItem value="Fairy">Fairy</MenuItem>
+                <MenuItem value="Fighting">Fighting</MenuItem>
+                <MenuItem value="Fire">Fire</MenuItem>
+                <MenuItem value="Flying">Flying</MenuItem>
+                <MenuItem value="Ghost">Ghost</MenuItem>
+                <MenuItem value="Grass">Grass</MenuItem>
+                <MenuItem value="Ground">Ground</MenuItem>
+                <MenuItem value="Ice">Ice</MenuItem>
+                <MenuItem value="Normal">Normal</MenuItem>
+                <MenuItem value="Poison">Poison</MenuItem>
+                <MenuItem value="Psychic">Psychic</MenuItem>
+                <MenuItem value="Rock">Rock</MenuItem>
+                <MenuItem value="Steel">Steel</MenuItem>
+                <MenuItem value="Water">Water</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl variant="outlined" margin="normal">
+              <InputLabel id="second-type-label">Second Type</InputLabel>
+              <Select
+                labelId="second-type-label"
+                label="Second Type"
+                name="secondType"
+                onChange={(e) => onChange(e)}
+                value={secondType}
+              >
+                <MenuItem value=" ">None</MenuItem>
+                <MenuItem value="Bug">Bug</MenuItem>
+                <MenuItem value="Dark">Dark</MenuItem>
+                <MenuItem value="Dragon">Dragon</MenuItem>
+                <MenuItem value="Electric">Electric</MenuItem>
+                <MenuItem value="Fairy">Fairy</MenuItem>
+                <MenuItem value="Fighting">Fighting</MenuItem>
+                <MenuItem value="Fire">Fire</MenuItem>
+                <MenuItem value="Flying">Flying</MenuItem>
+                <MenuItem value="Ghost">Ghost</MenuItem>
+                <MenuItem value="Grass">Grass</MenuItem>
+                <MenuItem value="Ground">Ground</MenuItem>
+                <MenuItem value="Ice">Ice</MenuItem>
+                <MenuItem value="Normal">Normal</MenuItem>
+                <MenuItem value="Poison">Poison</MenuItem>
+                <MenuItem value="Psychic">Psychic</MenuItem>
+                <MenuItem value="Rock">Rock</MenuItem>
+                <MenuItem value="Steel">Steel</MenuItem>
+                <MenuItem value="Water">Water</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+        </Grid>
         {/* Sprite */}
         <TextField
           label="Sprite URL"
@@ -317,105 +364,260 @@ export const EditPokemon = ({ match }) => {
           value={shinySprite}
           fullWidth
         />
-        {/* Types */}
-        <FormControl variant="outlined" margin="normal">
-          <InputLabel id="first-type-label">First Type</InputLabel>
-          <Select
-            labelId="first-type-label"
-            label="First Type"
-            name="firstType"
-            onChange={(e) => onChange(e)}
-            value={firstType}
-          >
-            <MenuItem value=" ">None</MenuItem>
-            <MenuItem value="Bug">Bug</MenuItem>
-            <MenuItem value="Dark">Dark</MenuItem>
-            <MenuItem value="Dragon">Dragon</MenuItem>
-            <MenuItem value="Electric">Electric</MenuItem>
-            <MenuItem value="Fairy">Fairy</MenuItem>
-            <MenuItem value="Fighting">Fighting</MenuItem>
-            <MenuItem value="Fire">Fire</MenuItem>
-            <MenuItem value="Flying">Flying</MenuItem>
-            <MenuItem value="Ghost">Ghost</MenuItem>
-            <MenuItem value="Grass">Grass</MenuItem>
-            <MenuItem value="Ground">Ground</MenuItem>
-            <MenuItem value="Ice">Ice</MenuItem>
-            <MenuItem value="Normal">Normal</MenuItem>
-            <MenuItem value="Poison">Poison</MenuItem>
-            <MenuItem value="Psychic">Psychic</MenuItem>
-            <MenuItem value="Rock">Rock</MenuItem>
-            <MenuItem value="Steel">Steel</MenuItem>
-            <MenuItem value="Water">Water</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl variant="outlined" margin="normal">
-          <InputLabel id="second-type-label">Second Type</InputLabel>
-          <Select
-            labelId="second-type-label"
-            label="Second Type"
-            name="secondType"
-            onChange={(e) => onChange(e)}
-            value={secondType}
-          >
-            <MenuItem value=" ">None</MenuItem>
-            <MenuItem value="Bug">Bug</MenuItem>
-            <MenuItem value="Dark">Dark</MenuItem>
-            <MenuItem value="Dragon">Dragon</MenuItem>
-            <MenuItem value="Electric">Electric</MenuItem>
-            <MenuItem value="Fairy">Fairy</MenuItem>
-            <MenuItem value="Fighting">Fighting</MenuItem>
-            <MenuItem value="Fire">Fire</MenuItem>
-            <MenuItem value="Flying">Flying</MenuItem>
-            <MenuItem value="Ghost">Ghost</MenuItem>
-            <MenuItem value="Grass">Grass</MenuItem>
-            <MenuItem value="Ground">Ground</MenuItem>
-            <MenuItem value="Ice">Ice</MenuItem>
-            <MenuItem value="Normal">Normal</MenuItem>
-            <MenuItem value="Poison">Poison</MenuItem>
-            <MenuItem value="Psychic">Psychic</MenuItem>
-            <MenuItem value="Rock">Rock</MenuItem>
-            <MenuItem value="Steel">Steel</MenuItem>
-            <MenuItem value="Water">Water</MenuItem>
-          </Select>
-        </FormControl>
-        {/* Abilities */}
-        <TextField
-          label="Abilities"
-          name="abilities"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={abilities}
-        />
-        {/* Hidden Ability */}
-        <TextField
-          label="Hidden Ability"
-          name="hiddenAbility"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={hiddenAbility}
-        />
-        {/* Current Stage */}
-        <TextField
-          label="Current Stage"
-          type="number"
-          name="currentStage"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={currentStage}
-        />
-        {/* Max Stage */}
-        <TextField
-          label="Max Stage"
-          type="number"
-          name="maxStage"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={maxStage}
-        />
+        <Grid container justify="space-evenly" alignItems="flex-end">
+          <Grid item>
+            {/* Abilities */}
+            <TextField
+              label="Abilities"
+              name="abilities"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={abilities}
+            />
+          </Grid>
+          <Grid item>
+            {/* Hidden Ability */}
+            <TextField
+              label="Hidden Ability"
+              name="hiddenAbility"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={hiddenAbility}
+            />
+          </Grid>
+          <Grid item>
+            {/* Current Stage */}
+            <TextField
+              label="Current Stage"
+              type="number"
+              name="currentStage"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={currentStage}
+            />
+          </Grid>
+          <Grid item>
+            {/* Max Stage */}
+            <TextField
+              label="Max Stage"
+              type="number"
+              name="maxStage"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={maxStage}
+            />
+          </Grid>
+        </Grid>
+        {/* Base Stats */}
+        <Grid container justify="space-evenly" alignItems="flex-end">
+          <Grid item xs={1}>
+            <TextField
+              label="Base Health"
+              type="number"
+              name="hp"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={hp}
+            />
+          </Grid>
+          <Grid item xs={1}>
+            <TextField
+              label="Base Attack"
+              type="number"
+              name="atk"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={atk}
+            />
+          </Grid>
+          <Grid item xs={1}>
+            <TextField
+              label="Base Defense"
+              type="number"
+              name="def"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={def}
+            />
+          </Grid>
+          <Grid item xs={1}>
+            <TextField
+              label="Base Special Attack"
+              type="number"
+              name="spA"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={spA}
+            />
+          </Grid>
+          <Grid item xs={1}>
+            <TextField
+              label="Base Special Defense"
+              type="number"
+              name="spD"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={spD}
+            />
+          </Grid>
+          <Grid item xs={1}>
+            <TextField
+              label="Base Speed"
+              type="number"
+              name="spe"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={spe}
+            />
+          </Grid>
+        </Grid>
+        <Grid container justify="space-evenly" alignItems="flex-end">
+          <Grid item>
+            {/* Egg Groups */}
+            <FormControl variant="outlined" margin="normal">
+              <InputLabel id="first-egg-group-label">
+                First Egg Group
+              </InputLabel>
+              <Select
+                labelId="first-egg-group-label"
+                label="First Egg Group"
+                name="firstEggGroup"
+                onChange={(e) => onChange(e)}
+                value={firstEggGroup}
+              >
+                <MenuItem value=" ">None</MenuItem>
+                <MenuItem value="Amorphous">Amorphous</MenuItem>
+                <MenuItem value="Bug">Bug</MenuItem>
+                <MenuItem value="Ditto">Ditto</MenuItem>
+                <MenuItem value="Dragon">Dragon</MenuItem>
+                <MenuItem value="Fairy">Fairy</MenuItem>
+                <MenuItem value="Field">Field</MenuItem>
+                <MenuItem value="Flying">Flying</MenuItem>
+                <MenuItem value="Grass">Grass</MenuItem>
+                <MenuItem value="Human-Like">Human-Like</MenuItem>
+                <MenuItem value="Legendary">Legendary</MenuItem>
+                <MenuItem value="Mineral">Mineral</MenuItem>
+                <MenuItem value="Monster">Monster</MenuItem>
+                <MenuItem value="Unown">Unown</MenuItem>
+                <MenuItem value="Water 1">Water 1</MenuItem>
+                <MenuItem value="Water 2">Water 2</MenuItem>
+                <MenuItem value="Water 3">Water 3</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl variant="outlined" margin="normal">
+              <InputLabel id="second-egg-group-label">
+                Second Egg Group
+              </InputLabel>
+              <Select
+                labelId="second-egg-group-label"
+                label="Second Egg Group"
+                name="secondEggGroup"
+                onChange={(e) => onChange(e)}
+                value={secondEggGroup}
+              >
+                <MenuItem value=" ">None</MenuItem>
+                <MenuItem value="Amorphous">Amorphous</MenuItem>
+                <MenuItem value="Bug">Bug</MenuItem>
+                <MenuItem value="Ditto">Ditto</MenuItem>
+                <MenuItem value="Dragon">Dragon</MenuItem>
+                <MenuItem value="Fairy">Fairy</MenuItem>
+                <MenuItem value="Field">Field</MenuItem>
+                <MenuItem value="Flying">Flying</MenuItem>
+                <MenuItem value="Grass">Grass</MenuItem>
+                <MenuItem value="Human-Like">Human-Like</MenuItem>
+                <MenuItem value="Legendary">Legendary</MenuItem>
+                <MenuItem value="Mineral">Mineral</MenuItem>
+                <MenuItem value="Monster">Monster</MenuItem>
+                <MenuItem value="Unown">Unown</MenuItem>
+                <MenuItem value="Water 1">Water 1</MenuItem>
+                <MenuItem value="Water 2">Water 2</MenuItem>
+                <MenuItem value="Water 3">Water 3</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item>
+            {/* Pokemon that hatches from the egg if it is a male */}
+            <TextField
+              label="Male Egg"
+              name="egg"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={egg}
+            />
+          </Grid>
+          <Grid item>
+            {/* Pokemon that hatches from the egg if it is a female */}
+            <TextField
+              label="Female Egg"
+              name="altEgg"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={altEgg}
+            />
+          </Grid>
+        </Grid>
+        <Grid container justify="space-evenly" alignItems="flex-end">
+          <Grid item>
+            {/* Weight in kg */}
+            <TextField
+              label="Weight (kg)"
+              type="number"
+              name="weight"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={weight}
+            />
+          </Grid>
+          <Grid item>
+            {/* Base Friendship */}
+            <TextField
+              label="Base Friendship"
+              type="number"
+              name="baseFriendship"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={baseFriendship}
+            />
+          </Grid>
+          <Grid item>
+            {/* Gender Ratio */}
+            <TextField
+              label="Gender Ratio"
+              type="number"
+              name="genderRatio"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={genderRatio}
+            />
+          </Grid>
+          <Grid item>
+            {/* Spawn Rate */}
+            <TextField
+              label="Spawn Rate"
+              type="number"
+              name="spawnRate"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={spawnRate}
+            />
+          </Grid>
+        </Grid>
         {/* Evolution Details */}
         <TextField
           label="Evolution Details"
@@ -427,88 +629,6 @@ export const EditPokemon = ({ match }) => {
           multiline
           rows={5}
           fullWidth
-        />
-        {/* Base Stats */}
-        <TextField
-          label="Base Health"
-          type="number"
-          name="hp"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={hp}
-        />
-        <TextField
-          label="Base Attack"
-          type="number"
-          name="atk"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={atk}
-        />
-        <TextField
-          label="Base Defense"
-          type="number"
-          name="def"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={def}
-        />
-        <TextField
-          label="Base Special Attack"
-          type="number"
-          name="spA"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={spA}
-        />
-        <TextField
-          label="Base Special Defense"
-          type="number"
-          name="spD"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={spD}
-        />
-        <TextField
-          label="Base Speed"
-          type="number"
-          name="spe"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={spe}
-        />
-        {/* Egg Groups */}
-        <TextField
-          label="Egg Groups"
-          name="eggGroups"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={eggGroups}
-        />
-        {/* Pokemon that hatches from the egg if it is a male */}
-        <TextField
-          label="Male Egg"
-          name="egg"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={egg}
-        />
-        {/* Pokemon that hatches from the egg if it is a female */}
-        <TextField
-          label="Female Egg"
-          name="altEgg"
-          onChange={(e) => onChange(e)}
-          variant="outlined"
-          margin="normal"
-          value={altEgg}
         />
         {/* Moves */}
         <TextField
@@ -522,9 +642,11 @@ export const EditPokemon = ({ match }) => {
           rows={30}
           fullWidth
         />
-        <Button color="primary" type="submit" variant="contained">
-          Submit
-        </Button>
+        <Grid container justify="center">
+          <Button color="primary" type="submit" variant="contained">
+            Submit
+          </Button>
+        </Grid>
       </form>
     </Fragment>
   );

@@ -98,7 +98,7 @@ export const SearchFilter = ({
   };
 
   return (
-    <form>
+    <>
       <TextField
         variant="outlined"
         margin="normal"
@@ -366,7 +366,7 @@ export const SearchFilter = ({
         </Fragment>
       )}
       <Divider className={classes.divider} />
-    </form>
+    </>
   );
 };
 
