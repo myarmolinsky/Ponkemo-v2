@@ -59,70 +59,7 @@ export const EditPokemon = ({ match }) => {
   useEffect(() => {
     if (pokemon)
       // if we're editing an existing Pokemon
-      setFormData({
-        name: pokemon.name,
-        sprite: pokemon.sprite,
-        shinySprite: pokemon.shinySprite,
-        firstType:
-          pokemon.types && pokemon.types.length > 0 && pokemon.types[0] !== ""
-            ? pokemon.types[0]
-            : " ",
-        secondType:
-          pokemon.types && pokemon.types.length > 1 && pokemon.types[1] !== ""
-            ? pokemon.types[1]
-            : " ",
-        abilities: pokemon.abilities && pokemon.abilities.join(", "),
-        hiddenAbility: pokemon.hiddenAbility,
-        weight: pokemon.weight,
-        baseFriendship: pokemon.baseFriendship,
-        hp: pokemon.baseStats && pokemon.baseStats.hp,
-        atk: pokemon.baseStats && pokemon.baseStats.atk,
-        def: pokemon.baseStats && pokemon.baseStats.def,
-        spA: pokemon.baseStats && pokemon.baseStats.spA,
-        spD: pokemon.baseStats && pokemon.baseStats.spD,
-        spe: pokemon.baseStats && pokemon.baseStats.spe,
-        spawnRate: pokemon.spawnRate,
-        moves:
-          pokemon.moves &&
-          JSON.stringify(pokemon.moves)
-            .split("],")
-            .join("],\n")
-            .split("{")
-            .join("{\n")
-            .split("},")
-            .join("\n},\n")
-            .split("}]")
-            .join("\n}]"),
-        evolutionDetails:
-          pokemon.evolutionDetails &&
-          JSON.stringify(pokemon.evolutionDetails)
-            .split('",')
-            .join('",\n')
-            .split("{")
-            .join("{\n")
-            .split("},")
-            .join("\n},\n")
-            .split("}]")
-            .join("\n}]"),
-        id: match.params.id,
-        firstEggGroup:
-          pokemon.breeding &&
-          pokemon.breeding.eggGroups.length > 0 &&
-          pokemon.breeding.eggGroups[0] !== ""
-            ? pokemon.breeding.eggGroups[0]
-            : " ",
-        secondEggGroup:
-          pokemon.breeding &&
-          pokemon.breeding.eggGroups.length > 1 &&
-          pokemon.breeding.eggGroups[1] !== ""
-            ? pokemon.breeding.eggGroups[1]
-            : " ",
-        egg: pokemon.breeding && pokemon.breeding.egg,
-        altEgg: pokemon.breeding && pokemon.breeding.altEgg,
-        currentStage: pokemon.stages && pokemon.stages.current,
-        maxStage: pokemon.stages && pokemon.stages.max,
-        genderRatio: pokemon.genderRatio,
-      });
+      setFormData({ ...getFormValues(pokemon), id: match.params.id });
   }, [pokemon]);
 
   const {
@@ -176,15 +113,14 @@ export const EditPokemon = ({ match }) => {
     // }
   };
 
-  return !user || loading ? (
+  return !user || loading || lastId === -1 ? (
     <Spinner />
   ) : user.privileges !== "admin" ? (
     // if the user does not have "admin" privileges
     <AccessDenied />
   ) : isNaN(match.params.id) ||
-    match.params.id > lastId + 1 ||
-    match.params.id < 1 ||
-    !pokemon ? (
+    match.params.id > Math.floor(lastId) + 1 ||
+    match.params.id < 1 ? (
     // if the page the user is trying to go to a Pokemon that does not exist
     <NotFound />
   ) : (
@@ -650,6 +586,72 @@ export const EditPokemon = ({ match }) => {
       </form>
     </Fragment>
   );
+};
+
+const getFormValues = (pokemon) => {
+  return {
+    name: pokemon.name,
+    sprite: pokemon.sprite,
+    shinySprite: pokemon.shinySprite,
+    firstType:
+      pokemon.types && pokemon.types.length > 0 && pokemon.types[0] !== ""
+        ? pokemon.types[0]
+        : " ",
+    secondType:
+      pokemon.types && pokemon.types.length > 1 && pokemon.types[1] !== ""
+        ? pokemon.types[1]
+        : " ",
+    abilities: pokemon.abilities && pokemon.abilities.join(", "),
+    hiddenAbility: pokemon.hiddenAbility,
+    weight: pokemon.weight,
+    baseFriendship: pokemon.baseFriendship,
+    hp: pokemon.baseStats && pokemon.baseStats.hp,
+    atk: pokemon.baseStats && pokemon.baseStats.atk,
+    def: pokemon.baseStats && pokemon.baseStats.def,
+    spA: pokemon.baseStats && pokemon.baseStats.spA,
+    spD: pokemon.baseStats && pokemon.baseStats.spD,
+    spe: pokemon.baseStats && pokemon.baseStats.spe,
+    spawnRate: pokemon.spawnRate,
+    moves:
+      pokemon.moves &&
+      JSON.stringify(pokemon.moves)
+        .split("],")
+        .join("],\n")
+        .split("{")
+        .join("{\n")
+        .split("},")
+        .join("\n},\n")
+        .split("}]")
+        .join("\n}]"),
+    evolutionDetails:
+      pokemon.evolutionDetails &&
+      JSON.stringify(pokemon.evolutionDetails)
+        .split('",')
+        .join('",\n')
+        .split("{")
+        .join("{\n")
+        .split("},")
+        .join("\n},\n")
+        .split("}]")
+        .join("\n}]"),
+    firstEggGroup:
+      pokemon.breeding &&
+      pokemon.breeding.eggGroups.length > 0 &&
+      pokemon.breeding.eggGroups[0] !== ""
+        ? pokemon.breeding.eggGroups[0]
+        : " ",
+    secondEggGroup:
+      pokemon.breeding &&
+      pokemon.breeding.eggGroups.length > 1 &&
+      pokemon.breeding.eggGroups[1] !== ""
+        ? pokemon.breeding.eggGroups[1]
+        : " ",
+    egg: pokemon.breeding && pokemon.breeding.egg,
+    altEgg: pokemon.breeding && pokemon.breeding.altEgg,
+    currentStage: pokemon.stages && pokemon.stages.current,
+    maxStage: pokemon.stages && pokemon.stages.max,
+    genderRatio: pokemon.genderRatio,
+  };
 };
 
 EditPokemon.propTypes = {
