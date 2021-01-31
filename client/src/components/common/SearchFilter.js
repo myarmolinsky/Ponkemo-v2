@@ -471,36 +471,9 @@ const checkSearchPokemon = (pokemon, data) => {
     baseSpeedLess,
   } = data;
 
-  if (
-    !pokemon.name.toUpperCase().includes(data.search.toUpperCase()) ||
-    (search === " " &&
-      (pokemon.name.includes("Basculin") ||
-        pokemon.name.includes("Deoxys") ||
-        pokemon.name.includes("Wormadam") ||
-        pokemon.name.includes("Giratina") ||
-        pokemon.name.includes("Shaymin") ||
-        pokemon.name.includes("Tornadus") ||
-        pokemon.name.includes("Thundurus") ||
-        pokemon.name.includes("Landorus") ||
-        pokemon.name.includes("Meloetta") ||
-        pokemon.name.includes("Aegislash") ||
-        pokemon.name.includes("Pumpkaboo") ||
-        pokemon.name.includes("Gourgeist") ||
-        pokemon.name.includes("Zygarde") ||
-        pokemon.name.includes("Hoopa") ||
-        pokemon.name.includes("Oricorio") ||
-        pokemon.name.includes("Lycanroc") ||
-        pokemon.name.includes("Wishiwashi") ||
-        pokemon.name.includes("Minior") ||
-        pokemon.name.includes("Toxtricity") ||
-        pokemon.name.includes("Eiscue") ||
-        pokemon.name.includes("Morpeko") ||
-        pokemon.name.includes("Zacian") ||
-        pokemon.name.includes("Zamazenta"))) ||
-    (search === "-" &&
-      (pokemon.name.includes("Arceus") || pokemon.name.includes("Basculin")))
-  )
+  if (!pokemon.name.toUpperCase().includes(search.toUpperCase())) {
     return false;
+  }
 
   if (firstType !== " ") {
     if (!pokemon.types.includes(firstType)) {
@@ -513,18 +486,16 @@ const checkSearchPokemon = (pokemon, data) => {
     }
   }
 
-  if (ability !== "") {
-    if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase())) {
-      if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase())) {
-        if (pokemon.abilities.length > 1) {
-          if (
-            !pokemon.abilities[1].toUpperCase().includes(ability.toUpperCase())
-          ) {
-            return false;
-          }
-        } else {
+  if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase())) {
+    if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase())) {
+      if (pokemon.abilities.length > 1) {
+        if (
+          !pokemon.abilities[1].toUpperCase().includes(ability.toUpperCase())
+        ) {
           return false;
         }
+      } else {
+        return false;
       }
     }
   }
@@ -541,53 +512,72 @@ const checkSearchPokemon = (pokemon, data) => {
   }
 
   let hpGreater,
-    hpLess,
     atkGreater,
-    atkLess,
     defGreater,
-    defLess,
     spaGreater,
-    spaLess,
     spdGreater,
-    spdLess,
-    speGreater,
-    speLess;
+    speGreater = 0;
 
-  if (baseHealthGreater === "") hpGreater = 0;
-  else hpGreater = parseFloat(baseHealthGreater);
-  if (baseHealthLess === "") hpLess = 256;
-  else hpLess = parseFloat(baseHealthLess);
-  if (pokemon.baseStats.hp <= hpGreater || pokemon.baseStats.hp >= hpLess)
+  let hpLess,
+    atkLess,
+    defLess,
+    spaLess,
+    spdLess,
+    speLess = 256;
+
+  if (baseHealthGreater !== "") {
+    hpGreater = baseHealthGreater;
+  }
+  if (baseHealthLess !== "") {
+    hpLess = baseHealthLess;
+  }
+  if (pokemon.baseStats.hp <= hpGreater || pokemon.baseStats.hp >= hpLess) {
     return false;
-  if (baseAttackGreater === "") atkGreater = 0;
-  else atkGreater = parseFloat(baseAttackGreater);
-  if (baseAttackLess === "") atkLess = 256;
-  else atkLess = parseFloat(baseAttackLess);
-  if (pokemon.baseStats.atk <= atkGreater || pokemon.baseStats.atk >= atkLess)
+  }
+  if (baseAttackGreater !== "") {
+    atkGreater = baseAttackGreater;
+  }
+  if (baseAttackLess !== "") {
+    atkLess = baseAttackLess;
+  }
+  if (pokemon.baseStats.atk <= atkGreater || pokemon.baseStats.atk >= atkLess) {
     return false;
-  if (baseDefenseGreater === "") defGreater = 0;
-  else defGreater = parseFloat(baseDefenseGreater);
-  if (baseDefenseLess === "") defLess = 256;
-  else defLess = parseFloat(baseDefenseLess);
-  if (pokemon.baseStats.def <= defGreater || pokemon.baseStats.def >= defLess)
+  }
+  if (baseDefenseGreater !== "") {
+    defGreater = baseDefenseGreater;
+  }
+  if (baseDefenseLess !== "") {
+    defLess = baseDefenseLess;
+  }
+  if (pokemon.baseStats.def <= defGreater || pokemon.baseStats.def >= defLess) {
     return false;
-  if (baseSpAttackGreater === "") spaGreater = 0;
-  else spaGreater = parseFloat(baseSpAttackGreater);
-  if (baseSpAttackLess === "") spaLess = 256;
-  else spaLess = parseFloat(baseSpAttackLess);
-  if (pokemon.baseStats.spA <= spaGreater || pokemon.baseStats.spA >= spaLess)
+  }
+  if (baseSpAttackGreater !== "") {
+    spaGreater = baseSpAttackGreater;
+  }
+  if (baseSpAttackLess !== "") {
+    spaLess = baseSpAttackLess;
+  }
+  if (pokemon.baseStats.spA <= spaGreater || pokemon.baseStats.spA >= spaLess) {
     return false;
-  if (baseSpDefenseGreater === "") spdGreater = 0;
-  else spdGreater = parseFloat(baseSpDefenseGreater);
-  if (baseSpDefenseLess === "") spdLess = 256;
-  else spdLess = parseFloat(baseSpDefenseLess);
-  if (pokemon.baseStats.spD <= spdGreater || pokemon.baseStats.spD >= spdLess)
+  }
+  if (baseSpDefenseGreater !== "") {
+    spdGreater = baseSpDefenseGreater;
+  }
+  if (baseSpDefenseLess !== "") {
+    spdLess = baseSpDefenseLess;
+  }
+  if (pokemon.baseStats.spD <= spdGreater || pokemon.baseStats.spD >= spdLess) {
     return false;
-  if (baseSpeedGreater === "") speGreater = 0;
-  else speGreater = parseFloat(baseSpeedGreater);
-  if (baseSpeedLess === "") speLess = 256;
-  else speLess = parseFloat(baseSpeedLess);
-  if (pokemon.baseStats.spe <= speGreater || pokemon.baseStats.spe >= speLess)
+  }
+  if (baseSpeedGreater !== "") {
+    speGreater = baseSpeedGreater;
+  }
+  if (baseSpeedLess !== "") {
+    speLess = baseSpeedLess;
+  }
+  if (pokemon.baseStats.spe <= speGreater || pokemon.baseStats.spe >= speLess) {
     return false;
+  }
   return true;
 };
