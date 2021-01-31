@@ -15,6 +15,7 @@ export const SearchFilter = ({
   pokedex,
   setFilteredPokedex,
   showBothTypes,
+  showBothEggGroups,
 }) => {
   const classes = useStyles();
 
@@ -23,7 +24,8 @@ export const SearchFilter = ({
     firstType: " ",
     secondType: " ",
     ability: "",
-    eggGroup: " ",
+    firstEggGroup: " ",
+    secondEggGroup: " ",
     baseHealthGreater: 0,
     baseHealthLess: 256,
     baseAttackGreater: 0,
@@ -45,7 +47,8 @@ export const SearchFilter = ({
     firstType,
     secondType,
     ability,
-    eggGroup,
+    firstEggGroup,
+    secondEggGroup,
     baseHealthGreater,
     baseHealthLess,
     baseAttackGreater,
@@ -81,7 +84,8 @@ export const SearchFilter = ({
       firstType: " ",
       secondType: " ",
       ability: "",
-      eggGroup: " ",
+      firstEggGroup: " ",
+      secondEggGroup: " ",
       baseHealthGreater: 0,
       baseHealthLess: 256,
       baseAttackGreater: 0,
@@ -201,9 +205,9 @@ export const SearchFilter = ({
             <Grid item>
               <Typography variant="h6">Egg Group:</Typography>
               <Select
-                name="eggGroup"
+                name="firstEggGroup"
                 onChange={(e) => onChange(e)}
-                value={eggGroup}
+                value={firstEggGroup}
                 variant="outlined"
               >
                 <MenuItem value=" ">None</MenuItem>
@@ -224,6 +228,32 @@ export const SearchFilter = ({
                 <MenuItem value="Water 2">Water 2</MenuItem>
                 <MenuItem value="Water 3">Water 3</MenuItem>
               </Select>
+              {showBothEggGroups && (
+                <Select
+                  name="secondEggGroup"
+                  onChange={(e) => onChange(e)}
+                  value={secondEggGroup}
+                  variant="outlined"
+                >
+                  <MenuItem value=" ">None</MenuItem>
+                  <MenuItem value="Amorphous">Amorphous</MenuItem>
+                  <MenuItem value="Bug">Bug</MenuItem>
+                  <MenuItem value="Ditto">Ditto</MenuItem>
+                  <MenuItem value="Dragon">Dragon</MenuItem>
+                  <MenuItem value="Fairy">Fairy</MenuItem>
+                  <MenuItem value="Field">Field</MenuItem>
+                  <MenuItem value="Flying">Flying</MenuItem>
+                  <MenuItem value="Grass">Grass</MenuItem>
+                  <MenuItem value="Human-Like">Human-Like</MenuItem>
+                  <MenuItem value="Legendary">Legendary</MenuItem>
+                  <MenuItem value="Mineral">Mineral</MenuItem>
+                  <MenuItem value="Monster">Monster</MenuItem>
+                  <MenuItem value="Unown">Unown</MenuItem>
+                  <MenuItem value="Water 1">Water 1</MenuItem>
+                  <MenuItem value="Water 2">Water 2</MenuItem>
+                  <MenuItem value="Water 3">Water 3</MenuItem>
+                </Select>
+              )}
             </Grid>
           </Grid>
           <Divider className={classes.divider} />
@@ -374,10 +404,12 @@ SearchFilter.propTypes = {
   pokedex: array.isRequired,
   setFilteredPokedex: func.isRequired,
   showBothTypes: bool,
+  showBothEggGroups: bool,
 };
 
 SearchFilter.defaultProps = {
   showBothTypes: true,
+  showBothEggGroups: true,
 };
 
 const checkSearchPokemon = (pokemon, data) => {
@@ -386,7 +418,8 @@ const checkSearchPokemon = (pokemon, data) => {
     firstType,
     secondType,
     ability,
-    eggGroup,
+    firstEggGroup,
+    secondEggGroup,
     baseHealthGreater,
     baseHealthLess,
     baseAttackGreater,
@@ -459,8 +492,13 @@ const checkSearchPokemon = (pokemon, data) => {
     }
   }
 
-  if (eggGroup !== " ") {
-    if (!pokemon.breeding.eggGroups.includes(eggGroup)) {
+  if (firstEggGroup !== " ") {
+    if (!pokemon.breeding.eggGroups.includes(firstEggGroup)) {
+      return false;
+    }
+  }
+  if (secondEggGroup !== " ") {
+    if (!pokemon.breeding.eggGroups.includes(secondEggGroup)) {
       return false;
     }
   }

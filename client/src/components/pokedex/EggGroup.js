@@ -33,6 +33,7 @@ export const EggGroup = ({ match }) => {
       <SearchFilter
         pokedex={eggGroup}
         setFilteredPokedex={(filtered) => setFilteredPokedex(filtered)}
+        showBothEggGroups={false}
       />
       <Dex dex={filteredPokedex} />
     </Fragment>
