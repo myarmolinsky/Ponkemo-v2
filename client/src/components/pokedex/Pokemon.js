@@ -51,8 +51,8 @@ export const Pokemon = ({ match }) => {
                 variant="contained"
                 fullWidth
               >
-                <a
-                  href={`/pokedex/${
+                <Link
+                  to={`/pokedex/${
                     match.params.id > 1
                       ? Math.ceil(match.params.id) - 1
                       : match.params.id
@@ -62,7 +62,7 @@ export const Pokemon = ({ match }) => {
                   }}
                 >
                   Previous Pokemon
-                </a>
+                </Link>
               </Button>
             </Grid>
             <Grid item xs={5}>
@@ -73,8 +73,8 @@ export const Pokemon = ({ match }) => {
                 variant="contained"
                 fullWidth
               >
-                <a
-                  href={`/pokedex/${
+                <Link
+                  to={`/pokedex/${
                     match.params.id < lastId
                       ? Math.floor(match.params.id) + 1
                       : match.params.id
@@ -84,7 +84,7 @@ export const Pokemon = ({ match }) => {
                   }}
                 >
                   Next Pokemon
-                </a>
+                </Link>
               </Button>
             </Grid>
           </Grid>
@@ -115,7 +115,7 @@ export const Pokemon = ({ match }) => {
                 <Fragment>
                   Formes: <br />
                   {formes.map((poke) => (
-                    <a key={poke.name} href={`/pokedex/${poke.id}`}>
+                    <Link key={poke.name} to={`/pokedex/${poke.id}`}>
                       {/* Create a link leading to the pokemon's page */}
                       <div className="pokedex-item">
                         <img
@@ -127,7 +127,7 @@ export const Pokemon = ({ match }) => {
                         <span className="caption">{poke.name}</span>
                         {/* Pokemon's name */}
                       </div>
-                    </a>
+                    </Link>
                   ))}
                 </Fragment>
               )}
@@ -210,15 +210,17 @@ export const Pokemon = ({ match }) => {
               <p className="lead">
                 {pokemon.breeding.egg !== pokemon.breeding.altEgg && "Male "}
                 Egg:{" "}
-                <a href={`/pokedex/${eggs[0].id}`}>{pokemon.breeding.egg}</a>
+                <Link to={`/pokedex/${eggs[0].id}`}>
+                  {pokemon.breeding.egg}
+                </Link>
               </p>
               {/* Pokemon that hatches from the egg if it is a female */}
               {pokemon.breeding.egg !== pokemon.breeding.altEgg && (
                 <p className="lead">
                   Female Egg:{" "}
-                  <a href={`/pokedex/${eggs[1].id}`}>
+                  <Link to={`/pokedex/${eggs[1].id}`}>
                     {pokemon.breeding.altEgg}
-                  </a>
+                  </Link>
                 </p>
               )}
             </Fragment>
@@ -234,7 +236,7 @@ export const Pokemon = ({ match }) => {
                     // the name of the evolution is a link to the evolution
                     let listItem = (
                       <li key={poke.id} style={{ listStyleType: "none" }}>
-                        <a href={`/pokedex/${poke.id}`}>{poke.name}</a>{" "}
+                        <Link to={`/pokedex/${poke.id}`}>{poke.name}</Link>{" "}
                         {evolutionCondition(
                           pokemon.evolutionDetails[evolutionCount].condition
                         )}

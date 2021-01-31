@@ -138,7 +138,7 @@ export const PokemonState = ({ children }) => {
         },
       };
 
-      const res = await axios.put(`/api/pokemon/${id}`, data, config);
+      await axios.put(`/api/pokemon/${id}`, data, config);
 
       setAlert("Pokemon Updated/Created", "success");
     } catch (err) {

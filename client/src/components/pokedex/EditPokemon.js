@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { any } from "prop-types";
 import {
   Button,
@@ -68,9 +69,10 @@ export const EditPokemon = ({ match }) => {
   }, [match.params.id]);
 
   useEffect(() => {
-    if (pokemon)
+    if (pokemon) {
       // if we're editing an existing Pokemon
       setFormData({ ...getFormValues(pokemon), id: match.params.id });
+    }
   }, [pokemon, match.params.id]);
 
   useEffect(() => {
@@ -79,7 +81,7 @@ export const EditPokemon = ({ match }) => {
     } else if (match.params.id < lastId) {
       setNextId(parseInt(match.params.id) + 1);
     } else {
-      setNextId(lastId);
+      setNextId(match.params.id);
     }
   }, [formes, match.params.id, lastId]);
 
@@ -150,7 +152,6 @@ export const EditPokemon = ({ match }) => {
     <NotFound />
   ) : (
     <Fragment>
-      {/* Link does not reload the page so I have to use <a> tags so I use these functions to determine which <a> tag to return depending on the page we're on */}
       <Grid container justify="space-evenly">
         <Grid item xs={3}>
           {/* If there is a previous pokemon, link to its page */}
@@ -160,14 +161,14 @@ export const EditPokemon = ({ match }) => {
             variant="contained"
             fullWidth
           >
-            <a
-              href={`/pokedex/${previousId}/edit`}
+            <Link
+              to={`/pokedex/${previousId}/edit`}
               style={{
                 color: `${match.params.id > 1 ? "white" : "black"}`,
               }}
             >
               Previous Pokemon
-            </a>
+            </Link>
           </Button>
         </Grid>
         <Grid item xs={3}>
@@ -178,14 +179,14 @@ export const EditPokemon = ({ match }) => {
             variant="contained"
             fullWidth
           >
-            <a
-              href={`/pokedex/${nextId}/edit`}
+            <Link
+              to={`/pokedex/${nextId}/edit`}
               style={{
                 color: `${match.params.id < lastId ? "white" : "black"}`,
               }}
             >
               Next Pokemon
-            </a>
+            </Link>
           </Button>
         </Grid>
         <Grid item xs={3}>
@@ -195,25 +196,25 @@ export const EditPokemon = ({ match }) => {
             variant="contained"
             fullWidth
           >
-            <a
-              href={`/pokedex/${Math.floor(lastId) + 1}/edit`}
+            <Link
+              to={`/pokedex/${Math.floor(lastId) + 1}/edit`}
               style={{
                 color: `${match.params.id < lastId + 1 ? "white" : "black"}`,
               }}
             >
               Add a New Pokemon
-            </a>
+            </Link>
           </Button>
         </Grid>
         <Grid item xs={1}>
-          <a
+          <Link
             className="lead edit-link"
-            href={`/pokedex/${
+            to={`/pokedex/${
               match.params.id > lastId ? lastId : match.params.id
             }`}
           >
             Cancel
-          </a>
+          </Link>
         </Grid>
       </Grid>
       <br />
@@ -386,8 +387,13 @@ export const EditPokemon = ({ match }) => {
           </Grid>
         </Grid>
         {/* Base Stats */}
-        <Grid container justify="space-evenly" alignItems="flex-end">
-          <Grid item xs={1}>
+        <Grid
+          container
+          justify="space-evenly"
+          alignItems="flex-end"
+          spacing={1}
+        >
+          <Grid item xs={2}>
             <TextField
               label="Base Health"
               type="number"
@@ -398,7 +404,7 @@ export const EditPokemon = ({ match }) => {
               value={hp}
             />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <TextField
               label="Base Attack"
               type="number"
@@ -409,7 +415,7 @@ export const EditPokemon = ({ match }) => {
               value={atk}
             />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <TextField
               label="Base Defense"
               type="number"
@@ -420,7 +426,7 @@ export const EditPokemon = ({ match }) => {
               value={def}
             />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <TextField
               label="Base Special Attack"
               type="number"
@@ -431,7 +437,7 @@ export const EditPokemon = ({ match }) => {
               value={spA}
             />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <TextField
               label="Base Special Defense"
               type="number"
@@ -442,7 +448,7 @@ export const EditPokemon = ({ match }) => {
               value={spD}
             />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <TextField
               label="Base Speed"
               type="number"
@@ -631,9 +637,9 @@ EditPokemon.propTypes = {
 
 const getFormValues = (pokemon) => {
   return {
-    name: pokemon.name,
-    sprite: pokemon.sprite,
-    shinySprite: pokemon.shinySprite,
+    name: pokemon.name ? pokemon.name : "",
+    sprite: pokemon.sprite ? pokemon.sprite : "",
+    shinySprite: pokemon.shinySprite ? pokemon.shinySprite : "",
     firstType:
       pokemon.types && pokemon.types.length > 0 && pokemon.types[0] !== ""
         ? pokemon.types[0]
@@ -654,38 +660,38 @@ const getFormValues = (pokemon) => {
       pokemon.abilities[1] !== ""
         ? pokemon.abilities[1]
         : "",
-    hiddenAbility: pokemon.hiddenAbility,
-    weight: pokemon.weight,
-    baseFriendship: pokemon.baseFriendship,
-    hp: pokemon.baseStats && pokemon.baseStats.hp,
-    atk: pokemon.baseStats && pokemon.baseStats.atk,
-    def: pokemon.baseStats && pokemon.baseStats.def,
-    spA: pokemon.baseStats && pokemon.baseStats.spA,
-    spD: pokemon.baseStats && pokemon.baseStats.spD,
-    spe: pokemon.baseStats && pokemon.baseStats.spe,
-    spawnRate: pokemon.spawnRate,
-    moves:
-      pokemon.moves &&
-      JSON.stringify(pokemon.moves)
-        .split("],")
-        .join("],\n")
-        .split("{")
-        .join("{\n")
-        .split("},")
-        .join("\n},\n")
-        .split("}]")
-        .join("\n}]"),
-    evolutionDetails:
-      pokemon.evolutionDetails &&
-      JSON.stringify(pokemon.evolutionDetails)
-        .split('",')
-        .join('",\n')
-        .split("{")
-        .join("{\n")
-        .split("},")
-        .join("\n},\n")
-        .split("}]")
-        .join("\n}]"),
+    hiddenAbility: pokemon.hiddenAbility ? pokemon.hiddenAbility : "",
+    weight: pokemon.weight ? pokemon.weight : 0,
+    baseFriendship: pokemon.baseFriendship ? pokemon.baseFriendship : 0,
+    hp: pokemon.baseStats ? pokemon.baseStats.hp : 0,
+    atk: pokemon.baseStats ? pokemon.baseStats.atk : 0,
+    def: pokemon.baseStats ? pokemon.baseStats.def : 0,
+    spA: pokemon.baseStats ? pokemon.baseStats.spA : 0,
+    spD: pokemon.baseStats ? pokemon.baseStats.spD : 0,
+    spe: pokemon.baseStats ? pokemon.baseStats.spe : 0,
+    spawnRate: pokemon.spawnRate ? pokemon.spawnRate : 0,
+    moves: pokemon.moves
+      ? JSON.stringify(pokemon.moves)
+          .split("],")
+          .join("],\n")
+          .split("{")
+          .join("{\n")
+          .split("},")
+          .join("\n},\n")
+          .split("}]")
+          .join("\n}]")
+      : "[]",
+    evolutionDetails: pokemon.evolutionDetails
+      ? JSON.stringify(pokemon.evolutionDetails)
+          .split('",')
+          .join('",\n')
+          .split("{")
+          .join("{\n")
+          .split("},")
+          .join("\n},\n")
+          .split("}]")
+          .join("\n}]")
+      : "[]",
     firstEggGroup:
       pokemon.breeding &&
       pokemon.breeding.eggGroups.length > 0 &&
@@ -698,11 +704,11 @@ const getFormValues = (pokemon) => {
       pokemon.breeding.eggGroups[1] !== ""
         ? pokemon.breeding.eggGroups[1]
         : " ",
-    egg: pokemon.breeding && pokemon.breeding.egg,
-    altEgg: pokemon.breeding && pokemon.breeding.altEgg,
-    currentStage: pokemon.stages && pokemon.stages.current,
-    maxStage: pokemon.stages && pokemon.stages.max,
-    genderRatio: pokemon.genderRatio,
+    egg: pokemon.breeding ? pokemon.breeding.egg : "",
+    altEgg: pokemon.breeding ? pokemon.breeding.altEgg : "",
+    currentStage: pokemon.stages ? pokemon.stages.current : 0,
+    maxStage: pokemon.stages ? pokemon.stages.max : 0,
+    genderRatio: pokemon.genderRatio ? pokemon.genderRatio : 0,
   };
 };
 
