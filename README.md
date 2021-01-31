@@ -45,7 +45,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 ## Planned Features/To-Do List
 
 - Comment code
-- Fix decimal always showing in url when going to previous pokemon
+- Strengthen backend
 - Fix Stage 0 Pokemon and future evolutions having unidentical egg moves (duskull + dusknoir, chingling + chimecho)
 - Add moves for the rest of the pokemon (359-end)
 - Movedex

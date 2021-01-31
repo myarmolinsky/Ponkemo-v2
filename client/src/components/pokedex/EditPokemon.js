@@ -35,7 +35,8 @@ export const EditPokemon = ({ match }) => {
     shinySprite: "",
     firstType: " ",
     secondType: " ",
-    abilities: "",
+    firstAbility: "",
+    secondAbility: "",
     hiddenAbility: "",
     weight: 0,
     baseFriendship: 0,
@@ -98,7 +99,8 @@ export const EditPokemon = ({ match }) => {
     shinySprite,
     firstType,
     secondType,
-    abilities,
+    firstAbility,
+    secondAbility,
     hiddenAbility,
     weight,
     baseFriendship,
@@ -128,13 +130,10 @@ export const EditPokemon = ({ match }) => {
     e.preventDefault();
     // if we are making a new Pokemon reload the page after creating it so that all the proper data loads (otherwise the buttons don't work properly)
 
-    console.log(formData);
+    console.log(convertFormDataToReqForUpdate(formData));
     // TODO: removed for testing for now, readd
-    // if (match.params.id > lastId) {
-    //   updatePokemon(match.params.id, formData, false);
-    //   window.location.reload();
-    // } else updatePokemon(match.params.id, formData); // if we are editing an existing Pokemon
-    // // if we edited the pokemon's id, load the page connected to its new id
+    // updatePokemon(match.params.id, convertFormDataToReqForUpdate(formData))
+    // if we edited the pokemon's id, load the page connected to its new id
     // let splitUrl = window.location.href.split("/");
     // if (id !== match.params.id) {
     //   splitUrl.pop();
@@ -334,12 +333,20 @@ export const EditPokemon = ({ match }) => {
           <Grid item>
             {/* Abilities */}
             <TextField
-              label="Abilities"
-              name="abilities"
+              label="First Ability"
+              name="firstAbility"
               onChange={(e) => onChange(e)}
               variant="outlined"
               margin="normal"
-              value={abilities}
+              value={firstAbility}
+            />
+            <TextField
+              label="Second Ability"
+              name="secondAbility"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={secondAbility}
             />
           </Grid>
           <Grid item>
@@ -618,6 +625,10 @@ export const EditPokemon = ({ match }) => {
   );
 };
 
+EditPokemon.propTypes = {
+  match: any.isRequired,
+};
+
 const getFormValues = (pokemon) => {
   return {
     name: pokemon.name,
@@ -631,7 +642,18 @@ const getFormValues = (pokemon) => {
       pokemon.types && pokemon.types.length > 1 && pokemon.types[1] !== ""
         ? pokemon.types[1]
         : " ",
-    abilities: pokemon.abilities && pokemon.abilities.join(", "),
+    firstAbility:
+      pokemon.abilities &&
+      pokemon.abilities.length > 0 &&
+      pokemon.abilities[0] !== ""
+        ? pokemon.abilities[0]
+        : "",
+    secondAbility:
+      pokemon.abilities &&
+      pokemon.abilities.length > 1 &&
+      pokemon.abilities[1] !== ""
+        ? pokemon.abilities[1]
+        : "",
     hiddenAbility: pokemon.hiddenAbility,
     weight: pokemon.weight,
     baseFriendship: pokemon.baseFriendship,
@@ -684,6 +706,96 @@ const getFormValues = (pokemon) => {
   };
 };
 
-EditPokemon.propTypes = {
-  match: any.isRequired,
+const convertFormDataToReqForUpdate = (data) => {
+  // translate the data into an object that can be passed into the database
+  let types = [];
+  if (data.firstType !== " ") {
+    types.push(data.firstType);
+  }
+  if (data.secondType !== " ") {
+    types.push(data.secondType);
+  }
+
+  let abilities = [];
+  if (data.firstAbility !== "") {
+    abilities.push(data.firstAbility);
+  }
+  if (data.secondAbility !== "") {
+    abilities.push(data.secondAbility);
+  }
+
+  let eggGroups = [];
+  if (data.firstEggGroup !== "") {
+    eggGroups.push(data.firstEggGroup);
+  }
+  if (data.secondEggGroup !== "") {
+    eggGroups.push(data.secondEggGroup);
+  }
+
+  let realData = {
+    name: data.name,
+    sprite: data.sprite,
+    shinySprite: data.shinySprite,
+    types,
+    abilities,
+    hiddenAbility: data.hiddenAbility,
+    weight: data.weight,
+    baseFriendship: data.baseFriendship,
+    baseStats: {
+      hp: data.hp,
+      atk: data.atk,
+      def: data.def,
+      spA: data.spA,
+      spD: data.spD,
+      spe: data.spe,
+    },
+    spawnRate: data.spawnRate,
+    moves: JSON.parse(data.moves),
+    id: data.id,
+    breeding: {
+      eggGroups,
+      egg: data.egg,
+      altEgg: data.altEgg,
+    },
+    stages: {
+      current: data.currentStage,
+      max: data.maxStage,
+    },
+    genderRatio: data.genderRatio,
+    evolutionDetails: JSON.parse(data.evolutionDetails),
+  };
+
+  // make sure there are no duplicate moves (adding the duplicates' learn conditions to the original) and no duplicate learn conditions for each move
+  let moves = [];
+  let conditions = [];
+  let uniqueMoves = [];
+  for (let i = 0; i < realData.moves.length; i++) {
+    if (!moves.includes(realData.moves[i].name)) {
+      moves.push(realData.moves[i].name);
+      conditions.push(realData.moves[i].learnConditions);
+    } else {
+      for (let j = 0; j < realData.moves[i].learnConditions.length; j++) {
+        if (
+          !conditions[moves.indexOf(realData.moves[i].name)].includes(
+            realData.moves[i].learnConditions[j]
+          )
+        ) {
+          conditions[moves.indexOf(realData.moves[i].name)].push(
+            realData.moves[i].learnConditions[j]
+          );
+        }
+      }
+    }
+  }
+  for (let i = 0; i < moves.length; i++) {
+    let moveObj = {
+      learnConditions: conditions[i],
+      name: moves[i],
+    };
+    uniqueMoves.push(moveObj);
+  }
+
+  realData.moves = uniqueMoves;
+
+  return realData;
 };
