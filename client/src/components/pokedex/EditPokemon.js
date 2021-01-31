@@ -15,18 +15,19 @@ import { NotFound, Spinner, AccessDenied } from "../layout";
 export const EditPokemon = ({ match }) => {
   const {
     getPokemon,
+    getPreviousPokemonId,
     updatePokemon,
     pokemon,
     lastId,
     loading,
     formes,
+    previousPokemonId,
   } = useContext(PokemonContext);
 
   const { user } = useContext(UserContext);
 
-  // TODO previous
-  const [previousId, setPreviousId] = useState(-1);
-  const [nextId, setNextId] = useState(-1);
+  const [previousId, setPreviousId] = useState();
+  const [nextId, setNextId] = useState();
   const [formData, setFormData] = useState({
     name: "",
     sprite: "",
@@ -58,22 +59,36 @@ export const EditPokemon = ({ match }) => {
 
   useEffect(() => {
     getPokemon(match.params.id); // get the Pokemon with the matching id
-  }, []);
+    if (match.params.id > 1) {
+      getPreviousPokemonId(match.params.id);
+    }
+  }, [match.params.id]);
 
   useEffect(() => {
     if (pokemon)
       // if we're editing an existing Pokemon
       setFormData({ ...getFormValues(pokemon), id: match.params.id });
-  }, [pokemon]);
+  }, [pokemon, match.params.id]);
 
   useEffect(() => {
-    console.log(formes);
     if (formes.length > 0 && formes[formes.length - 1].id > match.params.id) {
       setNextId(parseFloat(match.params.id) + 0.01);
-    } else {
+    } else if (match.params.id < lastId) {
       setNextId(parseInt(match.params.id) + 1);
+    } else {
+      setNextId(lastId);
     }
-  }, [formes, match.params.id]);
+  }, [formes, match.params.id, lastId]);
+
+  useEffect(() => {
+    if (parseFloat(match.params.id) !== Math.floor(match.params.id)) {
+      setPreviousId(parseFloat(match.params.id) - 0.01);
+    } else if (match.params.id > 1) {
+      setPreviousId(previousPokemonId);
+    } else {
+      setPreviousId(1);
+    }
+  }, [previousPokemonId, match.params.id]);
 
   const {
     name,

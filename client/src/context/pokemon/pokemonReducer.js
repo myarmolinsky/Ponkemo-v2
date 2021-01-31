@@ -3,6 +3,7 @@ import {
   LOAD_POKEMON_FORMES,
   LOAD_POKEMON_EGGS,
   LOAD_POKEMON_EVOLUTIONS,
+  LOAD_PREVIOUS_POKEMON_ID,
   LOAD_ALL_POKEMON,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
@@ -21,6 +22,7 @@ export default function (state, action) {
         formes: [],
         eggs: [],
         evolutions: [],
+        previousPokemonId: -1,
         loading: false,
       };
     case LOAD_POKEMON:
@@ -46,6 +48,11 @@ export default function (state, action) {
         ...state,
         evolutions: payload,
         loading: false,
+      };
+    case LOAD_PREVIOUS_POKEMON_ID:
+      return {
+        ...state,
+        previousPokemonId: payload,
       };
     case LOAD_ALL_POKEMON:
       return {

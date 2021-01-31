@@ -97,6 +97,24 @@ router.get("/evolutions/:id", async (req, res) => {
   }
 });
 
+// @route GET api/pokemon/:id/previous
+// @desc Get the id of the previous Pokemon by the id provided
+// @access Public
+router.get("/:id/previous", async (req, res) => {
+  try {
+    const formes = await Pokemon.find({
+      id: {
+        $lt: Math.floor(req.params.id),
+        $gte: Math.floor(req.params.id) - 1,
+      },
+    });
+    res.json(formes[formes.length - 1].id);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 // @route POST api/pokemon
 // @desc Update the Pokemon with a matching id with the provided info
 // @access Private
