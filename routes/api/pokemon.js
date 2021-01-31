@@ -31,7 +31,7 @@ router.get("/:id", async (req, res) => {
 // @route GET api/pokemon/formes/:id
 // @desc Get a Pokemon's formes by the id provided
 // @access Public
-router.get("/formes/:id", async (req, res) => {
+router.get("/:id/formes", async (req, res) => {
   try {
     const formes = await Pokemon.find({
       id: {
@@ -50,7 +50,7 @@ router.get("/formes/:id", async (req, res) => {
 // @route GET api/pokemon/eggs/:id
 // @desc Get a Pokemon's eggs by the id provided
 // @access Public
-router.get("/eggs/:id", async (req, res) => {
+router.get("/:id/eggs", async (req, res) => {
   try {
     const pokemon = await Pokemon.findOne({ id: req.params.id });
     let eggs = [];
@@ -79,7 +79,7 @@ router.get("/eggs/:id", async (req, res) => {
 // @route GET api/pokemon/eggs/:id
 // @desc Get a Pokemon's eggs by the id provided
 // @access Public
-router.get("/evolutions/:id", async (req, res) => {
+router.get("/:id/evolutions", async (req, res) => {
   try {
     const pokemon = await Pokemon.findOne({ id: req.params.id });
     let evolutions = [];

@@ -56,10 +56,6 @@ export const PokemonState = ({ children }) => {
   const getPokemon = async (id) => {
     dispatch({ type: CLEAR_POKEMON });
 
-    getFormes(id);
-    getEggs(id);
-    getEvolutions(id);
-
     try {
       const res = await axios.get(`/api/pokemon/${id}`);
       return dispatch({
@@ -76,7 +72,7 @@ export const PokemonState = ({ children }) => {
 
   const getFormes = async (id) => {
     try {
-      const res = await axios.get(`/api/pokemon/formes/${id}`);
+      const res = await axios.get(`/api/pokemon/${id}/formes`);
       return dispatch({
         type: LOAD_POKEMON_FORMES,
         payload: res.data,
@@ -91,7 +87,7 @@ export const PokemonState = ({ children }) => {
 
   const getEggs = async (id) => {
     try {
-      const res = await axios.get(`/api/pokemon/eggs/${id}`);
+      const res = await axios.get(`/api/pokemon/${id}/eggs`);
       return dispatch({
         type: LOAD_POKEMON_EGGS,
         payload: res.data,
@@ -106,7 +102,7 @@ export const PokemonState = ({ children }) => {
 
   const getEvolutions = async (id) => {
     try {
-      const res = await axios.get(`/api/pokemon/evolutions/${id}`);
+      const res = await axios.get(`/api/pokemon/${id}/evolutions`);
       return dispatch({
         type: LOAD_POKEMON_EVOLUTIONS,
         payload: res.data,

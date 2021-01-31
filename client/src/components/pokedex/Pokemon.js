@@ -8,6 +8,9 @@ import { Spinner, NotFound } from "../layout";
 export const Pokemon = ({ match }) => {
   const {
     getPokemon,
+    getFormes,
+    getEggs,
+    getEvolutions,
     pokemon,
     evolutions,
     eggs,
@@ -20,6 +23,9 @@ export const Pokemon = ({ match }) => {
 
   useEffect(() => {
     getPokemon(match.params.id);
+    getFormes(match.params.id);
+    getEggs(match.params.id);
+    getEvolutions(match.params.id);
   }, [match.params.id]);
 
   let evolutionCount = 0;

@@ -16,6 +16,7 @@ export const EditPokemon = ({ match }) => {
   const {
     getPokemon,
     getPreviousPokemonId,
+    getFormes,
     updatePokemon,
     pokemon,
     lastId,
@@ -59,6 +60,7 @@ export const EditPokemon = ({ match }) => {
 
   useEffect(() => {
     getPokemon(match.params.id); // get the Pokemon with the matching id
+    getFormes(match.params.id);
     if (match.params.id > 1) {
       getPreviousPokemonId(match.params.id);
     }
@@ -213,7 +215,7 @@ export const EditPokemon = ({ match }) => {
             className="lead edit-link"
             href={`/pokedex/${
               match.params.id > lastId ? lastId : match.params.id
-            }/`}
+            }`}
           >
             Cancel
           </a>
