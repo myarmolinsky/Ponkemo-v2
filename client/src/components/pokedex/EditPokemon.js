@@ -13,16 +13,20 @@ import { PokemonContext, UserContext } from "../../context";
 import { NotFound, Spinner, AccessDenied } from "../layout";
 
 export const EditPokemon = ({ match }) => {
-  const { getPokemon, updatePokemon, pokemon, lastId, loading } = useContext(
-    PokemonContext
-  );
-
-  // TODO
-  let previousPokemonId = 1;
-  let nextPokemonId = 3;
+  const {
+    getPokemon,
+    updatePokemon,
+    pokemon,
+    lastId,
+    loading,
+    formes,
+  } = useContext(PokemonContext);
 
   const { user } = useContext(UserContext);
 
+  // TODO previous
+  const [previousId, setPreviousId] = useState(-1);
+  const [nextId, setNextId] = useState(-1);
   const [formData, setFormData] = useState({
     name: "",
     sprite: "",
@@ -61,6 +65,15 @@ export const EditPokemon = ({ match }) => {
       // if we're editing an existing Pokemon
       setFormData({ ...getFormValues(pokemon), id: match.params.id });
   }, [pokemon]);
+
+  useEffect(() => {
+    console.log(formes);
+    if (formes.length > 0 && formes[formes.length - 1].id > match.params.id) {
+      setNextId(parseFloat(match.params.id) + 0.01);
+    } else {
+      setNextId(parseInt(match.params.id) + 1);
+    }
+  }, [formes, match.params.id]);
 
   const {
     name,
@@ -136,7 +149,7 @@ export const EditPokemon = ({ match }) => {
             fullWidth
           >
             <a
-              href={`/pokedex/${previousPokemonId}/edit`}
+              href={`/pokedex/${previousId}/edit`}
               style={{
                 color: `${match.params.id > 1 ? "white" : "black"}`,
               }}
@@ -154,9 +167,9 @@ export const EditPokemon = ({ match }) => {
             fullWidth
           >
             <a
-              href={`/pokedex/${nextPokemonId}/edit`}
+              href={`/pokedex/${nextId}/edit`}
               style={{
-                color: "white",
+                color: `${match.params.id < lastId ? "white" : "black"}`,
               }}
             >
               Next Pokemon
@@ -173,7 +186,7 @@ export const EditPokemon = ({ match }) => {
             <a
               href={`/pokedex/${Math.floor(lastId) + 1}/edit`}
               style={{
-                color: "white",
+                color: `${match.params.id < lastId + 1 ? "white" : "black"}`,
               }}
             >
               Add a New Pokemon
