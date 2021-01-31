@@ -191,7 +191,9 @@ export const EditPokemon = ({ match }) => {
         </Grid>
         <Grid item xs={3}>
           <Button
-            color={`${match.params.id < lastId + 1 ? "secondary" : "default"}`}
+            color={`${
+              match.params.id < Math.floor(lastId) + 1 ? "secondary" : "default"
+            }`}
             size="large"
             variant="contained"
             fullWidth
@@ -199,7 +201,9 @@ export const EditPokemon = ({ match }) => {
             <Link
               to={`/pokedex/${Math.floor(lastId) + 1}/edit`}
               style={{
-                color: `${match.params.id < lastId + 1 ? "white" : "black"}`,
+                color: `${
+                  match.params.id < Math.floor(lastId) + 1 ? "white" : "black"
+                }`,
               }}
             >
               Add a New Pokemon
