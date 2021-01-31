@@ -13,6 +13,7 @@ import {
   LOAD_ALL_POKEMON,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
+  UPDATE_LAST_ID,
 } from "./types";
 
 export const PokemonState = ({ children }) => {
@@ -139,6 +140,12 @@ export const PokemonState = ({ children }) => {
       };
 
       await axios.put(`/api/pokemon/${id}`, data, config);
+
+      if (id > state.lastId) {
+        dispatch({ type: UPDATE_LAST_ID, payload: id });
+      } else if (id === state.lastId && id !== data.id) {
+        dispatch({ type: UPDATE_LAST_ID, payload: state.previousPokemonId });
+      }
 
       setAlert("Pokemon Updated/Created", "success");
     } catch (err) {

@@ -7,6 +7,7 @@ import {
   LOAD_ALL_POKEMON,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
+  UPDATE_LAST_ID,
 } from "./types";
 
 export default function (state, action) {
@@ -45,6 +46,11 @@ export default function (state, action) {
       return {
         ...state,
         previousPokemonId: payload,
+      };
+    case UPDATE_LAST_ID:
+      return {
+        ...state,
+        lastId: payload,
       };
     case POKEMON_NOT_FOUND:
       return {
