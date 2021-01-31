@@ -233,6 +233,7 @@ export const EditPokemon = ({ match }) => {
               variant="outlined"
               margin="normal"
               value={id}
+              inputProps={{ step: 0.01 }}
             />
           </Grid>
           <Grid item>
@@ -558,6 +559,7 @@ export const EditPokemon = ({ match }) => {
               variant="outlined"
               margin="normal"
               value={weight}
+              inputProps={{ step: 0.01 }}
             />
           </Grid>
           <Grid item>
@@ -582,6 +584,7 @@ export const EditPokemon = ({ match }) => {
               variant="outlined"
               margin="normal"
               value={genderRatio}
+              inputProps={{ step: 0.01 }}
             />
           </Grid>
           <Grid item>
