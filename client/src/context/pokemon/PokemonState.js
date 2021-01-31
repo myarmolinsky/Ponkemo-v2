@@ -6,12 +6,14 @@ import { PokemonContext } from "./PokemonContext";
 import pokemonReducer from "./pokemonReducer";
 import {
   LOAD_POKEMON,
+  LOAD_POKEMON_FORMES,
+  LOAD_POKEMON_EGGS,
+  LOAD_POKEMON_EVOLUTIONS,
+  LOAD_PREVIOUS_POKEMON_ID,
   LOAD_ALL_POKEMON,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
-  UPDATE_POKEMON,
-  UPDATE_POKEMON_FAILED,
-  GET_LAST_ID,
+  UPDATE_LAST_ID,
 } from "./types";
 
 export const PokemonState = ({ children }) => {
@@ -24,13 +26,12 @@ export const PokemonState = ({ children }) => {
   const initialState = {
     loading: true, //make sure the loading is done (we've already made a request to the backend and got a response)
     pokedex: [],
-    pokemon: null,
-    nextPokemonId: -1,
-    previousPokemonId: -1,
-    evolutionIds: [],
-    eggIds: [],
-    formes: [],
     lastId: -1,
+    previousPokemonId: 1,
+    pokemon: {},
+    evolutions: [],
+    eggs: [],
+    formes: [],
   };
   const [state, dispatch] = useReducer(pokemonReducer, initialState);
   // Load Pokedex
@@ -40,22 +41,6 @@ export const PokemonState = ({ children }) => {
 
       return dispatch({
         type: LOAD_ALL_POKEMON,
-        payload: res.data,
-      });
-    } catch (err) {
-      return dispatch({
-        type: POKEMON_NOT_FOUND,
-        payload: { msg: "Pokemon not found", status: 404 },
-      });
-    }
-  };
-
-  const getLastId = async () => {
-    try {
-      const res = await axios.get(`/api/pokemon/lastId`);
-
-      return dispatch({
-        type: GET_LAST_ID,
         payload: res.data,
       });
     } catch (err) {
@@ -84,8 +69,68 @@ export const PokemonState = ({ children }) => {
     }
   };
 
+  const getFormes = async (id) => {
+    try {
+      const res = await axios.get(`/api/pokemon/${id}/formes`);
+      return dispatch({
+        type: LOAD_POKEMON_FORMES,
+        payload: res.data,
+      });
+    } catch (err) {
+      return dispatch({
+        type: POKEMON_NOT_FOUND,
+        payload: { msg: "Pokemon not found", status: 404 },
+      });
+    }
+  };
+
+  const getEggs = async (id) => {
+    try {
+      const res = await axios.get(`/api/pokemon/${id}/eggs`);
+      return dispatch({
+        type: LOAD_POKEMON_EGGS,
+        payload: res.data,
+      });
+    } catch (err) {
+      return dispatch({
+        type: POKEMON_NOT_FOUND,
+        payload: { msg: "Pokemon not found", status: 404 },
+      });
+    }
+  };
+
+  const getEvolutions = async (id) => {
+    try {
+      const res = await axios.get(`/api/pokemon/${id}/evolutions`);
+      return dispatch({
+        type: LOAD_POKEMON_EVOLUTIONS,
+        payload: res.data,
+      });
+    } catch (err) {
+      return dispatch({
+        type: POKEMON_NOT_FOUND,
+        payload: { msg: "Pokemon not found", status: 404 },
+      });
+    }
+  };
+
+  const getPreviousPokemonId = async (id) => {
+    try {
+      const res = await axios.get(`/api/pokemon/${id}/previous`);
+      return dispatch({
+        type: LOAD_PREVIOUS_POKEMON_ID,
+        payload: res.data,
+      });
+    } catch (err) {
+      return dispatch({
+        type: POKEMON_NOT_FOUND,
+        payload: { msg: "Pokemon not found", status: 404 },
+      });
+    }
+  };
+
   // Create or Update Pokemon
-  const updatePokemon = async (id, formData, edit = true) => {
+  const updatePokemon = async (id, data) => {
     try {
       const config = {
         //since we're sending data, we need to create a config object
@@ -94,90 +139,17 @@ export const PokemonState = ({ children }) => {
         },
       };
 
-      // translate the formData into an object that can be passed into the database
-      const realData = {
-        name: formData.name,
-        sprite: formData.sprite,
-        shinySprite: formData.shinySprite,
-        types: formData.types.split(", "),
-        abilities: formData.abilities.split(", "),
-        hiddenAbility: formData.hiddenAbility,
-        weight: formData.weight,
-        baseFriendship: formData.baseFriendship,
-        baseStats: {
-          hp: formData.hp,
-          atk: formData.atk,
-          def: formData.def,
-          spA: formData.spA,
-          spD: formData.spD,
-          spe: formData.spe,
-        },
-        spawnRate: formData.spawnRate,
-        moves: JSON.parse(formData.moves),
-        id: formData.id,
-        breeding: {
-          eggGroups: formData.eggGroups.split(", "),
-          egg: formData.egg,
-          altEgg: formData.altEgg,
-        },
-        stages: {
-          current: formData.currentStage,
-          max: formData.maxStage,
-        },
-        genderRatio: formData.genderRatio,
-        evolutionDetails: JSON.parse(formData.evolutionDetails),
-      };
+      await axios.put(`/api/pokemon/${id}`, data, config);
 
-      // make sure there are no duplicate moves (adding the duplicates' learn conditions to the original) and no duplicate learn conditions for each move
-      let moves = [];
-      let conditions = [];
-      let uniqueMoves = [];
-      for (let i = 0; i < realData.moves.length; i++) {
-        if (!moves.includes(realData.moves[i].name)) {
-          moves.push(realData.moves[i].name);
-          conditions.push(realData.moves[i].learnConditions);
-        } else {
-          for (let j = 0; j < realData.moves[i].learnConditions.length; j++) {
-            if (
-              !conditions[moves.indexOf(realData.moves[i].name)].includes(
-                realData.moves[i].learnConditions[j]
-              )
-            ) {
-              conditions[moves.indexOf(realData.moves[i].name)].push(
-                realData.moves[i].learnConditions[j]
-              );
-            }
-          }
-        }
-      }
-      for (let i = 0; i < moves.length; i++) {
-        let moveObj = {
-          learnConditions: conditions[i],
-          name: moves[i],
-        };
-        uniqueMoves.push(moveObj);
+      if (id > state.lastId) {
+        dispatch({ type: UPDATE_LAST_ID, payload: id });
+      } else if (id === state.lastId && id !== data.id) {
+        dispatch({ type: UPDATE_LAST_ID, payload: state.previousPokemonId });
       }
 
-      realData.moves = uniqueMoves;
-
-      const res = await axios.post(`/api/pokemon/${id}`, realData, config);
-
-      setAlert(edit ? "Pokemon Updated" : "Pokemon Created", "success");
-
-      return dispatch({
-        type: UPDATE_POKEMON,
-        payload: res.data,
-      });
+      setAlert("Pokemon Updated/Created", "success");
     } catch (err) {
-      setAlert(
-        edit ? "Failed to Update Pokemon" : "Failed to Create Pokemon",
-        "danger"
-      );
-
-      return dispatch({
-        type: UPDATE_POKEMON_FAILED,
-        payload: { msg: "Pokemon not found", status: 404 },
-      });
+      setAlert("Failed to Update/Create Pokemon", "danger");
     }
   };
 
@@ -186,8 +158,11 @@ export const PokemonState = ({ children }) => {
       value={{
         ...state,
         getAllPokemon,
-        getLastId,
         getPokemon,
+        getPreviousPokemonId,
+        getFormes,
+        getEggs,
+        getEvolutions,
         updatePokemon,
       }}
     >

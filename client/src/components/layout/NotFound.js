@@ -1,12 +1,21 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 export const NotFound = () => {
   return (
-    <Fragment>
+    <div
+      style={{
+        textAlign: "center",
+        position: "absolute",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+        zIndex: -1,
+      }}
+    >
       <h1 className="x-large text-primary">
         <i className="fas fa-exclamation-triangle"></i> Page Not Found
       </h1>
       <p className="large">Sorry, this page does not exist</p>
-    </Fragment>
+    </div>
   );
 };

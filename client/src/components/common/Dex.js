@@ -43,44 +43,46 @@ export const Dex = ({ dex }) => {
         </Grid>
       </Grid>
       <Divider className={classes.divider} />
-      <Grid container>
-        {dex.map(
-          (
-            pokemon // for each pokemon in the pokedex
-          ) =>
-            (showFormes ||
-              (!showFormes && Math.floor(pokemon.id) === pokemon.id)) && (
-              <Grid item key={pokemon.name} xs={2}>
-                <Link to={`/pokedex/${pokemon.id}`}>
-                  {/* Create a link leading to the pokemon's page */}
-                  {/* Pokemon's sprite */}
-                  <div className="pokedex-item">
-                    {!shinySprites ? (
-                      <img
-                        // className={classes.sprite}
-                        className="sprite"
-                        src={pokemon.sprite}
-                        alt={pokemon.name}
-                        // variant="square"
-                      />
-                    ) : (
-                      <img
-                        // className={classes.sprite}
-                        className="sprite"
-                        src={pokemon.shinySprite}
-                        alt={pokemon.name}
-                        // variant="square"
-                      />
-                    )}
-                    {/* Pokemon's name */}
-                    <br />
-                    <Typography variant="caption">{pokemon.name}</Typography>
-                  </div>
-                </Link>
-              </Grid>
-            )
-        )}
-      </Grid>
+      <div style={{ textAlign: "center" }}>
+        <Grid container>
+          {dex.map(
+            (
+              pokemon // for each pokemon in the pokedex
+            ) =>
+              (showFormes ||
+                (!showFormes && Math.floor(pokemon.id) === pokemon.id)) && (
+                <Grid item key={pokemon.name} xs={2}>
+                  <Link to={`/pokedex/${pokemon.id}`}>
+                    {/* Create a link leading to the pokemon's page */}
+                    {/* Pokemon's sprite */}
+                    <div className="pokedex-item">
+                      {!shinySprites ? (
+                        <img
+                          // className={classes.sprite}
+                          className="sprite"
+                          src={pokemon.sprite}
+                          alt={pokemon.name}
+                          // variant="square"
+                        />
+                      ) : (
+                        <img
+                          // className={classes.sprite}
+                          className="sprite"
+                          src={pokemon.shinySprite}
+                          alt={pokemon.name}
+                          // variant="square"
+                        />
+                      )}
+                      {/* Pokemon's name */}
+                      <br />
+                      <Typography variant="caption">{pokemon.name}</Typography>
+                    </div>
+                  </Link>
+                </Grid>
+              )
+          )}
+        </Grid>
+      </div>
     </Fragment>
   );
 };

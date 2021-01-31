@@ -1,40 +1,53 @@
 import {
   LOAD_POKEMON,
+  LOAD_POKEMON_FORMES,
+  LOAD_POKEMON_EGGS,
+  LOAD_POKEMON_EVOLUTIONS,
+  LOAD_PREVIOUS_POKEMON_ID,
   LOAD_ALL_POKEMON,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
-  UPDATE_POKEMON,
-  UPDATE_POKEMON_FAILED,
-  GET_LAST_ID,
+  UPDATE_LAST_ID,
 } from "./types";
 
 export default function (state, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case CLEAR_POKEMON:
-      return {
-        ...state,
-        pokemon: null,
-      };
-    case LOAD_POKEMON:
-      return {
-        ...state,
-        pokemon: payload.pokemon,
-        nextPokemonId: payload.nextPokemonId,
-        previousPokemonId: payload.previousPokemonId,
-        evolutionIds: payload.evolutionIds,
-        eggIds: payload.eggIds,
-        formes: payload.formes,
-        loading: false,
-      };
     case LOAD_ALL_POKEMON:
       return {
         ...state,
         pokedex: payload,
+        lastId: payload[payload.length - 1].id,
         loading: false,
       };
-    case GET_LAST_ID:
+    case LOAD_POKEMON:
+      return {
+        ...state,
+        pokemon: payload,
+        loading: false,
+      };
+    case LOAD_POKEMON_FORMES:
+      return {
+        ...state,
+        formes: payload,
+      };
+    case LOAD_POKEMON_EGGS:
+      return {
+        ...state,
+        eggs: payload,
+      };
+    case LOAD_POKEMON_EVOLUTIONS:
+      return {
+        ...state,
+        evolutions: payload,
+      };
+    case LOAD_PREVIOUS_POKEMON_ID:
+      return {
+        ...state,
+        previousPokemonId: payload,
+      };
+    case UPDATE_LAST_ID:
       return {
         ...state,
         lastId: payload,
@@ -42,24 +55,22 @@ export default function (state, action) {
     case POKEMON_NOT_FOUND:
       return {
         ...state,
-        pokemon: null,
-        nextPokemonId: -1,
-        previousPokemonId: -1,
-        evolutionIds: [],
-        eggIds: [],
+        pokemon: {},
+        evolutions: [],
+        eggs: [],
         formes: [],
+        previousPokemonId: -1,
         loading: false,
       };
-    case UPDATE_POKEMON:
+    case CLEAR_POKEMON:
       return {
         ...state,
-        pokemon: payload,
-        loading: false,
-      };
-    case UPDATE_POKEMON_FAILED:
-      return {
-        ...state,
-        loading: false,
+        pokemon: {},
+        formes: [],
+        eggs: [],
+        evolutions: [],
+        previousPokemonId: -1,
+        loading: true,
       };
     default:
       return state;

@@ -104,19 +104,6 @@ img {
   border: 1px solid black;
 }
 
-.btn {
-  display: inline-block;
-  background: var(--light-color);
-  color: #333;
-  padding: 0.4rem 1.3rem;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  margin-right: 0.5rem;
-  transition: opacity 0.2s ease-in;
-  outline: none;
-}
-
 .alert {
   padding: 0.8rem;
   margin: 1rem 0;
@@ -125,45 +112,35 @@ img {
   color: #333;
 }
 
-.btn-primary,
 .alert-primary {
   background: var(--primary-color);
   color: #fff;
 }
 
-.btn-light,
 .alert-light {
   background: var(--light-color);
   color: #333;
 }
 
-.btn-dark,
 .alert-dark {
   background: var(--dark-color);
   color: #fff;
 }
 
-.btn-danger,
 .alert-danger {
   background: var(--danger-color);
   color: #fff;
 }
 
-.btn-success,
 .alert-success {
   background: var(--success-color);
   color: #fff;
 }
 
-.btn-white,
 .alert-white {
   background: #fff;
   color: #333;
   border: #ccc solid 1px;
-}
-
-.btn:hover {
-  opacity: 0.8;
 }
 
 /* Overlay */
@@ -176,41 +153,6 @@ img {
   height: 100%;
 }
 
-/* Forms */
-.form .form-group {
-  margin: 1.2rem 0;
-}
-
-.form .form-text {
-  display: block;
-  margin-top: 0.3rem;
-  color: #888;
-}
-
-.form input[type="number"],
-.form input[type="text"],
-.form input[type="email"],
-.form input[type="password"],
-.form input[type="date"],
-.form select,
-.form textarea {
-  display: block;
-  width: 100%;
-  padding: 0.4rem;
-  font-size: 1.2rem;
-  border: 1px solid #ccc;
-}
-
-.form input[type="number"] {
-  width: 3em;
-  text-align: center;
-}
-
-.form input[type="submit"],
-button {
-  font: inherit;
-}
-
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -221,65 +163,6 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
-}
-
-.search-form .form-group {
-  margin: 1.2rem 0;
-}
-
-.search-form .form-text {
-  display: block;
-  margin-top: 0.3rem;
-  color: #888;
-}
-
-.search-form input[type="number"],
-.search-form input[type="text"],
-.search-form input[type="email"],
-.search-form input[type="password"],
-.search-form input[type="date"],
-.search-form select,
-.search-form textarea {
-  width: 100%;
-  padding: 0.4rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-}
-
-.search-form input[type="text"] {
-  width: 100%;
-  padding: 0.4rem;
-  font-size: 1.2rem;
-  border: 1px solid #ccc;
-}
-.search-form .search-bar {
-  margin-bottom: 1em;
-}
-
-.search-form input[type="number"] {
-  text-align: center;
-}
-
-.search-form select {
-  width: 100%;
-}
-
-.search-form input[type="submit"],
-button {
-  font: inherit;
-}
-
-.search-form label {
-  display: block;
-  width: 20%;
-  font-size: 1.2rem;
-}
-
-.search-form .input-icon {
-  width: 1.9%;
-  padding: 0.6em;
-  position: absolute;
-  margin-left: -2em;
 }
 
 .table th,
@@ -329,7 +212,7 @@ textarea {
 /* Landing Page */
 .landing {
   position: relative;
-  background: url("./img/showcase.jpg") no-repeat center center/cover;
+  background: url("./img/landing.jpg") no-repeat center center/cover;
   height: 100vh;
 }
 

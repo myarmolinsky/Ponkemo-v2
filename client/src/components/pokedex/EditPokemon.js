@@ -1,30 +1,43 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { any } from "prop-types";
+import {
+  Button,
+  Grid,
+  TextField,
+  Select,
+  MenuItem,
+  InputLabel,
+  FormControl,
+} from "@material-ui/core";
 import { PokemonContext, UserContext } from "../../context";
 import { NotFound, Spinner, AccessDenied } from "../layout";
 
 export const EditPokemon = ({ match }) => {
   const {
     getPokemon,
-    getLastId,
+    getPreviousPokemonId,
+    getFormes,
     updatePokemon,
     pokemon,
-    nextPokemonId,
-    previousPokemonId,
     lastId,
     loading,
+    formes,
+    previousPokemonId,
   } = useContext(PokemonContext);
 
   const { user } = useContext(UserContext);
 
-  let currentId = parseFloat(match.params.id);
-
+  const [previousId, setPreviousId] = useState();
+  const [nextId, setNextId] = useState();
   const [formData, setFormData] = useState({
     name: "",
     sprite: "",
     shinySprite: "",
-    types: "",
-    abilities: "",
+    firstType: " ",
+    secondType: " ",
+    firstAbility: "",
+    secondAbility: "",
     hiddenAbility: "",
     weight: 0,
     baseFriendship: 0,
@@ -37,8 +50,9 @@ export const EditPokemon = ({ match }) => {
     spawnRate: 0,
     moves: "[]",
     evolutionDetails: "[]",
-    id: currentId,
-    eggGroups: "",
+    id: match.params.id,
+    firstEggGroup: " ",
+    secondEggGroup: " ",
     egg: "",
     altEgg: "",
     currentStage: 0,
@@ -47,127 +61,48 @@ export const EditPokemon = ({ match }) => {
   });
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    getPokemon(currentId); // get the Pokemon with the matching id
-
-    if (pokemon)
-      // if we're editing an existing Pokemon
-      setFormData({
-        name: loading || !pokemon.name ? "" : pokemon.name,
-        sprite: loading || !pokemon.sprite ? "" : pokemon.sprite,
-        shinySprite: loading || !pokemon.shinySprite ? "" : pokemon.shinySprite,
-        types: loading || !pokemon.types ? "" : pokemon.types.join(", "),
-        abilities:
-          loading || !pokemon.abilities ? "" : pokemon.abilities.join(", "),
-        hiddenAbility:
-          loading || !pokemon.hiddenAbility ? "" : pokemon.hiddenAbility,
-        weight: loading || !pokemon.weight ? 0 : pokemon.weight,
-        baseFriendship:
-          loading || !pokemon.baseFriendship ? 0 : pokemon.baseFriendship,
-        hp:
-          loading ||
-          !pokemon.baseStats ||
-          (pokemon.baseStats && !pokemon.baseStats.hp)
-            ? 0
-            : pokemon.baseStats.hp,
-        atk:
-          loading ||
-          !pokemon.baseStats ||
-          (pokemon.baseStats && !pokemon.baseStats.atk)
-            ? 0
-            : pokemon.baseStats.atk,
-        def:
-          loading ||
-          !pokemon.baseStats ||
-          (pokemon.baseStats && !pokemon.baseStats.def)
-            ? 0
-            : pokemon.baseStats.def,
-        spA:
-          loading ||
-          !pokemon.baseStats ||
-          (pokemon.baseStats && !pokemon.baseStats.spA)
-            ? 0
-            : pokemon.baseStats.spA,
-        spD:
-          loading ||
-          !pokemon.baseStats ||
-          (pokemon.baseStats && !pokemon.baseStats.spD)
-            ? 0
-            : pokemon.baseStats.spD,
-        spe:
-          loading ||
-          !pokemon.baseStats ||
-          (pokemon.baseStats && !pokemon.baseStats.spe)
-            ? 0
-            : pokemon.baseStats.spe,
-        spawnRate: loading || !pokemon.spawnRate ? 0 : pokemon.spawnRate,
-        moves:
-          loading || !pokemon.moves
-            ? "[]"
-            : JSON.stringify(pokemon.moves)
-                .split("],")
-                .join("],\n")
-                .split("{")
-                .join("{\n")
-                .split("},")
-                .join("\n},\n")
-                .split("}]")
-                .join("\n}]"),
-        evolutionDetails:
-          loading || !pokemon.evolutionDetails
-            ? "[]"
-            : JSON.stringify(pokemon.evolutionDetails)
-                .split('",')
-                .join('",\n')
-                .split("{")
-                .join("{\n")
-                .split("},")
-                .join("\n},\n")
-                .split("}]")
-                .join("\n}]"),
-        id: loading || !pokemon.id ? currentId : pokemon.id,
-        eggGroups:
-          loading ||
-          !pokemon.breeding ||
-          (pokemon.breeding && !pokemon.breeding.eggGroups)
-            ? ""
-            : pokemon.breeding.eggGroups.join(", "),
-        egg:
-          loading ||
-          !pokemon.breeding ||
-          (pokemon.breeding && !pokemon.breeding.egg)
-            ? ""
-            : pokemon.breeding.egg,
-        altEgg:
-          loading ||
-          !pokemon.breeding ||
-          (pokemon.breeding && !pokemon.breeding.altEgg)
-            ? ""
-            : pokemon.breeding.altEgg,
-        currentStage:
-          loading ||
-          !pokemon.stages ||
-          (pokemon.stages && !pokemon.stages.current)
-            ? 0
-            : pokemon.stages.current,
-        maxStage:
-          loading || !pokemon.stages || (pokemon.stages && !pokemon.stages.max)
-            ? 0
-            : pokemon.stages.max,
-        genderRatio: loading || !pokemon.genderRatio ? 0 : pokemon.genderRatio,
-      });
-
-    if (lastId === -1 || currentId > lastId) {
-      getLastId(); // get the last id so we know how many Pokemon we have
+    getPokemon(match.params.id); // get the Pokemon with the matching id
+    getFormes(match.params.id);
+    if (match.params.id > 1) {
+      getPreviousPokemonId(match.params.id);
     }
-  }, [currentId, loading, lastId]);
+  }, [match.params.id]);
+
+  useEffect(() => {
+    if (pokemon) {
+      // if we're editing an existing Pokemon
+      setFormData({ ...getFormValues(pokemon), id: match.params.id });
+    }
+  }, [pokemon, match.params.id]);
+
+  useEffect(() => {
+    if (formes.length > 0 && formes[formes.length - 1].id > match.params.id) {
+      setNextId(parseFloat(match.params.id) + 0.01);
+    } else if (match.params.id < lastId) {
+      setNextId(parseInt(match.params.id) + 1);
+    } else {
+      setNextId(match.params.id);
+    }
+  }, [formes, match.params.id, lastId]);
+
+  useEffect(() => {
+    if (parseFloat(match.params.id) !== Math.floor(match.params.id)) {
+      setPreviousId(parseFloat(match.params.id) - 0.01);
+    } else if (match.params.id > 1) {
+      setPreviousId(previousPokemonId);
+    } else {
+      setPreviousId(1);
+    }
+  }, [previousPokemonId, match.params.id]);
 
   const {
     name,
     sprite,
     shinySprite,
-    types,
-    abilities,
+    firstType,
+    secondType,
+    firstAbility,
+    secondAbility,
     hiddenAbility,
     weight,
     baseFriendship,
@@ -180,7 +115,8 @@ export const EditPokemon = ({ match }) => {
     spawnRate,
     moves,
     id,
-    eggGroups,
+    firstEggGroup,
+    secondEggGroup,
     egg,
     altEgg,
     currentStage,
@@ -194,312 +130,685 @@ export const EditPokemon = ({ match }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // if we are making a new Pokemon reload the page after creating it so that all the proper data loads (otherwise the buttons don't work properly)
-    if (currentId > lastId) {
-      updatePokemon(currentId, formData, false);
-      window.location.reload();
-    } else updatePokemon(currentId, formData); // if we are editing an existing Pokemon
+
+    updatePokemon(match.params.id, convertFormDataToReqForUpdate(formData));
     // if we edited the pokemon's id, load the page connected to its new id
-    let splitUrl = window.location.href.split("/");
-    if (id !== currentId) {
-      splitUrl.pop();
-      splitUrl.pop();
-      window.open(splitUrl.join("/") + "/" + id + "/edit", "_self");
+    if (id !== match.params.id) {
+      let splitUrl = window.location.href.split("/");
+      splitUrl[splitUrl.length - 2] = id;
+      window.open(splitUrl.join("/"), "_self");
     }
   };
 
-  // if there is a previous Pokemon, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
-  const previousPokemonButton = () => {
-    if (currentId > 1)
-      return (
-        <a className="btn btn-dark" href={`/pokedex/${previousPokemonId}/edit`}>
-          Previous Pokemon
-        </a>
-      );
-    else return <button className="btn btn-light">Previous Pokemon</button>;
-  };
-
-  // if there is a next Pokemon, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
-  const nextPokemonButton = () => {
-    if (currentId < lastId) {
-      return (
-        <a className="btn btn-dark" href={`/pokedex/${nextPokemonId}/edit`}>
-          Next Pokemon
-        </a>
-      );
-    } else return <button className="btn btn-light">Next Pokemon</button>;
-  };
-
-  // if you're not on the new Pokemon's page, return an <a> tag to it, otherwise return a grayed out button that takes you nowhere
-  const newPokemonButton = () => {
-    if (Math.floor(currentId) <= lastId) {
-      return (
-        <a className="btn btn-dark" href={`/pokedex/${lastId + 1}/edit`}>
-          Add a New Pokemon
-        </a>
-      );
-    } else return <button className="btn btn-light">Add a New Pokemon</button>;
-  };
-
-  // if you're on a new Pokemon's page and it doesn't exist yet, return a grayed out button that takes you nowhere, otherwise return an <a> tag to it's normal page
-  const cancelButton = () => {
-    if (currentId > lastId) {
-      return (
-        <a className="lead edit-link" href={`/pokedex/${currentId - 1}/`}>
-          Cancel
-        </a>
-      );
-    } else
-      return (
-        <a className="lead edit-link" href={`/pokedex/${currentId}/`}>
-          Cancel
-        </a>
-      );
-  };
-
-  return (
+  return !user || loading || lastId === -1 ? (
+    <Spinner />
+  ) : user.privileges !== "admin" ? (
+    // if the user does not have "admin" privileges
+    <AccessDenied />
+  ) : isNaN(match.params.id) ||
+    match.params.id > Math.floor(lastId) + 1 ||
+    match.params.id < 1 ? (
+    // if the page the user is trying to go to a Pokemon that does not exist
+    <NotFound />
+  ) : (
     <Fragment>
-      {user === null || loading || pokemon === null ? (
-        <Spinner />
-      ) : user.privileges !== "admin" ? (
-        // if the user does not have "admin" privileges
-        <AccessDenied />
-      ) : currentId > lastId + 1 || currentId < 1 ? (
-        // if the page the user is trying to go to a Pokemon that does not exist
-        <NotFound />
-      ) : (
-        <Fragment>
-          <div className="buttons">
-            {/* Link does not reload the page so I have to use <a> tags so I use these functions to determine which <a> tag to return depending on the page we're on */}
-            {previousPokemonButton()}
-            {nextPokemonButton()}
-            {newPokemonButton()}
-            {cancelButton()}
-          </div>
-          <form className="form" onSubmit={(e) => onSubmit(e)}>
-            <div className="form-group">
-              {/* ID */}
-              <span className="lead">ID: </span>
-              <input
-                type="text"
-                placeholder={id}
-                name="id"
-                value={id}
+      <Grid container justify="space-evenly">
+        <Grid item xs={3}>
+          {/* If there is a previous pokemon, link to its page */}
+          <Button
+            color={`${match.params.id > 1 ? "secondary" : "default"}`}
+            size="large"
+            variant="contained"
+            fullWidth
+          >
+            <Link
+              to={`/pokedex/${previousId}/edit`}
+              style={{
+                color: `${match.params.id > 1 ? "white" : "black"}`,
+              }}
+            >
+              Previous Pokemon
+            </Link>
+          </Button>
+        </Grid>
+        <Grid item xs={3}>
+          {/* If there is a next pokemon, link to its page */}
+          <Button
+            color={`${match.params.id < lastId ? "secondary" : "default"}`}
+            size="large"
+            variant="contained"
+            fullWidth
+          >
+            <Link
+              to={`/pokedex/${nextId}/edit`}
+              style={{
+                color: `${match.params.id < lastId ? "white" : "black"}`,
+              }}
+            >
+              Next Pokemon
+            </Link>
+          </Button>
+        </Grid>
+        <Grid item xs={3}>
+          <Button
+            color={`${
+              match.params.id < Math.floor(lastId) + 1 ? "secondary" : "default"
+            }`}
+            size="large"
+            variant="contained"
+            fullWidth
+          >
+            <Link
+              to={`/pokedex/${Math.floor(lastId) + 1}/edit`}
+              style={{
+                color: `${
+                  match.params.id < Math.floor(lastId) + 1 ? "white" : "black"
+                }`,
+              }}
+            >
+              Add a New Pokemon
+            </Link>
+          </Button>
+        </Grid>
+        <Grid item xs={1}>
+          <Link
+            className="lead edit-link"
+            to={`/pokedex/${
+              match.params.id > lastId ? lastId : match.params.id
+            }`}
+          >
+            Cancel
+          </Link>
+        </Grid>
+      </Grid>
+      <br />
+      <h1 className="large text-primary" style={{ textAlign: "center" }}>
+        Editing Pokemon ID {match.params.id}
+      </h1>
+      <form onSubmit={(e) => onSubmit(e)}>
+        <Grid container justify="space-evenly" alignItems="flex-end">
+          <Grid item>
+            {/* ID */}
+            <TextField
+              label="ID"
+              name="id"
+              type="number"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={id}
+              inputProps={{ step: 0.01 }}
+            />
+          </Grid>
+          <Grid item>
+            {/* Name */}
+            <TextField
+              label="Name"
+              name="name"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={name}
+            />
+          </Grid>
+          <Grid item>
+            {/* Types */}
+            <FormControl variant="outlined" margin="normal">
+              <InputLabel id="first-type-label">First Type</InputLabel>
+              <Select
+                labelId="first-type-label"
+                label="First Type"
+                name="firstType"
                 onChange={(e) => onChange(e)}
-              />
-              {/* Name */}
-              <span className="lead">Name: </span>
-              <input
-                type="text"
-                placeholder={name}
-                name="name"
-                value={name}
+                value={firstType}
+              >
+                <MenuItem value=" ">None</MenuItem>
+                <MenuItem value="Bug">Bug</MenuItem>
+                <MenuItem value="Dark">Dark</MenuItem>
+                <MenuItem value="Dragon">Dragon</MenuItem>
+                <MenuItem value="Electric">Electric</MenuItem>
+                <MenuItem value="Fairy">Fairy</MenuItem>
+                <MenuItem value="Fighting">Fighting</MenuItem>
+                <MenuItem value="Fire">Fire</MenuItem>
+                <MenuItem value="Flying">Flying</MenuItem>
+                <MenuItem value="Ghost">Ghost</MenuItem>
+                <MenuItem value="Grass">Grass</MenuItem>
+                <MenuItem value="Ground">Ground</MenuItem>
+                <MenuItem value="Ice">Ice</MenuItem>
+                <MenuItem value="Normal">Normal</MenuItem>
+                <MenuItem value="Poison">Poison</MenuItem>
+                <MenuItem value="Psychic">Psychic</MenuItem>
+                <MenuItem value="Rock">Rock</MenuItem>
+                <MenuItem value="Steel">Steel</MenuItem>
+                <MenuItem value="Water">Water</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl variant="outlined" margin="normal">
+              <InputLabel id="second-type-label">Second Type</InputLabel>
+              <Select
+                labelId="second-type-label"
+                label="Second Type"
+                name="secondType"
                 onChange={(e) => onChange(e)}
-              />
-              {/* Sprite */}
-              <span className="lead">Sprite URL: </span>
-              <input
-                type="text"
-                placeholder={sprite}
-                name="sprite"
-                value={sprite}
+                value={secondType}
+              >
+                <MenuItem value=" ">None</MenuItem>
+                <MenuItem value="Bug">Bug</MenuItem>
+                <MenuItem value="Dark">Dark</MenuItem>
+                <MenuItem value="Dragon">Dragon</MenuItem>
+                <MenuItem value="Electric">Electric</MenuItem>
+                <MenuItem value="Fairy">Fairy</MenuItem>
+                <MenuItem value="Fighting">Fighting</MenuItem>
+                <MenuItem value="Fire">Fire</MenuItem>
+                <MenuItem value="Flying">Flying</MenuItem>
+                <MenuItem value="Ghost">Ghost</MenuItem>
+                <MenuItem value="Grass">Grass</MenuItem>
+                <MenuItem value="Ground">Ground</MenuItem>
+                <MenuItem value="Ice">Ice</MenuItem>
+                <MenuItem value="Normal">Normal</MenuItem>
+                <MenuItem value="Poison">Poison</MenuItem>
+                <MenuItem value="Psychic">Psychic</MenuItem>
+                <MenuItem value="Rock">Rock</MenuItem>
+                <MenuItem value="Steel">Steel</MenuItem>
+                <MenuItem value="Water">Water</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+        </Grid>
+        {/* Sprite */}
+        <TextField
+          label="Sprite URL"
+          name="sprite"
+          onChange={(e) => onChange(e)}
+          variant="outlined"
+          margin="normal"
+          value={sprite}
+          fullWidth
+        />
+        {/* Shiny Sprite */}
+        <TextField
+          label="Shiny Sprite URL"
+          name="shinySprite"
+          onChange={(e) => onChange(e)}
+          variant="outlined"
+          margin="normal"
+          value={shinySprite}
+          fullWidth
+        />
+        <Grid container justify="space-evenly" alignItems="flex-end">
+          <Grid item>
+            {/* Abilities */}
+            <TextField
+              label="First Ability"
+              name="firstAbility"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={firstAbility}
+            />
+            <TextField
+              label="Second Ability"
+              name="secondAbility"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={secondAbility}
+            />
+          </Grid>
+          <Grid item>
+            {/* Hidden Ability */}
+            <TextField
+              label="Hidden Ability"
+              name="hiddenAbility"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={hiddenAbility}
+            />
+          </Grid>
+          <Grid item>
+            {/* Current Stage */}
+            <TextField
+              label="Current Stage"
+              type="number"
+              name="currentStage"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={currentStage}
+            />
+          </Grid>
+          <Grid item>
+            {/* Max Stage */}
+            <TextField
+              label="Max Stage"
+              type="number"
+              name="maxStage"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={maxStage}
+            />
+          </Grid>
+        </Grid>
+        {/* Base Stats */}
+        <Grid
+          container
+          justify="space-evenly"
+          alignItems="flex-end"
+          spacing={1}
+        >
+          <Grid item xs={2}>
+            <TextField
+              label="Base Health"
+              type="number"
+              name="hp"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={hp}
+            />
+          </Grid>
+          <Grid item xs={2}>
+            <TextField
+              label="Base Attack"
+              type="number"
+              name="atk"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={atk}
+            />
+          </Grid>
+          <Grid item xs={2}>
+            <TextField
+              label="Base Defense"
+              type="number"
+              name="def"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={def}
+            />
+          </Grid>
+          <Grid item xs={2}>
+            <TextField
+              label="Base Special Attack"
+              type="number"
+              name="spA"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={spA}
+            />
+          </Grid>
+          <Grid item xs={2}>
+            <TextField
+              label="Base Special Defense"
+              type="number"
+              name="spD"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={spD}
+            />
+          </Grid>
+          <Grid item xs={2}>
+            <TextField
+              label="Base Speed"
+              type="number"
+              name="spe"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={spe}
+            />
+          </Grid>
+        </Grid>
+        <Grid container justify="space-evenly" alignItems="flex-end">
+          <Grid item>
+            {/* Egg Groups */}
+            <FormControl variant="outlined" margin="normal">
+              <InputLabel id="first-egg-group-label">
+                First Egg Group
+              </InputLabel>
+              <Select
+                labelId="first-egg-group-label"
+                label="First Egg Group"
+                name="firstEggGroup"
                 onChange={(e) => onChange(e)}
-              />
-              {/* Shiny Sprite */}
-              <span className="lead">Shiny Sprite URL: </span>
-              <input
-                type="text"
-                placeholder={shinySprite}
-                name="shinySprite"
-                value={shinySprite}
+                value={firstEggGroup}
+              >
+                <MenuItem value=" ">None</MenuItem>
+                <MenuItem value="Amorphous">Amorphous</MenuItem>
+                <MenuItem value="Bug">Bug</MenuItem>
+                <MenuItem value="Ditto">Ditto</MenuItem>
+                <MenuItem value="Dragon">Dragon</MenuItem>
+                <MenuItem value="Fairy">Fairy</MenuItem>
+                <MenuItem value="Field">Field</MenuItem>
+                <MenuItem value="Flying">Flying</MenuItem>
+                <MenuItem value="Grass">Grass</MenuItem>
+                <MenuItem value="Human-Like">Human-Like</MenuItem>
+                <MenuItem value="Legendary">Legendary</MenuItem>
+                <MenuItem value="Mineral">Mineral</MenuItem>
+                <MenuItem value="Monster">Monster</MenuItem>
+                <MenuItem value="Unown">Unown</MenuItem>
+                <MenuItem value="Water 1">Water 1</MenuItem>
+                <MenuItem value="Water 2">Water 2</MenuItem>
+                <MenuItem value="Water 3">Water 3</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl variant="outlined" margin="normal">
+              <InputLabel id="second-egg-group-label">
+                Second Egg Group
+              </InputLabel>
+              <Select
+                labelId="second-egg-group-label"
+                label="Second Egg Group"
+                name="secondEggGroup"
                 onChange={(e) => onChange(e)}
-              />
-              {/* Types */}
-              <span className="lead">Types: </span>
-              <input
-                type="text"
-                placeholder={types}
-                name="types"
-                value={types}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Abilities */}
-              <span className="lead">Abilities: </span>
-              <input
-                type="text"
-                placeholder={abilities}
-                name="abilities"
-                value={abilities}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Hidden Ability */}
-              <span className="lead">Hidden Ability: </span>
-              <input
-                type="text"
-                placeholder={hiddenAbility}
-                name="hiddenAbility"
-                value={hiddenAbility}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Weight in kg */}
-              <span className="lead">Weight (kg): </span>
-              <input
-                type="text"
-                placeholder={weight}
-                name="weight"
-                value={weight}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Base Friendship */}
-              <span className="lead">Base Friendship: </span>
-              <input
-                type="text"
-                placeholder={baseFriendship}
-                name="baseFriendship"
-                value={baseFriendship}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Gender Ratio */}
-              <span className="lead">Gender Ratio: </span>
-              <input
-                type="text"
-                placeholder={genderRatio}
-                name="genderRatio"
-                value={genderRatio}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Spawn Rate */}
-              <span className="lead">Spawn Rate: </span>
-              <input
-                type="text"
-                placeholder={spawnRate}
-                name="spawnRate"
-                value={spawnRate}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Current Stage */}
-              <span className="lead">Current Stage: </span>
-              <input
-                type="text"
-                placeholder={currentStage}
-                name="currentStage"
-                value={currentStage}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Max Stage */}
-              <span className="lead">Max Stage: </span>
-              <input
-                type="text"
-                placeholder={maxStage}
-                name="maxStage"
-                value={maxStage}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Evolution Details */}
-              <span className="lead">Evolution Details: </span>
-              <textarea
-                rows="5"
-                type="text"
-                placeholder={evolutionDetails}
-                name="evolutionDetails"
-                value={evolutionDetails}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Base Stats */}
-              <span className="lead">Health Base Stat: </span>
-              <input
-                type="text"
-                placeholder={hp}
-                name="hp"
-                value={hp}
-                onChange={(e) => onChange(e)}
-              />
-              <span className="lead">Attack Base Stat: </span>
-              <input
-                type="text"
-                placeholder={atk}
-                name="atk"
-                value={atk}
-                onChange={(e) => onChange(e)}
-              />
-              <span className="lead">Defense Base Stat: </span>
-              <input
-                type="text"
-                placeholder={def}
-                name="def"
-                value={def}
-                onChange={(e) => onChange(e)}
-              />
-              <span className="lead">Special Attack Base Stat: </span>
-              <input
-                type="text"
-                placeholder={spA}
-                name="spA"
-                value={spA}
-                onChange={(e) => onChange(e)}
-              />
-              <span className="lead">Special Defense Base Stat: </span>
-              <input
-                type="text"
-                placeholder={spD}
-                name="spD"
-                value={spD}
-                onChange={(e) => onChange(e)}
-              />
-              <span className="lead">Speed Base Stat: </span>
-              <input
-                type="text"
-                placeholder={spe}
-                name="spe"
-                value={spe}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Egg Groups */}
-              <span className="lead">Egg Groups: </span>
-              <input
-                type="text"
-                placeholder={eggGroups}
-                name="eggGroups"
-                value={eggGroups}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Pokemon that hatches from the egg if it is a male */}
-              <span className="lead">Male Egg: </span>
-              <input
-                type="text"
-                placeholder={egg}
-                name="egg"
-                value={egg}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Pokemon that hatches from the egg if it is a female */}
-              <span className="lead">Female Egg: </span>
-              <input
-                type="text"
-                placeholder={altEgg}
-                name="altEgg"
-                value={altEgg}
-                onChange={(e) => onChange(e)}
-              />
-              {/* Moves */}
-              <span className="lead">Moves: </span>
-              <textarea
-                rows="30"
-                type="text"
-                placeholder={moves}
-                name="moves"
-                value={moves}
-                onChange={(e) => onChange(e)}
-              />
-              <input type="submit" className="btn btn-primary my-1" />
-            </div>
-          </form>
-        </Fragment>
-      )}
+                value={secondEggGroup}
+              >
+                <MenuItem value=" ">None</MenuItem>
+                <MenuItem value="Amorphous">Amorphous</MenuItem>
+                <MenuItem value="Bug">Bug</MenuItem>
+                <MenuItem value="Ditto">Ditto</MenuItem>
+                <MenuItem value="Dragon">Dragon</MenuItem>
+                <MenuItem value="Fairy">Fairy</MenuItem>
+                <MenuItem value="Field">Field</MenuItem>
+                <MenuItem value="Flying">Flying</MenuItem>
+                <MenuItem value="Grass">Grass</MenuItem>
+                <MenuItem value="Human-Like">Human-Like</MenuItem>
+                <MenuItem value="Legendary">Legendary</MenuItem>
+                <MenuItem value="Mineral">Mineral</MenuItem>
+                <MenuItem value="Monster">Monster</MenuItem>
+                <MenuItem value="Unown">Unown</MenuItem>
+                <MenuItem value="Water 1">Water 1</MenuItem>
+                <MenuItem value="Water 2">Water 2</MenuItem>
+                <MenuItem value="Water 3">Water 3</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item>
+            {/* Pokemon that hatches from the egg if it is a male */}
+            <TextField
+              label="Male Egg"
+              name="egg"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={egg}
+            />
+          </Grid>
+          <Grid item>
+            {/* Pokemon that hatches from the egg if it is a female */}
+            <TextField
+              label="Female Egg"
+              name="altEgg"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={altEgg}
+            />
+          </Grid>
+        </Grid>
+        <Grid container justify="space-evenly" alignItems="flex-end">
+          <Grid item>
+            {/* Weight in kg */}
+            <TextField
+              label="Weight (kg)"
+              type="number"
+              name="weight"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={weight}
+              inputProps={{ step: 0.01 }}
+            />
+          </Grid>
+          <Grid item>
+            {/* Base Friendship */}
+            <TextField
+              label="Base Friendship"
+              type="number"
+              name="baseFriendship"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={baseFriendship}
+            />
+          </Grid>
+          <Grid item>
+            {/* Gender Ratio */}
+            <TextField
+              label="Gender Ratio"
+              type="number"
+              name="genderRatio"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={genderRatio}
+              inputProps={{ step: 0.01 }}
+            />
+          </Grid>
+          <Grid item>
+            {/* Spawn Rate */}
+            <TextField
+              label="Spawn Rate"
+              type="number"
+              name="spawnRate"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={spawnRate}
+            />
+          </Grid>
+        </Grid>
+        {/* Evolution Details */}
+        <TextField
+          label="Evolution Details"
+          name="evolutionDetails"
+          onChange={(e) => onChange(e)}
+          variant="outlined"
+          margin="normal"
+          value={evolutionDetails}
+          multiline
+          rows={5}
+          fullWidth
+        />
+        {/* Moves */}
+        <TextField
+          label="Moves"
+          name="moves"
+          onChange={(e) => onChange(e)}
+          variant="outlined"
+          margin="normal"
+          value={moves}
+          multiline
+          rows={30}
+          fullWidth
+        />
+        <Grid container justify="center">
+          <Button color="primary" type="submit" variant="contained">
+            Submit
+          </Button>
+        </Grid>
+      </form>
     </Fragment>
   );
 };
 
 EditPokemon.propTypes = {
   match: any.isRequired,
+};
+
+const getFormValues = (pokemon) => {
+  return {
+    name: pokemon.name ? pokemon.name : "",
+    sprite: pokemon.sprite ? pokemon.sprite : "",
+    shinySprite: pokemon.shinySprite ? pokemon.shinySprite : "",
+    firstType:
+      pokemon.types && pokemon.types.length > 0 && pokemon.types[0] !== ""
+        ? pokemon.types[0]
+        : " ",
+    secondType:
+      pokemon.types && pokemon.types.length > 1 && pokemon.types[1] !== ""
+        ? pokemon.types[1]
+        : " ",
+    firstAbility:
+      pokemon.abilities &&
+      pokemon.abilities.length > 0 &&
+      pokemon.abilities[0] !== ""
+        ? pokemon.abilities[0]
+        : "",
+    secondAbility:
+      pokemon.abilities &&
+      pokemon.abilities.length > 1 &&
+      pokemon.abilities[1] !== ""
+        ? pokemon.abilities[1]
+        : "",
+    hiddenAbility: pokemon.hiddenAbility ? pokemon.hiddenAbility : "",
+    weight: pokemon.weight ? pokemon.weight : 0,
+    baseFriendship: pokemon.baseFriendship ? pokemon.baseFriendship : 0,
+    hp: pokemon.baseStats ? pokemon.baseStats.hp : 0,
+    atk: pokemon.baseStats ? pokemon.baseStats.atk : 0,
+    def: pokemon.baseStats ? pokemon.baseStats.def : 0,
+    spA: pokemon.baseStats ? pokemon.baseStats.spA : 0,
+    spD: pokemon.baseStats ? pokemon.baseStats.spD : 0,
+    spe: pokemon.baseStats ? pokemon.baseStats.spe : 0,
+    spawnRate: pokemon.spawnRate ? pokemon.spawnRate : 0,
+    moves: pokemon.moves
+      ? JSON.stringify(pokemon.moves)
+          .split("],")
+          .join("],\n")
+          .split("{")
+          .join("{\n")
+          .split("},")
+          .join("\n},\n")
+          .split("}]")
+          .join("\n}]")
+      : "[]",
+    evolutionDetails: pokemon.evolutionDetails
+      ? JSON.stringify(pokemon.evolutionDetails)
+          .split('",')
+          .join('",\n')
+          .split("{")
+          .join("{\n")
+          .split("},")
+          .join("\n},\n")
+          .split("}]")
+          .join("\n}]")
+      : "[]",
+    firstEggGroup:
+      pokemon.breeding &&
+      pokemon.breeding.eggGroups.length > 0 &&
+      pokemon.breeding.eggGroups[0] !== ""
+        ? pokemon.breeding.eggGroups[0]
+        : " ",
+    secondEggGroup:
+      pokemon.breeding &&
+      pokemon.breeding.eggGroups.length > 1 &&
+      pokemon.breeding.eggGroups[1] !== ""
+        ? pokemon.breeding.eggGroups[1]
+        : " ",
+    egg: pokemon.breeding ? pokemon.breeding.egg : "",
+    altEgg: pokemon.breeding ? pokemon.breeding.altEgg : "",
+    currentStage: pokemon.stages ? pokemon.stages.current : 0,
+    maxStage: pokemon.stages ? pokemon.stages.max : 0,
+    genderRatio: pokemon.genderRatio ? pokemon.genderRatio : 0,
+  };
+};
+
+const convertFormDataToReqForUpdate = (data) => {
+  // translate the data into an object that can be passed into the database
+  let types = [];
+  if (data.firstType !== " ") {
+    types.push(data.firstType);
+  }
+  if (data.secondType !== " ") {
+    types.push(data.secondType);
+  }
+
+  let abilities = [];
+  if (data.firstAbility !== "") {
+    abilities.push(data.firstAbility);
+  }
+  if (data.secondAbility !== "") {
+    abilities.push(data.secondAbility);
+  }
+
+  let eggGroups = [];
+  if (data.firstEggGroup !== " ") {
+    eggGroups.push(data.firstEggGroup);
+  }
+  if (data.secondEggGroup !== " ") {
+    eggGroups.push(data.secondEggGroup);
+  }
+
+  let realData = {
+    name: data.name,
+    sprite: data.sprite,
+    shinySprite: data.shinySprite,
+    types,
+    abilities,
+    hiddenAbility: data.hiddenAbility,
+    weight: data.weight,
+    baseFriendship: data.baseFriendship,
+    baseStats: {
+      hp: parseInt(data.hp),
+      atk: parseInt(data.atk),
+      def: parseInt(data.def),
+      spA: parseInt(data.spA),
+      spD: parseInt(data.spD),
+      spe: parseInt(data.spe),
+    },
+    spawnRate: data.spawnRate,
+    moves: JSON.parse(data.moves),
+    id: data.id,
+    breeding: {
+      eggGroups,
+      egg: data.egg,
+      altEgg: data.altEgg,
+    },
+    stages: {
+      current: parseInt(data.currentStage),
+      max: parseInt(data.maxStage),
+    },
+    genderRatio: data.genderRatio,
+    evolutionDetails: JSON.parse(data.evolutionDetails),
+  };
+
+  // make sure there are no duplicate moves (adding the duplicates' learn conditions to the original) and no duplicate learn conditions for each move
+  let moves = [];
+  let conditions = [];
+  let uniqueMoves = [];
+  for (let i = 0; i < realData.moves.length; i++) {
+    if (!moves.includes(realData.moves[i].name)) {
+      moves.push(realData.moves[i].name);
+      conditions.push(realData.moves[i].learnConditions);
+    } else {
+      for (let j = 0; j < realData.moves[i].learnConditions.length; j++) {
+        if (
+          !conditions[moves.indexOf(realData.moves[i].name)].includes(
+            realData.moves[i].learnConditions[j]
+          )
+        ) {
+          conditions[moves.indexOf(realData.moves[i].name)].push(
+            realData.moves[i].learnConditions[j]
+          );
+        }
+      }
+    }
+  }
+  for (let i = 0; i < moves.length; i++) {
+    let moveObj = {
+      learnConditions: conditions[i],
+      name: moves[i],
+    };
+    uniqueMoves.push(moveObj);
+  }
+
+  realData.moves = uniqueMoves;
+
+  return realData;
 };

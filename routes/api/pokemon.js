@@ -7,26 +7,8 @@ const Pokemon = require("../../models/Pokemon");
 // @access Public
 router.get("/", async (req, res) => {
   try {
-    const pokedex = await Pokemon.find({}).limit(50); // Limit results for now to speed up loading
+    const pokedex = await Pokemon.find().sort({ id: 1 });
     res.json(pokedex);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Server Error");
-  }
-});
-
-// @route GET api/pokemon/lastId
-// @desc Get last id in pokedex
-// @access Public
-router.get("/lastId", async (req, res) => {
-  try {
-    let pokedex = await Pokemon.find({});
-    let lastId = -1;
-    for (let i = 0; i < pokedex.length; i++) {
-      if (pokedex[i].id > lastId && pokedex[i].id === Math.floor(pokedex[i].id))
-        lastId = pokedex[i].id;
-    }
-    res.json(lastId);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
@@ -38,152 +20,114 @@ router.get("/lastId", async (req, res) => {
 // @access Public
 router.get("/:id", async (req, res) => {
   try {
-    const pokedex = await Pokemon.find({});
-    let lastId = -1;
-    for (let i = 0; i < pokedex.length; i++) {
-      if (pokedex[i].id > lastId && pokedex[i].id === Math.floor(pokedex[i].id))
-        lastId = pokedex[i].id;
-    }
-
-    let pokemon;
-    let id = parseFloat(req.params.id);
-    // if id is greater than the amount of pokemon in the pokedex or less than 1
-    if (Math.floor(id) > lastId || id < 1) pokemon = {};
-    else pokemon = await Pokemon.findOne({ id: id });
-
-    // the id of the next pokemon
-    let nextPokemonId = -1;
-    let nextId = (id + 0.01).toFixed(2);
-    let nextPokemon = await Pokemon.findOne({ id: nextId });
-    if (nextPokemon) nextPokemonId = nextId;
-    else nextPokemonId = Math.ceil(nextId);
-
-    // the id of the previous pokemon
-    let previousPokemonId = -1;
-    // if the id is not an integer, decrease it by 0.01
-    if (Math.floor(id) !== id) previousPokemonId = (id - 0.01).toFixed(2);
-    else {
-      // otherwise decrease it by 0.99 (4 -> 3.01) and count upwards until we reach an id with no pokemon attached to it
-      let previousId = (id - 0.99).toFixed(2);
-      let previousPokemon = await Pokemon.findOne({ id: previousId });
-      while (previousPokemon) {
-        previousId = parseFloat(previousId + 0.01);
-        previousPokemon = await Pokemon.findOne({ id: previousId });
-      }
-      previousPokemonId = (previousId - 0.01).toFixed(2); // decrease previousId by 1 because previousId is currently the id not attached to a pokemon
-      if (previousPokemonId < id - 1)
-        // calculation issue occurs when subtracting 0.01 from an integer so round up if the issue does occur
-        previousPokemonId = Math.ceil(previousPokemonId);
-    }
-
-    // evolutionIds is an array that contains the ids of the evolutions of the pokemon
-    let evolutionIds = [];
-    // loop through the evolutionDetails array to find push the id of each evolution onto the evolutionIds array
-    if (pokemon.evolutionDetails)
-      for (let i = 0; i < pokemon.evolutionDetails.length; i++) {
-        let evolutionName = pokemon.evolutionDetails[i].evolution;
-        let evolution = await Pokemon.findOne({ name: evolutionName });
-        if (evolution) evolutionIds.push(evolution.id);
-        else {
-          console.log("Cannot find evolution at index " + i);
-          evolutionIds.push(-1);
-        }
-      }
-
-    // eggIds is an array that contains the ids of the egg and altEgg of the pokemon
-    let eggIds = [];
-    if (pokemon.breeding) {
-      let egg = await Pokemon.findOne({ name: pokemon.breeding.egg });
-      if (egg) eggIds.push(egg.id);
-      else {
-        console.log("Cannot find egg");
-        eggIds.push(-1);
-      }
-      egg = await Pokemon.findOne({ name: pokemon.breeding.altEgg });
-      if (egg) eggIds.push(egg.id);
-      else {
-        console.log("Cannot find altEgg");
-        eggIds.push(-1);
-      }
-    }
-
-    // pokemon formes
-    let formes = [];
-    let formeId = Math.floor(id);
-    let forme = await Pokemon.findOne({ id: formeId });
-    while (forme) {
-      formes.push(forme);
-      formeId += 0.01;
-      formeId = parseFloat(parseFloat(formeId).toFixed(2)); // this fixes the calculation issue that may arise
-      forme = await Pokemon.findOne({ id: formeId });
-    }
-
-    let payload = {
-      pokemon,
-      nextPokemonId,
-      previousPokemonId,
-      evolutionIds,
-      eggIds,
-      formes,
-    };
-    res.json(payload);
+    const pokemon = await Pokemon.findOne({ id: req.params.id });
+    res.json(pokemon);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
 });
 
-// @route POST api/pokemon
+// @route GET api/pokemon/formes/:id
+// @desc Get a Pokemon's formes by the id provided
+// @access Public
+router.get("/:id/formes", async (req, res) => {
+  try {
+    const formes = await Pokemon.find({
+      id: {
+        $lt: Math.floor(req.params.id) + 1,
+        $gte: Math.floor(req.params.id),
+        $ne: req.params.id,
+      },
+    });
+    res.json(formes);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route GET api/pokemon/eggs/:id
+// @desc Get a Pokemon's eggs by the id provided
+// @access Public
+router.get("/:id/eggs", async (req, res) => {
+  try {
+    const pokemon = await Pokemon.findOne({ id: req.params.id });
+    let eggs = [];
+    let egg;
+    if (pokemon.name === pokemon.breeding.egg) {
+      eggs.push(pokemon);
+    } else {
+      egg = await Pokemon.findOne({ name: pokemon.breeding.egg });
+      eggs.push(egg);
+    }
+    if (pokemon.breeding.egg !== pokemon.breeding.altEgg) {
+      if (pokemon.name === pokemon.breeding.altEgg) {
+        egg.push(pokemon);
+      } else {
+        egg = await Pokemon.findOne({ name: pokemon.breeding.altEgg });
+        eggs.push(egg);
+      }
+    }
+    res.json(eggs);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route GET api/pokemon/eggs/:id
+// @desc Get a Pokemon's eggs by the id provided
+// @access Public
+router.get("/:id/evolutions", async (req, res) => {
+  try {
+    const pokemon = await Pokemon.findOne({ id: req.params.id });
+    let evolutions = [];
+    let evolution;
+    for (let i = 0; i < pokemon.evolutionDetails.length; i++) {
+      evolution = await Pokemon.findOne({
+        name: pokemon.evolutionDetails[i].evolution,
+      });
+      evolutions.push(evolution);
+    }
+    res.json(evolutions);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route GET api/pokemon/:id/previous
+// @desc Get the id of the previous Pokemon by the id provided
+// @access Public
+router.get("/:id/previous", async (req, res) => {
+  try {
+    const formes = await Pokemon.find({
+      id: {
+        $lt: Math.floor(req.params.id),
+        $gte: Math.floor(req.params.id) - 1,
+      },
+    });
+    res.json(formes[formes.length - 1].id);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route PUT api/pokemon
 // @desc Update the Pokemon with a matching id with the provided info
 // @access Private
-router.post("/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     // try to find the Pokemon with the matching id
-    let pokemon = await Pokemon.findOneAndUpdate(
-      { id: req.params.id },
-      req.body
-    );
+    let pokemon = await Pokemon.findOne({ id: req.params.id });
 
-    if (!pokemon) {
+    if (pokemon) {
+      await Pokemon.updateOne({ id: req.params.id }, req.body);
+    } else {
       // if there isn't one, make a new one with the given information
-      const {
-        name,
-        sprite,
-        shinySprite,
-        types,
-        abilities,
-        hiddenAbility,
-        weight,
-        baseFriendship,
-        baseStats,
-        spawnRate,
-        moves,
-        id,
-        breeding,
-        stages,
-        genderRatio,
-        evolutionDetails,
-      } = req.body;
-
-      pokemon = new Pokemon({
-        name,
-        sprite,
-        shinySprite,
-        types,
-        abilities,
-        hiddenAbility,
-        weight,
-        baseFriendship,
-        baseStats,
-        spawnRate,
-        moves,
-        id,
-        breeding,
-        stages,
-        genderRatio,
-        evolutionDetails,
-      });
-
+      pokemon = new Pokemon(req.body);
       pokemon.save();
     }
 

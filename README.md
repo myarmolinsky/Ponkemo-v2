@@ -45,7 +45,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 ## Planned Features/To-Do List
 
 - Comment code
-- Fix decimal always showing in url when going to previous pokemon
+- Strengthen backend
 - Fix Stage 0 Pokemon and future evolutions having unidentical egg moves (duskull + dusknoir, chingling + chimecho)
 - Add moves for the rest of the pokemon (359-end)
 - Movedex
@@ -58,7 +58,6 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
   - Edit abilities (admin-privilege users only)
 - Itemdex
   - Edit items (admin-privilege users only)
-- Fix notFound showing up while loading a Pokemon even though the Pokemon exists (should show spinner instead)
 - Users have spawnCounter, item tier points, Pokemon tier points
   - spawnCounter is used for spawning Pokemon, it ensures that it is harder to get a rarer Pokemon
 - Spawnrates
