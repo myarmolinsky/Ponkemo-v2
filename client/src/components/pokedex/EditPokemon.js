@@ -128,18 +128,14 @@ export const EditPokemon = ({ match }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // if we are making a new Pokemon reload the page after creating it so that all the proper data loads (otherwise the buttons don't work properly)
 
-    console.log(convertFormDataToReqForUpdate(formData));
-    // TODO: removed for testing for now, readd
-    // updatePokemon(match.params.id, convertFormDataToReqForUpdate(formData))
+    updatePokemon(match.params.id, convertFormDataToReqForUpdate(formData));
     // if we edited the pokemon's id, load the page connected to its new id
-    // let splitUrl = window.location.href.split("/");
-    // if (id !== match.params.id) {
-    //   splitUrl.pop();
-    //   splitUrl.pop();
-    //   window.open(splitUrl.join("/") + "/" + id + "/edit", "_self");
-    // }
+    if (id !== match.params.id) {
+      let splitUrl = window.location.href.split("/");
+      splitUrl[splitUrl.length - 2] = id;
+      window.open(splitUrl.join("/"), "_self");
+    }
   };
 
   return !user || loading || lastId === -1 ? (
@@ -220,6 +216,10 @@ export const EditPokemon = ({ match }) => {
           </a>
         </Grid>
       </Grid>
+      <br />
+      <h1 className="large text-primary" style={{ textAlign: "center" }}>
+        Editing Pokemon ID {match.params.id}
+      </h1>
       <form onSubmit={(e) => onSubmit(e)}>
         <Grid container justify="space-evenly" alignItems="flex-end">
           <Grid item>
@@ -725,10 +725,10 @@ const convertFormDataToReqForUpdate = (data) => {
   }
 
   let eggGroups = [];
-  if (data.firstEggGroup !== "") {
+  if (data.firstEggGroup !== " ") {
     eggGroups.push(data.firstEggGroup);
   }
-  if (data.secondEggGroup !== "") {
+  if (data.secondEggGroup !== " ") {
     eggGroups.push(data.secondEggGroup);
   }
 
@@ -742,12 +742,12 @@ const convertFormDataToReqForUpdate = (data) => {
     weight: data.weight,
     baseFriendship: data.baseFriendship,
     baseStats: {
-      hp: data.hp,
-      atk: data.atk,
-      def: data.def,
-      spA: data.spA,
-      spD: data.spD,
-      spe: data.spe,
+      hp: parseInt(data.hp),
+      atk: parseInt(data.atk),
+      def: parseInt(data.def),
+      spA: parseInt(data.spA),
+      spD: parseInt(data.spD),
+      spe: parseInt(data.spe),
     },
     spawnRate: data.spawnRate,
     moves: JSON.parse(data.moves),
@@ -758,8 +758,8 @@ const convertFormDataToReqForUpdate = (data) => {
       altEgg: data.altEgg,
     },
     stages: {
-      current: data.currentStage,
-      max: data.maxStage,
+      current: parseInt(data.currentStage),
+      max: parseInt(data.maxStage),
     },
     genderRatio: data.genderRatio,
     evolutionDetails: JSON.parse(data.evolutionDetails),

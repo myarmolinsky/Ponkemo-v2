@@ -7,22 +7,17 @@ import {
   LOAD_ALL_POKEMON,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
-  UPDATE_POKEMON,
-  UPDATE_POKEMON_FAILED,
 } from "./types";
 
 export default function (state, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case CLEAR_POKEMON:
+    case LOAD_ALL_POKEMON:
       return {
         ...state,
-        pokemon: {},
-        formes: [],
-        eggs: [],
-        evolutions: [],
-        previousPokemonId: -1,
+        pokedex: payload,
+        lastId: payload[payload.length - 1].id,
         loading: false,
       };
     case LOAD_POKEMON:
@@ -35,31 +30,21 @@ export default function (state, action) {
       return {
         ...state,
         formes: payload,
-        loading: false,
       };
     case LOAD_POKEMON_EGGS:
       return {
         ...state,
         eggs: payload,
-        loading: false,
       };
     case LOAD_POKEMON_EVOLUTIONS:
       return {
         ...state,
         evolutions: payload,
-        loading: false,
       };
     case LOAD_PREVIOUS_POKEMON_ID:
       return {
         ...state,
         previousPokemonId: payload,
-      };
-    case LOAD_ALL_POKEMON:
-      return {
-        ...state,
-        pokedex: payload,
-        lastId: payload[payload.length - 1].id,
-        loading: false,
       };
     case POKEMON_NOT_FOUND:
       return {
@@ -68,18 +53,18 @@ export default function (state, action) {
         evolutions: [],
         eggs: [],
         formes: [],
+        previousPokemonId: -1,
         loading: false,
       };
-    case UPDATE_POKEMON:
+    case CLEAR_POKEMON:
       return {
         ...state,
-        pokemon: payload,
-        loading: false,
-      };
-    case UPDATE_POKEMON_FAILED:
-      return {
-        ...state,
-        loading: false,
+        pokemon: {},
+        formes: [],
+        eggs: [],
+        evolutions: [],
+        previousPokemonId: -1,
+        loading: true,
       };
     default:
       return state;

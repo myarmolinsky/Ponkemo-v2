@@ -32,7 +32,7 @@ export const Pokemon = ({ match }) => {
 
   return (
     <Fragment>
-      {loading || lastId === -1 ? (
+      {loading || lastId === -1 || eggs.length === 0 ? (
         <Spinner />
       ) : isNaN(match.params.id) ||
         match.params.id > lastId ||

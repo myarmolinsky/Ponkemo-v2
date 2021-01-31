@@ -13,8 +13,6 @@ import {
   LOAD_ALL_POKEMON,
   POKEMON_NOT_FOUND,
   CLEAR_POKEMON,
-  UPDATE_POKEMON,
-  UPDATE_POKEMON_FAILED,
 } from "./types";
 
 export const PokemonState = ({ children }) => {
@@ -143,18 +141,8 @@ export const PokemonState = ({ children }) => {
       const res = await axios.put(`/api/pokemon/${id}`, data, config);
 
       setAlert("Pokemon Updated/Created", "success");
-
-      return dispatch({
-        type: UPDATE_POKEMON,
-        payload: res.data,
-      });
     } catch (err) {
       setAlert("Failed to Update/Create Pokemon", "danger");
-
-      return dispatch({
-        type: UPDATE_POKEMON_FAILED,
-        payload: { msg: "Pokemon not found", status: 404 },
-      });
     }
   };
 
