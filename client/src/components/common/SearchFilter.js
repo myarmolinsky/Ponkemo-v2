@@ -6,8 +6,9 @@ import {
   MenuItem,
   Grid,
   TextField,
-  Typography,
   Divider,
+  FormControl,
+  InputLabel,
 } from "@material-ui/core";
 import { useStyles } from "../styles";
 
@@ -136,39 +137,14 @@ export const SearchFilter = ({
         <Fragment>
           <Grid container justify="space-evenly" alignItems="flex-end">
             <Grid item>
-              <Typography variant="h6">Type:</Typography>
-              <Select
-                name="firstType"
-                onChange={(e) => onChange(e)}
-                value={firstType}
-                variant="outlined"
-              >
-                <MenuItem value=" ">None</MenuItem>
-                <MenuItem value="Bug">Bug</MenuItem>
-                <MenuItem value="Dark">Dark</MenuItem>
-                <MenuItem value="Dragon">Dragon</MenuItem>
-                <MenuItem value="Electric">Electric</MenuItem>
-                <MenuItem value="Fairy">Fairy</MenuItem>
-                <MenuItem value="Fighting">Fighting</MenuItem>
-                <MenuItem value="Fire">Fire</MenuItem>
-                <MenuItem value="Flying">Flying</MenuItem>
-                <MenuItem value="Ghost">Ghost</MenuItem>
-                <MenuItem value="Grass">Grass</MenuItem>
-                <MenuItem value="Ground">Ground</MenuItem>
-                <MenuItem value="Ice">Ice</MenuItem>
-                <MenuItem value="Normal">Normal</MenuItem>
-                <MenuItem value="Poison">Poison</MenuItem>
-                <MenuItem value="Psychic">Psychic</MenuItem>
-                <MenuItem value="Rock">Rock</MenuItem>
-                <MenuItem value="Steel">Steel</MenuItem>
-                <MenuItem value="Water">Water</MenuItem>
-              </Select>
-              {showBothTypes && (
+              <FormControl variant="outlined" margin="normal">
+                <InputLabel id="first-type-label">Type</InputLabel>
                 <Select
-                  name="secondType"
+                  labelId="first-type-label"
+                  label="Type"
+                  name="firstType"
                   onChange={(e) => onChange(e)}
-                  value={secondType}
-                  variant="outlined"
+                  value={firstType}
                 >
                   <MenuItem value=" ">None</MenuItem>
                   <MenuItem value="Bug">Bug</MenuItem>
@@ -190,50 +166,60 @@ export const SearchFilter = ({
                   <MenuItem value="Steel">Steel</MenuItem>
                   <MenuItem value="Water">Water</MenuItem>
                 </Select>
+              </FormControl>
+              {showBothTypes && (
+                <FormControl variant="outlined" margin="normal">
+                  <InputLabel id="second-type-label">Type</InputLabel>
+                  <Select
+                    labelId="second-type-label"
+                    label="Type"
+                    name="secondType"
+                    onChange={(e) => onChange(e)}
+                    value={secondType}
+                  >
+                    <MenuItem value=" ">None</MenuItem>
+                    <MenuItem value="Bug">Bug</MenuItem>
+                    <MenuItem value="Dark">Dark</MenuItem>
+                    <MenuItem value="Dragon">Dragon</MenuItem>
+                    <MenuItem value="Electric">Electric</MenuItem>
+                    <MenuItem value="Fairy">Fairy</MenuItem>
+                    <MenuItem value="Fighting">Fighting</MenuItem>
+                    <MenuItem value="Fire">Fire</MenuItem>
+                    <MenuItem value="Flying">Flying</MenuItem>
+                    <MenuItem value="Ghost">Ghost</MenuItem>
+                    <MenuItem value="Grass">Grass</MenuItem>
+                    <MenuItem value="Ground">Ground</MenuItem>
+                    <MenuItem value="Ice">Ice</MenuItem>
+                    <MenuItem value="Normal">Normal</MenuItem>
+                    <MenuItem value="Poison">Poison</MenuItem>
+                    <MenuItem value="Psychic">Psychic</MenuItem>
+                    <MenuItem value="Rock">Rock</MenuItem>
+                    <MenuItem value="Steel">Steel</MenuItem>
+                    <MenuItem value="Water">Water</MenuItem>
+                  </Select>
+                </FormControl>
               )}
             </Grid>
             <Grid item>
-              <Typography variant="h6">Ability:</Typography>
               <TextField
+                label="Ability"
                 variant="outlined"
                 onChange={(e) => onChange(e)}
                 placeholder="Search for an ability"
                 name="ability"
                 value={ability}
+                margin="normal"
               />
             </Grid>
             <Grid item>
-              <Typography variant="h6">Egg Group:</Typography>
-              <Select
-                name="firstEggGroup"
-                onChange={(e) => onChange(e)}
-                value={firstEggGroup}
-                variant="outlined"
-              >
-                <MenuItem value=" ">None</MenuItem>
-                <MenuItem value="Amorphous">Amorphous</MenuItem>
-                <MenuItem value="Bug">Bug</MenuItem>
-                <MenuItem value="Ditto">Ditto</MenuItem>
-                <MenuItem value="Dragon">Dragon</MenuItem>
-                <MenuItem value="Fairy">Fairy</MenuItem>
-                <MenuItem value="Field">Field</MenuItem>
-                <MenuItem value="Flying">Flying</MenuItem>
-                <MenuItem value="Grass">Grass</MenuItem>
-                <MenuItem value="Human-Like">Human-Like</MenuItem>
-                <MenuItem value="Legendary">Legendary</MenuItem>
-                <MenuItem value="Mineral">Mineral</MenuItem>
-                <MenuItem value="Monster">Monster</MenuItem>
-                <MenuItem value="Unown">Unown</MenuItem>
-                <MenuItem value="Water 1">Water 1</MenuItem>
-                <MenuItem value="Water 2">Water 2</MenuItem>
-                <MenuItem value="Water 3">Water 3</MenuItem>
-              </Select>
-              {showBothEggGroups && (
+              <FormControl variant="outlined" margin="normal">
+                <InputLabel id="first-egg-group-label">Egg Group</InputLabel>
                 <Select
-                  name="secondEggGroup"
+                  labelId="first-egg-group-label"
+                  label="Egg Group"
+                  name="firstEggGroup"
                   onChange={(e) => onChange(e)}
-                  value={secondEggGroup}
-                  variant="outlined"
+                  value={firstEggGroup}
                 >
                   <MenuItem value=" ">None</MenuItem>
                   <MenuItem value="Amorphous">Amorphous</MenuItem>
@@ -253,14 +239,49 @@ export const SearchFilter = ({
                   <MenuItem value="Water 2">Water 2</MenuItem>
                   <MenuItem value="Water 3">Water 3</MenuItem>
                 </Select>
+              </FormControl>
+              {showBothEggGroups && (
+                <FormControl variant="outlined" margin="normal">
+                  <InputLabel id="second-egg-group-label">Egg Group</InputLabel>
+                  <Select
+                    labelId="second-egg-group-label"
+                    label="Egg Group"
+                    name="secondEggGroup"
+                    onChange={(e) => onChange(e)}
+                    value={secondEggGroup}
+                  >
+                    <MenuItem value=" ">None</MenuItem>
+                    <MenuItem value="Amorphous">Amorphous</MenuItem>
+                    <MenuItem value="Bug">Bug</MenuItem>
+                    <MenuItem value="Ditto">Ditto</MenuItem>
+                    <MenuItem value="Dragon">Dragon</MenuItem>
+                    <MenuItem value="Fairy">Fairy</MenuItem>
+                    <MenuItem value="Field">Field</MenuItem>
+                    <MenuItem value="Flying">Flying</MenuItem>
+                    <MenuItem value="Grass">Grass</MenuItem>
+                    <MenuItem value="Human-Like">Human-Like</MenuItem>
+                    <MenuItem value="Legendary">Legendary</MenuItem>
+                    <MenuItem value="Mineral">Mineral</MenuItem>
+                    <MenuItem value="Monster">Monster</MenuItem>
+                    <MenuItem value="Unown">Unown</MenuItem>
+                    <MenuItem value="Water 1">Water 1</MenuItem>
+                    <MenuItem value="Water 2">Water 2</MenuItem>
+                    <MenuItem value="Water 3">Water 3</MenuItem>
+                  </Select>
+                </FormControl>
               )}
             </Grid>
           </Grid>
-          <Divider className={classes.divider} />
-          <Grid container justify="space-evenly" alignItems="flex-end">
-            <Grid item xs={1}>
-              <Typography variant="caption">Base HP {">"}</Typography>
+          <Grid
+            container
+            justify="space-evenly"
+            alignItems="flex-end"
+            spacing={1}
+          >
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base HP >"
                 type="number"
                 variant="outlined"
                 placeholder="0"
@@ -269,9 +290,10 @@ export const SearchFilter = ({
                 value={baseHealthGreater}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base HP {"<"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base HP <"
                 type="number"
                 variant="outlined"
                 placeholder="256"
@@ -280,9 +302,10 @@ export const SearchFilter = ({
                 value={baseHealthLess}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Atk {">"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Attack >"
                 type="number"
                 variant="outlined"
                 placeholder="0"
@@ -291,9 +314,10 @@ export const SearchFilter = ({
                 value={baseAttackGreater}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Atk {"<"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Attack <"
                 type="number"
                 variant="outlined"
                 placeholder="256"
@@ -302,9 +326,10 @@ export const SearchFilter = ({
                 value={baseAttackLess}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Def {">"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Defense >"
                 type="number"
                 variant="outlined"
                 placeholder="0"
@@ -313,9 +338,10 @@ export const SearchFilter = ({
                 value={baseDefenseGreater}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Def {"<"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Defense <"
                 type="number"
                 variant="outlined"
                 placeholder="256"
@@ -325,10 +351,16 @@ export const SearchFilter = ({
               />
             </Grid>
           </Grid>
-          <Grid container justify="space-evenly" alignItems="flex-end">
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Sp Atk {">"}</Typography>
+          <Grid
+            container
+            justify="space-evenly"
+            alignItems="flex-end"
+            spacing={1}
+          >
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Special Attack >"
                 type="number"
                 variant="outlined"
                 placeholder="0"
@@ -337,9 +369,10 @@ export const SearchFilter = ({
                 value={baseSpAttackGreater}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Sp Atk {"<"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Special Attack <"
                 type="number"
                 variant="outlined"
                 placeholder="256"
@@ -348,9 +381,10 @@ export const SearchFilter = ({
                 value={baseSpAttackLess}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Sp Def {">"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Special Defense >"
                 type="number"
                 variant="outlined"
                 placeholder="0"
@@ -359,9 +393,10 @@ export const SearchFilter = ({
                 value={baseSpDefenseGreater}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Sp Def {"<"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Special Defense <"
                 type="number"
                 variant="outlined"
                 placeholder="256"
@@ -370,9 +405,10 @@ export const SearchFilter = ({
                 value={baseSpDefenseLess}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Spe {">"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Speed >"
                 type="number"
                 variant="outlined"
                 placeholder="0"
@@ -381,9 +417,10 @@ export const SearchFilter = ({
                 value={baseSpeedGreater}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Spe {"<"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Speed <"
                 type="number"
                 variant="outlined"
                 placeholder="256"
