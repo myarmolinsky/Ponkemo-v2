@@ -22,10 +22,14 @@ export const Type = ({ match }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <Button size="large" variant="contained" color="secondary">
-        <Link to="/types" style={{ color: "white" }}>
-          To Types
-        </Link>
+      <Button
+        size="large"
+        variant="contained"
+        color="secondary"
+        component={Link}
+        to="/types"
+      >
+        To Types
       </Button>
       <h1 className="large text-primary">{match.params.type} Types</h1>
       <SearchFilter

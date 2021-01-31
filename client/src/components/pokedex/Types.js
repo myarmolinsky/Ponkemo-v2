@@ -6,95 +6,59 @@ export const Types = () => {
     <div style={{ textAlign: "center" }}>
       <h1 className="large text-primary">Types</h1>
       <ul>
-        <li>
-          <span className="lead">
-            <Link to="/types/Bug">Bug</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Bug">Bug</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Dark">Dark</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Dark">Dark</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Dragon">Dragon</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Dragon">Dragon</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Electric">Electric</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Electric">Electric</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Fairy">Fairy</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Fairy">Fairy</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Fighting">Fighting</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Fighting">Fighting</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Fire">Fire</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Fire">Fire</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Flying">Flying</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Flying">Flying</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Ghost">Ghost</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Ghost">Ghost</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Grass">Grass</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Grass">Grass</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Ground">Ground</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Ground">Ground</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Ice">Ice</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Ice">Ice</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Normal">Normal</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Normal">Normal</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Poison">Poison</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Poison">Poison</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Psychic">Psychic</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Psychic">Psychic</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Rock">Rock</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Rock">Rock</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Steel">Steel</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Steel">Steel</Link>
         </li>
-        <li>
-          <span className="lead">
-            <Link to="/types/Water">Water</Link>
-          </span>
+        <li className="lead">
+          <Link to="/types/Water">Water</Link>
         </li>
       </ul>
     </div>

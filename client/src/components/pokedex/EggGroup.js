@@ -24,15 +24,20 @@ export const EggGroup = ({ match }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <Button variant="contained" color="secondary" size="large">
-        <Link to="/egggroups" style={{ color: "white" }}>
-          To Egg Groups
-        </Link>
+      <Button
+        variant="contained"
+        color="secondary"
+        size="large"
+        component={Link}
+        to="/egggroups"
+      >
+        To Egg Groups
       </Button>
       <h1 className="large text-primary">{match.params.eggGroup} Egg Group</h1>
       <SearchFilter
         pokedex={eggGroup}
         setFilteredPokedex={(filtered) => setFilteredPokedex(filtered)}
+        showBothEggGroups={false}
       />
       <Dex dex={filteredPokedex} />
     </Fragment>

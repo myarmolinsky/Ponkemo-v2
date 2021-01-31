@@ -6,8 +6,9 @@ import {
   MenuItem,
   Grid,
   TextField,
-  Typography,
   Divider,
+  FormControl,
+  InputLabel,
 } from "@material-ui/core";
 import { useStyles } from "../styles";
 
@@ -15,6 +16,7 @@ export const SearchFilter = ({
   pokedex,
   setFilteredPokedex,
   showBothTypes,
+  showBothEggGroups,
 }) => {
   const classes = useStyles();
 
@@ -23,7 +25,8 @@ export const SearchFilter = ({
     firstType: " ",
     secondType: " ",
     ability: "",
-    eggGroup: " ",
+    firstEggGroup: " ",
+    secondEggGroup: " ",
     baseHealthGreater: 0,
     baseHealthLess: 256,
     baseAttackGreater: 0,
@@ -45,7 +48,8 @@ export const SearchFilter = ({
     firstType,
     secondType,
     ability,
-    eggGroup,
+    firstEggGroup,
+    secondEggGroup,
     baseHealthGreater,
     baseHealthLess,
     baseAttackGreater,
@@ -81,7 +85,8 @@ export const SearchFilter = ({
       firstType: " ",
       secondType: " ",
       ability: "",
-      eggGroup: " ",
+      firstEggGroup: " ",
+      secondEggGroup: " ",
       baseHealthGreater: 0,
       baseHealthLess: 256,
       baseAttackGreater: 0,
@@ -132,39 +137,14 @@ export const SearchFilter = ({
         <Fragment>
           <Grid container justify="space-evenly" alignItems="flex-end">
             <Grid item>
-              <Typography variant="h6">Type:</Typography>
-              <Select
-                name="firstType"
-                onChange={(e) => onChange(e)}
-                value={firstType}
-                variant="outlined"
-              >
-                <MenuItem value=" ">None</MenuItem>
-                <MenuItem value="Bug">Bug</MenuItem>
-                <MenuItem value="Dark">Dark</MenuItem>
-                <MenuItem value="Dragon">Dragon</MenuItem>
-                <MenuItem value="Electric">Electric</MenuItem>
-                <MenuItem value="Fairy">Fairy</MenuItem>
-                <MenuItem value="Fighting">Fighting</MenuItem>
-                <MenuItem value="Fire">Fire</MenuItem>
-                <MenuItem value="Flying">Flying</MenuItem>
-                <MenuItem value="Ghost">Ghost</MenuItem>
-                <MenuItem value="Grass">Grass</MenuItem>
-                <MenuItem value="Ground">Ground</MenuItem>
-                <MenuItem value="Ice">Ice</MenuItem>
-                <MenuItem value="Normal">Normal</MenuItem>
-                <MenuItem value="Poison">Poison</MenuItem>
-                <MenuItem value="Psychic">Psychic</MenuItem>
-                <MenuItem value="Rock">Rock</MenuItem>
-                <MenuItem value="Steel">Steel</MenuItem>
-                <MenuItem value="Water">Water</MenuItem>
-              </Select>
-              {showBothTypes && (
+              <FormControl variant="outlined" margin="normal">
+                <InputLabel id="first-type-label">Type</InputLabel>
                 <Select
-                  name="secondType"
+                  labelId="first-type-label"
+                  label="Type"
+                  name="firstType"
                   onChange={(e) => onChange(e)}
-                  value={secondType}
-                  variant="outlined"
+                  value={firstType}
                 >
                   <MenuItem value=" ">None</MenuItem>
                   <MenuItem value="Bug">Bug</MenuItem>
@@ -186,51 +166,122 @@ export const SearchFilter = ({
                   <MenuItem value="Steel">Steel</MenuItem>
                   <MenuItem value="Water">Water</MenuItem>
                 </Select>
+              </FormControl>
+              {showBothTypes && (
+                <FormControl variant="outlined" margin="normal">
+                  <InputLabel id="second-type-label">Type</InputLabel>
+                  <Select
+                    labelId="second-type-label"
+                    label="Type"
+                    name="secondType"
+                    onChange={(e) => onChange(e)}
+                    value={secondType}
+                  >
+                    <MenuItem value=" ">None</MenuItem>
+                    <MenuItem value="Bug">Bug</MenuItem>
+                    <MenuItem value="Dark">Dark</MenuItem>
+                    <MenuItem value="Dragon">Dragon</MenuItem>
+                    <MenuItem value="Electric">Electric</MenuItem>
+                    <MenuItem value="Fairy">Fairy</MenuItem>
+                    <MenuItem value="Fighting">Fighting</MenuItem>
+                    <MenuItem value="Fire">Fire</MenuItem>
+                    <MenuItem value="Flying">Flying</MenuItem>
+                    <MenuItem value="Ghost">Ghost</MenuItem>
+                    <MenuItem value="Grass">Grass</MenuItem>
+                    <MenuItem value="Ground">Ground</MenuItem>
+                    <MenuItem value="Ice">Ice</MenuItem>
+                    <MenuItem value="Normal">Normal</MenuItem>
+                    <MenuItem value="Poison">Poison</MenuItem>
+                    <MenuItem value="Psychic">Psychic</MenuItem>
+                    <MenuItem value="Rock">Rock</MenuItem>
+                    <MenuItem value="Steel">Steel</MenuItem>
+                    <MenuItem value="Water">Water</MenuItem>
+                  </Select>
+                </FormControl>
               )}
             </Grid>
             <Grid item>
-              <Typography variant="h6">Ability:</Typography>
               <TextField
+                label="Ability"
                 variant="outlined"
                 onChange={(e) => onChange(e)}
                 placeholder="Search for an ability"
                 name="ability"
                 value={ability}
+                margin="normal"
               />
             </Grid>
             <Grid item>
-              <Typography variant="h6">Egg Group:</Typography>
-              <Select
-                name="eggGroup"
-                onChange={(e) => onChange(e)}
-                value={eggGroup}
-                variant="outlined"
-              >
-                <MenuItem value=" ">None</MenuItem>
-                <MenuItem value="Amorphous">Amorphous</MenuItem>
-                <MenuItem value="Bug">Bug</MenuItem>
-                <MenuItem value="Ditto">Ditto</MenuItem>
-                <MenuItem value="Dragon">Dragon</MenuItem>
-                <MenuItem value="Fairy">Fairy</MenuItem>
-                <MenuItem value="Field">Field</MenuItem>
-                <MenuItem value="Flying">Flying</MenuItem>
-                <MenuItem value="Grass">Grass</MenuItem>
-                <MenuItem value="Human-Like">Human-Like</MenuItem>
-                <MenuItem value="Legendary">Legendary</MenuItem>
-                <MenuItem value="Mineral">Mineral</MenuItem>
-                <MenuItem value="Monster">Monster</MenuItem>
-                <MenuItem value="Unown">Unown</MenuItem>
-                <MenuItem value="Water 1">Water 1</MenuItem>
-                <MenuItem value="Water 2">Water 2</MenuItem>
-                <MenuItem value="Water 3">Water 3</MenuItem>
-              </Select>
+              <FormControl variant="outlined" margin="normal">
+                <InputLabel id="first-egg-group-label">Egg Group</InputLabel>
+                <Select
+                  labelId="first-egg-group-label"
+                  label="Egg Group"
+                  name="firstEggGroup"
+                  onChange={(e) => onChange(e)}
+                  value={firstEggGroup}
+                >
+                  <MenuItem value=" ">None</MenuItem>
+                  <MenuItem value="Amorphous">Amorphous</MenuItem>
+                  <MenuItem value="Bug">Bug</MenuItem>
+                  <MenuItem value="Ditto">Ditto</MenuItem>
+                  <MenuItem value="Dragon">Dragon</MenuItem>
+                  <MenuItem value="Fairy">Fairy</MenuItem>
+                  <MenuItem value="Field">Field</MenuItem>
+                  <MenuItem value="Flying">Flying</MenuItem>
+                  <MenuItem value="Grass">Grass</MenuItem>
+                  <MenuItem value="Human-Like">Human-Like</MenuItem>
+                  <MenuItem value="Legendary">Legendary</MenuItem>
+                  <MenuItem value="Mineral">Mineral</MenuItem>
+                  <MenuItem value="Monster">Monster</MenuItem>
+                  <MenuItem value="Unown">Unown</MenuItem>
+                  <MenuItem value="Water 1">Water 1</MenuItem>
+                  <MenuItem value="Water 2">Water 2</MenuItem>
+                  <MenuItem value="Water 3">Water 3</MenuItem>
+                </Select>
+              </FormControl>
+              {showBothEggGroups && (
+                <FormControl variant="outlined" margin="normal">
+                  <InputLabel id="second-egg-group-label">Egg Group</InputLabel>
+                  <Select
+                    labelId="second-egg-group-label"
+                    label="Egg Group"
+                    name="secondEggGroup"
+                    onChange={(e) => onChange(e)}
+                    value={secondEggGroup}
+                  >
+                    <MenuItem value=" ">None</MenuItem>
+                    <MenuItem value="Amorphous">Amorphous</MenuItem>
+                    <MenuItem value="Bug">Bug</MenuItem>
+                    <MenuItem value="Ditto">Ditto</MenuItem>
+                    <MenuItem value="Dragon">Dragon</MenuItem>
+                    <MenuItem value="Fairy">Fairy</MenuItem>
+                    <MenuItem value="Field">Field</MenuItem>
+                    <MenuItem value="Flying">Flying</MenuItem>
+                    <MenuItem value="Grass">Grass</MenuItem>
+                    <MenuItem value="Human-Like">Human-Like</MenuItem>
+                    <MenuItem value="Legendary">Legendary</MenuItem>
+                    <MenuItem value="Mineral">Mineral</MenuItem>
+                    <MenuItem value="Monster">Monster</MenuItem>
+                    <MenuItem value="Unown">Unown</MenuItem>
+                    <MenuItem value="Water 1">Water 1</MenuItem>
+                    <MenuItem value="Water 2">Water 2</MenuItem>
+                    <MenuItem value="Water 3">Water 3</MenuItem>
+                  </Select>
+                </FormControl>
+              )}
             </Grid>
           </Grid>
-          <Divider className={classes.divider} />
-          <Grid container justify="space-evenly" alignItems="flex-end">
-            <Grid item xs={1}>
-              <Typography variant="caption">Base HP {">"}</Typography>
+          <Grid
+            container
+            justify="space-evenly"
+            alignItems="flex-end"
+            spacing={1}
+          >
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base HP >"
                 type="number"
                 variant="outlined"
                 placeholder="0"
@@ -239,9 +290,10 @@ export const SearchFilter = ({
                 value={baseHealthGreater}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base HP {"<"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base HP <"
                 type="number"
                 variant="outlined"
                 placeholder="256"
@@ -250,9 +302,10 @@ export const SearchFilter = ({
                 value={baseHealthLess}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Atk {">"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Attack >"
                 type="number"
                 variant="outlined"
                 placeholder="0"
@@ -261,9 +314,10 @@ export const SearchFilter = ({
                 value={baseAttackGreater}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Atk {"<"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Attack <"
                 type="number"
                 variant="outlined"
                 placeholder="256"
@@ -272,9 +326,10 @@ export const SearchFilter = ({
                 value={baseAttackLess}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Def {">"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Defense >"
                 type="number"
                 variant="outlined"
                 placeholder="0"
@@ -283,9 +338,10 @@ export const SearchFilter = ({
                 value={baseDefenseGreater}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Def {"<"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Defense <"
                 type="number"
                 variant="outlined"
                 placeholder="256"
@@ -295,10 +351,16 @@ export const SearchFilter = ({
               />
             </Grid>
           </Grid>
-          <Grid container justify="space-evenly" alignItems="flex-end">
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Sp Atk {">"}</Typography>
+          <Grid
+            container
+            justify="space-evenly"
+            alignItems="flex-end"
+            spacing={1}
+          >
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Special Attack >"
                 type="number"
                 variant="outlined"
                 placeholder="0"
@@ -307,9 +369,10 @@ export const SearchFilter = ({
                 value={baseSpAttackGreater}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Sp Atk {"<"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Special Attack <"
                 type="number"
                 variant="outlined"
                 placeholder="256"
@@ -318,9 +381,10 @@ export const SearchFilter = ({
                 value={baseSpAttackLess}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Sp Def {">"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Special Defense >"
                 type="number"
                 variant="outlined"
                 placeholder="0"
@@ -329,9 +393,10 @@ export const SearchFilter = ({
                 value={baseSpDefenseGreater}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Sp Def {"<"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Special Defense <"
                 type="number"
                 variant="outlined"
                 placeholder="256"
@@ -340,9 +405,10 @@ export const SearchFilter = ({
                 value={baseSpDefenseLess}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Spe {">"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Speed >"
                 type="number"
                 variant="outlined"
                 placeholder="0"
@@ -351,9 +417,10 @@ export const SearchFilter = ({
                 value={baseSpeedGreater}
               />
             </Grid>
-            <Grid item xs={1}>
-              <Typography variant="caption">Base Spe {"<"}</Typography>
+            <Grid item xs={2}>
               <TextField
+                margin="normal"
+                label="Base Speed <"
                 type="number"
                 variant="outlined"
                 placeholder="256"
@@ -374,10 +441,12 @@ SearchFilter.propTypes = {
   pokedex: array.isRequired,
   setFilteredPokedex: func.isRequired,
   showBothTypes: bool,
+  showBothEggGroups: bool,
 };
 
 SearchFilter.defaultProps = {
   showBothTypes: true,
+  showBothEggGroups: true,
 };
 
 const checkSearchPokemon = (pokemon, data) => {
@@ -386,7 +455,8 @@ const checkSearchPokemon = (pokemon, data) => {
     firstType,
     secondType,
     ability,
-    eggGroup,
+    firstEggGroup,
+    secondEggGroup,
     baseHealthGreater,
     baseHealthLess,
     baseAttackGreater,
@@ -401,36 +471,9 @@ const checkSearchPokemon = (pokemon, data) => {
     baseSpeedLess,
   } = data;
 
-  if (
-    !pokemon.name.toUpperCase().includes(data.search.toUpperCase()) ||
-    (search === " " &&
-      (pokemon.name.includes("Basculin") ||
-        pokemon.name.includes("Deoxys") ||
-        pokemon.name.includes("Wormadam") ||
-        pokemon.name.includes("Giratina") ||
-        pokemon.name.includes("Shaymin") ||
-        pokemon.name.includes("Tornadus") ||
-        pokemon.name.includes("Thundurus") ||
-        pokemon.name.includes("Landorus") ||
-        pokemon.name.includes("Meloetta") ||
-        pokemon.name.includes("Aegislash") ||
-        pokemon.name.includes("Pumpkaboo") ||
-        pokemon.name.includes("Gourgeist") ||
-        pokemon.name.includes("Zygarde") ||
-        pokemon.name.includes("Hoopa") ||
-        pokemon.name.includes("Oricorio") ||
-        pokemon.name.includes("Lycanroc") ||
-        pokemon.name.includes("Wishiwashi") ||
-        pokemon.name.includes("Minior") ||
-        pokemon.name.includes("Toxtricity") ||
-        pokemon.name.includes("Eiscue") ||
-        pokemon.name.includes("Morpeko") ||
-        pokemon.name.includes("Zacian") ||
-        pokemon.name.includes("Zamazenta"))) ||
-    (search === "-" &&
-      (pokemon.name.includes("Arceus") || pokemon.name.includes("Basculin")))
-  )
+  if (!pokemon.name.toUpperCase().includes(search.toUpperCase())) {
     return false;
+  }
 
   if (firstType !== " ") {
     if (!pokemon.types.includes(firstType)) {
@@ -443,76 +486,98 @@ const checkSearchPokemon = (pokemon, data) => {
     }
   }
 
-  if (ability !== "") {
-    if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase())) {
-      if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase())) {
-        if (pokemon.abilities.length > 1) {
-          if (
-            !pokemon.abilities[1].toUpperCase().includes(ability.toUpperCase())
-          ) {
-            return false;
-          }
-        } else {
+  if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase())) {
+    if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase())) {
+      if (pokemon.abilities.length > 1) {
+        if (
+          !pokemon.abilities[1].toUpperCase().includes(ability.toUpperCase())
+        ) {
           return false;
         }
+      } else {
+        return false;
       }
     }
   }
 
-  if (eggGroup !== " ") {
-    if (!pokemon.breeding.eggGroups.includes(eggGroup)) {
+  if (firstEggGroup !== " ") {
+    if (!pokemon.breeding.eggGroups.includes(firstEggGroup)) {
+      return false;
+    }
+  }
+  if (secondEggGroup !== " ") {
+    if (!pokemon.breeding.eggGroups.includes(secondEggGroup)) {
       return false;
     }
   }
 
   let hpGreater,
-    hpLess,
     atkGreater,
-    atkLess,
     defGreater,
-    defLess,
     spaGreater,
-    spaLess,
     spdGreater,
-    spdLess,
-    speGreater,
-    speLess;
+    speGreater = 0;
 
-  if (baseHealthGreater === "") hpGreater = 0;
-  else hpGreater = parseFloat(baseHealthGreater);
-  if (baseHealthLess === "") hpLess = 256;
-  else hpLess = parseFloat(baseHealthLess);
-  if (pokemon.baseStats.hp <= hpGreater || pokemon.baseStats.hp >= hpLess)
+  let hpLess,
+    atkLess,
+    defLess,
+    spaLess,
+    spdLess,
+    speLess = 256;
+
+  if (baseHealthGreater !== "") {
+    hpGreater = baseHealthGreater;
+  }
+  if (baseHealthLess !== "") {
+    hpLess = baseHealthLess;
+  }
+  if (pokemon.baseStats.hp <= hpGreater || pokemon.baseStats.hp >= hpLess) {
     return false;
-  if (baseAttackGreater === "") atkGreater = 0;
-  else atkGreater = parseFloat(baseAttackGreater);
-  if (baseAttackLess === "") atkLess = 256;
-  else atkLess = parseFloat(baseAttackLess);
-  if (pokemon.baseStats.atk <= atkGreater || pokemon.baseStats.atk >= atkLess)
+  }
+  if (baseAttackGreater !== "") {
+    atkGreater = baseAttackGreater;
+  }
+  if (baseAttackLess !== "") {
+    atkLess = baseAttackLess;
+  }
+  if (pokemon.baseStats.atk <= atkGreater || pokemon.baseStats.atk >= atkLess) {
     return false;
-  if (baseDefenseGreater === "") defGreater = 0;
-  else defGreater = parseFloat(baseDefenseGreater);
-  if (baseDefenseLess === "") defLess = 256;
-  else defLess = parseFloat(baseDefenseLess);
-  if (pokemon.baseStats.def <= defGreater || pokemon.baseStats.def >= defLess)
+  }
+  if (baseDefenseGreater !== "") {
+    defGreater = baseDefenseGreater;
+  }
+  if (baseDefenseLess !== "") {
+    defLess = baseDefenseLess;
+  }
+  if (pokemon.baseStats.def <= defGreater || pokemon.baseStats.def >= defLess) {
     return false;
-  if (baseSpAttackGreater === "") spaGreater = 0;
-  else spaGreater = parseFloat(baseSpAttackGreater);
-  if (baseSpAttackLess === "") spaLess = 256;
-  else spaLess = parseFloat(baseSpAttackLess);
-  if (pokemon.baseStats.spA <= spaGreater || pokemon.baseStats.spA >= spaLess)
+  }
+  if (baseSpAttackGreater !== "") {
+    spaGreater = baseSpAttackGreater;
+  }
+  if (baseSpAttackLess !== "") {
+    spaLess = baseSpAttackLess;
+  }
+  if (pokemon.baseStats.spA <= spaGreater || pokemon.baseStats.spA >= spaLess) {
     return false;
-  if (baseSpDefenseGreater === "") spdGreater = 0;
-  else spdGreater = parseFloat(baseSpDefenseGreater);
-  if (baseSpDefenseLess === "") spdLess = 256;
-  else spdLess = parseFloat(baseSpDefenseLess);
-  if (pokemon.baseStats.spD <= spdGreater || pokemon.baseStats.spD >= spdLess)
+  }
+  if (baseSpDefenseGreater !== "") {
+    spdGreater = baseSpDefenseGreater;
+  }
+  if (baseSpDefenseLess !== "") {
+    spdLess = baseSpDefenseLess;
+  }
+  if (pokemon.baseStats.spD <= spdGreater || pokemon.baseStats.spD >= spdLess) {
     return false;
-  if (baseSpeedGreater === "") speGreater = 0;
-  else speGreater = parseFloat(baseSpeedGreater);
-  if (baseSpeedLess === "") speLess = 256;
-  else speLess = parseFloat(baseSpeedLess);
-  if (pokemon.baseStats.spe <= speGreater || pokemon.baseStats.spe >= speLess)
+  }
+  if (baseSpeedGreater !== "") {
+    speGreater = baseSpeedGreater;
+  }
+  if (baseSpeedLess !== "") {
+    speLess = baseSpeedLess;
+  }
+  if (pokemon.baseStats.spe <= speGreater || pokemon.baseStats.spe >= speLess) {
     return false;
+  }
   return true;
 };

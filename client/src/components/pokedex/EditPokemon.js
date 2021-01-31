@@ -160,15 +160,10 @@ export const EditPokemon = ({ match }) => {
             size="large"
             variant="contained"
             fullWidth
+            component={Link}
+            to={`/pokedex/${previousId}/edit`}
           >
-            <Link
-              to={`/pokedex/${previousId}/edit`}
-              style={{
-                color: `${match.params.id > 1 ? "white" : "black"}`,
-              }}
-            >
-              Previous Pokemon
-            </Link>
+            Previous Pokemon
           </Button>
         </Grid>
         <Grid item xs={3}>
@@ -178,15 +173,10 @@ export const EditPokemon = ({ match }) => {
             size="large"
             variant="contained"
             fullWidth
+            component={Link}
+            to={`/pokedex/${nextId}/edit`}
           >
-            <Link
-              to={`/pokedex/${nextId}/edit`}
-              style={{
-                color: `${match.params.id < lastId ? "white" : "black"}`,
-              }}
-            >
-              Next Pokemon
-            </Link>
+            Next Pokemon
           </Button>
         </Grid>
         <Grid item xs={3}>
@@ -197,17 +187,10 @@ export const EditPokemon = ({ match }) => {
             size="large"
             variant="contained"
             fullWidth
+            component={Link}
+            to={`/pokedex/${Math.floor(lastId) + 1}/edit`}
           >
-            <Link
-              to={`/pokedex/${Math.floor(lastId) + 1}/edit`}
-              style={{
-                color: `${
-                  match.params.id < Math.floor(lastId) + 1 ? "white" : "black"
-                }`,
-              }}
-            >
-              Add a New Pokemon
-            </Link>
+            Add a New Pokemon
           </Button>
         </Grid>
         <Grid item xs={1}>
