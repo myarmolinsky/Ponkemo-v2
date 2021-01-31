@@ -50,19 +50,14 @@ export const Pokemon = ({ match }) => {
                 size="large"
                 variant="contained"
                 fullWidth
+                component={Link}
+                to={`/pokedex/${
+                  match.params.id > 1
+                    ? Math.ceil(match.params.id) - 1
+                    : match.params.id
+                }`}
               >
-                <Link
-                  to={`/pokedex/${
-                    match.params.id > 1
-                      ? Math.ceil(match.params.id) - 1
-                      : match.params.id
-                  }`}
-                  style={{
-                    color: `${match.params.id > 1 ? "white" : "black"}`,
-                  }}
-                >
-                  Previous Pokemon
-                </Link>
+                Previous Pokemon
               </Button>
             </Grid>
             <Grid item xs={5}>
@@ -72,19 +67,14 @@ export const Pokemon = ({ match }) => {
                 size="large"
                 variant="contained"
                 fullWidth
+                component={Link}
+                to={`/pokedex/${
+                  match.params.id < lastId
+                    ? Math.floor(match.params.id) + 1
+                    : match.params.id
+                }`}
               >
-                <Link
-                  to={`/pokedex/${
-                    match.params.id < lastId
-                      ? Math.floor(match.params.id) + 1
-                      : match.params.id
-                  }`}
-                  style={{
-                    color: `${match.params.id < lastId ? "white" : "black"}`,
-                  }}
-                >
-                  Next Pokemon
-                </Link>
+                Next Pokemon
               </Button>
             </Grid>
           </Grid>

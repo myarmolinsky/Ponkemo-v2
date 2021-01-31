@@ -22,17 +22,25 @@ export const Landing = () => {
           </p>
           <Grid container justify="center" spacing={1}>
             <Grid item xs={2}>
-              <Button variant="contained" color="primary" fullWidth>
-                <Link to="/login" style={{ color: "white" }}>
-                  Login
-                </Link>
+              <Button
+                variant="contained"
+                color="primary"
+                fullWidth
+                component={Link}
+                to="/login"
+              >
+                Login
               </Button>
             </Grid>
             <Grid item xs={2}>
-              <Button variant="contained" color="secondary" fullWidth>
-                <Link to="/register" style={{ color: "white" }}>
-                  Sign Up
-                </Link>
+              <Button
+                variant="contained"
+                color="secondary"
+                fullWidth
+                component={Link}
+                to="/register"
+              >
+                Sign Up
               </Button>
             </Grid>
           </Grid>
