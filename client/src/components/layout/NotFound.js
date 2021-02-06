@@ -2,16 +2,7 @@ import React from "react";
 
 export const NotFound = () => {
   return (
-    <div
-      style={{
-        textAlign: "center",
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        transform: "translate(-50%, -50%)",
-        zIndex: -1,
-      }}
-    >
+    <div className="center">
       <h1 className="x-large text-primary">
         <i className="fas fa-exclamation-triangle"></i> Page Not Found
       </h1>

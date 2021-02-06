@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 export const AccessDenied = () => {
   return (
-    <Fragment>
+    <div className="center">
       <h1 className="x-large text-primary">
         <i className="fas fa-exclamation-triangle"></i> Access Denied
       </h1>
       <p className="large">Sorry, you are not allowed to access this page</p>
-    </Fragment>
+    </div>
   );
 };

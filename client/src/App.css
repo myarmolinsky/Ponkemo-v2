@@ -17,7 +17,7 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
+  background-color: #eaeaea;
   color: #333;
 }
 
@@ -126,7 +126,7 @@ img {
 
 .alert-primary {
   background: var(--primary-color);
-  color: #fff;
+  color: #eaeaea;
 }
 
 .alert-light {
@@ -136,21 +136,21 @@ img {
 
 .alert-dark {
   background: var(--dark-color);
-  color: #fff;
+  color: #eaeaea;
 }
 
 .alert-danger {
   background: var(--danger-color);
-  color: #fff;
+  color: #eaeaea;
 }
 
 .alert-success {
   background: var(--success-color);
-  color: #fff;
+  color: #eaeaea;
 }
 
 .alert-white {
-  background: #fff;
+  background: #eaeaea;
   color: #333;
   border: #ccc solid 1px;
 }
@@ -204,7 +204,7 @@ textarea {
   border-bottom: solid 1px var(--primary-color);
   opacity: 0.9;
   background: var(--dark-color);
-  color: #fff;
+  color: #eaeaea;
 }
 
 .navbar ul {
@@ -212,7 +212,7 @@ textarea {
 }
 
 .navbar a {
-  color: #fff;
+  color: #eaeaea;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
@@ -229,7 +229,7 @@ textarea {
 }
 
 .landing-inner {
-  color: #fff;
+  color: #eaeaea;
   height: 100%;
   width: 80%;
   margin: auto;
@@ -255,6 +255,11 @@ textarea {
   display: inline-block;
   flex-flow: wrap;
   text-align: center;
+  /* border-style: solid; */
+  border-radius: 25px;
+  width: 175px;
+  height: 175px;
+  background-color: lightgrey;
 }
 
 .caption {

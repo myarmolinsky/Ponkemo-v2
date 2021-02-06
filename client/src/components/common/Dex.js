@@ -55,7 +55,16 @@ export const Dex = ({ dex }) => {
                   <Link to={`/pokedex/${pokemon.id}`}>
                     {/* Create a link leading to the pokemon's page */}
                     {/* Pokemon's sprite */}
-                    <div className="pokedex-item">
+                    <div
+                      className="pokedex-item"
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textAlign: "center",
+                      }}
+                    >
                       <img
                         className="sprite"
                         src={
