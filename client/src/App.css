@@ -44,6 +44,15 @@ img {
   margin-bottom: 3rem;
 }
 
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 70vh;
+}
+
 /* Text Styles*/
 .x-large {
   font-size: 4rem;
@@ -111,6 +120,8 @@ img {
   background: var(--light-color);
   color: #333;
   border-radius: 10px;
+  width: 100%;
+  text-align: center;
 }
 
 .alert-primary {

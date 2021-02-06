@@ -46,16 +46,7 @@ export const Register = () => {
   }
 
   return (
-    <div
-      style={{
-        textAlign: "center",
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        transform: "translate(-50%, -50%)",
-        zIndex: -1,
-      }}
-    >
+    <div className="center">
       <h1 className="large text-primary">Sign Up</h1>
       <form onSubmit={(e) => onSubmit(e)}>
         <Grid container direction="column">
