@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { Button, TextField, Grid } from "@material-ui/core";
+import { Button, TextField, Grid, Box } from "@material-ui/core";
 import { UserContext } from "../../context";
 
 export const Login = () => {
@@ -64,9 +64,11 @@ export const Login = () => {
             />
           </Grid>
         </Grid>
-        <Button color="primary" type="submit" variant="contained">
-          Login
-        </Button>
+        <Box margin={1}>
+          <Button color="primary" type="submit" variant="contained">
+            Login
+          </Button>
+        </Box>
       </form>
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"; //we bring in the 'useState' hook because we are using a functional component
 import { Link, Redirect } from "react-router-dom";
-import { Button, TextField, Grid } from "@material-ui/core";
+import { Button, TextField, Grid, Box } from "@material-ui/core";
 import { UserContext, MiscContext } from "../../context";
 
 //since it's a form, we need to have some component state because each input needs to have its own state
@@ -107,9 +107,11 @@ export const Register = () => {
             />
           </Grid>
         </Grid>
-        <Button variant="contained" color="primary" type="submit">
-          Register
-        </Button>
+        <Box margin={1}>
+          <Button variant="contained" color="primary" type="submit">
+            Register
+          </Button>
+        </Box>
       </form>
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
