@@ -141,7 +141,7 @@ export const SearchFilter = ({
             alignItems="flex-end"
             spacing={1}
           >
-            <Grid item xs={2}>
+            <Grid item xs={showBothTypes ? 2 : 4}>
               <FormControl variant="outlined" margin="normal" fullWidth>
                 <InputLabel id="first-type-label">Type</InputLabel>
                 <Select
@@ -219,7 +219,7 @@ export const SearchFilter = ({
                 fullWidth
               />
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={showBothEggGroups ? 2 : 4}>
               <FormControl variant="outlined" margin="normal" fullWidth>
                 <InputLabel id="first-egg-group-label">Egg Group</InputLabel>
                 <Select
