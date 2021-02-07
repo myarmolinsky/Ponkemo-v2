@@ -88,29 +88,23 @@ img {
   color: var(--dark-color);
 }
 
-.moves-table {
+.table {
   border-collapse: collapse;
-  width: 100%;
+  width: 75%;
+  background-color: lightgrey;
+  table-layout: fixed;
 }
 
-.move-head {
-  height: 3em;
+.table-head {
+  padding: 1%;
+  font-size: large;
+  background-color: gray;
+  border: solid;
 }
 
-.move-body {
-  height: 2em;
-}
-
-.move-name {
-  padding-left: 1em;
-}
-
-.none-move-name {
-  text-align: center;
-}
-
-.move-cell {
-  border: 1px solid black;
+.table-body {
+  padding: 0.5%;
+  border: solid;
 }
 
 .alert {
@@ -177,16 +171,6 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.table th,
-.table td {
-  padding: 1rem;
-  text-align: left;
-}
-
-.table th {
-  background: var(--light-color);
-}
-
 textarea {
   resize: none;
 }
@@ -245,21 +229,16 @@ textarea {
   width: 100px;
 }
 
-.pokedex-sprite {
-  margin-left: 2em;
-  margin-right: 2em;
-}
-
 .pokedex-item {
   vertical-align: top;
   display: inline-block;
   flex-flow: wrap;
   text-align: center;
-  /* border-style: solid; */
   border-radius: 25px;
   width: 175px;
   height: 175px;
   background-color: lightgrey;
+  margin: 1%;
 }
 
 .caption {
