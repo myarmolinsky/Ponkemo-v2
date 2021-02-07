@@ -132,17 +132,22 @@ export const Pokemon = ({ match }) => {
                     </tr>
                     {[...Array(Math.ceil(formes.length / 3))].map(() => {
                       formeRow++;
+                      let subArr = formes.slice(formeRow * 3, formeRow * 3 + 3);
                       return (
                         <tr key={formeRow}>
-                          {formes.slice(formeRow * 3, formeRow * 3 + 3)
-                            .length === 1 && (
-                            <td className="table-body" colSpan={2} />
+                          {subArr.length < 3 && (
+                            <td
+                              className="table-body"
+                              colSpan={subArr.length === 2 ? 1 : 2}
+                            />
                           )}
-                          {displayFormes(
-                            formes.slice(formeRow * 3, formeRow * 3 + 3)
+                          {displayFormes(subArr)}
+                          {subArr.length < 3 && (
+                            <td
+                              className="table-body"
+                              colSpan={subArr.length === 2 ? 1 : 2}
+                            />
                           )}
-                          {formes.slice(formeRow * 3, formeRow * 3 + 3).length <
-                            3 && <td className="table-body" colSpan={2} />}
                         </tr>
                       );
                     })}
