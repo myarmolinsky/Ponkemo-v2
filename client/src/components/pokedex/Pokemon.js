@@ -48,16 +48,13 @@ export const Pokemon = ({ match }) => {
             <Grid item xs={5}>
               {/* If there is a previous pokemon, link to its page */}
               <Button
-                color={`${match.params.id > 1 ? "secondary" : "default"}`}
+                color="secondary"
                 size="large"
                 variant="contained"
                 fullWidth
                 component={Link}
-                to={`/pokedex/${
-                  match.params.id > 1
-                    ? Math.ceil(match.params.id) - 1
-                    : match.params.id
-                }`}
+                to={`/pokedex/${Math.ceil(match.params.id) - 1}`}
+                disabled={match.params.id <= 1}
               >
                 Previous Pokemon
               </Button>
@@ -65,16 +62,13 @@ export const Pokemon = ({ match }) => {
             <Grid item xs={5}>
               {/* If there is a next pokemon, link to its page */}
               <Button
-                color={`${match.params.id < lastId ? "secondary" : "default"}`}
+                color="secondary"
                 size="large"
                 variant="contained"
                 fullWidth
                 component={Link}
-                to={`/pokedex/${
-                  match.params.id < lastId
-                    ? Math.floor(match.params.id) + 1
-                    : match.params.id
-                }`}
+                to={`/pokedex/${Math.floor(match.params.id) + 1}`}
+                disabled={match.params.id >= lastId}
               >
                 Next Pokemon
               </Button>

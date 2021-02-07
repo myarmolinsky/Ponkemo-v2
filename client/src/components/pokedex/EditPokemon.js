@@ -156,12 +156,13 @@ export const EditPokemon = ({ match }) => {
         <Grid item xs={3}>
           {/* If there is a previous pokemon, link to its page */}
           <Button
-            color={`${match.params.id > 1 ? "secondary" : "default"}`}
+            color="secondary"
             size="large"
             variant="contained"
             fullWidth
             component={Link}
             to={`/pokedex/${previousId}/edit`}
+            disabled={match.params.id <= 1}
           >
             Previous Pokemon
           </Button>
@@ -169,26 +170,26 @@ export const EditPokemon = ({ match }) => {
         <Grid item xs={3}>
           {/* If there is a next pokemon, link to its page */}
           <Button
-            color={`${match.params.id < lastId ? "secondary" : "default"}`}
+            color="secondary"
             size="large"
             variant="contained"
             fullWidth
             component={Link}
             to={`/pokedex/${nextId}/edit`}
+            disabled={match.params.id >= lastId}
           >
             Next Pokemon
           </Button>
         </Grid>
         <Grid item xs={3}>
           <Button
-            color={`${
-              match.params.id < Math.floor(lastId) + 1 ? "secondary" : "default"
-            }`}
+            color="secondary"
             size="large"
             variant="contained"
             fullWidth
             component={Link}
             to={`/pokedex/${Math.floor(lastId) + 1}/edit`}
+            disabled={match.params.id >= Math.floor(lastId) + 1}
           >
             Add a New Pokemon
           </Button>
