@@ -28,8 +28,9 @@ export const Pokemon = ({ match }) => {
     getEvolutions(match.params.id);
   }, [match.params.id]);
 
-  let evolutionCount = 0;
+  let evolutionCount = -1;
   let formeRow = -1;
+  let evolutionRow = -1;
 
   return (
     <Fragment>
@@ -213,12 +214,20 @@ export const Pokemon = ({ match }) => {
                   </th>
                 </tr>
                 <tr>
-                  <td className="table-body">HP: {pokemon.baseStats.hp}</td>
-                  <td className="table-body">Atk: {pokemon.baseStats.atk}</td>
-                  <td className="table-body">Def: {pokemon.baseStats.def}</td>
-                  <td className="table-body">SpA: {pokemon.baseStats.spA}</td>
-                  <td className="table-body">SpD: {pokemon.baseStats.spD}</td>
-                  <td className="table-body">Spe: {pokemon.baseStats.spe}</td>
+                  <th className="table-head">HP</th>
+                  <th className="table-head">Atk</th>
+                  <th className="table-head">Def</th>
+                  <th className="table-head">SpA</th>
+                  <th className="table-head">SpD</th>
+                  <th className="table-head">Spe</th>
+                </tr>
+                <tr>
+                  <td className="table-body">{pokemon.baseStats.hp}</td>
+                  <td className="table-body">{pokemon.baseStats.atk}</td>
+                  <td className="table-body">{pokemon.baseStats.def}</td>
+                  <td className="table-body">{pokemon.baseStats.spA}</td>
+                  <td className="table-body">{pokemon.baseStats.spD}</td>
+                  <td className="table-body">{pokemon.baseStats.spe}</td>
                 </tr>
                 <tr>
                   <th className="table-head" colSpan={6}>
@@ -316,19 +325,33 @@ export const Pokemon = ({ match }) => {
                         Evolutions
                       </th>
                     </tr>
-                    {evolutions.map((poke) => {
-                      let evolution = (
-                        <tr key={poke.id}>
-                          <td className="table-body" colSpan={6}>
-                            <Link to={`/pokedex/${poke.id}`}>{poke.name}</Link>{" "}
-                            {evolutionCondition(
-                              pokemon.evolutionDetails[evolutionCount].condition
-                            )}
-                          </td>
+                    {[...Array(Math.ceil(evolutions.length / 3))].map(() => {
+                      evolutionRow++;
+                      evolutionCount++;
+                      let subArr = evolutions.slice(
+                        evolutionRow * 3,
+                        evolutionRow * 3 + 3
+                      );
+                      return (
+                        <tr key={evolutionRow}>
+                          {subArr.length < 3 && (
+                            <td
+                              className="table-body"
+                              colSpan={subArr.length === 2 ? 1 : 2}
+                            />
+                          )}
+                          {displayEvolutions(
+                            subArr,
+                            pokemon.evolutionDetails[evolutionCount].condition
+                          )}
+                          {subArr.length < 3 && (
+                            <td
+                              className="table-body"
+                              colSpan={subArr.length === 2 ? 1 : 2}
+                            />
+                          )}
                         </tr>
                       );
-                      evolutionCount++;
-                      return evolution;
                     })}
                   </>
                 )}
@@ -440,6 +463,24 @@ const displayFormes = (formes) => {
           <img src={poke.sprite} className="sprite" alt={poke.name} />
           {/* Pokemon's sprite */}
           <span className="caption">{poke.name}</span>
+          {/* Pokemon's name */}
+        </div>
+      </Link>
+    </td>
+  ));
+};
+
+const displayEvolutions = (evolutions, condition) => {
+  return evolutions.map((poke) => (
+    <td key={poke.id} className="table-body" colSpan={2}>
+      <Link key={poke.name} to={`/pokedex/${poke.id}`}>
+        {/* Create a link leading to the pokemon's page */}
+        <div style={{ margin: "15%" }}>
+          <img src={poke.sprite} className="sprite" alt={poke.name} />
+          {/* Pokemon's sprite */}
+          <span className="caption">
+            {poke.name} {evolutionCondition(condition)}
+          </span>
           {/* Pokemon's name */}
         </div>
       </Link>
