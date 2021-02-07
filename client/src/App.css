@@ -205,11 +205,11 @@ textarea {
   color: var(--primary-color);
 }
 
-/* Landing Page */
-.landing {
+.landing-background {
   position: relative;
-  background: url("./img/landing.jpg") no-repeat center center/cover;
   height: 100vh;
+  background: url("./assets/landing.png") no-repeat center center/cover;
+  filter: blur(5px);
 }
 
 .landing-inner {

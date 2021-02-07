@@ -1,5 +1,5 @@
 import React from "react";
-import spinner from "./spinner.gif";
+import spinner from "../../assets/spinner.gif";
 
 export const Spinner = () => (
   <div className="center">

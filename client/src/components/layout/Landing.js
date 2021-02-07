@@ -12,7 +12,8 @@ export const Landing = () => {
   }
 
   return (
-    <section className="landing">
+    <>
+      <div className="landing-background" />
       <div className="dark-overlay">
         <div className="landing-inner">
           <h1 className="x-large">Ponkemo</h1>
@@ -46,6 +47,6 @@ export const Landing = () => {
           </Grid>
         </div>
       </div>
-    </section>
+    </>
   );
 };
