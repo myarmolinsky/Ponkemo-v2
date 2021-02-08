@@ -7,6 +7,7 @@ const { check, validationResult } = require("express-validator");
 // check lets us add a second parameter in .post() as middleware which checks given input with provided rules
 // if any errors are found, they can be seen inside the validationResult array
 const User = require("../../models/User");
+const Pokemon = require("../../models/Pokemon");
 
 // @route POST api/users
 // @desc Register user
@@ -88,7 +89,44 @@ router.post(
   }
 );
 
-// @route PUT api/users/catch
+// @route PUT api/users/:username/spawn
+// @desc Spawn a Pokemon to catch
+// @access Public
+router.put("/:username/spawn", async (req, res) => {
+  const { username } = req.params;
+
+  const user = await User.findOne({ username });
+  let spawnCounter = user.spawnCounter;
+  let spawning = true;
+  let spawnIndex = Math.floor(Math.random() * spawnCounter.length);
+  while (spawning) {
+    if (spawnCounter[spawnIndex] === spawnIndex) {
+      spawning = false;
+      spawnCounter[spawnIndex] = 0;
+    } else {
+      spawnCounter[spawnIndex] = spawnCounter[spawnIndex] + 1;
+      spawnIndex = Math.floor(Math.random() * spawnCounter.length);
+    }
+  }
+
+  let pokemon = await Pokemon.aggregate([
+    { $match: { spawnRate: spawnIndex } },
+    { $sample: { size: 1 } },
+  ]);
+  pokemon = pokemon[0];
+
+  try {
+    await User.updateOne({ username }, { spawnCounter });
+
+    res.status(200).send(pokemon);
+  } catch (err) {
+    // if something goes wrong here, then it's a server error
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// @route PUT api/users/:username/catch
 // @desc Catch a Pokemon
 // @access Public
 router.put("/:username/catch", async (req, res) => {
@@ -123,7 +161,7 @@ router.put("/:username/catch", async (req, res) => {
     ability: Math.floor(Math.random() * 151), // if 0, hidden ability. 1-75 = first ability. 76-150 = second ability
     ivs,
     evs,
-    friendship: pokemon.friendship,
+    friendship: pokemon.baseFriendship,
     gender:
       pokemon.genderRatio === -1
         ? "Genderless"
@@ -217,9 +255,7 @@ const calculateStats = (base, nature, ivs, evs, level) => {
     hp:
       base.hp === 1
         ? 1
-        : Math.floor(
-            ((2 * base.hp + ivs.hp + evs.hp / 4) * level) / 100 + level + 10
-          ),
+        : ((2 * base.hp + ivs.hp + evs.hp / 4) * level) / 100 + level + 10,
     atk: ((2 * base.atk + ivs.atk + evs.atk / 4) * level) / 100 + 5,
     def: ((2 * base.def + ivs.def + evs.def / 4) * level) / 100 + 5,
     spA: ((2 * base.spA + ivs.spA + evs.spA / 4) * level) / 100 + 5,
@@ -232,58 +268,65 @@ const calculateStats = (base, nature, ivs, evs, level) => {
     case "Brave":
     case "Adamant":
     case "Naughty":
-      stats.atk = Math.floor(stats.atk * 1.1);
+      stats.atk = stats.atk * 1.1;
     case "Bold":
     case "Relaxed":
     case "Impish":
     case "Lax":
-      stats.def = Math.floor(stats.def * 1.1);
+      stats.def = stats.def * 1.1;
     case "Modest":
     case "Mild":
     case "Quiet":
     case "Rash":
-      stats.spA = Math.floor(stats.spA * 1.1);
+      stats.spA = stats.spA * 1.1;
     case "Calm":
     case "Gentle":
     case "Sassy":
     case "Careful":
-      stats.spD = Math.floor(stats.spD * 1.1);
+      stats.spD = stats.spD * 1.1;
     case "Timid":
     case "Hasty":
     case "Jolly":
     case "Naive":
-      stats.spe = Math.floor(stats.spe * 1.1);
+      stats.spe = stats.spe * 1.1;
     case "Bold":
     case "Timid":
     case "Modest":
     case "Calm":
-      stats.atk = Math.floor(stats.atk * 0.9);
+      stats.atk = stats.atk * 0.9;
       break;
     case "Lonely":
     case "Hasty":
     case "Mild":
     case "Gentle":
-      stats.def = Math.floor(stats.def * 0.9);
+      stats.def = stats.def * 0.9;
       break;
     case "Adamant":
     case "Impisj":
     case "Jolly":
     case "Careful":
-      stats.spA = Math.floor(stats.spA * 0.9);
+      stats.spA = stats.spA * 0.9;
       break;
     case "Naughty":
     case "Lax":
     case "Naive":
     case "Rash":
-      stats.spD = Math.floor(stats.spD * 0.9);
+      stats.spD = stats.spD * 0.9;
       break;
     case "Brave":
     case "Relaxed":
     case "Quiet":
     case "Sassy":
-      stats.spe = Math.floor(stats.spe * 0.9);
+      stats.spe = stats.spe * 0.9;
       break;
   }
+
+  stats.hp = Math.floor(stats.hp);
+  stats.atk = Math.floor(stats.atk);
+  stats.def = Math.floor(stats.def);
+  stats.spA = Math.floor(stats.spA);
+  stats.spD = Math.floor(stats.spD);
+  stats.spe = Math.floor(stats.spe);
 
   return stats;
 };
