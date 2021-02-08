@@ -9,8 +9,10 @@ export const Alert = () => {
     alerts !== null &&
     alerts.length > 0 &&
     alerts.map((alert) => (
-      <div key={alert.id} className={`alert alert-${alert.alertType}`}>
-        {alert.msg}
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div key={alert.id} className={`alert alert-${alert.alertType}`}>
+          {alert.msg}
+        </div>
       </div>
     ))
   );

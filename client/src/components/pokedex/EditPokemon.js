@@ -156,12 +156,13 @@ export const EditPokemon = ({ match }) => {
         <Grid item xs={3}>
           {/* If there is a previous pokemon, link to its page */}
           <Button
-            color={`${match.params.id > 1 ? "secondary" : "default"}`}
+            color="secondary"
             size="large"
             variant="contained"
             fullWidth
             component={Link}
             to={`/pokedex/${previousId}/edit`}
+            disabled={match.params.id <= 1}
           >
             Previous Pokemon
           </Button>
@@ -169,26 +170,26 @@ export const EditPokemon = ({ match }) => {
         <Grid item xs={3}>
           {/* If there is a next pokemon, link to its page */}
           <Button
-            color={`${match.params.id < lastId ? "secondary" : "default"}`}
+            color="secondary"
             size="large"
             variant="contained"
             fullWidth
             component={Link}
             to={`/pokedex/${nextId}/edit`}
+            disabled={match.params.id >= lastId}
           >
             Next Pokemon
           </Button>
         </Grid>
         <Grid item xs={3}>
           <Button
-            color={`${
-              match.params.id < Math.floor(lastId) + 1 ? "secondary" : "default"
-            }`}
+            color="secondary"
             size="large"
             variant="contained"
             fullWidth
             component={Link}
             to={`/pokedex/${Math.floor(lastId) + 1}/edit`}
+            disabled={match.params.id >= Math.floor(lastId) + 1}
           >
             Add a New Pokemon
           </Button>
@@ -209,8 +210,13 @@ export const EditPokemon = ({ match }) => {
         Editing Pokemon ID {match.params.id}
       </h1>
       <form onSubmit={(e) => onSubmit(e)}>
-        <Grid container justify="space-evenly" alignItems="flex-end">
-          <Grid item>
+        <Grid
+          container
+          justify="space-evenly"
+          alignItems="flex-end"
+          spacing={1}
+        >
+          <Grid item xs={4}>
             {/* ID */}
             <TextField
               label="ID"
@@ -221,9 +227,10 @@ export const EditPokemon = ({ match }) => {
               margin="normal"
               value={id}
               inputProps={{ step: 0.01 }}
+              fullWidth
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={4}>
             {/* Name */}
             <TextField
               label="Name"
@@ -232,11 +239,12 @@ export const EditPokemon = ({ match }) => {
               variant="outlined"
               margin="normal"
               value={name}
+              fullWidth
             />
           </Grid>
-          <Grid item>
-            {/* Types */}
-            <FormControl variant="outlined" margin="normal">
+          {/* Types */}
+          <Grid item xs={2}>
+            <FormControl variant="outlined" margin="normal" fullWidth>
               <InputLabel id="first-type-label">First Type</InputLabel>
               <Select
                 labelId="first-type-label"
@@ -266,7 +274,9 @@ export const EditPokemon = ({ match }) => {
                 <MenuItem value="Water">Water</MenuItem>
               </Select>
             </FormControl>
-            <FormControl variant="outlined" margin="normal">
+          </Grid>
+          <Grid item xs={2}>
+            <FormControl variant="outlined" margin="normal" fullWidth>
               <InputLabel id="second-type-label">Second Type</InputLabel>
               <Select
                 labelId="second-type-label"
@@ -318,9 +328,14 @@ export const EditPokemon = ({ match }) => {
           value={shinySprite}
           fullWidth
         />
-        <Grid container justify="space-evenly" alignItems="flex-end">
-          <Grid item>
-            {/* Abilities */}
+        <Grid
+          container
+          justify="space-evenly"
+          alignItems="flex-end"
+          spacing={1}
+        >
+          {/* Abilities */}
+          <Grid item xs={4}>
             <TextField
               label="First Ability"
               name="firstAbility"
@@ -328,7 +343,10 @@ export const EditPokemon = ({ match }) => {
               variant="outlined"
               margin="normal"
               value={firstAbility}
+              fullWidth
             />
+          </Grid>
+          <Grid item xs={4}>
             <TextField
               label="Second Ability"
               name="secondAbility"
@@ -336,9 +354,10 @@ export const EditPokemon = ({ match }) => {
               variant="outlined"
               margin="normal"
               value={secondAbility}
+              fullWidth
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={4}>
             {/* Hidden Ability */}
             <TextField
               label="Hidden Ability"
@@ -347,30 +366,7 @@ export const EditPokemon = ({ match }) => {
               variant="outlined"
               margin="normal"
               value={hiddenAbility}
-            />
-          </Grid>
-          <Grid item>
-            {/* Current Stage */}
-            <TextField
-              label="Current Stage"
-              type="number"
-              name="currentStage"
-              onChange={(e) => onChange(e)}
-              variant="outlined"
-              margin="normal"
-              value={currentStage}
-            />
-          </Grid>
-          <Grid item>
-            {/* Max Stage */}
-            <TextField
-              label="Max Stage"
-              type="number"
-              name="maxStage"
-              onChange={(e) => onChange(e)}
-              variant="outlined"
-              margin="normal"
-              value={maxStage}
+              fullWidth
             />
           </Grid>
         </Grid>
@@ -448,10 +444,15 @@ export const EditPokemon = ({ match }) => {
             />
           </Grid>
         </Grid>
-        <Grid container justify="space-evenly" alignItems="flex-end">
-          <Grid item>
-            {/* Egg Groups */}
-            <FormControl variant="outlined" margin="normal">
+        <Grid
+          container
+          justify="space-evenly"
+          alignItems="flex-end"
+          spacing={1}
+        >
+          {/* Egg Groups */}
+          <Grid item xs={2}>
+            <FormControl variant="outlined" margin="normal" fullWidth>
               <InputLabel id="first-egg-group-label">
                 First Egg Group
               </InputLabel>
@@ -481,7 +482,9 @@ export const EditPokemon = ({ match }) => {
                 <MenuItem value="Water 3">Water 3</MenuItem>
               </Select>
             </FormControl>
-            <FormControl variant="outlined" margin="normal">
+          </Grid>
+          <Grid item xs={2}>
+            <FormControl variant="outlined" margin="normal" fullWidth>
               <InputLabel id="second-egg-group-label">
                 Second Egg Group
               </InputLabel>
@@ -512,7 +515,7 @@ export const EditPokemon = ({ match }) => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item>
+          <Grid item xs={4}>
             {/* Pokemon that hatches from the egg if it is a male */}
             <TextField
               label="Male Egg"
@@ -521,9 +524,10 @@ export const EditPokemon = ({ match }) => {
               variant="outlined"
               margin="normal"
               value={egg}
+              fullWidth
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={4}>
             {/* Pokemon that hatches from the egg if it is a female */}
             <TextField
               label="Female Egg"
@@ -532,11 +536,17 @@ export const EditPokemon = ({ match }) => {
               variant="outlined"
               margin="normal"
               value={altEgg}
+              fullWidth
             />
           </Grid>
         </Grid>
-        <Grid container justify="space-evenly" alignItems="flex-end">
-          <Grid item>
+        <Grid
+          container
+          justify="space-evenly"
+          alignItems="flex-end"
+          spacing={1}
+        >
+          <Grid item xs={2}>
             {/* Weight in kg */}
             <TextField
               label="Weight (kg)"
@@ -549,7 +559,7 @@ export const EditPokemon = ({ match }) => {
               inputProps={{ step: 0.01 }}
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={2}>
             {/* Base Friendship */}
             <TextField
               label="Base Friendship"
@@ -561,7 +571,7 @@ export const EditPokemon = ({ match }) => {
               value={baseFriendship}
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={2}>
             {/* Gender Ratio */}
             <TextField
               label="Gender Ratio"
@@ -574,7 +584,7 @@ export const EditPokemon = ({ match }) => {
               inputProps={{ step: 0.01 }}
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={2}>
             {/* Spawn Rate */}
             <TextField
               label="Spawn Rate"
@@ -584,6 +594,32 @@ export const EditPokemon = ({ match }) => {
               variant="outlined"
               margin="normal"
               value={spawnRate}
+            />
+          </Grid>
+          <Grid item xs={2}>
+            {/* Current Stage */}
+            <TextField
+              label="Current Stage"
+              type="number"
+              name="currentStage"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={currentStage}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={2}>
+            {/* Max Stage */}
+            <TextField
+              label="Max Stage"
+              type="number"
+              name="maxStage"
+              onChange={(e) => onChange(e)}
+              variant="outlined"
+              margin="normal"
+              value={maxStage}
+              fullWidth
             />
           </Grid>
         </Grid>

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { Button, TextField, Grid } from "@material-ui/core";
+import { Button, TextField, Grid, Box } from "@material-ui/core";
 import { UserContext } from "../../context";
 
 export const Login = () => {
@@ -27,16 +27,7 @@ export const Login = () => {
   }
 
   return (
-    <div
-      style={{
-        textAlign: "center",
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        transform: "translate(-50%, -50%)",
-        zIndex: -1,
-      }}
-    >
+    <div className="center">
       <h1 className="large text-primary">Sign In</h1>
       <form onSubmit={(e) => onSubmit(e)}>
         <Grid container direction="column">
@@ -64,9 +55,11 @@ export const Login = () => {
             />
           </Grid>
         </Grid>
-        <Button color="primary" type="submit" variant="contained">
-          Login
-        </Button>
+        <Box margin={1}>
+          <Button color="primary" type="submit" variant="contained">
+            Login
+          </Button>
+        </Box>
       </form>
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>

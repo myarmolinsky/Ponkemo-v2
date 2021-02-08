@@ -1,20 +1,15 @@
-import React, { Fragment } from "react";
-import spinner from "./spinner.gif";
+import React from "react";
+import spinner from "../../assets/spinner.gif";
 
 export const Spinner = () => (
-  <Fragment>
+  <div className="center">
     <img
       src={spinner}
       style={{
         width: "200px",
         margin: "auto",
-        display: "block",
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        transform: "translate(-50%, -50%)",
       }}
       alt="Loading..."
     />
-  </Fragment>
+  </div>
 );

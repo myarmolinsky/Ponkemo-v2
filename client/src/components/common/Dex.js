@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { array } from "prop-types";
-import { Button, Divider, Typography, Grid } from "@material-ui/core";
+import { Button, Divider, Grid } from "@material-ui/core";
 import { useStyles } from "../styles";
 
 export const Dex = ({ dex }) => {
@@ -44,7 +44,7 @@ export const Dex = ({ dex }) => {
       </Grid>
       <Divider className={classes.divider} />
       <div style={{ textAlign: "center" }}>
-        <Grid container>
+        <Grid container spacing={3}>
           {dex.map(
             (
               pokemon // for each pokemon in the pokedex
@@ -55,27 +55,25 @@ export const Dex = ({ dex }) => {
                   <Link to={`/pokedex/${pokemon.id}`}>
                     {/* Create a link leading to the pokemon's page */}
                     {/* Pokemon's sprite */}
-                    <div className="pokedex-item">
-                      {!shinySprites ? (
-                        <img
-                          // className={classes.sprite}
-                          className="sprite"
-                          src={pokemon.sprite}
-                          alt={pokemon.name}
-                          // variant="square"
-                        />
-                      ) : (
-                        <img
-                          // className={classes.sprite}
-                          className="sprite"
-                          src={pokemon.shinySprite}
-                          alt={pokemon.name}
-                          // variant="square"
-                        />
-                      )}
+                    <div
+                      className="pokedex-item"
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textAlign: "center",
+                      }}
+                    >
+                      <img
+                        className="sprite"
+                        src={
+                          shinySprites ? pokemon.shinySprite : pokemon.sprite
+                        }
+                        alt={pokemon.name}
+                      />
                       {/* Pokemon's name */}
-                      <br />
-                      <Typography variant="caption">{pokemon.name}</Typography>
+                      <p variant="caption">{pokemon.name}</p>
                     </div>
                   </Link>
                 </Grid>

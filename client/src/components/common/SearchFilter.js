@@ -135,9 +135,14 @@ export const SearchFilter = ({
       </Grid>
       {expandSearchOptions && (
         <Fragment>
-          <Grid container justify="space-evenly" alignItems="flex-end">
-            <Grid item>
-              <FormControl variant="outlined" margin="normal">
+          <Grid
+            container
+            justify="space-evenly"
+            alignItems="flex-end"
+            spacing={1}
+          >
+            <Grid item xs={showBothTypes ? 2 : 4}>
+              <FormControl variant="outlined" margin="normal" fullWidth>
                 <InputLabel id="first-type-label">Type</InputLabel>
                 <Select
                   labelId="first-type-label"
@@ -167,8 +172,10 @@ export const SearchFilter = ({
                   <MenuItem value="Water">Water</MenuItem>
                 </Select>
               </FormControl>
-              {showBothTypes && (
-                <FormControl variant="outlined" margin="normal">
+            </Grid>
+            {showBothTypes && (
+              <Grid item xs={2}>
+                <FormControl variant="outlined" margin="normal" fullWidth>
                   <InputLabel id="second-type-label">Type</InputLabel>
                   <Select
                     labelId="second-type-label"
@@ -198,9 +205,9 @@ export const SearchFilter = ({
                     <MenuItem value="Water">Water</MenuItem>
                   </Select>
                 </FormControl>
-              )}
-            </Grid>
-            <Grid item>
+              </Grid>
+            )}
+            <Grid item xs={4}>
               <TextField
                 label="Ability"
                 variant="outlined"
@@ -209,10 +216,11 @@ export const SearchFilter = ({
                 name="ability"
                 value={ability}
                 margin="normal"
+                fullWidth
               />
             </Grid>
-            <Grid item>
-              <FormControl variant="outlined" margin="normal">
+            <Grid item xs={showBothEggGroups ? 2 : 4}>
+              <FormControl variant="outlined" margin="normal" fullWidth>
                 <InputLabel id="first-egg-group-label">Egg Group</InputLabel>
                 <Select
                   labelId="first-egg-group-label"
@@ -240,8 +248,10 @@ export const SearchFilter = ({
                   <MenuItem value="Water 3">Water 3</MenuItem>
                 </Select>
               </FormControl>
-              {showBothEggGroups && (
-                <FormControl variant="outlined" margin="normal">
+            </Grid>
+            {showBothEggGroups && (
+              <Grid item xs={2}>
+                <FormControl variant="outlined" margin="normal" fullWidth>
                   <InputLabel id="second-egg-group-label">Egg Group</InputLabel>
                   <Select
                     labelId="second-egg-group-label"
@@ -269,8 +279,8 @@ export const SearchFilter = ({
                     <MenuItem value="Water 3">Water 3</MenuItem>
                   </Select>
                 </FormControl>
-              )}
-            </Grid>
+              </Grid>
+            )}
           </Grid>
           <Grid
             container
