@@ -150,6 +150,8 @@ router.put("/:username/catch", async (req, res) => {
       { username },
       { $push: { ownedPokemon: caughtPokemon } }
     );
+
+    res.status(200).send(caughtPokemon);
   } catch (err) {
     // if something goes wrong here, then it's a server error
     console.error(err.message);
@@ -193,8 +195,8 @@ const pickMoves = (moves, level) => {
   let learnedMoves = [];
   let learnableMoves = moves.filter((move) => {
     learnConditions = move.learnConditions;
-    learnConditions.filter((condition) => !isNaN(condition));
-    learnConditions.filter((condition) => condition <= level);
+    learnConditions = learnConditions.filter((condition) => !isNaN(condition));
+    learnConditions = learnConditions.filter((condition) => condition <= level);
     return learnConditions.length >= 1;
   });
 
@@ -215,7 +217,9 @@ const calculateStats = (base, nature, ivs, evs, level) => {
     hp:
       base.hp === 1
         ? 1
-        : ((2 * base.hp + ivs.hp + evs.hp / 4) * level) / 100 + level + 10,
+        : Math.floor(
+            ((2 * base.hp + ivs.hp + evs.hp / 4) * level) / 100 + level + 10
+          ),
     atk: ((2 * base.atk + ivs.atk + evs.atk / 4) * level) / 100 + 5,
     def: ((2 * base.def + ivs.def + evs.def / 4) * level) / 100 + 5,
     spA: ((2 * base.spA + ivs.spA + evs.spA / 4) * level) / 100 + 5,
@@ -228,56 +232,56 @@ const calculateStats = (base, nature, ivs, evs, level) => {
     case "Brave":
     case "Adamant":
     case "Naughty":
-      stats.atk = stats.atk * 1.1;
+      stats.atk = Math.floor(stats.atk * 1.1);
     case "Bold":
     case "Relaxed":
     case "Impish":
     case "Lax":
-      stats.def = stats.def * 1.1;
+      stats.def = Math.floor(stats.def * 1.1);
     case "Modest":
     case "Mild":
     case "Quiet":
     case "Rash":
-      stats.spA = stats.spA * 1.1;
+      stats.spA = Math.floor(stats.spA * 1.1);
     case "Calm":
     case "Gentle":
     case "Sassy":
     case "Careful":
-      stats.spD = stats.spD * 1.1;
+      stats.spD = Math.floor(stats.spD * 1.1);
     case "Timid":
     case "Hasty":
     case "Jolly":
     case "Naive":
-      stats.spe = stats.spe * 1.1;
+      stats.spe = Math.floor(stats.spe * 1.1);
     case "Bold":
     case "Timid":
     case "Modest":
     case "Calm":
-      stats.atk = stats.atk * 0.9;
+      stats.atk = Math.floor(stats.atk * 0.9);
       break;
     case "Lonely":
     case "Hasty":
     case "Mild":
     case "Gentle":
-      stats.def = stats.def * 0.9;
+      stats.def = Math.floor(stats.def * 0.9);
       break;
     case "Adamant":
     case "Impisj":
     case "Jolly":
     case "Careful":
-      stats.spA = stats.spA * 0.9;
+      stats.spA = Math.floor(stats.spA * 0.9);
       break;
     case "Naughty":
     case "Lax":
     case "Naive":
     case "Rash":
-      stats.spD = stats.spD * 0.9;
+      stats.spD = Math.floor(stats.spD * 0.9);
       break;
     case "Brave":
     case "Relaxed":
     case "Quiet":
     case "Sassy":
-      stats.spe = stats.spe * 0.9;
+      stats.spe = Math.floor(stats.spe * 0.9);
       break;
   }
 
