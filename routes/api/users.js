@@ -88,4 +88,200 @@ router.post(
   }
 );
 
+// @route PUT api/users/catch
+// @desc Catch a Pokemon
+// @access Public
+router.put("/:username/catch", async (req, res) => {
+  const { username } = req.params;
+  const { pokemon } = req.body;
+
+  let level = Math.floor(Math.random() * 25) + 1;
+  let nature = pickNature();
+  let ivs = {
+    hp: Math.floor(Math.random() * 32),
+    atk: Math.floor(Math.random() * 32),
+    def: Math.floor(Math.random() * 32),
+    spA: Math.floor(Math.random() * 32),
+    spD: Math.floor(Math.random() * 32),
+    spe: Math.floor(Math.random() * 32),
+  };
+  let evs = {
+    hp: 0,
+    atk: 0,
+    def: 0,
+    spA: 0,
+    spD: 0,
+    spe: 0,
+  };
+
+  // Create caught pokemon
+  let caughtPokemon = {
+    id: pokemon.id,
+    nickname: pokemon.name,
+    level,
+    shiny: Math.floor(Math.random() * 4096) === 0 ? true : false,
+    ability: Math.floor(Math.random() * 151), // if 0, hidden ability. 1-75 = first ability. 76-150 = second ability
+    ivs,
+    evs,
+    friendship: pokemon.friendship,
+    gender:
+      pokemon.genderRatio === -1
+        ? "Genderless"
+        : (Math.floor(Math.random() * 1000) + 1) / 10 <= pokemon.genderRatio
+        ? "Male"
+        : "Female",
+    heldItem: "None",
+    stats: calculateStats(pokemon.baseStats, nature, ivs, evs, level),
+    nature,
+    evoLock: false,
+    pointsInvested: {
+      t1: 0,
+      t2: 0,
+      t3: 0,
+      t4: 0,
+      t5: 0,
+    },
+    favorite: false,
+    moves: pickMoves(pokemon.moves, level),
+  };
+
+  try {
+    await User.updateOne(
+      { username },
+      { $push: { ownedPokemon: caughtPokemon } }
+    );
+  } catch (err) {
+    // if something goes wrong here, then it's a server error
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+const pickNature = () => {
+  let natures = [
+    "Hardy",
+    "Lonely",
+    "Brave",
+    "Adamant",
+    "Naughty",
+    "Bold",
+    "Docile",
+    "Relaxed",
+    "Impish",
+    "Lax",
+    "Timid",
+    "Hasty",
+    "Serious",
+    "Jolly",
+    "Naive",
+    "Modest",
+    "Mild",
+    "Quiet",
+    "Bashful",
+    "Rash",
+    "Calm",
+    "Gentle",
+    "Sassy",
+    "Careful",
+    "Quirky",
+  ];
+  let index = Math.floor(Math.random() * 25);
+  return natures[index];
+};
+
+const pickMoves = (moves, level) => {
+  let learnedMoves = [];
+  let learnableMoves = moves.filter((move) => {
+    learnConditions = move.learnConditions;
+    learnConditions.filter((condition) => !isNaN(condition));
+    learnConditions.filter((condition) => condition <= level);
+    return learnConditions.length >= 1;
+  });
+
+  let moveCount = learnableMoves.length > 4 ? 4 : learnableMoves.length;
+
+  for (let i = 0; i < moveCount; i++) {
+    let index = Math.floor(Math.random() * learnableMoves.length);
+    let move = learnableMoves[index];
+    learnedMoves.push(move.name);
+    learnableMoves.splice(index, 1);
+  }
+
+  return learnedMoves;
+};
+
+const calculateStats = (base, nature, ivs, evs, level) => {
+  let stats = {
+    hp:
+      base.hp === 1
+        ? 1
+        : ((2 * base.hp + ivs.hp + evs.hp / 4) * level) / 100 + level + 10,
+    atk: ((2 * base.atk + ivs.atk + evs.atk / 4) * level) / 100 + 5,
+    def: ((2 * base.def + ivs.def + evs.def / 4) * level) / 100 + 5,
+    spA: ((2 * base.spA + ivs.spA + evs.spA / 4) * level) / 100 + 5,
+    spD: ((2 * base.spD + ivs.spD + evs.spD / 4) * level) / 100 + 5,
+    spe: ((2 * base.spe + ivs.spe + evs.spe / 4) * level) / 100 + 5,
+  };
+
+  switch (nature) {
+    case "Lonely":
+    case "Brave":
+    case "Adamant":
+    case "Naughty":
+      stats.atk = stats.atk * 1.1;
+    case "Bold":
+    case "Relaxed":
+    case "Impish":
+    case "Lax":
+      stats.def = stats.def * 1.1;
+    case "Modest":
+    case "Mild":
+    case "Quiet":
+    case "Rash":
+      stats.spA = stats.spA * 1.1;
+    case "Calm":
+    case "Gentle":
+    case "Sassy":
+    case "Careful":
+      stats.spD = stats.spD * 1.1;
+    case "Timid":
+    case "Hasty":
+    case "Jolly":
+    case "Naive":
+      stats.spe = stats.spe * 1.1;
+    case "Bold":
+    case "Timid":
+    case "Modest":
+    case "Calm":
+      stats.atk = stats.atk * 0.9;
+      break;
+    case "Lonely":
+    case "Hasty":
+    case "Mild":
+    case "Gentle":
+      stats.def = stats.def * 0.9;
+      break;
+    case "Adamant":
+    case "Impisj":
+    case "Jolly":
+    case "Careful":
+      stats.spA = stats.spA * 0.9;
+      break;
+    case "Naughty":
+    case "Lax":
+    case "Naive":
+    case "Rash":
+      stats.spD = stats.spD * 0.9;
+      break;
+    case "Brave":
+    case "Relaxed":
+    case "Quiet":
+    case "Sassy":
+      stats.spe = stats.spe * 0.9;
+      break;
+  }
+
+  return stats;
+};
+
 module.exports = router;
