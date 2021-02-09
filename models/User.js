@@ -1,17 +1,17 @@
-const mongoose = require("mongoose"); //bring in mongoose
+const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  //create our schema
-  //mongoose.Schema() takes in an object with all the fields that we want
   username: {
-    //we want our user to have a name of type String so we set 'username' to an object of type 'String'
     type: String,
-    required: true, //we also want this field to be required so we set 'required' to 'true'
+    required: true,
+    unique: true,
+    minlength: 6,
+    maxlength: 16,
   },
   email: {
     type: String,
     required: true,
-    unique: true, //we want the email to be unique, we do not want two people registering with the same email, so we set 'unique' to 'true'
+    unique: true,
   },
   password: {
     type: String,
@@ -19,7 +19,60 @@ const UserSchema = new mongoose.Schema({
   },
   privileges: {
     type: String,
-    required: true,
+    default: "standard",
+  },
+  ownedPokemon: {
+    type: Array,
+    default: [],
+  },
+  items: {
+    type: Array,
+    default: [],
+  },
+  spawnCounter: {
+    type: Array,
+    default: [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    ],
+  },
+  tierPoints: {
+    type: Object,
+    default: {
+      t1: 0,
+      t2: 0,
+      t3: 0,
+      t4: 0,
+      t5: 0,
+    },
   },
 });
 

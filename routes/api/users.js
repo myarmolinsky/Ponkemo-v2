@@ -1,14 +1,13 @@
-const express = require("express"); //bring in express
-const router = express.Router(); //bring in express router, allows us to make routes in separate files
-const bcrypt = require("bcryptjs"); //bring in bcrypt via bcryptjs
-const jwt = require("jsonwebtoken"); //bring in jwt via jsonwebtoken
-const config = require("config"); //bring in config to use the 'jwtsecret' value we made in our default.json inside our config folder
-const { check, validationResult } = require("express-validator"); //bring both of these in from express-validator (express-validator/check is deprecated so we don't use it)
-//check lets us add a second parameter in .post() as middleware which checkers given user input with provided rules
-//if any errors are found, they can be seen inside the validationResult array
-
-const User = require("../../models/User"); //bring in our User model
-// the first '../' is to get out of the 'api' folder, the second '../' is to get out of the routers folder
+const express = require("express");
+const router = express.Router(); // bring in express router, allows us to make routes in separate files
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const config = require("config");
+const { check, validationResult } = require("express-validator");
+// check lets us add a second parameter in .post() as middleware which checks given input with provided rules
+// if any errors are found, they can be seen inside the validationResult array
+const User = require("../../models/User");
+const Pokemon = require("../../models/Pokemon");
 
 // @route POST api/users
 // @desc Register user
@@ -16,69 +15,44 @@ const User = require("../../models/User"); //bring in our User model
 router.post(
   "/",
   [
-    check("username", "Username is required") //first parameter in check is which piece of data we are checking, second parameter is a custom error message
-      //if a custom error message is not passed, then some generic error message will be used
-      .not()
-      .isEmpty(), //.not().isEmpty() is our rule for this piece of data. it means that we want this piece of data to not be empty
-    check("email", "Please include a valid email").isEmail(), //.isEmail makes sure this piece of data is structured like an email
+    check("username", "Username is required").not().isEmpty(),
+    check("email", "Please include a valid email").isEmail(),
     check(
       "password",
       "Please enter a password with 6 or more characters"
-    ).isLength({ min: 6 }), //isLength({ min: 6 }) makes sure this piece of data is at least 6 characters long
+    ).isLength({ min: 6 }),
   ],
   async (req, res) => {
-    //req.body is how we will access data sent to us
-    //for req.body to work, we have to initialize the middleware for the body-parser, which we did in server.js by calling 'app.use(express.json({extended: false}))'
-    const errors = validationResult(req); //set 'errors' to validationResult of req which is an array of any errors that occurred when running all the checks
+    // for req.body to work, we have to initialize the middleware for the body-parser, which we did in server.js by calling 'app.use(express.json({extended: false}))'
+    const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      //if there errors:
-      return res.status(400).json({ errors: errors.array() }); //res.status(400) is a 'Bad Request', so we are returning the status and a json with an array of the errors
-      //res.status(200) means everything is OK
+      return res.status(400).json({ errors: errors.array() });
     }
 
-    const { username, email, password } = req.body; //pull these pieces of data out of the data that is sent to us
-
-    //we will make a query with mongoose using User.findOne()
-    //.findOne() returns a promise so we have to use async await
+    const { username, email, password } = req.body;
 
     try {
-      // See if user exists (if they exist then we send back an error because we don't want two users with the same username or email)
-      let user = await User.findOne({ username }); //this will get the user by searching by the given object
+      let user = await User.findOne({ $or: [{ email }, { username }] });
       if (user) {
-        //if the user exists:
-        return res //return is required before this res because it is not the last res. otherwise you would get an error. only the last res does not need a return before it
+        // if the user already exists
+        return res
           .status(400)
-          .json({ errors: [{ msg: "User already exists" }] }); //bad request because the user already exists
-        //in order to match the same type of error response that we get above when calling "res.status(400).json({ errors: errors.array() })", we pass .json() the above object
-      } //everything after this if statement only runs if 'user' does not exist
-
-      user = await User.findOne({ email }); //this will get the user by searching by the given object
-      if (user) {
-        //if the user exists:
-        return res //return is required before this res because it is not the last res. otherwise you would get an error. only the last res does not need a return before it
-          .status(400)
-          .json({ errors: [{ msg: "User already exists" }] }); //bad request because the user already exists
-        //in order to match the same type of error response that we get above when calling "res.status(400).json({ errors: errors.array() })", we pass .json() the above object
-      } //everything after this if statement only runs if 'user' does not exist
+          .json({ errors: [{ msg: "User already exists" }] });
+      }
 
       user = new User({
-        //create an instance of a new user with the fields that we want
         username,
         email,
-        password, //this password is not hashed/encrypted yet so we will need to do that
-        privileges: "standard",
-      }); //this does not save the user, it just creates a new instance
-      //we need to call user.save() to actually save it to the database
-      //before we save we want to encrypt the password with bcrypt
+        password, // this password is not hashed/encrypted yet so we will need to do that
+      });
 
       // Encrypt password using bcrypt
-      //first thing we need to do before encrypting the password is to create a 'salt' to do the hashing with
-      const salt = await bcrypt.genSalt(10); //we can get a promise from bcrypt.genSalt() so we use await
-      //we pass what is called "the rounds" into bcrypt.genSalt() (10 is what is recommended in the documentation)
-      //the more rounds you have, the more secure the password is but the slower it can be
-      user.password = await bcrypt.hash(password, salt); //bcrypt.hash takes in two parameters: the plain-text (in this case "password") and the salt
-      //we put 'await' in front of anything that may return a promise
-      await user.save(); //now we save the user to our database
+      // first thing we need to do before encrypting the password is to create a 'salt' to do the hashing with
+      const salt = await bcrypt.genSalt(10);
+      // we pass what is called the "rounds" into bcrypt.genSalt() (10 is what is recommended in the documentation)
+      // the more rounds you have, the more secure the password is but the slower it can be
+      user.password = await bcrypt.hash(password, salt); // bcrypt.hash takes in two parameters: the plain-text (in this case "password") and the salt
+      await user.save();
 
       // Return jsonwebtoken because when a user registers, you want them to be logged in right away and for them to be logged in right away, they need that webtoken
       /*
@@ -91,30 +65,270 @@ router.post(
       later we can verify the token
       */
       const payload = {
-        //create our payload, which is an object with a user which has an id
         user: {
-          id: user.id, //we can get our user by this id (which is found in the '_id' property of the user object in the MongoDB database)
+          id: user.id,
         },
       };
       jwt.sign(
         payload,
-        config.get("jwtSecret"), //our signed jwt has to have some kind of secret
-        //you don't want to just put your secret here so we made it inside our default.json inside our config folder
-        {}, //this parameter is optional. it is a set of options
-        //the one we are using is 'expiresIn', which makes the token expire in the given amount of seconds
-        //we set it to 3600 seconds so that the token expires an hour after being made
+        config.get("jwtSecret"), // our signed jwt has to have some kind of secret, which is located in our default.json
+        {}, // this parameter is optional. it is a set of options
         (err, token) => {
-          //this last parameter is a callback which takes in a possible error 'err' and the token itself
-          if (err) throw err; //if there is an error, then just throw the error
-          res.json({ token }); //otherwise, send the token
+          // this last parameter is a callback which takes in a possible error 'err' and the token itself
+          if (err) {
+            throw err;
+          }
+          res.json({ token });
         }
       );
     } catch (err) {
-      //if something goes wrong here, then it's a server error
+      // if something goes wrong here, then it's a server error
       console.error(err.message);
-      res.status(500).send("Server error"); //500 is an Internal Server Error
+      res.status(500).send("Server error");
     }
   }
 );
 
-module.exports = router; //export the router
+// @route PUT api/users/:username/spawn
+// @desc Spawn a Pokemon to catch
+// @access Public
+router.put("/:username/spawn", async (req, res) => {
+  const { username } = req.params;
+
+  const user = await User.findOne({ username });
+  let spawnCounter = user.spawnCounter;
+  let spawning = true;
+  let spawnIndex = Math.floor(Math.random() * spawnCounter.length);
+  while (spawning) {
+    if (spawnCounter[spawnIndex] === spawnIndex) {
+      spawning = false;
+      spawnCounter[spawnIndex] = 0;
+    } else {
+      spawnCounter[spawnIndex] = spawnCounter[spawnIndex] + 1;
+      spawnIndex = Math.floor(Math.random() * spawnCounter.length);
+    }
+  }
+
+  let pokemon = await Pokemon.aggregate([
+    { $match: { spawnRate: spawnIndex } },
+    { $sample: { size: 1 } },
+  ]);
+  pokemon = pokemon[0];
+
+  try {
+    await User.updateOne({ username }, { spawnCounter });
+
+    res.status(200).send(pokemon);
+  } catch (err) {
+    // if something goes wrong here, then it's a server error
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// @route PUT api/users/:username/catch
+// @desc Catch a Pokemon
+// @access Public
+router.put("/:username/catch", async (req, res) => {
+  const { username } = req.params;
+  const { pokemon } = req.body;
+
+  let level = Math.floor(Math.random() * 25) + 1;
+  let nature = pickNature();
+  let ivs = {
+    hp: Math.floor(Math.random() * 32),
+    atk: Math.floor(Math.random() * 32),
+    def: Math.floor(Math.random() * 32),
+    spA: Math.floor(Math.random() * 32),
+    spD: Math.floor(Math.random() * 32),
+    spe: Math.floor(Math.random() * 32),
+  };
+  let evs = {
+    hp: 0,
+    atk: 0,
+    def: 0,
+    spA: 0,
+    spD: 0,
+    spe: 0,
+  };
+
+  // Create caught pokemon
+  let caughtPokemon = {
+    id: pokemon.id,
+    nickname: pokemon.name,
+    level,
+    shiny: Math.floor(Math.random() * 4096) === 0 ? true : false,
+    ability: Math.floor(Math.random() * 151), // if 0, hidden ability. 1-75 = first ability. 76-150 = second ability
+    ivs,
+    evs,
+    friendship: pokemon.baseFriendship,
+    gender:
+      pokemon.genderRatio === -1
+        ? "Genderless"
+        : (Math.floor(Math.random() * 1000) + 1) / 10 <= pokemon.genderRatio
+        ? "Male"
+        : "Female",
+    heldItem: "None",
+    stats: calculateStats(pokemon.baseStats, nature, ivs, evs, level),
+    nature,
+    evoLock: false,
+    pointsInvested: {
+      t1: 0,
+      t2: 0,
+      t3: 0,
+      t4: 0,
+      t5: 0,
+    },
+    favorite: false,
+    moves: pickMoves(pokemon.moves, level),
+  };
+
+  try {
+    await User.updateOne(
+      { username },
+      { $push: { ownedPokemon: caughtPokemon } }
+    );
+
+    res.status(200).send(caughtPokemon);
+  } catch (err) {
+    // if something goes wrong here, then it's a server error
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+const pickNature = () => {
+  let natures = [
+    "Hardy",
+    "Lonely",
+    "Brave",
+    "Adamant",
+    "Naughty",
+    "Bold",
+    "Docile",
+    "Relaxed",
+    "Impish",
+    "Lax",
+    "Timid",
+    "Hasty",
+    "Serious",
+    "Jolly",
+    "Naive",
+    "Modest",
+    "Mild",
+    "Quiet",
+    "Bashful",
+    "Rash",
+    "Calm",
+    "Gentle",
+    "Sassy",
+    "Careful",
+    "Quirky",
+  ];
+  let index = Math.floor(Math.random() * 25);
+  return natures[index];
+};
+
+const pickMoves = (moves, level) => {
+  let learnedMoves = [];
+  let learnableMoves = moves.filter((move) => {
+    learnConditions = move.learnConditions;
+    learnConditions = learnConditions.filter((condition) => !isNaN(condition));
+    learnConditions = learnConditions.filter((condition) => condition <= level);
+    return learnConditions.length >= 1;
+  });
+
+  let moveCount = learnableMoves.length > 4 ? 4 : learnableMoves.length;
+
+  for (let i = 0; i < moveCount; i++) {
+    let index = Math.floor(Math.random() * learnableMoves.length);
+    let move = learnableMoves[index];
+    learnedMoves.push(move.name);
+    learnableMoves.splice(index, 1);
+  }
+
+  return learnedMoves;
+};
+
+const calculateStats = (base, nature, ivs, evs, level) => {
+  let stats = {
+    hp:
+      base.hp === 1
+        ? 1
+        : ((2 * base.hp + ivs.hp + evs.hp / 4) * level) / 100 + level + 10,
+    atk: ((2 * base.atk + ivs.atk + evs.atk / 4) * level) / 100 + 5,
+    def: ((2 * base.def + ivs.def + evs.def / 4) * level) / 100 + 5,
+    spA: ((2 * base.spA + ivs.spA + evs.spA / 4) * level) / 100 + 5,
+    spD: ((2 * base.spD + ivs.spD + evs.spD / 4) * level) / 100 + 5,
+    spe: ((2 * base.spe + ivs.spe + evs.spe / 4) * level) / 100 + 5,
+  };
+
+  switch (nature) {
+    case "Lonely":
+    case "Brave":
+    case "Adamant":
+    case "Naughty":
+      stats.atk = stats.atk * 1.1;
+    case "Bold":
+    case "Relaxed":
+    case "Impish":
+    case "Lax":
+      stats.def = stats.def * 1.1;
+    case "Modest":
+    case "Mild":
+    case "Quiet":
+    case "Rash":
+      stats.spA = stats.spA * 1.1;
+    case "Calm":
+    case "Gentle":
+    case "Sassy":
+    case "Careful":
+      stats.spD = stats.spD * 1.1;
+    case "Timid":
+    case "Hasty":
+    case "Jolly":
+    case "Naive":
+      stats.spe = stats.spe * 1.1;
+    case "Bold":
+    case "Timid":
+    case "Modest":
+    case "Calm":
+      stats.atk = stats.atk * 0.9;
+      break;
+    case "Lonely":
+    case "Hasty":
+    case "Mild":
+    case "Gentle":
+      stats.def = stats.def * 0.9;
+      break;
+    case "Adamant":
+    case "Impisj":
+    case "Jolly":
+    case "Careful":
+      stats.spA = stats.spA * 0.9;
+      break;
+    case "Naughty":
+    case "Lax":
+    case "Naive":
+    case "Rash":
+      stats.spD = stats.spD * 0.9;
+      break;
+    case "Brave":
+    case "Relaxed":
+    case "Quiet":
+    case "Sassy":
+      stats.spe = stats.spe * 0.9;
+      break;
+  }
+
+  stats.hp = Math.floor(stats.hp);
+  stats.atk = Math.floor(stats.atk);
+  stats.def = Math.floor(stats.def);
+  stats.spA = Math.floor(stats.spA);
+  stats.spD = Math.floor(stats.spD);
+  stats.spe = Math.floor(stats.spe);
+
+  return stats;
+};
+
+module.exports = router;
