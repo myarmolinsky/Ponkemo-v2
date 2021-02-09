@@ -64,7 +64,7 @@ const UserSchema = new mongoose.Schema({
       0,
     ],
   },
-  tierPoints: {
+  pokemonTierPoints: {
     type: Object,
     default: {
       t1: 0,
@@ -72,6 +72,14 @@ const UserSchema = new mongoose.Schema({
       t3: 0,
       t4: 0,
       t5: 0,
+    },
+  },
+  itemTierPoints: {
+    type: Object,
+    default: {
+      t1: 0,
+      t2: 0,
+      t3: 0,
     },
   },
 });
