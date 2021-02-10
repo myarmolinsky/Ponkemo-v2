@@ -46,12 +46,10 @@ export const Dex = ({ dex }) => {
       <div style={{ textAlign: "center" }}>
         <Grid container spacing={3}>
           {dex.map(
-            (
-              pokemon // for each pokemon in the pokedex
-            ) =>
+            (pokemon, index) =>
               (showFormes ||
                 (!showFormes && Math.floor(pokemon.id) === pokemon.id)) && (
-                <Grid item key={pokemon.name} xs={2}>
+                <Grid item key={index} xs={2}>
                   <Link to={`/pokedex/${pokemon.id}`}>
                     {/* Create a link leading to the pokemon's page */}
                     {/* Pokemon's sprite */}

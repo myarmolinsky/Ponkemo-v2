@@ -8,6 +8,8 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   USER_LOADED,
+  LOAD_OWNED_POKEMON,
+  LOAD_OWNED_POKEMON_FAIL,
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
@@ -27,8 +29,13 @@ export const UserState = ({ children }) => {
     isAuthenticated: null,
     loading: true, //make sure the loading is done (we've already made a request to the backend and got a response)
     user: null,
+    ownedPokemon: null,
   };
   const [state, dispatch] = useReducer(userReducer, initialState);
+
+  useEffect(() => {
+    getOwnedPokemon();
+  }, [state.user]);
   // Load User
   const loadUser = async () => {
     //we want to be able to take and use a token already stored in local storage if there is one
@@ -115,6 +122,21 @@ export const UserState = ({ children }) => {
     }
   };
 
+  const getOwnedPokemon = async () => {
+    try {
+      const res = await axios.get(`/api/users/${state.user.username}/owned`);
+
+      dispatch({
+        type: LOAD_OWNED_POKEMON,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: LOAD_OWNED_POKEMON_FAIL,
+      });
+    }
+  };
+
   // Logout
   const logout = () => {
     dispatch({ type: LOGOUT });
@@ -127,6 +149,7 @@ export const UserState = ({ children }) => {
         loadUser,
         register,
         login,
+        getOwnedPokemon,
         logout,
       }}
     >

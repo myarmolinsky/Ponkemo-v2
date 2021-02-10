@@ -2,6 +2,8 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   USER_LOADED,
+  LOAD_OWNED_POKEMON,
+  LOAD_OWNED_POKEMON_FAIL,
   AUTH_ERROR,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
@@ -26,6 +28,16 @@ export default function (state, action) {
         ...payload,
         isAuthenticated: true,
         loading: false,
+      };
+    case LOAD_OWNED_POKEMON:
+      return {
+        ...state,
+        ownedPokemon: payload,
+      };
+    case LOAD_OWNED_POKEMON_FAIL:
+      return {
+        ...state,
+        ownedPokemon: null,
       };
     case REGISTER_FAIL:
     case LOGIN_FAIL:
