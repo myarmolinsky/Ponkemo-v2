@@ -114,7 +114,6 @@ img {
   background: var(--light-color);
   color: #333;
   border-radius: 10px;
-  /* width: 100%; */
   text-align: center;
 }
 
@@ -234,6 +233,19 @@ textarea {
   font-weight: bold;
   border-color: black;
   filter: drop-shadow(5px 5px 10px);
+  outline: none;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 1.25rem 0 rgba(255, 255, 255, 0.08) inset,
+    0 -1.25rem 1.25rem rgba(0, 0, 0, 0.3) inset;
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+}
+
+.menu-item:active {
+  filter: none;
 }
 
 .sprite {
