@@ -170,10 +170,6 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-textarea {
-  resize: none;
-}
-
 /* Navbar */
 .navbar {
   display: flex;
