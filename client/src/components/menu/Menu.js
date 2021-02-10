@@ -1,25 +1,28 @@
-import React, { Fragment, useContext } from "react";
-import { UserContext } from "../../context";
+import React from "react";
+import { Grid } from "@material-ui/core";
 import { MenuItem } from "./MenuItem";
 
 export const Menu = () => {
-  const { user } = useContext(UserContext);
   return (
-    <Fragment>
-      <h1 className="large text-primary">Menu</h1>
-      <p className="lead">
-        <i className="fas fa-user"> Welcome {user && user.username}</i>
-        {/*if the user exists, show the user's name*/}
-      </p>
-      <MenuItem>catch</MenuItem>
-      <MenuItem>forage</MenuItem>
-      <MenuItem>train</MenuItem>
-      <MenuItem>breed</MenuItem>
-      <MenuItem>shop</MenuItem>
-      <MenuItem>recycle</MenuItem>
-      <MenuItem>battle</MenuItem>
-      <MenuItem>contest</MenuItem>
-      {/* THIS IS WHERE ALL THE BUTTONS FOR CATCHING, FORAGING, TRAINING, ETC GO */}
-    </Fragment>
+    <div className="center">
+      <Grid container>
+        <Grid item xs={12}>
+          <MenuItem text="catch" color="#426ff5" />
+          <MenuItem text="forage" color="#6ff542" />
+        </Grid>
+        <Grid item xs={12}>
+          <MenuItem text="train" color="#f5f542" />
+          <MenuItem text="breed" color="#ff9cf3" />
+        </Grid>
+        <Grid item xs={12}>
+          <MenuItem text="shop" color="#f59e42" />
+          <MenuItem text="recycle" color="#2ac0f7" />
+        </Grid>
+        <Grid item xs={12}>
+          <MenuItem text="battle" color="red" />
+          <MenuItem text="contest" color="#ff00e0" />
+        </Grid>
+      </Grid>
+    </div>
   );
 };

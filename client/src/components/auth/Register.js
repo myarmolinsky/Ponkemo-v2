@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react"; //we bring in the 'useState
 import { Link, Redirect } from "react-router-dom";
 import { Button, TextField, Grid, Box } from "@material-ui/core";
 import { UserContext, MiscContext } from "../../context";
+import { Alert } from "../layout";
 
 //since it's a form, we need to have some component state because each input needs to have its own state
 //they also needs to have an 'onchange' handler so when we type in it, it updates the state
@@ -107,6 +108,7 @@ export const Register = () => {
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
       </p>
+      <Alert />
     </div>
   );
 };

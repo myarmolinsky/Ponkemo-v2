@@ -22,8 +22,9 @@ import {
   Battle,
   Contest,
 } from "../menu";
+import { Profile } from "../profile/Profile";
 import { PrivateRoute } from "../routing/PrivateRoute";
-import { NotFound, Alert } from "../layout";
+import { NotFound } from "../layout";
 
 const Routes = () => {
   return (
@@ -35,6 +36,7 @@ const Routes = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <PrivateRoute exact path="/menu" component={Menu} />
+        <PrivateRoute exact path="/profile" component={Profile} />
         <Route exact path="/pokedex" component={Pokedex} />
         <Route exact path="/pokedex/:id" component={Pokemon} />
         <PrivateRoute exact path="/pokedex/:id/edit" component={EditPokemon} />
@@ -52,7 +54,6 @@ const Routes = () => {
         <Route exact path="/contest" component={Contest} />
         <Route component={NotFound} />
       </Switch>
-      <Alert />
     </div>
   );
 };

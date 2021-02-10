@@ -9,24 +9,22 @@ export const Navbar = () => {
     <ul>
       <li>
         <Link to="/menu">
-          <i className="fas fa-user"></i>{" "}
-          {/*the above line is so that an icon is displayed with the button*/}
-          <span className="hide-sm">Menu</span>{" "}
-          {/*the span surrounding 'Menu' is so that it shows up on mobile devices*/}
+          <i className="fas fa-bars" /> Menu
         </Link>
       </li>
       <li>
         <Link to="/pokedex">
-          <i className="fas fa-circle"></i>{" "}
-          {/*the above line is so that an icon is displayed with the button*/}
-          <span className="hide-sm">Pokedex</span>{" "}
-          {/*the span surrounding 'Menu' is so that it shows up on mobile devices*/}
+          <i className="fas fa-layer-group" /> Pokedex
+        </Link>
+      </li>
+      <li>
+        <Link to="/profile">
+          <i className="fas fa-address-card" /> Profile
         </Link>
       </li>
       <li>
         <Link onClick={logout} to="/login">
-          <i className="fas fa-sign-out-alt"></i>{" "}
-          <span className="hide-sm">Logout</span>
+          <i className="fas fa-sign-out-alt" /> Logout
         </Link>
       </li>
     </ul>
@@ -36,33 +34,28 @@ export const Navbar = () => {
     <ul>
       <li>
         <Link to="/pokedex">
-          <i className="fas fa-circle"></i>{" "}
-          {/*the above line is so that an icon is displayed with the button*/}
-          <span className="hide-sm">Pokedex</span>{" "}
-          {/*the span surrounding 'Menu' is so that it shows up on mobile devices*/}
+          <i className="fas fa-layer-group" /> Pokedex
         </Link>
       </li>
       <li>
-        <Link to="/register">Register</Link>
+        <Link to="/register">
+          <i className="fas fa-user-plus" /> Register
+        </Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/login">
+          <i className="fas fa-sign-in-alt" /> Login
+        </Link>
       </li>
     </ul>
   );
 
-  //this nav tag came from the 'index.html' provided by the course
   return (
-    //changed instances of 'class' to 'className'
     <nav className="navbar">
       <h1>
-        <Link to="/">
-          <i className="fas fa-grin-beam"></i> Ponkemo
-        </Link>
+        <Link to="/">Ponkemo</Link>
       </h1>
-      {!loading && ( //if not loading, then do this
-        //'?' is a ternary operator (if what is at the left of the '?' is true, then do what is at the right)
-        //':' is for else, so if whatever is before the '?' is false then skip everything between the '?' and the ':' and do what is at the right of the ':'
+      {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
       )}
     </nav>
