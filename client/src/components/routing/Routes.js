@@ -12,6 +12,16 @@ import {
   Types,
   EditPokemon,
 } from "../pokedex";
+import {
+  Catch,
+  Forage,
+  Train,
+  Breed,
+  Shop,
+  Recycle,
+  Battle,
+  Contest,
+} from "../menu";
 import { PrivateRoute } from "../routing/PrivateRoute";
 import { NotFound, Alert } from "../layout";
 
@@ -32,6 +42,14 @@ const Routes = () => {
         <Route exact path="/egggroups/:eggGroup" component={EggGroup} />
         <Route exact path="/types" component={Types} />
         <Route exact path="/types/:type" component={Type} />
+        <Route exact path="/catch" component={Catch} />
+        <Route exact path="/forage" component={Forage} />
+        <Route exact path="/train" component={Train} />
+        <Route exact path="/breed" component={Breed} />
+        <Route exact path="/shop" component={Shop} />
+        <Route exact path="/recycle" component={Recycle} />
+        <Route exact path="/battle" component={Battle} />
+        <Route exact path="/contest" component={Contest} />
         <Route component={NotFound} />
       </Switch>
       <Alert />
