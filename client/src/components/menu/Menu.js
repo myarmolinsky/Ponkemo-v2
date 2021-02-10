@@ -1,11 +1,11 @@
 import React, { Fragment, useContext } from "react";
 import { UserContext } from "../../context";
 
-export const Dashboard = () => {
+export const Menu = () => {
   const { user } = useContext(UserContext);
   return (
     <Fragment>
-      <h1 className="large text-primary">Dashboard</h1>
+      <h1 className="large text-primary">Menu</h1>
       <p className="lead">
         <i className="fas fa-user"> Welcome {user && user.username}</i>
         {/*if the user exists, show the user's name*/}

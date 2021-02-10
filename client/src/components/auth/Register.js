@@ -40,9 +40,9 @@ export const Register = () => {
     }
   };
 
-  // Redirect to dashboard if already logged in/registered
+  // Redirect to menu if already logged in/registered
   if (isAuthenticated) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/menu" />;
   }
 
   return (

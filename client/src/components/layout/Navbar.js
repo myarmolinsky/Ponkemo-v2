@@ -8,11 +8,11 @@ export const Navbar = () => {
   const authLinks = (
     <ul>
       <li>
-        <Link to="/dashboard">
+        <Link to="/menu">
           <i className="fas fa-user"></i>{" "}
           {/*the above line is so that an icon is displayed with the button*/}
-          <span className="hide-sm">Dashboard</span>{" "}
-          {/*the span surrounding 'Dashboard' is so that it shows up on mobile devices*/}
+          <span className="hide-sm">Menu</span>{" "}
+          {/*the span surrounding 'Menu' is so that it shows up on mobile devices*/}
         </Link>
       </li>
       <li>
@@ -20,7 +20,7 @@ export const Navbar = () => {
           <i className="fas fa-circle"></i>{" "}
           {/*the above line is so that an icon is displayed with the button*/}
           <span className="hide-sm">Pokedex</span>{" "}
-          {/*the span surrounding 'Dashboard' is so that it shows up on mobile devices*/}
+          {/*the span surrounding 'Menu' is so that it shows up on mobile devices*/}
         </Link>
       </li>
       <li>
@@ -39,7 +39,7 @@ export const Navbar = () => {
           <i className="fas fa-circle"></i>{" "}
           {/*the above line is so that an icon is displayed with the button*/}
           <span className="hide-sm">Pokedex</span>{" "}
-          {/*the span surrounding 'Dashboard' is so that it shows up on mobile devices*/}
+          {/*the span surrounding 'Menu' is so that it shows up on mobile devices*/}
         </Link>
       </li>
       <li>

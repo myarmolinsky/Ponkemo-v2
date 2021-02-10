@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Register } from "../auth/Register";
 import { Login } from "../auth/Login";
-import { Dashboard } from "../dashboard/Dashboard";
+import { Menu } from "../menu/Menu";
 import {
   Pokedex,
   Pokemon,
@@ -24,7 +24,7 @@ const Routes = () => {
         {/*wrap everything in a switch so we don't have issues, especially when we create our 'private route' component*/}
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <PrivateRoute exact path="/menu" component={Menu} />
         <Route exact path="/pokedex" component={Pokedex} />
         <Route exact path="/pokedex/:id" component={Pokemon} />
         <PrivateRoute exact path="/pokedex/:id/edit" component={EditPokemon} />
