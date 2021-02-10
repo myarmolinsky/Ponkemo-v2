@@ -65,7 +65,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Sort moves on Pokemon page
 - Sort Pokedex
 - Back button/history
-- Dashboard (maybe change the name of dashboard to something else)
+- Menu
   - Catch Pokemon
   - Forage for items
   - Train your Pokemon

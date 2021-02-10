@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { Button, TextField, Grid, Box } from "@material-ui/core";
 import { UserContext } from "../../context";
+import { Alert } from "../layout";
 
 export const Login = () => {
   const { login, isAuthenticated } = useContext(UserContext);
@@ -21,9 +22,9 @@ export const Login = () => {
     login(username, password);
   };
 
-  // Redirect to dashboard if already logged in/registered
+  // Redirect to menu if already logged in/registered
   if (isAuthenticated) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/menu" />;
   }
 
   return (
@@ -64,6 +65,7 @@ export const Login = () => {
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>
       </p>
+      <Alert />
     </div>
   );
 };

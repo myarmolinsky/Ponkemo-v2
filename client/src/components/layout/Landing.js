@@ -7,8 +7,8 @@ export const Landing = () => {
   const { isAuthenticated } = useContext(UserContext);
 
   if (isAuthenticated) {
-    //we don't want logged in users to be sent to the landing page, instead we want to send them to the dashboard
-    return <Redirect to="/dashboard" />;
+    //we don't want logged in users to be sent to the landing page, instead we want to send them to the menu
+    return <Redirect to="/menu" />;
   }
 
   return (

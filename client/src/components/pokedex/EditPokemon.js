@@ -11,7 +11,7 @@ import {
   FormControl,
 } from "@material-ui/core";
 import { PokemonContext, UserContext } from "../../context";
-import { NotFound, Spinner, AccessDenied } from "../layout";
+import { NotFound, Spinner, AccessDenied, Alert } from "../layout";
 
 export const EditPokemon = ({ match }) => {
   const {
@@ -152,6 +152,7 @@ export const EditPokemon = ({ match }) => {
     <NotFound />
   ) : (
     <Fragment>
+      <Alert />
       <Grid container justify="space-evenly">
         <Grid item xs={3}>
           {/* If there is a previous pokemon, link to its page */}
@@ -653,6 +654,7 @@ export const EditPokemon = ({ match }) => {
           </Button>
         </Grid>
       </form>
+      <Alert />
     </Fragment>
   );
 };
