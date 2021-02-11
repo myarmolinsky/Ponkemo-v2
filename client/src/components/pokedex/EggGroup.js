@@ -36,7 +36,7 @@ export const EggGroup = ({ match }) => {
       <h1 className="large text-primary">{match.params.eggGroup} Egg Group</h1>
       <SearchFilter
         pokedex={eggGroup}
-        setFilteredPokedex={(filtered) => setFilteredPokedex(filtered)}
+        setFilteredDex={(filtered) => setFilteredPokedex(filtered)}
         showBothEggGroups={false}
       />
       <Dex dex={filteredPokedex} />

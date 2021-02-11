@@ -89,6 +89,29 @@ router.post(
   }
 );
 
+// @route GET api/users/:username/owned
+// @desc Get owned Pokemon and their info
+// @access Public
+router.get("/:username/owned", async (req, res) => {
+  const { username } = req.params;
+
+  try {
+    const user = await User.findOne({ username });
+
+    let data = [];
+    for (let i = 0; i < user.ownedPokemon.length; i++) {
+      const pokemon = await Pokemon.findOne({ id: user.ownedPokemon[i].id });
+      data.push({ pokemon, info: user.ownedPokemon[i] });
+    }
+
+    res.send(data);
+  } catch (err) {
+    // if something goes wrong here, then it's a server error
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
 // @route PUT api/users/:username/spawn
 // @desc Spawn a Pokemon to catch
 // @access Public
