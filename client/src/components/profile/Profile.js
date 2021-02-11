@@ -1,15 +1,30 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Divider } from "@material-ui/core";
 import { useStyles } from "../styles";
 import { UserContext } from "../../context";
 import { Spinner } from "../layout";
-import { Dex } from "../common";
+import { Dex, SearchFilter } from "../common";
 
 export const Profile = () => {
-  const { user, loading, ownedPokemon } = useContext(UserContext);
   const classes = useStyles();
 
-  return loading || !user || !ownedPokemon ? (
+  const { user, loading, ownedPokemon, loadUser } = useContext(UserContext);
+
+  const [ownedPokemonDex, setOwnedPokemonDex] = useState([]);
+  const [filteredOwnedPokemon, setFilteredOwnedPokemon] = useState([]);
+
+  useEffect(() => {
+    loadUser();
+  }, []);
+
+  useEffect(() => {
+    if (ownedPokemon) {
+      setOwnedPokemonDex(ownedPokemon.map((poke) => poke.pokemon));
+      setFilteredOwnedPokemon(ownedPokemon.map((poke) => poke.pokemon));
+    }
+  }, [ownedPokemon]);
+
+  return loading || !user ? (
     <Spinner />
   ) : (
     <>
@@ -17,7 +32,11 @@ export const Profile = () => {
         User: {user && `${user.username}`}
       </span>
       <Divider className={classes.divider} />
-      <Dex dex={ownedPokemon.map((poke) => poke.pokemon)} />
+      <SearchFilter
+        pokedex={ownedPokemonDex}
+        setFilteredDex={(filtered) => setFilteredOwnedPokemon(filtered)}
+      />
+      <Dex dex={filteredOwnedPokemon} />
     </>
   );
 };

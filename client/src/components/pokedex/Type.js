@@ -34,7 +34,7 @@ export const Type = ({ match }) => {
       <h1 className="large text-primary">{match.params.type} Types</h1>
       <SearchFilter
         pokedex={type}
-        setFilteredPokedex={(filtered) => setFilteredPokedex(filtered)}
+        setFilteredDex={(filtered) => setFilteredPokedex(filtered)}
         showBothTypes={false}
       />
       <Dex dex={filteredPokedex} />

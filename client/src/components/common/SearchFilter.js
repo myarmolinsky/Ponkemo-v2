@@ -14,7 +14,7 @@ import { useStyles } from "../styles";
 
 export const SearchFilter = ({
   pokedex,
-  setFilteredPokedex,
+  setFilteredDex,
   showBothTypes,
   showBothEggGroups,
 }) => {
@@ -69,7 +69,7 @@ export const SearchFilter = ({
   };
 
   useEffect(() => {
-    setFilteredPokedex(
+    setFilteredDex(
       pokedex.filter((pokemon) => checkSearchPokemon(pokemon, searchData))
     );
   }, [searchData, pokedex]);
@@ -449,7 +449,7 @@ export const SearchFilter = ({
 
 SearchFilter.propTypes = {
   pokedex: array.isRequired,
-  setFilteredPokedex: func.isRequired,
+  setFilteredDex: func.isRequired,
   showBothTypes: bool,
   showBothEggGroups: bool,
 };
