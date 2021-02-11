@@ -4,15 +4,13 @@ import { any } from "prop-types";
 import { Button } from "@material-ui/core";
 import { PokemonContext } from "../../context";
 import { Spinner } from "../layout";
-import { SearchFilter, Dex, DexSettingsButtons } from "../common";
+import { SearchFilter, Dex } from "../common";
 
 export const Type = ({ match }) => {
   const { pokedex, loading } = useContext(PokemonContext);
 
   const [filteredPokedex, setFilteredPokedex] = useState([]);
   const [type, setType] = useState([]);
-  const [showFormes, setShowFormes] = useState(false);
-  const [shinySprites, setShinySprites] = useState(false);
 
   useEffect(() => {
     setType(
@@ -38,10 +36,6 @@ export const Type = ({ match }) => {
         pokedex={type}
         setFilteredPokedex={(filtered) => setFilteredPokedex(filtered)}
         showBothTypes={false}
-      />
-      <DexSettingsButtons
-        toggleShinySprites={() => setShinySprites(!shinySprites)}
-        toggleShowFormes={() => setShowFormes(!showFormes)}
       />
       <Dex dex={filteredPokedex} />
     </Fragment>
