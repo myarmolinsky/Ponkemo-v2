@@ -29,7 +29,7 @@ export const Profile = () => {
   ) : (
     <>
       <div className="text-primary large">
-        User: {user && `${user.username}`}
+        User: <span className="text-dark">{user && `${user.username}`}</span>
       </div>
       <Divider className={classes.divider} />
       <div
