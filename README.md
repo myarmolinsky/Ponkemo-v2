@@ -14,8 +14,6 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Pokedex (user does not have to be signed in to see this)
   - Each Pokemon on the Pokedex page links to its respective Pokemon page
   - Search filter to search for Pokemon by name, type, ability, egg group, and base stats
-  - Toggle whether formes are shown (not shown by default)
-  - Toggle between shiny and non-shiny sprites (non-shiny by default)
 - Pokemon page for each Pokemon which displays all information about a Pokemon including the Pokemon's:
   - Name
   - Normal and shiny sprites
