@@ -11,24 +11,12 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 ## Included Features
 
 - User sign up and log in
+- User Profile
+  - Shows owned Pokemon
 - Pokedex (user does not have to be signed in to see this)
   - Each Pokemon on the Pokedex page links to its respective Pokemon page
   - Search filter to search for Pokemon by name, type, ability, egg group, and base stats
-- Pokemon page for each Pokemon which displays all information about a Pokemon including the Pokemon's:
-  - Name
-  - Normal and shiny sprites
-  - Formes and links to each forme's page
-  - Types
-  - Abilities and Hidden Ability
-  - Weight
-  - Base Friendship
-  - Gender Ratio
-  - Base Stats
-  - Egg Groups
-  - What its egg hatches into
-  - Spawn Rate (currently all 0 or -1)
-  - List of Evolutions and how to get them
-  - Table of learnable moves and how to learn them (Every Pokemon up until Absol so far)
+- Pokemon page for each Pokemon which displays all information about a Pokemon
 - Egg Groups page showing all Egg Groups (currently only accessible by going to an egg group page via a Pokemon page or by going directly to the url)
   - Each Egg Group links to its respective Egg Group page
 - Egg Group page for each Egg Group showing all Pokemon in that Egg Group
@@ -46,6 +34,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Strengthen backend
 - Fix Stage 0 Pokemon and future evolutions having unidentical egg moves (duskull + dusknoir, chingling + chimecho)
 - Add moves for the rest of the pokemon (359-end)
+- Add pokedex property to User to track their pokedex completion status
 - Movedex
   - Moves on Pokemon page are a link to that respective move page
   - Move page shows all Pokemon that can learn the move

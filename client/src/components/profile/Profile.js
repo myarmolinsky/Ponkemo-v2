@@ -28,10 +28,20 @@ export const Profile = () => {
     <Spinner />
   ) : (
     <>
-      <span className="text-primary large">
+      <div className="text-primary large">
         User: {user && `${user.username}`}
-      </span>
+      </div>
       <Divider className={classes.divider} />
+      <div
+        className="text-primary"
+        style={{
+          fontSize: "150%",
+          textAlign: "center",
+          fontWeight: "bold",
+        }}
+      >
+        Owned Pokemon
+      </div>
       <SearchFilter
         pokedex={ownedPokemonDex}
         setFilteredDex={(filtered) => setFilteredOwnedPokemon(filtered)}
