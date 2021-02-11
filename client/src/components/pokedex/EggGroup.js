@@ -4,13 +4,15 @@ import { any } from "prop-types";
 import { Button } from "@material-ui/core";
 import { PokemonContext } from "../../context";
 import { Spinner } from "../layout";
-import { SearchFilter, Dex } from "../common";
+import { SearchFilter, Dex, DexSettingsButtons } from "../common";
 
 export const EggGroup = ({ match }) => {
   const { pokedex, loading } = useContext(PokemonContext);
 
   const [filteredPokedex, setFilteredPokedex] = useState([]);
   const [eggGroup, setEggGroup] = useState([]);
+  const [showFormes, setShowFormes] = useState(false);
+  const [shinySprites, setShinySprites] = useState(false);
 
   useEffect(() => {
     setEggGroup(
@@ -38,6 +40,10 @@ export const EggGroup = ({ match }) => {
         pokedex={eggGroup}
         setFilteredPokedex={(filtered) => setFilteredPokedex(filtered)}
         showBothEggGroups={false}
+      />
+      <DexSettingsButtons
+        toggleShinySprites={() => setShinySprites(!shinySprites)}
+        toggleShowFormes={() => setShowFormes(!showFormes)}
       />
       <Dex dex={filteredPokedex} />
     </Fragment>
