@@ -22,7 +22,7 @@ export const Pokedex = () => {
         <Fragment>
           <SearchFilter
             pokedex={pokedex}
-            setFilteredPokedex={(filtered) => setFilteredPokedex(filtered)}
+            setFilteredDex={(filtered) => setFilteredPokedex(filtered)}
           />
           <Dex dex={filteredPokedex} />
         </Fragment>
