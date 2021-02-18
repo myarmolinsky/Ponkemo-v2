@@ -34,7 +34,7 @@ export const Dex = ({ dex, ownedPokemon }) => {
           .slice((page - 1) * pageLength, page * pageLength)
           .map((pokemon, index) => (
             <Grid item key={index} xs={2}>
-              <ReactHover options={{ shiftX: 0, shiftY: 0 }}>
+              <ReactHover options={{}}>
                 <Trigger type="trigger">
                   <Link to={`/pokedex/${pokemon.id}`}>
                     {/* Create a link leading to the pokemon's page */}
@@ -51,7 +51,13 @@ export const Dex = ({ dex, ownedPokemon }) => {
                     >
                       <img
                         className="sprite"
-                        src={pokemon.sprite}
+                        src={
+                          ownedPokemon
+                            ? ownedPokemon[index].shiny
+                              ? pokemon.shinySprite
+                              : pokemon.sprite
+                            : pokemon.sprite
+                        }
                         alt={pokemon.name}
                       />
                       {/* Pokemon's name */}
@@ -60,7 +66,11 @@ export const Dex = ({ dex, ownedPokemon }) => {
                   </Link>
                 </Trigger>
                 <Hover type="hover">
-                  <OwnedPokemonInfo />
+                  {ownedPokemon ? (
+                    <OwnedPokemonInfo pokemon={ownedPokemon[index]} />
+                  ) : (
+                    <></>
+                  )}
                 </Hover>
               </ReactHover>
             </Grid>
@@ -84,9 +94,9 @@ export const Dex = ({ dex, ownedPokemon }) => {
 
 Dex.propTypes = {
   dex: array.isRequired,
-  ownedPokemon: bool,
+  ownedPokemon: array,
 };
 
 Dex.defaultProps = {
-  ownedPokemon: false,
+  ownedPokemon: null,
 };

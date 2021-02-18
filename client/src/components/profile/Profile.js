@@ -11,6 +11,7 @@ export const Profile = () => {
   const { user, loading, ownedPokemon, loadUser } = useContext(UserContext);
 
   const [ownedPokemonDex, setOwnedPokemonDex] = useState([]);
+  const [ownedPokemonInfo, setOwnedPokemonInfo] = useState([]);
   const [filteredOwnedPokemon, setFilteredOwnedPokemon] = useState([]);
 
   useEffect(() => {
@@ -19,8 +20,9 @@ export const Profile = () => {
 
   useEffect(() => {
     if (ownedPokemon) {
-      setOwnedPokemonDex(ownedPokemon.map((poke) => poke.pokemon));
-      setFilteredOwnedPokemon(ownedPokemon.map((poke) => poke.pokemon));
+      setOwnedPokemonDex(ownedPokemon.map((pokemon) => pokemon.pokemon));
+      setOwnedPokemonInfo(ownedPokemon.map((pokemon) => pokemon.info));
+      setFilteredOwnedPokemon(ownedPokemon.map((pokemon) => pokemon.pokemon));
     }
   }, [ownedPokemon]);
 
@@ -46,7 +48,7 @@ export const Profile = () => {
         pokedex={ownedPokemonDex}
         setFilteredDex={(filtered) => setFilteredOwnedPokemon(filtered)}
       />
-      <Dex dex={filteredOwnedPokemon} ownedPokemon />
+      <Dex dex={filteredOwnedPokemon} ownedPokemon={ownedPokemonInfo} />
     </>
   );
 };
