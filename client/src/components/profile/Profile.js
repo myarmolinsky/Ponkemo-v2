@@ -46,7 +46,7 @@ export const Profile = () => {
         pokedex={ownedPokemonDex}
         setFilteredDex={(filtered) => setFilteredOwnedPokemon(filtered)}
       />
-      <Dex dex={filteredOwnedPokemon} />
+      <Dex dex={filteredOwnedPokemon} ownedPokemon />
     </>
   );
 };
