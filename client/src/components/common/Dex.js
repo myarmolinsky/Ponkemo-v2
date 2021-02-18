@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { array, bool } from "prop-types";
+import { array } from "prop-types";
 import { Grid } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
-import ReactHover, { Trigger, Hover } from "react-hover";
+import Tippy from "@tippyjs/react";
 import { OwnedPokemonInfo } from "../profile/OwnedPokemonInfo";
 
 export const Dex = ({ dex, ownedPokemon }) => {
@@ -34,45 +34,47 @@ export const Dex = ({ dex, ownedPokemon }) => {
           .slice((page - 1) * pageLength, page * pageLength)
           .map((pokemon, index) => (
             <Grid item key={index} xs={2}>
-              <ReactHover options={{}}>
-                <Trigger type="trigger">
-                  <Link to={`/pokedex/${pokemon.id}`}>
-                    {/* Create a link leading to the pokemon's page */}
-                    {/* Pokemon's sprite */}
-                    <div
-                      className="pokedex-item"
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        textAlign: "center",
-                      }}
-                    >
-                      <img
-                        className="sprite"
-                        src={
-                          ownedPokemon
-                            ? ownedPokemon[index].shiny
-                              ? pokemon.shinySprite
-                              : pokemon.sprite
-                            : pokemon.sprite
-                        }
-                        alt={pokemon.name}
-                      />
-                      {/* Pokemon's name */}
-                      <p variant="caption">{pokemon.name}</p>
-                    </div>
-                  </Link>
-                </Trigger>
-                <Hover type="hover">
-                  {ownedPokemon ? (
+              <Tippy
+                content={
+                  ownedPokemon ? (
                     <OwnedPokemonInfo pokemon={ownedPokemon[index]} />
                   ) : (
-                    <></>
-                  )}
-                </Hover>
-              </ReactHover>
+                    ""
+                  )
+                }
+                interactive
+                duration={0}
+                placement="auto-start"
+              >
+                <Link to={`/pokedex/${pokemon.id}`}>
+                  {/* Create a link leading to the pokemon's page */}
+                  {/* Pokemon's sprite */}
+                  <div
+                    className="pokedex-item"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      textAlign: "center",
+                    }}
+                  >
+                    <img
+                      className="sprite"
+                      src={
+                        ownedPokemon
+                          ? ownedPokemon[index].shiny
+                            ? pokemon.shinySprite
+                            : pokemon.sprite
+                          : pokemon.sprite
+                      }
+                      alt={pokemon.name}
+                    />
+                    {/* Pokemon's name */}
+                    <p variant="caption">{pokemon.name}</p>
+                  </div>
+                </Link>
+              </Tippy>
             </Grid>
           ))}
       </Grid>
