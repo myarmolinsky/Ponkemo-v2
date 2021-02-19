@@ -11,10 +11,6 @@ export const Menu = () => {
           <MenuItem text="forage" color="#6ff542" />
         </Grid>
         <Grid item xs={12}>
-          <MenuItem text="train" color="#f5f542" />
-          <MenuItem text="breed" color="#ff9cf3" />
-        </Grid>
-        <Grid item xs={12}>
           <MenuItem text="shop" color="#f59e42" />
           <MenuItem text="recycle" color="#2ac0f7" />
         </Grid>

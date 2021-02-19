@@ -13,6 +13,8 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - User sign up and log in
 - User Profile
   - Shows owned Pokemon
+    - Hover over an owned Pokemon to see its info
+    - Search filter to search for Pokemon by name, type, ability, egg group, and base stats
 - Pokedex (user does not have to be signed in to see this)
   - Each Pokemon on the Pokedex page links to its respective Pokemon page
   - Search filter to search for Pokemon by name, type, ability, egg group, and base stats
@@ -45,8 +47,6 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
   - Edit abilities (admin-privilege users only)
 - Itemdex
   - Edit items (admin-privilege users only)
-- Users have spawnCounter, item tier points, Pokemon tier points
-  - spawnCounter is used for spawning Pokemon, it ensures that it is harder to get a rarer Pokemon
 - Spawnrates
   - Give each Pokemon a fair (as fair as possible) spawnrate
 - Sort moves on Pokemon page
@@ -55,9 +55,14 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Menu
   - Catch Pokemon
   - Forage for items
+  - Recycle Pokemon and Items (for Pokemon tier points and item tier points respectively)
+- Profile
   - Train your Pokemon
   - Breed your Pokemon
-  - Recycle Pokemon and Items (for Pokemon tier points and item tier points respectively)
+  - Favorite your Pokemon
+  - Change your Pokemon's formes
+  - Recycle (?)
+  - Owned Pokemon version of Search Filter
 - Sort owned Pokemon
 - Shop for buying items and Pokemon with points (specific Pokemon and items and/or packs of random Pokemon and items for their respective points)
 - Use items and give items to Pokemon to hold

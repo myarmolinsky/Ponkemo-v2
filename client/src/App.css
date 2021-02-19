@@ -91,19 +91,19 @@ img {
 .table {
   border-collapse: collapse;
   width: 75%;
-  background-color: lightgrey;
   table-layout: fixed;
 }
 
-.table-head {
+th {
   padding: 1%;
   font-size: large;
   background-color: gray;
   border: solid;
 }
 
-.table-body {
+td {
   padding: 0.5%;
+  background-color: lightgrey;
   border: solid;
 }
 

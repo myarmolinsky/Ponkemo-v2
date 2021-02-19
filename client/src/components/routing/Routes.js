@@ -12,17 +12,8 @@ import {
   Types,
   EditPokemon,
 } from "../pokedex";
-import {
-  Catch,
-  Forage,
-  Train,
-  Breed,
-  Shop,
-  Recycle,
-  Battle,
-  Contest,
-} from "../menu";
-import { Profile } from "../profile/Profile";
+import { Catch, Forage, Shop, Recycle, Battle, Contest } from "../menu";
+import { Profile, Train, Breed } from "../profile";
 import { PrivateRoute } from "../routing/PrivateRoute";
 import { NotFound } from "../layout";
 
