@@ -51,7 +51,7 @@ export const Dex = ({ dex, ownedPokemon }) => {
                 }
                 interactive
                 duration={0}
-                placement="auto-start"
+                placement="left-start"
               >
                 <Link to={`/pokedex/${pokemon.id}`}>
                   {/* Create a link leading to the pokemon's page */}
