@@ -40,6 +40,10 @@ export const Dex = ({ dex, ownedPokemon }) => {
                     <OwnedPokemonInfo
                       pokemon={ownedPokemon[index]}
                       index={index}
+                      ability={getAbility(ownedPokemon[index].ability, {
+                        hiddenAbility: pokemon.hiddenAbility,
+                        abilities: pokemon.abilities,
+                      })}
                     />
                   ) : (
                     ""
@@ -104,4 +108,14 @@ Dex.propTypes = {
 
 Dex.defaultProps = {
   ownedPokemon: null,
+};
+
+const getAbility = (abilityRoll, abilities) => {
+  if (abilityRoll === 0 && abilities.hiddenAbility !== "") {
+    return abilities.hiddenAbility;
+  }
+  if (abilityRoll <= 75 || abilities.abilities.length < 2) {
+    return abilities.abilities[0];
+  }
+  return abilities.abilities[1];
 };

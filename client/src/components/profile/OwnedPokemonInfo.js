@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
+import { object, number, string } from "prop-types";
 
-export const OwnedPokemonInfo = ({ pokemon, index }) => {
+export const OwnedPokemonInfo = ({ pokemon, index, ability }) => {
   return (
     <table
       style={{
@@ -23,6 +24,24 @@ export const OwnedPokemonInfo = ({ pokemon, index }) => {
           <th colSpan={2} style={{ borderLeft: "none" }}>
             STAR
           </th>
+        </tr>
+        <tr>
+          <th colSpan={2}>Ability:</th>
+          <td colSpan={2}>{ability}</td>
+          <th colSpan={2}>Held Item:</th>
+          <td colSpan={2}>{pokemon.heldItem}</td>
+        </tr>
+        <tr>
+          <th colSpan={2}>Friendship:</th>
+          <td colSpan={2}>{pokemon.friendship}</td>
+          <th colSpan={2}>Gender:</th>
+          <td colSpan={2}>{pokemon.gender}</td>
+        </tr>
+        <tr>
+          <th colSpan={2}>Nature:</th>
+          <td colSpan={2}>{pokemon.nature}</td>
+          <th colSpan={2}>Evo Lock:</th>
+          <td colSpan={2}>UNLOCKED</td>
         </tr>
         <tr>
           <th colSpan={2}>
@@ -85,7 +104,46 @@ export const OwnedPokemonInfo = ({ pokemon, index }) => {
           <td colSpan={2}>{pokemon.ivs.spe}</td>
           <td colSpan={2}>{pokemon.evs.spe}</td>
         </tr>
+        <tr>
+          <th colSpan={8}>Moves:</th>
+        </tr>
+        <tr>
+          <td colSpan={2}>
+            {pokemon.moves.length > 0 ? (
+              pokemon.moves[0]
+            ) : (
+              <i className="fas fa-minus" />
+            )}
+          </td>
+          <td colSpan={2}>
+            {pokemon.moves.length > 1 ? (
+              pokemon.moves[1]
+            ) : (
+              <i className="fas fa-minus" />
+            )}
+          </td>
+          <td colSpan={2}>
+            {pokemon.moves.length > 2 ? (
+              pokemon.moves[2]
+            ) : (
+              <i className="fas fa-minus" />
+            )}
+          </td>
+          <td colSpan={2}>
+            {pokemon.moves.length > 3 ? (
+              pokemon.moves[3]
+            ) : (
+              <i className="fas fa-minus" />
+            )}
+          </td>
+        </tr>
       </tbody>
     </table>
   );
+};
+
+OwnedPokemonInfo.propTypes = {
+  pokemon: object.isRequired,
+  index: number.isRequired,
+  ability: string.isRequired,
 };
