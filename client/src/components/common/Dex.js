@@ -4,7 +4,7 @@ import { array } from "prop-types";
 import { Grid } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
 import Tippy from "@tippyjs/react";
-import { OwnedPokemonInfo } from "../profile/OwnedPokemonInfo";
+import { OwnedPokemonInfo } from "../profile";
 
 export const Dex = ({ dex, ownedPokemon }) => {
   const pageLength = 48;
@@ -37,7 +37,10 @@ export const Dex = ({ dex, ownedPokemon }) => {
               <Tippy
                 content={
                   ownedPokemon ? (
-                    <OwnedPokemonInfo pokemon={ownedPokemon[index]} />
+                    <OwnedPokemonInfo
+                      pokemon={ownedPokemon[index]}
+                      index={index}
+                    />
                   ) : (
                     ""
                   )
