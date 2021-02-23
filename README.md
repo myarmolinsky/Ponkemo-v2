@@ -48,7 +48,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Itemdex
   - Edit items (admin-privilege users only)
 - Spawnrates
-  - Give each Pokemon a fair (as fair as possible) spawnrate
+  - Improve Pokemon spawn rates (make certain formes spawnable, add more balance, etc.)
 - Sort moves on Pokemon page
 - Sort Pokedex
 - Back button/history
