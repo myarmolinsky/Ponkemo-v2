@@ -57,11 +57,6 @@ const UserSchema = new mongoose.Schema({
       0,
       0,
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
     ],
   },
   pokemonTierPoints: {
