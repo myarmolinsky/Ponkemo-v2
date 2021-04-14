@@ -141,6 +141,17 @@ export const UserState = ({ children }) => {
     }
   };
 
+  const catchPokemon = async (pokemon) => {
+    try {
+      await axios.put(`/api/users/${state.user.username}/catch`, { pokemon });
+      getOwnedPokemon();
+    } catch (err) {
+      dispatch({
+        type: DESPAWN_POKEMON,
+      });
+    }
+  };
+
   const despawnPokemon = async () => {
     dispatch({
       type: DESPAWN_POKEMON,
@@ -178,6 +189,7 @@ export const UserState = ({ children }) => {
         logout,
         spawnPokemon,
         despawnPokemon,
+        catchPokemon,
       }}
     >
       {children}
