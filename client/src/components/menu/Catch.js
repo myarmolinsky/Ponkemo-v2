@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState, useMemo } from "react";
-import { Grid } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { Button, Grid } from "@material-ui/core";
 import { UserContext } from "../../context";
 import { Spinner } from "../layout";
 
@@ -86,7 +87,7 @@ export const Catch = () => {
 
   return spawnedPokemon.length < 9 ? (
     <Spinner />
-  ) : (
+  ) : shuffledSpawnedPokemonSets.length > 0 ? (
     <div>
       <h1 className="text-primary" style={{ textAlign: "center" }}>
         Match Pokemon to catch them!
@@ -105,13 +106,15 @@ export const Catch = () => {
               onClick={() =>
                 selectingDisabled
                   ? {}
-                  : setActiveSelections(activeSelections.concat(index))
+                  : !activeSelections.includes(index)
+                  ? setActiveSelections(activeSelections.concat(index))
+                  : {}
               }
             >
               {isActive(index) && (
                 <div>
                   <img
-                    style={{ height: "50%", width: "50%" }}
+                    style={{ height: "75%", width: "75%" }}
                     src={pokemon.sprite}
                     alt={pokemon.name}
                   />
@@ -122,6 +125,37 @@ export const Catch = () => {
             </div>
           </Grid>
         ))}
+      </Grid>
+    </div>
+  ) : (
+    <div className="text-primary center" style={{ textAlign: "center" }}>
+      <h1>You have caught all the Pokemon this round!</h1>
+      <h1>Would you like to play again?</h1>
+      <br />
+      <Grid container justify="space-evenly">
+        <Grid item xs={4}>
+          <Button
+            color="primary"
+            size="large"
+            variant="contained"
+            fullWidth
+            onClick={() => despawnPokemon()}
+          >
+            Yes
+          </Button>
+        </Grid>
+        <Grid item xs={4}>
+          <Button
+            color="secondary"
+            size="large"
+            variant="contained"
+            fullWidth
+            component={Link}
+            to="/"
+          >
+            No
+          </Button>
+        </Grid>
       </Grid>
     </div>
   );
