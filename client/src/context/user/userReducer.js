@@ -8,6 +8,9 @@ import {
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
+  SPAWN_POKEMON,
+  SPAWN_POKEMON_FAIL,
+  DESPAWN_POKEMON,
 } from "./types";
 
 export default function (state, action) {
@@ -39,6 +42,14 @@ export default function (state, action) {
         ...state,
         ownedPokemon: null,
       };
+    case SPAWN_POKEMON:
+      return {
+        ...state,
+        spawnedPokemon: state.spawnedPokemon.concat([payload]),
+      };
+    case SPAWN_POKEMON_FAIL:
+    case DESPAWN_POKEMON:
+      return { ...state, spawnedPokemon: [] };
     case REGISTER_FAIL:
     case LOGIN_FAIL:
     case AUTH_ERROR:

@@ -654,6 +654,7 @@ export const EditPokemon = ({ match }) => {
           </Button>
         </Grid>
       </form>
+      <br />
       <Alert />
     </Fragment>
   );

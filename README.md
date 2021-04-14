@@ -29,6 +29,8 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Type page for each Type showing all Pokemon who have that Type
   - Each Pokemon on the Type page links to its respective Pokemon page
   - Search filter to search for Pokemon by name, another type, ability, egg group, and base stats
+- Catch Pokemon
+  - Click the "Catch" button on the Menu to play a matching game! Each correct match catches that Pokemon
 
 ## Planned Features/To-Do List
 
@@ -48,12 +50,11 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Itemdex
   - Edit items (admin-privilege users only)
 - Spawnrates
-  - Give each Pokemon a fair (as fair as possible) spawnrate
+  - Improve Pokemon spawn rates (make certain formes spawnable, add more balance, etc.)
 - Sort moves on Pokemon page
 - Sort Pokedex
 - Back button/history
 - Menu
-  - Catch Pokemon
   - Forage for items
   - Recycle Pokemon and Items (for Pokemon tier points and item tier points respectively)
 - Profile

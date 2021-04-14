@@ -14,6 +14,9 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  SPAWN_POKEMON,
+  SPAWN_POKEMON_FAIL,
+  DESPAWN_POKEMON,
 } from "./types";
 import setAuthToken from "../../utils/setAuthToken";
 
@@ -30,6 +33,7 @@ export const UserState = ({ children }) => {
     loading: true, //make sure the loading is done (we've already made a request to the backend and got a response)
     user: null,
     ownedPokemon: null,
+    spawnedPokemon: [],
   };
   const [state, dispatch] = useReducer(userReducer, initialState);
 
@@ -122,6 +126,38 @@ export const UserState = ({ children }) => {
     }
   };
 
+  const spawnPokemon = async () => {
+    try {
+      const res = await axios.put(`/api/users/${state.user.username}/spawn`);
+
+      dispatch({
+        type: SPAWN_POKEMON,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: SPAWN_POKEMON_FAIL,
+      });
+    }
+  };
+
+  const catchPokemon = async (pokemon) => {
+    try {
+      await axios.put(`/api/users/${state.user.username}/catch`, { pokemon });
+      getOwnedPokemon();
+    } catch (err) {
+      dispatch({
+        type: DESPAWN_POKEMON,
+      });
+    }
+  };
+
+  const despawnPokemon = async () => {
+    dispatch({
+      type: DESPAWN_POKEMON,
+    });
+  };
+
   const getOwnedPokemon = async () => {
     try {
       const res = await axios.get(`/api/users/${state.user.username}/owned`);
@@ -151,6 +187,9 @@ export const UserState = ({ children }) => {
         login,
         getOwnedPokemon,
         logout,
+        spawnPokemon,
+        despawnPokemon,
+        catchPokemon,
       }}
     >
       {children}

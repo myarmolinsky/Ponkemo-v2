@@ -138,4 +138,66 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+router.put("/tool/create-spawnrates", async (req, res) => {
+  try {
+    const pokedex = await Pokemon.find().sort({ id: 1 });
+    let minBaseStatTotal = 600;
+    pokedex.forEach((pokemon) => {
+      if (
+        pokemon.baseStats.hp +
+          pokemon.baseStats.atk +
+          pokemon.baseStats.def +
+          pokemon.baseStats.spA +
+          pokemon.baseStats.spD +
+          pokemon.baseStats.spe <
+        minBaseStatTotal
+      ) {
+        minBaseStatTotal =
+          pokemon.baseStats.hp +
+          pokemon.baseStats.atk +
+          pokemon.baseStats.def +
+          pokemon.baseStats.spA +
+          pokemon.baseStats.spD +
+          pokemon.baseStats.spe;
+      }
+    });
+    pokedex.forEach(async (pokemon) => {
+      let spawnRate;
+      let baseStatTotal =
+        pokemon.baseStats.hp +
+        pokemon.baseStats.atk +
+        pokemon.baseStats.def +
+        pokemon.baseStats.spA +
+        pokemon.baseStats.spD +
+        pokemon.baseStats.spe;
+      if (
+        Math.floor(pokemon.id) !== pokemon.id ||
+        pokemon.name.substring(0, 5) === "Mega "
+      ) {
+        // megas and formes don't spawn
+        spawnRate = -1;
+      } else if (
+        pokemon.breeding.eggGroups[0] === "Ditto" ||
+        pokemon.breeding.eggGroups[0] === "Legendary" ||
+        baseStatTotal >= 600
+      ) {
+        // Ditto, Legendaries, and pseudo-legendaries have the rarest spawnrates
+        spawnRate = 24;
+      } else {
+        // all others
+        spawnRate = Math.floor(
+          (baseStatTotal - minBaseStatTotal) /
+            Math.floor((600 - minBaseStatTotal) / 25)
+        );
+      }
+      await Pokemon.updateOne({ id: pokemon.id }, { $set: { spawnRate } });
+    });
+
+    res.json("Success");
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 module.exports = router;
