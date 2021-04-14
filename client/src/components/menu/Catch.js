@@ -18,7 +18,7 @@ export const Catch = () => {
     <Spinner />
   ) : (
     <div>
-      <h1 className="large text-primary" style={{ textAlign: "center" }}>
+      <h1 className="text-primary" style={{ textAlign: "center" }}>
         Match Pokemon to catch them!
       </h1>
       <Grid container spacing={3}>
@@ -31,9 +31,6 @@ export const Catch = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                textAlign: "center",
-                width: "auto",
-                height: "150px",
               }}
             >
               <img
