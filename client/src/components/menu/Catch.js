@@ -17,6 +17,8 @@ export const Catch = () => {
   );
   const [activeSelections, setActiveSelections] = useState([]);
   const [selectingDisabled, setSelectingDisabled] = useState(false);
+  const [timer, setTimer] = useState(-1);
+  const [timesUp, setTimesUp] = useState(false);
 
   const firstSelectedPokemonId = useMemo(
     () => shuffledSpawnedPokemonSets[activeSelections[0]]?.id,
@@ -41,8 +43,21 @@ export const Catch = () => {
       setShuffledSpawnedPokemonSets(
         shuffle(spawnedPokemon.concat(spawnedPokemon))
       );
+      setTimer(15);
+      setTimesUp(false);
     }
   }, [spawnedPokemon]);
+
+  useEffect(() => {
+    if (shuffledSpawnedPokemonSets.length > 0) {
+      if (timer === 0) {
+        setTimesUp(true);
+      }
+      if (timer > 0) {
+        setTimeout(() => setTimer(timer - 1), 1000);
+      }
+    }
+  }, [timer, shuffledSpawnedPokemonSets]);
 
   // Check selected Pokemon
   useEffect(() => {
@@ -63,6 +78,9 @@ export const Catch = () => {
           setShuffledSpawnedPokemonSets(
             removeCaughtPokemon(firstSelection, secondSelection)
           );
+          if (shuffledSpawnedPokemonSets.length === 0) {
+            setTimer(-1);
+          }
         }
         setSelectingDisabled(false);
       }, 500);
@@ -87,10 +105,11 @@ export const Catch = () => {
 
   return spawnedPokemon.length < 9 ? (
     <Spinner />
-  ) : shuffledSpawnedPokemonSets.length > 0 ? (
+  ) : shuffledSpawnedPokemonSets.length > 0 && !timesUp ? (
     <div>
       <h1 className="text-primary" style={{ textAlign: "center" }}>
-        Match Pokemon to catch them!
+        Match Pokemon to catch them before time runs out:{" "}
+        <span className="text-dark">{timer}</span>
       </h1>
       <Grid container spacing={3}>
         {shuffledSpawnedPokemonSets.map((pokemon, index) => (
@@ -129,7 +148,11 @@ export const Catch = () => {
     </div>
   ) : (
     <div className="text-primary center" style={{ textAlign: "center" }}>
-      <h1>You have caught all the Pokemon this round!</h1>
+      <h1>
+        {timesUp
+          ? "Out of time :("
+          : "You have caught all the Pokemon this round!"}
+      </h1>
       <h1>Would you like to play again?</h1>
       <br />
       <Grid container justify="space-evenly">
@@ -151,7 +174,7 @@ export const Catch = () => {
             variant="contained"
             fullWidth
             component={Link}
-            to="/"
+            to="/menu"
           >
             No
           </Button>
