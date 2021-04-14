@@ -15,6 +15,7 @@ export const Catch = () => {
     []
   );
   const [activeSelections, setActiveSelections] = useState([]);
+  const [selectingDisabled, setSelectingDisabled] = useState(false);
 
   const firstSelectedPokemonId = useMemo(
     () => shuffledSpawnedPokemonSets[activeSelections[0]]?.id,
@@ -45,16 +46,24 @@ export const Catch = () => {
   // Check selected Pokemon
   useEffect(() => {
     if (activeSelections.length === 2) {
+      setSelectingDisabled(true);
+      let caught = false;
       const firstSelection = activeSelections[0];
       const secondSelection = activeSelections[1];
+
       if (firstSelectedPokemonId === secondSelectedPokemonId) {
         catchPokemon(shuffledSpawnedPokemonSets[firstSelection]);
-        setShuffledSpawnedPokemonSets(
-          removeCaughtPokemon(firstSelection, secondSelection)
-        );
+        caught = true;
       }
+
       setTimeout(() => {
         setActiveSelections([]);
+        if (caught) {
+          setShuffledSpawnedPokemonSets(
+            removeCaughtPokemon(firstSelection, secondSelection)
+          );
+        }
+        setSelectingDisabled(false);
       }, 500);
     }
   }, [activeSelections]);
@@ -94,7 +103,9 @@ export const Catch = () => {
                 alignItems: "center",
               }}
               onClick={() =>
-                setActiveSelections(activeSelections.concat(index))
+                selectingDisabled
+                  ? {}
+                  : setActiveSelections(activeSelections.concat(index))
               }
             >
               {isActive(index) && (
