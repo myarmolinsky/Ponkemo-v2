@@ -3,7 +3,7 @@ import { Divider } from "@material-ui/core";
 import { useStyles } from "../styles";
 import { UserContext } from "../../context";
 import { Spinner } from "../layout";
-import { Dex, SearchFilter } from "../common";
+import { Dex, SearchFilter, CustomPagination } from "../common";
 
 export const Profile = () => {
   const classes = useStyles();
@@ -11,8 +11,11 @@ export const Profile = () => {
   const { user, loading, ownedPokemon, loadUser } = useContext(UserContext);
 
   const [ownedPokemonDex, setOwnedPokemonDex] = useState([]);
-  const [ownedPokemonInfo, setOwnedPokemonInfo] = useState([]);
   const [filteredOwnedPokemon, setFilteredOwnedPokemon] = useState([]);
+  const [page, setPage] = useState(1);
+
+  const PAGE_LENGTH = 48; // how many Pokemon to show per page
+  const PAGES = Math.ceil(filteredOwnedPokemon.length / PAGE_LENGTH); // how many pages there are
 
   useEffect(() => {
     loadUser();
@@ -21,7 +24,6 @@ export const Profile = () => {
   useEffect(() => {
     if (ownedPokemon) {
       setOwnedPokemonDex(ownedPokemon.map((pokemon) => pokemon.pokemon));
-      setOwnedPokemonInfo(ownedPokemon.map((pokemon) => pokemon.info));
       setFilteredOwnedPokemon(ownedPokemon.map((pokemon) => pokemon.pokemon));
     }
   }, [ownedPokemon]);
@@ -48,7 +50,14 @@ export const Profile = () => {
         pokedex={ownedPokemonDex}
         setFilteredDex={(filtered) => setFilteredOwnedPokemon(filtered)}
       />
-      <Dex dex={filteredOwnedPokemon} ownedPokemon={ownedPokemonInfo} />
+      <CustomPagination pages={PAGES} currentPage={page} setPage={setPage}>
+        <Dex
+          dex={filteredOwnedPokemon.slice(
+            (page - 1) * PAGE_LENGTH,
+            page * PAGE_LENGTH
+          )}
+        />
+      </CustomPagination>
     </>
   );
 };

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button, Grid } from "@material-ui/core";
 import { UserContext } from "../../context";
 import { Spinner } from "../layout";
-import { PokemonSprite } from "../common";
+import { Dex, PokemonSprite } from "../common";
 
 export const Catch = () => {
   const {
@@ -49,6 +49,7 @@ export const Catch = () => {
     }
   }, [spawnedPokemon]);
 
+  // count down the timer as long as there are still spawned Pokemon
   useEffect(() => {
     if (shuffledSpawnedPokemonSets.length > 0) {
       if (timer === 0) {
@@ -88,14 +89,10 @@ export const Catch = () => {
     }
   }, [activeSelections]);
 
-  const isActive = (index) => {
-    return activeSelections.includes(index);
-  };
-
-  const handleSelect = (index) => {
+  const handleSelect = (pokemon) => {
     !selectingDisabled &&
-      !activeSelections.includes(index) &&
-      setActiveSelections(activeSelections.concat(index));
+      !activeSelections.includes(pokemon.index) &&
+      setActiveSelections(activeSelections.concat(pokemon.index));
   };
 
   const removeCaughtPokemon = (firstSelection, secondSelection) => {
@@ -118,19 +115,12 @@ export const Catch = () => {
         Match Pokemon to catch them before time runs out:{" "}
         <span className="text-dark">{timer}</span>
       </h1>
-      <Grid container spacing={3}>
-        {shuffledSpawnedPokemonSets.map((pokemon, index) => (
-          <Grid item key={index} xs={2}>
-            <PokemonSprite
-              sprite={pokemon.sprite}
-              caption={pokemon.name}
-              alt={pokemon.name}
-              visible={isActive(index)}
-              onClick={() => handleSelect(index)}
-            />
-          </Grid>
-        ))}
-      </Grid>
+      <Dex
+        dex={shuffledSpawnedPokemonSets}
+        matching={true}
+        invisibleIndexes={activeSelections}
+        onClick={handleSelect}
+      />
     </div>
   ) : (
     <div className="text-primary center" style={{ textAlign: "center" }}>

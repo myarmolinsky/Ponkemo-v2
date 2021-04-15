@@ -262,6 +262,7 @@ input[type="number"] {
   height: 11em;
   background-color: lightgrey;
   margin: 1%;
+  cursor: pointer;
 }
 
 .caption {
