@@ -245,18 +245,21 @@ input[type="number"] {
 }
 
 .sprite {
-  height: 100px;
-  width: 100px;
+  height: 60%;
+  width: 60%;
 }
 
 .pokedex-item {
-  vertical-align: top;
-  display: inline-block;
+  display: "flex";
+  flex-direction: "column";
+  justify-content: "center";
+  align-items: "center";
+  text-align: "center";
   flex-flow: wrap;
   text-align: center;
-  border-radius: 25px;
-  width: 175px;
-  height: 175px;
+  border-radius: 10%;
+  width: 11em;
+  height: 11em;
   background-color: lightgrey;
   margin: 1%;
 }

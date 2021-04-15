@@ -43,7 +43,8 @@ export const Dex = ({ dex, ownedPokemon }) => {
               >
                 <PokemonSprite
                   sprite={pokemon.sprite}
-                  name={pokemon.name}
+                  caption={pokemon.name}
+                  alt={pokemon.name}
                   onClick={() => history.push(`/pokedex/${pokemon.id}`)}
                 />
               </Tippy>

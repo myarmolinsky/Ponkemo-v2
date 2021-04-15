@@ -123,7 +123,8 @@ export const Catch = () => {
           <Grid item key={index} xs={2}>
             <PokemonSprite
               sprite={pokemon.sprite}
-              name={pokemon.name}
+              caption={pokemon.name}
+              alt={pokemon.name}
               visible={isActive(index)}
               onClick={() => handleSelect(index)}
             />
