@@ -1,5 +1,5 @@
 import React from "react";
-import { array, bool, func } from "prop-types";
+import { array, func } from "prop-types";
 import { Grid } from "@material-ui/core";
 import { PokemonSprite } from "./PokemonSprite";
 

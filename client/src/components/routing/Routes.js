@@ -13,7 +13,7 @@ import {
   EditPokemon,
 } from "../pokedex";
 import { Catch, Forage, Shop, Recycle, Battle, Contest } from "../menu";
-import { Profile, Train, Breed } from "../profile";
+import { Profile, PC, Train, Breed } from "../profile";
 import { PrivateRoute } from "../routing/PrivateRoute";
 import { NotFound } from "../layout";
 
@@ -27,6 +27,7 @@ const Routes = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <PrivateRoute exact path="/menu" component={Menu} />
+        <PrivateRoute exact path="/pc" component={PC} />
         <PrivateRoute exact path="/profile" component={Profile} />
         <Route exact path="/pokedex" component={Pokedex} />
         <Route exact path="/pokedex/:id" component={Pokemon} />

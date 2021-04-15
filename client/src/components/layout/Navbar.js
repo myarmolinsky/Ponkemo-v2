@@ -18,6 +18,11 @@ export const Navbar = () => {
         </Link>
       </li>
       <li>
+        <Link to="/pc">
+          <i className="fas fa-desktop" /> PC
+        </Link>
+      </li>
+      <li>
         <Link to="/profile">
           <i className="fas fa-address-card" /> Profile
         </Link>
