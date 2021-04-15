@@ -3,7 +3,7 @@ import { array, bool, func } from "prop-types";
 import { Grid } from "@material-ui/core";
 import { PokemonSprite } from "./PokemonSprite";
 
-export const Dex = ({ dex, visible, onClick, matching, invisibleIndexes }) => {
+export const Dex = ({ dex, onClick, matching, invisibleIndexes }) => {
   return (
     <Grid container spacing={3}>
       {dex.map((pokemon, index) => (
@@ -12,13 +12,7 @@ export const Dex = ({ dex, visible, onClick, matching, invisibleIndexes }) => {
             sprite={pokemon.sprite}
             caption={pokemon.name}
             alt={pokemon.name}
-            visible={
-              matching
-                ? invisibleIndexes.includes(index)
-                  ? true
-                  : false
-                : visible
-            }
+            visible={matching ? invisibleIndexes.includes(index) : true}
             onClick={() => onClick({ pokemon, index })}
           />
         </Grid>
@@ -29,14 +23,12 @@ export const Dex = ({ dex, visible, onClick, matching, invisibleIndexes }) => {
 
 Dex.propTypes = {
   dex: array.isRequired,
-  visible: bool,
   onClick: func,
   matching: bool,
   invisibleIndexes: array,
 };
 
 Dex.defaultProps = {
-  visible: true,
   onClick: () => {},
   matching: false,
   invisibleIndexes: [],
