@@ -89,6 +89,10 @@ export const Catch = () => {
     }
   }, [activeSelections]);
 
+  const isActive = (index) => {
+    return activeSelections.includes(index);
+  };
+
   const handleSelect = (pokemon) => {
     !selectingDisabled &&
       !activeSelections.includes(pokemon.index) &&
@@ -117,8 +121,7 @@ export const Catch = () => {
       </h1>
       <Dex
         dex={shuffledSpawnedPokemonSets}
-        matching={true}
-        invisibleIndexes={activeSelections}
+        isVisible={isActive}
         onClick={handleSelect}
       />
     </div>
