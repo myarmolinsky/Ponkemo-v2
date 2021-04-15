@@ -1,37 +1,25 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { array } from "prop-types";
 import { Grid } from "@material-ui/core";
-import Pagination from "@material-ui/lab/Pagination";
 import Tippy from "@tippyjs/react";
 import { OwnedPokemonInfo } from "../profile";
+import { PokemonSprite } from "./PokemonSprite";
+import { CustomPagination } from "./CustomPagination";
 
 export const Dex = ({ dex, ownedPokemon }) => {
-  const pageLength = 48;
-  const pages = Math.ceil(dex.length / pageLength);
+  const PAGE_LENGTH = 48; // how many Pokemon to show per page
+  const PAGES = Math.ceil(dex.length / PAGE_LENGTH); // how many pages there are
+
+  let history = useHistory();
+
   const [page, setPage] = useState(1);
 
-  const handleChange = (event, value) => {
-    setPage(value);
-  };
-
   return (
-    <div style={{ textAlign: "center" }}>
-      <Pagination
-        count={pages}
-        page={page}
-        showFirstButton
-        showLastButton
-        onChange={handleChange}
-        size="large"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      />
+    <CustomPagination pages={PAGES} currentPage={page} setPage={setPage}>
       <Grid container spacing={3}>
         {dex
-          .slice((page - 1) * pageLength, page * pageLength)
+          .slice((page - 1) * PAGE_LENGTH, page * PAGE_LENGTH)
           .map((pokemon, index) => (
             <Grid item key={index} xs={2}>
               <Tippy
@@ -53,51 +41,16 @@ export const Dex = ({ dex, ownedPokemon }) => {
                 duration={0}
                 placement="left-start"
               >
-                <Link to={`/pokedex/${pokemon.id}`}>
-                  {/* Create a link leading to the pokemon's page */}
-                  {/* Pokemon's sprite */}
-                  <div
-                    className="pokedex-item"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      textAlign: "center",
-                    }}
-                  >
-                    <img
-                      className="sprite"
-                      src={
-                        ownedPokemon
-                          ? ownedPokemon[index].shiny
-                            ? pokemon.shinySprite
-                            : pokemon.sprite
-                          : pokemon.sprite
-                      }
-                      alt={pokemon.name}
-                    />
-                    {/* Pokemon's name */}
-                    <p variant="caption">{pokemon.name}</p>
-                  </div>
-                </Link>
+                <PokemonSprite
+                  sprite={pokemon.sprite}
+                  name={pokemon.name}
+                  onClick={() => history.push(`/pokedex/${pokemon.id}`)}
+                />
               </Tippy>
             </Grid>
           ))}
       </Grid>
-      <Pagination
-        count={pages}
-        page={page}
-        showFirstButton
-        showLastButton
-        onChange={handleChange}
-        size="large"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      />
-    </div>
+    </CustomPagination>
   );
 };
 

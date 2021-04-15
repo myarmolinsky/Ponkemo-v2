@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button, Grid } from "@material-ui/core";
 import { UserContext } from "../../context";
 import { Spinner } from "../layout";
+import { PokemonSprite } from "../common";
 
 export const Catch = () => {
   const {
@@ -91,6 +92,12 @@ export const Catch = () => {
     return activeSelections.includes(index);
   };
 
+  const handleSelect = (index) => {
+    !selectingDisabled &&
+      !activeSelections.includes(index) &&
+      setActiveSelections(activeSelections.concat(index));
+  };
+
   const removeCaughtPokemon = (firstSelection, secondSelection) => {
     let newShuffledSpawnedPokemonArray = shuffledSpawnedPokemonSets;
     if (firstSelection > secondSelection) {
@@ -114,34 +121,12 @@ export const Catch = () => {
       <Grid container spacing={3}>
         {shuffledSpawnedPokemonSets.map((pokemon, index) => (
           <Grid item key={index} xs={2}>
-            <div
-              className="pokedex-item"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              onClick={() =>
-                selectingDisabled
-                  ? {}
-                  : !activeSelections.includes(index)
-                  ? setActiveSelections(activeSelections.concat(index))
-                  : {}
-              }
-            >
-              {isActive(index) && (
-                <div>
-                  <img
-                    style={{ height: "75%", width: "75%" }}
-                    src={pokemon.sprite}
-                    alt={pokemon.name}
-                  />
-                  {/* Pokemon's name */}
-                  <p variant="caption">{pokemon.name}</p>
-                </div>
-              )}
-            </div>
+            <PokemonSprite
+              sprite={pokemon.sprite}
+              name={pokemon.name}
+              visible={isActive(index)}
+              onClick={() => handleSelect(index)}
+            />
           </Grid>
         ))}
       </Grid>
@@ -162,7 +147,10 @@ export const Catch = () => {
             size="large"
             variant="contained"
             fullWidth
-            onClick={() => despawnPokemon()}
+            onClick={() => {
+              setActiveSelections([]);
+              despawnPokemon();
+            }}
           >
             Yes
           </Button>
