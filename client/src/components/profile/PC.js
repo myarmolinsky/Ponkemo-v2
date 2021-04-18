@@ -10,7 +10,7 @@ export const PC = () => {
   const [filteredOwnedPokemon, setFilteredOwnedPokemon] = useState([]);
   const [page, setPage] = useState(1);
 
-  const PAGE_LENGTH = 48; // how many Pokemon to show per page
+  const PAGE_LENGTH = 30; // how many Pokemon to show per page
   const PAGES = Math.ceil(filteredOwnedPokemon.length / PAGE_LENGTH); // how many pages there are
 
   useEffect(() => {
@@ -27,19 +27,25 @@ export const PC = () => {
   return loading || !user ? (
     <Spinner />
   ) : (
-    <>
-      <SearchFilter
-        pokedex={ownedPokemonDex}
-        setFilteredDex={(filtered) => setFilteredOwnedPokemon(filtered)}
-      />
-      <CustomPagination pages={PAGES} currentPage={page} setPage={setPage}>
-        <Dex
-          dex={filteredOwnedPokemon.slice(
-            (page - 1) * PAGE_LENGTH,
-            page * PAGE_LENGTH
-          )}
+    <div className="pc" style={{ display: "flex", flexDirection: "row" }}>
+      <div className="pc-left" style={{ flex: 3 }}>
+        <SearchFilter
+          pokedex={ownedPokemonDex}
+          setFilteredDex={(filtered) => setFilteredOwnedPokemon(filtered)}
         />
-      </CustomPagination>
-    </>
+        <CustomPagination pages={PAGES} currentPage={page} setPage={setPage}>
+          <Dex
+            dex={filteredOwnedPokemon.slice(
+              (page - 1) * PAGE_LENGTH,
+              page * PAGE_LENGTH
+            )}
+            perRow={5}
+          />
+        </CustomPagination>
+      </div>
+      <div className="pc-right" style={{ flex: 1 }}>
+        Test
+      </div>
+    </div>
   );
 };
