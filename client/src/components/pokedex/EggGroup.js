@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { any } from "prop-types";
 import { Button } from "@material-ui/core";
 import { PokemonContext } from "../../context";
@@ -12,6 +12,8 @@ export const EggGroup = ({ match }) => {
   const [filteredPokedex, setFilteredPokedex] = useState([]);
   const [eggGroup, setEggGroup] = useState([]);
 
+  const history = useHistory();
+
   useEffect(() => {
     setEggGroup(
       pokedex.filter((pokemon) =>
@@ -19,6 +21,10 @@ export const EggGroup = ({ match }) => {
       )
     );
   }, [pokedex, match]);
+
+  const directToPokemon = (pokemon) => {
+    history.push(`/pokedex/${pokemon.id}`);
+  };
 
   return pokedex === null || loading ? (
     <Spinner />
@@ -39,7 +45,7 @@ export const EggGroup = ({ match }) => {
         setFilteredDex={(filtered) => setFilteredPokedex(filtered)}
         showBothEggGroups={false}
       />
-      <Dex dex={filteredPokedex} />
+      <Dex dex={filteredPokedex} onClick={directToPokemon} />
     </Fragment>
   );
 };

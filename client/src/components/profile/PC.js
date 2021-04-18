@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../context";
 import { Spinner } from "../layout";
 import { Dex, SearchFilter, CustomPagination } from "../common";
+import { OwnedPokemonInfo } from "./OwnedPokemonInfo";
 
 export const PC = () => {
   const { user, loading, ownedPokemon, loadUser } = useContext(UserContext);
@@ -9,6 +10,7 @@ export const PC = () => {
   const [ownedPokemonDex, setOwnedPokemonDex] = useState([]);
   const [filteredOwnedPokemon, setFilteredOwnedPokemon] = useState([]);
   const [page, setPage] = useState(1);
+  const [selectedPokemon, setSelectedPokemon] = useState({});
 
   const PAGE_LENGTH = 30; // how many Pokemon to show per page
   const PAGES = Math.ceil(filteredOwnedPokemon.length / PAGE_LENGTH); // how many pages there are
@@ -40,11 +42,12 @@ export const PC = () => {
               page * PAGE_LENGTH
             )}
             perRow={5}
+            onClick={setSelectedPokemon}
           />
         </CustomPagination>
       </div>
       <div className="pc-right" style={{ flex: 1 }}>
-        Test
+        {/* <OwnedPokemonInfo /> */}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { any } from "prop-types";
 import { Button } from "@material-ui/core";
 import { PokemonContext } from "../../context";
@@ -12,11 +12,17 @@ export const Type = ({ match }) => {
   const [filteredPokedex, setFilteredPokedex] = useState([]);
   const [type, setType] = useState([]);
 
+  const history = useHistory();
+
   useEffect(() => {
     setType(
       pokedex.filter((pokemon) => pokemon.types.includes(match.params.type))
     );
   }, [pokedex, match]);
+
+  const directToPokemon = (pokemon) => {
+    history.push(`/pokedex/${pokemon.id}`);
+  };
 
   return pokedex === null || loading ? (
     <Spinner />
@@ -37,7 +43,7 @@ export const Type = ({ match }) => {
         setFilteredDex={(filtered) => setFilteredPokedex(filtered)}
         showBothTypes={false}
       />
-      <Dex dex={filteredPokedex} />
+      <Dex dex={filteredPokedex} onClick={directToPokemon} />
     </Fragment>
   );
 };

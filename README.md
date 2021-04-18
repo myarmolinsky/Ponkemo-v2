@@ -36,6 +36,8 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 
 - Comment code
 - Strengthen backend
+- Show Loading when necessary
+- Auto-resize content per screen size
 - Fix Stage 0 Pokemon and future evolutions having unidentical egg moves (duskull + dusknoir, chingling + chimecho)
 - Add moves for the rest of the pokemon (359-end)
 - Add pokedex property to User to track their pokedex completion status

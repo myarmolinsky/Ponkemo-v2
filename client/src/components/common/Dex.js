@@ -13,7 +13,7 @@ export const Dex = ({ dex, onClick, isVisible, perRow }) => {
             caption={pokemon.name}
             alt={pokemon.name}
             visible={isVisible(index)}
-            onClick={() => onClick({ pokemon, index })}
+            onClick={() => onClick(pokemon, index)}
           />
         </Grid>
       ))}

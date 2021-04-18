@@ -93,10 +93,10 @@ export const Catch = () => {
     return activeSelections.includes(index);
   };
 
-  const handleSelect = (pokemon) => {
+  const handleSelect = (pokemon, index) => {
     !selectingDisabled &&
-      !activeSelections.includes(pokemon.index) &&
-      setActiveSelections(activeSelections.concat(pokemon.index));
+      !activeSelections.includes(index) &&
+      setActiveSelections(activeSelections.concat(index));
   };
 
   const removeCaughtPokemon = (firstSelection, secondSelection) => {

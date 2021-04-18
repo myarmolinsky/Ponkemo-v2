@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { PokemonContext } from "../../context";
 import { Spinner } from "../layout";
 import { SearchFilter, Dex, CustomPagination } from "../common";
@@ -21,7 +21,7 @@ export const Pokedex = () => {
   }, [pokedex]);
 
   const directToPokemon = (pokemon) => {
-    history.push(`/pokedex/${pokemon.pokemon.id}`);
+    history.push(`/pokedex/${pokemon.id}`);
   };
 
   return (
