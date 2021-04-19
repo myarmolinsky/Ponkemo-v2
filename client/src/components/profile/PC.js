@@ -41,7 +41,6 @@ export const PC = () => {
               (page - 1) * PAGE_LENGTH,
               page * PAGE_LENGTH
             )}
-            perRow={5}
             onClick={setSelectedPokemon}
           />
         </CustomPagination>

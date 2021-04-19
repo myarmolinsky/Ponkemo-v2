@@ -21,7 +21,7 @@ export const Type = ({ match }) => {
   }, [pokedex, match]);
 
   const directToPokemon = (pokemon) => {
-    history.push(`/pokedex/${pokemon.id}`);
+    return `/pokedex/${pokemon.id}`;
   };
 
   return pokedex === null || loading ? (

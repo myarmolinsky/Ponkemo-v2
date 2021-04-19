@@ -23,7 +23,7 @@ export const EggGroup = ({ match }) => {
   }, [pokedex, match]);
 
   const directToPokemon = (pokemon) => {
-    history.push(`/pokedex/${pokemon.id}`);
+    return `/pokedex/${pokemon.id}`;
   };
 
   return pokedex === null || loading ? (

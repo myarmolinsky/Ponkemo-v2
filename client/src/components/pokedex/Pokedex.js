@@ -21,7 +21,7 @@ export const Pokedex = () => {
   }, [pokedex]);
 
   const directToPokemon = (pokemon) => {
-    history.push(`/pokedex/${pokemon.id}`);
+    return `/pokedex/${pokemon.id}`;
   };
 
   return (
@@ -40,7 +40,7 @@ export const Pokedex = () => {
                 (page - 1) * PAGE_LENGTH,
                 page * PAGE_LENGTH
               )}
-              onClick={directToPokemon}
+              linkTo={directToPokemon}
             />
           </CustomPagination>
         </Fragment>
