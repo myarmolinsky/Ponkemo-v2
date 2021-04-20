@@ -98,13 +98,7 @@ router.get("/:username/owned", async (req, res) => {
   try {
     const user = await User.findOne({ username });
 
-    let data = [];
-    for (let i = 0; i < user.ownedPokemon.length; i++) {
-      const pokemon = await Pokemon.findOne({ id: user.ownedPokemon[i].id });
-      data.push({ pokemon, info: user.ownedPokemon[i] });
-    }
-
-    res.send(data);
+    res.send(user.ownedPokemon);
   } catch (err) {
     // if something goes wrong here, then it's a server error
     console.error(err.message);

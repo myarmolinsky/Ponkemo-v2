@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect, useContext } from "react";
-import { useHistory, Link } from "react-router-dom";
 import { PokemonContext } from "../../context";
 import { Spinner } from "../layout";
 import { SearchFilter, Dex, CustomPagination } from "../common";
@@ -12,7 +11,6 @@ export const Pokedex = () => {
 
   const PAGE_LENGTH = 48; // how many Pokemon to show per page
   const PAGES = Math.ceil(filteredPokedex.length / PAGE_LENGTH); // how many pages there are
-  let history = useHistory();
 
   useEffect(() => {
     if (pokedex) {

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { any } from "prop-types";
 import { Button } from "@material-ui/core";
 import { PokemonContext } from "../../context";
@@ -11,8 +11,6 @@ export const EggGroup = ({ match }) => {
 
   const [filteredPokedex, setFilteredPokedex] = useState([]);
   const [eggGroup, setEggGroup] = useState([]);
-
-  const history = useHistory();
 
   useEffect(() => {
     setEggGroup(

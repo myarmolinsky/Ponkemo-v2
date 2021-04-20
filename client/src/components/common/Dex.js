@@ -16,7 +16,7 @@ export const Dex = ({ dex, onClick, isVisible, linkTo }) => {
     isLink ? <Link to={to}>{children}</Link> : <>{children}</>;
 
   return (
-    <Grid container justify="space-evenly" alignContent="center" spacing={1}>
+    <Grid container justify="space-evenly" alignContent="center" spacing={3}>
       {dex.map((pokemon, index) => (
         <Grid key={index} item xs="auto">
           <ConditionalLink isLink={linkTo(pokemon) !== ""} to={linkTo(pokemon)}>
