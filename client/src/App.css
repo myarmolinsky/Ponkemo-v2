@@ -36,12 +36,8 @@ img {
 
 /* Utilities */
 .container {
-  max-width: 1400px;
-  margin: auto;
-  overflow: hidden;
-  padding: 0 2rem;
-  margin-top: 5rem;
-  max-height: 100%;
+  padding: 0 2vw;
+  margin-top: 8vh;
 }
 
 .center {
@@ -175,7 +171,8 @@ input[type="number"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 2rem;
+  padding: 0 2rem;
+  height: 7vh;
   position: fixed;
   z-index: 1;
   width: 100%;

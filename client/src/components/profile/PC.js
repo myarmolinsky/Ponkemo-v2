@@ -12,6 +12,7 @@ export const PC = () => {
 
   const [ownedPokemonDex, setOwnedPokemonDex] = useState([]);
   const [filteredOwnedPokemon, setFilteredOwnedPokemon] = useState([]);
+  const [filteredOwnedPokemonDex, setFilteredOwnedPokemonDex] = useState([]);
   const [page, setPage] = useState(1);
   const [selectedPokemonIndex, setSelectedPokemonIndex] = useState(-1);
 
@@ -27,14 +28,10 @@ export const PC = () => {
   useEffect(() => {
     if (pokedex.length > 0 && ownedPokemon) {
       setOwnedPokemonDex(
-        ownedPokemon.map((ownedPoke) => {
-          return {
-            pokemon: ownedPoke,
-            info: pokedex.filter(
-              (pokedexPoke) => pokedexPoke.id === ownedPoke.id
-            )[0],
-          };
-        })
+        ownedPokemon.map(
+          (ownedPoke) =>
+            pokedex.filter((pokedexPoke) => pokedexPoke.id === ownedPoke.id)[0]
+        )
       );
     }
   }, [ownedPokemon, pokedex]);
@@ -45,7 +42,11 @@ export const PC = () => {
     }
   }, [ownedPokemon]);
 
-  const setCorrespondingOwnedPokemon = (pokemon, index) => {
+  useEffect(() => {
+    setFilteredOwnedPokemonDex(ownedPokemonDex);
+  }, [ownedPokemonDex]);
+
+  const setOwnedPokemonIndex = (pokemon, index) => {
     setSelectedPokemonIndex(
       (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
         PAGE_LENGTH +
@@ -60,20 +61,33 @@ export const PC = () => {
       <div className="pc-left" style={{ flex: 3 }}>
         {/* PC SearchFilter TODO */}
         {/* <SearchFilter
-          pokedex={ownedPokemonDex.map((pokemon) => pokemon.info)}
+          pokedex={ownedPokemonDex.map((pokemon) => pokemon.dexInfo)}
           setFilteredDex={(filtered) => setFilteredOwnedPokemon(filtered)}
         /> */}
         <CustomPagination pages={PAGES} currentPage={page} setPage={setPage}>
           <Dex
-            dex={ownedPokemonDex
-              .map((pokemon) => pokemon.info)
-              .slice((page - 1) * PAGE_LENGTH, page * PAGE_LENGTH)}
-            onClick={setCorrespondingOwnedPokemon}
+            dex={ownedPokemonDex.slice(
+              (page - 1) * PAGE_LENGTH,
+              page * PAGE_LENGTH
+            )}
+            onClick={setOwnedPokemonIndex}
           />
         </CustomPagination>
       </div>
       <div className="pc-right" style={{ flex: 1 }}>
-        {/* <OwnedPokemonInfo /> */}
+        <OwnedPokemonInfo
+          pokemon={
+            selectedPokemonIndex === -1
+              ? {}
+              : ownedPokemon[selectedPokemonIndex]
+          }
+          dexInfo={
+            selectedPokemonIndex === -1
+              ? {}
+              : ownedPokemonDex[selectedPokemonIndex]
+          }
+          index={selectedPokemonIndex}
+        />
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import { object, number, string } from "prop-types";
+import { object, number } from "prop-types";
 
-export const OwnedPokemonInfo = ({ pokemon, index }) => {
+export const OwnedPokemonInfo = ({ pokemon, info, index }) => {
   const ability = "";
   const nickname = "";
   const level = "";
@@ -40,10 +40,12 @@ export const OwnedPokemonInfo = ({ pokemon, index }) => {
   return (
     <table
       style={{
+        position: "fixed",
+        right: 0,
+        top: "7vh",
+        height: "93vh",
         borderCollapse: "collapse",
         textAlign: "center",
-        background: "gray",
-        width: "150%",
       }}
     >
       <tbody>
@@ -161,6 +163,6 @@ export const OwnedPokemonInfo = ({ pokemon, index }) => {
 
 OwnedPokemonInfo.propTypes = {
   pokemon: object.isRequired,
+  dexInfo: object.isRequired,
   index: number.isRequired,
-  ability: string.isRequired,
 };

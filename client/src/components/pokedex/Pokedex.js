@@ -9,7 +9,7 @@ export const Pokedex = () => {
   const [filteredPokedex, setFilteredPokedex] = useState([]);
   const [page, setPage] = useState(1);
 
-  const PAGE_LENGTH = 48; // how many Pokemon to show per page
+  const PAGE_LENGTH = 49; // how many Pokemon to show per page
   const PAGES = Math.ceil(filteredPokedex.length / PAGE_LENGTH); // how many pages there are
 
   useEffect(() => {
