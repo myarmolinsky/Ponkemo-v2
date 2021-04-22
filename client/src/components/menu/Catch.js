@@ -6,6 +6,9 @@ import { Spinner } from "../layout";
 import { Dex } from "../common";
 
 export const Catch = () => {
+  const NUMBER_OF_SPAWNED_POKEMON = 12;
+  const TIMER_STARTING_TIME = 30;
+
   const {
     spawnedPokemon,
     spawnPokemon,
@@ -38,14 +41,14 @@ export const Catch = () => {
 
   // Spawn 9 Pokemon
   useEffect(() => {
-    if (spawnedPokemon.length < 9) {
+    if (spawnedPokemon.length < NUMBER_OF_SPAWNED_POKEMON) {
       spawnPokemon();
     }
-    if (spawnedPokemon.length === 9) {
+    if (spawnedPokemon.length === NUMBER_OF_SPAWNED_POKEMON) {
       setShuffledSpawnedPokemonSets(
         shuffle(spawnedPokemon.concat(spawnedPokemon))
       );
-      setTimer(15);
+      setTimer(TIMER_STARTING_TIME);
       setTimesUp(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -119,7 +122,7 @@ export const Catch = () => {
     return newShuffledSpawnedPokemonArray;
   };
 
-  return spawnedPokemon.length < 9 ? (
+  return spawnedPokemon.length < NUMBER_OF_SPAWNED_POKEMON ? (
     <Spinner />
   ) : shuffledSpawnedPokemonSets.length > 0 && !timesUp ? (
     <div>
@@ -129,6 +132,7 @@ export const Catch = () => {
       </h1>
       <Dex
         dex={shuffledSpawnedPokemonSets}
+        showCaption={false}
         isVisible={isActive}
         onClick={handleSelect}
       />

@@ -1,16 +1,29 @@
 import React from "react";
 import { string, bool, func } from "prop-types";
 
-export const PokemonSprite = ({ sprite, caption, alt, visible, onClick }) => {
+export const PokemonSprite = ({
+  sprite,
+  caption,
+  alt,
+  visible,
+  showCaption,
+  onClick,
+}) => {
   return (
-    <div className="pokedex-item" onClick={onClick}>
-      {visible && (
-        <>
-          <img className="sprite" src={sprite} alt={alt} />
-          {caption && <p variant="caption">{caption}</p>}
-        </>
+    <>
+      <div className="dex-entry" onClick={onClick}>
+        {visible && (
+          <img
+            style={{ height: "auto", width: "auto" }}
+            src={sprite}
+            alt={alt}
+          />
+        )}
+      </div>
+      {visible && showCaption && (
+        <div className="dex-entry-caption">{caption}</div>
       )}
-    </div>
+    </>
   );
 };
 
@@ -19,11 +32,13 @@ PokemonSprite.propTypes = {
   caption: string,
   alt: string.isRequired,
   visible: bool,
+  showCaption: bool,
   onClick: func,
 };
 
 PokemonSprite.defaultProps = {
-  visible: true,
   caption: "",
+  visible: true,
+  showCaption: true,
   onClick: () => {},
 };

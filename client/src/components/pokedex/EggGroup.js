@@ -43,7 +43,7 @@ export const EggGroup = ({ match }) => {
         setFilteredDex={(filtered) => setFilteredPokedex(filtered)}
         showBothEggGroups={false}
       />
-      <Dex dex={filteredPokedex} onClick={directToPokemon} />
+      <Dex dex={filteredPokedex} linkTo={directToPokemon} />
     </Fragment>
   );
 };
