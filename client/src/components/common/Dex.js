@@ -10,7 +10,7 @@ export const Dex = ({ dex, onClick, isVisible, linkTo }) => {
    * @param {boolean} isLink
    * @param {any} children
    * @param {string} to
-   * @returns The children wrapped in a Link to "to" if isLink is true or wrapped in a fragment is isLink is false
+   * @returns The children are wrapped in a Link to "to" if isLink is true or wrapped in a fragment is isLink is false
    */
   const ConditionalLink = ({ isLink, children, to }) =>
     isLink ? <Link to={to}>{children}</Link> : <>{children}</>;

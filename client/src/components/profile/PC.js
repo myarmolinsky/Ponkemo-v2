@@ -5,7 +5,9 @@ import { Dex, SearchFilter, CustomPagination } from "../common";
 import { OwnedPokemonInfo } from "./OwnedPokemonInfo";
 
 export const PC = () => {
-  const { user, loading, ownedPokemon, loadUser } = useContext(UserContext);
+  const { user, loading, ownedPokemon, loadUser, getOwnedPokemon } = useContext(
+    UserContext
+  );
   const { pokedex } = useContext(PokemonContext);
 
   const [ownedPokemonDex, setOwnedPokemonDex] = useState([]);
@@ -18,6 +20,8 @@ export const PC = () => {
 
   useEffect(() => {
     loadUser();
+    getOwnedPokemon();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -54,11 +58,11 @@ export const PC = () => {
   ) : (
     <div className="pc" style={{ display: "flex", flexDirection: "row" }}>
       <div className="pc-left" style={{ flex: 3 }}>
+        {/* PC SearchFilter TODO */}
         {/* <SearchFilter
           pokedex={ownedPokemonDex.map((pokemon) => pokemon.info)}
           setFilteredDex={(filtered) => setFilteredOwnedPokemon(filtered)}
         /> */}
-        {console.log(selectedPokemonIndex)}
         <CustomPagination pages={PAGES} currentPage={page} setPage={setPage}>
           <Dex
             dex={ownedPokemonDex

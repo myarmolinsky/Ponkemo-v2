@@ -29,6 +29,7 @@ export const Pokemon = ({ match }) => {
     getFormes(match.params.id);
     getEggs(match.params.id);
     getEvolutions(match.params.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [match.params.id]);
 
   let evolutionCount = -1;

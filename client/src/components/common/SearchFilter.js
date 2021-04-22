@@ -72,6 +72,7 @@ export const SearchFilter = ({
     setFilteredDex(
       pokedex.filter((pokemon) => checkSearchPokemon(pokemon, searchData))
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchData, pokedex]);
 
   const toggleSearchOptions = (e) => {

@@ -37,9 +37,6 @@ export const UserState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(userReducer, initialState);
 
-  useEffect(() => {
-    getOwnedPokemon();
-  }, [state.user]);
   // Load User
   const loadUser = async () => {
     //we want to be able to take and use a token already stored in local storage if there is one
@@ -144,7 +141,6 @@ export const UserState = ({ children }) => {
   const catchPokemon = async (pokemon) => {
     try {
       await axios.put(`/api/users/${state.user.username}/catch`, { pokemon });
-      getOwnedPokemon();
     } catch (err) {
       dispatch({
         type: DESPAWN_POKEMON,

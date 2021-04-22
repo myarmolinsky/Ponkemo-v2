@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button, Grid } from "@material-ui/core";
 import { UserContext } from "../../context";
 import { Spinner } from "../layout";
-import { Dex, PokemonSprite } from "../common";
+import { Dex } from "../common";
 
 export const Catch = () => {
   const {
@@ -23,16 +23,17 @@ export const Catch = () => {
 
   const firstSelectedPokemonId = useMemo(
     () => shuffledSpawnedPokemonSets[activeSelections[0]]?.id,
-    [activeSelections]
+    [activeSelections, shuffledSpawnedPokemonSets]
   );
   const secondSelectedPokemonId = useMemo(
     () => shuffledSpawnedPokemonSets[activeSelections[1]]?.id,
-    [activeSelections]
+    [activeSelections, shuffledSpawnedPokemonSets]
   );
 
   // Despawn all spawned Pokemon when the user enters the page
   useEffect(() => {
     despawnPokemon();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Spawn 9 Pokemon
@@ -47,6 +48,7 @@ export const Catch = () => {
       setTimer(15);
       setTimesUp(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [spawnedPokemon]);
 
   // count down the timer as long as there are still spawned Pokemon
@@ -87,7 +89,13 @@ export const Catch = () => {
         setSelectingDisabled(false);
       }, 500);
     }
-  }, [activeSelections]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    activeSelections,
+    firstSelectedPokemonId,
+    secondSelectedPokemonId,
+    shuffledSpawnedPokemonSets,
+  ]);
 
   const isActive = (index) => {
     return activeSelections.includes(index);
