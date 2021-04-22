@@ -36,14 +36,14 @@ const Routes = () => {
         <Route exact path="/egggroups/:eggGroup" component={EggGroup} />
         <Route exact path="/types" component={Types} />
         <Route exact path="/types/:type" component={Type} />
-        <Route exact path="/catch" component={Catch} />
-        <Route exact path="/forage" component={Forage} />
-        <Route exact path="/train" component={Train} />
-        <Route exact path="/breed" component={Breed} />
-        <Route exact path="/shop" component={Shop} />
-        <Route exact path="/recycle" component={Recycle} />
-        <Route exact path="/battle" component={Battle} />
-        <Route exact path="/contest" component={Contest} />
+        <PrivateRoute exact path="/catch" component={Catch} />
+        <PrivateRoute exact path="/forage" component={Forage} />
+        <PrivateRoute exact path="/train" component={Train} />
+        <PrivateRoute exact path="/breed" component={Breed} />
+        <PrivateRoute exact path="/shop" component={Shop} />
+        <PrivateRoute exact path="/recycle" component={Recycle} />
+        <PrivateRoute exact path="/battle" component={Battle} />
+        <PrivateRoute exact path="/contest" component={Contest} />
         <Route component={NotFound} />
       </Switch>
     </div>
