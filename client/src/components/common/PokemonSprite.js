@@ -14,7 +14,7 @@ export const PokemonSprite = ({
     <>
       <div
         className="dex-entry"
-        style={selected ? { border: "solid" } : {}}
+        style={selected ? { border: "solid", borderColor: "black" } : {}}
         onClick={onClick}
       >
         {visible && <img style={{ padding: "5%" }} src={sprite} alt={alt} />}

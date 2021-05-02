@@ -124,6 +124,8 @@ export const UserState = ({ children }) => {
   };
 
   const spawnPokemon = async () => {
+    despawnPokemon();
+
     try {
       const res = await axios.put(`/api/users/${state.user.username}/spawn`);
 

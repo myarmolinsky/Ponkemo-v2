@@ -115,27 +115,35 @@ router.put("/:username/spawn", async (req, res) => {
   const user = await User.findOne({ username });
   let spawnCounter = user.spawnCounter;
   let spawning = true;
+  let spawns = [];
   let spawnIndex = Math.floor(Math.random() * spawnCounter.length);
-  while (spawning) {
-    if (spawnCounter[spawnIndex] === spawnIndex) {
-      spawning = false;
-      spawnCounter[spawnIndex] = 0;
-    } else {
-      spawnCounter[spawnIndex] = spawnCounter[spawnIndex] + 1;
-      spawnIndex = Math.floor(Math.random() * spawnCounter.length);
+  // determine the spawnRate of 12 Pokemon to spawn
+  while (spawns.length < 12) {
+    while (spawning) {
+      if (spawnCounter[spawnIndex] === spawnIndex) {
+        spawning = false;
+        spawnCounter[spawnIndex] = 0;
+      } else {
+        spawnCounter[spawnIndex] = spawnCounter[spawnIndex] + 1;
+        spawnIndex = Math.floor(Math.random() * spawnCounter.length);
+      }
     }
+    spawns.push(spawnIndex);
   }
 
-  let pokemon = await Pokemon.aggregate([
-    { $match: { spawnRate: spawnIndex } },
-    { $sample: { size: 1 } },
-  ]);
-  pokemon = pokemon[0];
+  let spawnedPokemon = [];
+  while (spawnedPokemon.length < 12) {
+    let pokemon = await Pokemon.aggregate([
+      { $match: { spawnRate: spawns.pop() } },
+      { $sample: { size: 1 } },
+    ]);
+    spawnedPokemon.push(pokemon[0]);
+  }
 
   try {
     await User.updateOne({ username }, { spawnCounter });
 
-    res.status(200).send(pokemon);
+    res.status(200).send(spawnedPokemon);
   } catch (err) {
     // if something goes wrong here, then it's a server error
     console.error(err.message);

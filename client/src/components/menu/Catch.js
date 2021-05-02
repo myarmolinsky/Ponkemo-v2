@@ -6,7 +6,6 @@ import { Spinner } from "../layout";
 import { Dex } from "../common";
 
 export const Catch = () => {
-  const NUMBER_OF_SPAWNED_POKEMON = 12;
   const TIMER_STARTING_TIME = 30;
 
   const {
@@ -33,25 +32,19 @@ export const Catch = () => {
     [activeSelections, shuffledSpawnedPokemonSets]
   );
 
-  // Despawn all spawned Pokemon when the user enters the page
+  // Spawn Pokemon
   useEffect(() => {
-    despawnPokemon();
+    spawnPokemon();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Spawn 9 Pokemon
+  // Create shuffledSpawnedPokemonSets and start timer
   useEffect(() => {
-    if (spawnedPokemon.length < NUMBER_OF_SPAWNED_POKEMON) {
-      spawnPokemon();
-    }
-    if (spawnedPokemon.length === NUMBER_OF_SPAWNED_POKEMON) {
-      setShuffledSpawnedPokemonSets(
-        shuffle(spawnedPokemon.concat(spawnedPokemon))
-      );
-      setTimer(TIMER_STARTING_TIME);
-      setTimesUp(false);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setShuffledSpawnedPokemonSets(
+      shuffle(spawnedPokemon.concat(spawnedPokemon))
+    );
+    setTimer(TIMER_STARTING_TIME);
+    setTimesUp(false);
   }, [spawnedPokemon]);
 
   // count down the timer as long as there are still spawned Pokemon
@@ -122,7 +115,7 @@ export const Catch = () => {
     return newShuffledSpawnedPokemonArray;
   };
 
-  return spawnedPokemon.length < NUMBER_OF_SPAWNED_POKEMON ? (
+  return spawnedPokemon.length === 0 ? (
     <Spinner />
   ) : shuffledSpawnedPokemonSets.length > 0 && !timesUp ? (
     <div>
