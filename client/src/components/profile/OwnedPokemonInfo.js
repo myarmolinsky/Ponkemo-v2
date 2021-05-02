@@ -126,15 +126,12 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
           </th>
         </tr>
         <tr>
-          <td colSpan={8} style={{ borderRight: "none" }} align="center">
-            {index > -1 ? (
-              <PokemonSprite
-                sprite={displayInfo.sprite}
-                alt={displayInfo.name}
-              />
-            ) : (
-              <div />
-            )}
+          <td colSpan={8} align="center">
+            <PokemonSprite
+              sprite={displayInfo.sprite}
+              alt={displayInfo.name}
+              visible={index > -1 ? true : false}
+            />
           </td>
         </tr>
         <tr>
