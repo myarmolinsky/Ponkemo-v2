@@ -11,8 +11,10 @@ export const Dex = ({
   isVisible,
   getLinkTo,
   isShiny,
+  isSelected,
 }) => {
   /**
+   * @desc Determine whether to wrap the children in a Link or a fragment
    *
    * @param {boolean} isLink
    * @param {any} children
@@ -37,6 +39,7 @@ export const Dex = ({
               visible={isVisible(index)}
               showCaption={showCaption}
               onClick={() => onClick(pokemon, index)}
+              selected={isSelected(index)}
             />
           </ConditionalLink>
         </Grid>
@@ -52,6 +55,7 @@ Dex.propTypes = {
   isVisible: func,
   getLinkTo: func,
   isShiny: func,
+  isSelected: func,
 };
 
 Dex.defaultProps = {
@@ -60,4 +64,5 @@ Dex.defaultProps = {
   isVisible: () => true,
   getLinkTo: () => "",
   isShiny: () => false,
+  isSelected: () => false,
 };

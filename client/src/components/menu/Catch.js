@@ -135,6 +135,7 @@ export const Catch = () => {
         showCaption={false}
         isVisible={isActive}
         onClick={handleSelect}
+        isSelected={isActive}
       />
     </div>
   ) : (

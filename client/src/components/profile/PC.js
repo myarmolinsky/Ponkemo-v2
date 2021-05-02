@@ -55,13 +55,6 @@ export const PC = () => {
   };
 
   const isShiny = (index) => {
-    console.log(
-      ownedPokemon[
-        (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
-          PAGE_LENGTH +
-          index
-      ]
-    );
     return ownedPokemon[
       (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
         PAGE_LENGTH +
@@ -69,6 +62,15 @@ export const PC = () => {
     ].shiny
       ? true
       : false;
+  };
+
+  const isSelected = (index) => {
+    return (
+      selectedPokemonIndex ===
+      (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
+        PAGE_LENGTH +
+        index
+    );
   };
 
   return loading || !user ? (
@@ -89,6 +91,7 @@ export const PC = () => {
             )}
             onClick={setOwnedPokemonIndex}
             isShiny={isShiny}
+            isSelected={isSelected}
           />
         </CustomPagination>
       </div>
