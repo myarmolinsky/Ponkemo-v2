@@ -54,6 +54,23 @@ export const PC = () => {
     );
   };
 
+  const isShiny = (index) => {
+    console.log(
+      ownedPokemon[
+        (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
+          PAGE_LENGTH +
+          index
+      ]
+    );
+    return ownedPokemon[
+      (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
+        PAGE_LENGTH +
+        index
+    ].shiny
+      ? true
+      : false;
+  };
+
   return loading || !user ? (
     <Spinner />
   ) : (
@@ -71,6 +88,7 @@ export const PC = () => {
               page * PAGE_LENGTH
             )}
             onClick={setOwnedPokemonIndex}
+            isShiny={isShiny}
           />
         </CustomPagination>
       </div>

@@ -41,7 +41,7 @@ export const Type = ({ match }) => {
         setFilteredDex={(filtered) => setFilteredPokedex(filtered)}
         showBothTypes={false}
       />
-      <Dex dex={filteredPokedex} linkTo={directToPokemon} />
+      <Dex dex={filteredPokedex} getLinkTo={directToPokemon} />
     </Fragment>
   );
 };

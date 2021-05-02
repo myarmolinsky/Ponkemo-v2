@@ -38,7 +38,7 @@ export const Pokedex = () => {
                 (page - 1) * PAGE_LENGTH,
                 page * PAGE_LENGTH
               )}
-              linkTo={directToPokemon}
+              getLinkTo={directToPokemon}
             />
           </CustomPagination>
         </Fragment>

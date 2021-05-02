@@ -4,7 +4,14 @@ import { array, func, bool } from "prop-types";
 import { Grid } from "@material-ui/core";
 import { PokemonSprite } from "./PokemonSprite";
 
-export const Dex = ({ dex, showCaption, onClick, isVisible, linkTo }) => {
+export const Dex = ({
+  dex,
+  showCaption,
+  onClick,
+  isVisible,
+  getLinkTo,
+  isShiny,
+}) => {
   /**
    *
    * @param {boolean} isLink
@@ -19,9 +26,12 @@ export const Dex = ({ dex, showCaption, onClick, isVisible, linkTo }) => {
     <Grid container justify="space-evenly" alignContent="center" spacing={3}>
       {dex.map((pokemon, index) => (
         <Grid key={index} item xs="auto">
-          <ConditionalLink isLink={linkTo(pokemon) !== ""} to={linkTo(pokemon)}>
+          <ConditionalLink
+            isLink={getLinkTo(pokemon) !== ""}
+            to={getLinkTo(pokemon)}
+          >
             <PokemonSprite
-              sprite={pokemon.sprite}
+              sprite={isShiny(index) ? pokemon.shinySprite : pokemon.sprite}
               caption={pokemon.name}
               alt={pokemon.name}
               visible={isVisible(index)}
@@ -40,14 +50,14 @@ Dex.propTypes = {
   showCaption: bool,
   onClick: func,
   isVisible: func,
-  linkTo: func,
+  getLinkTo: func,
+  isShiny: func,
 };
 
 Dex.defaultProps = {
   showCaption: true,
   onClick: () => {},
-  isVisible: () => {
-    return true;
-  },
-  linkTo: () => "",
+  isVisible: () => true,
+  getLinkTo: () => "",
+  isShiny: () => false,
 };
