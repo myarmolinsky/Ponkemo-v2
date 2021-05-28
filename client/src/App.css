@@ -94,12 +94,16 @@ th {
   padding: 1%;
   background-color: gray;
   border: solid;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 td {
   padding: 0.5%;
   background-color: lightgrey;
   border: solid;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .alert {
