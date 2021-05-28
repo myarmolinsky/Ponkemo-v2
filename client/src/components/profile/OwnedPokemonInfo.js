@@ -108,9 +108,10 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
         top: "7vh",
         minHeight: "93vh",
         maxHeight: "93vh",
-        maxWidth: "25vw",
+        width: "25vw",
         borderCollapse: "collapse",
         textAlign: "center",
+        tableLayout: "fixed",
       }}
     >
       <tbody>
@@ -154,7 +155,7 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
         </tr>
         <tr>
           <th colSpan={2}>
-            <Button
+            {/* <Button
               color="primary"
               variant="contained"
               component={Link}
@@ -171,7 +172,7 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
               style={{ marginLeft: "1%" }}
             >
               Breed
-            </Button>
+            </Button> */}
           </th>
           <th colSpan={2}>Stats</th>
           <th colSpan={2}>IVs</th>
