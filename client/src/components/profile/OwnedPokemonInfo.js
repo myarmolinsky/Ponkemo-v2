@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import { object, number } from "prop-types";
+import { UserContext } from "../../context";
 import { PokemonSprite } from "../common";
 
 export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
+  const { toggleFavoriteOwnedPokemon } = useContext(UserContext);
+
   const [displayInfo, setDisplayInfo] = useState({
     ability: "",
     nickname: "",
@@ -66,7 +69,7 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
       nickname: pokemon.nickname || "",
       name: dexInfo.name || "",
       level: pokemon.level || "",
-      favorite: pokemon.favorite || false,
+      favorite: pokemon.favorite == false ? false : true,
       sprite: pokemon.shiny ? dexInfo.shinySprite : dexInfo.sprite || "",
       heldItem: pokemon.heldItem || "",
       friendship: pokemon.friendship || "",
@@ -123,7 +126,15 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
             lv. {displayInfo.level}
           </th>
           <th colSpan={2} style={{ borderLeft: "none" }}>
-            STAR
+            <i
+              className={`fa${displayInfo.favorite ? "s" : "r"} fa-star`}
+              style={{
+                color: displayInfo.favorite ? "yellow" : "black",
+              }}
+              onClick={
+                index > -1 ? () => toggleFavoriteOwnedPokemon(index) : () => {}
+              }
+            />
           </th>
         </tr>
         <tr>

@@ -106,6 +106,24 @@ router.get("/:username/owned", async (req, res) => {
   }
 });
 
+// @route PUT api/users/:username/owned/toggle-favorite/:index
+// @desc Toggle the favorite property of the owned Pokemon at the given index
+// @access Public
+router.put("/:username/owned/toggle-favorite/:index", async (req, res) => {
+  const { username, index } = req.params;
+
+  try {
+    const user = await User.findOne({ username });
+    const ownedPokemon = user.ownedPokemon;
+    ownedPokemon[index].favorite = !ownedPokemon[index].favorite;
+    await User.findOneAndUpdate({ username }, { ownedPokemon });
+  } catch (err) {
+    // if something goes wrong here, then it's a server error
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
 // @route PUT api/users/:username/spawn
 // @desc Spawn a Pokemon to catch
 // @access Public

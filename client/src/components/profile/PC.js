@@ -5,9 +5,8 @@ import { Dex, SearchFilter, CustomPagination } from "../common";
 import { OwnedPokemonInfo } from "./OwnedPokemonInfo";
 
 export const PC = () => {
-  const { user, loading, ownedPokemon, loadUser, getOwnedPokemon } = useContext(
-    UserContext
-  );
+  const { user, loading, ownedPokemon, loadUser, getOwnedPokemon } =
+    useContext(UserContext);
   const { pokedex } = useContext(PokemonContext);
 
   const [ownedPokemonDex, setOwnedPokemonDex] = useState([]);

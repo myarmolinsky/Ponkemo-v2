@@ -171,6 +171,20 @@ export const UserState = ({ children }) => {
     }
   };
 
+  const toggleFavoriteOwnedPokemon = async (index) => {
+    try {
+      await axios.put(
+        `/api/users/${state.user.username}/owned/toggle-favorite/${index}`
+      );
+
+      getOwnedPokemon();
+    } catch (err) {
+      dispatch({
+        type: LOAD_OWNED_POKEMON_FAIL,
+      });
+    }
+  };
+
   // Logout
   const logout = () => {
     dispatch({ type: LOGOUT });
@@ -188,6 +202,7 @@ export const UserState = ({ children }) => {
         spawnPokemon,
         despawnPokemon,
         catchPokemon,
+        toggleFavoriteOwnedPokemon,
       }}
     >
       {children}
