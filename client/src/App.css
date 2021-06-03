@@ -90,20 +90,26 @@ img {
   table-layout: fixed;
 }
 
-th {
-  padding: 1%;
-  background-color: gray;
+th,
+td {
   border: solid;
   white-space: nowrap;
-  overflow-x: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+th:hover,
+td:hover {
+  text-overflow: clip;
+  white-space: normal;
+}
+
+th {
+  background-color: gray;
 }
 
 td {
-  padding: 0.5%;
   background-color: lightgrey;
-  border: solid;
-  white-space: nowrap;
-  overflow-x: auto;
 }
 
 .owned-pokemon-info-table {

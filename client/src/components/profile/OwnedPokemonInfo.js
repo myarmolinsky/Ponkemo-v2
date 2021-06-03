@@ -225,7 +225,7 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
           </td>
         </tr>
         <tr>
-          <th colSpan={2}>
+          <th colSpan={5}>
             {/* <Button
               color="primary"
               variant="contained"
@@ -245,45 +245,45 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
               Breed
             </Button> */}
           </th>
-          <th colSpan={2}>Stats</th>
-          <th colSpan={2}>IVs</th>
-          <th colSpan={2}>EVs</th>
+          <th colSpan={1}>Stats</th>
+          <th colSpan={1}>IVs</th>
+          <th colSpan={1}>EVs</th>
         </tr>
         <tr>
-          <th colSpan={2}>Health</th>
-          <td colSpan={2}>{displayInfo.stats.hp}</td>
-          <td colSpan={2}>{displayInfo.ivs.hp}</td>
-          <td colSpan={2}>{displayInfo.evs.hp}</td>
+          <th colSpan={5}>Health</th>
+          <td colSpan={1}>{displayInfo.stats.hp}</td>
+          <td colSpan={1}>{displayInfo.ivs.hp}</td>
+          <td colSpan={1}>{displayInfo.evs.hp}</td>
         </tr>
         <tr>
-          <th colSpan={2}>Attack</th>
-          <td colSpan={2}>{displayInfo.stats.atk}</td>
-          <td colSpan={2}>{displayInfo.ivs.atk}</td>
-          <td colSpan={2}>{displayInfo.evs.atk}</td>
+          <th colSpan={5}>Attack</th>
+          <td colSpan={1}>{displayInfo.stats.atk}</td>
+          <td colSpan={1}>{displayInfo.ivs.atk}</td>
+          <td colSpan={1}>{displayInfo.evs.atk}</td>
         </tr>
         <tr>
-          <th colSpan={2}>Defense</th>
-          <td colSpan={2}>{displayInfo.stats.def}</td>
-          <td colSpan={2}>{displayInfo.ivs.def}</td>
-          <td colSpan={2}>{displayInfo.evs.def}</td>
+          <th colSpan={5}>Defense</th>
+          <td colSpan={1}>{displayInfo.stats.def}</td>
+          <td colSpan={1}>{displayInfo.ivs.def}</td>
+          <td colSpan={1}>{displayInfo.evs.def}</td>
         </tr>
         <tr>
-          <th colSpan={2}>Special Attack</th>
-          <td colSpan={2}>{displayInfo.stats.spA}</td>
-          <td colSpan={2}>{displayInfo.ivs.spA}</td>
-          <td colSpan={2}>{displayInfo.evs.spA}</td>
+          <th colSpan={5}>Special Attack</th>
+          <td colSpan={1}>{displayInfo.stats.spA}</td>
+          <td colSpan={1}>{displayInfo.ivs.spA}</td>
+          <td colSpan={1}>{displayInfo.evs.spA}</td>
         </tr>
         <tr>
-          <th colSpan={2}>Special Defense</th>
-          <td colSpan={2}>{displayInfo.stats.spD}</td>
-          <td colSpan={2}>{displayInfo.ivs.spD}</td>
-          <td colSpan={2}>{displayInfo.evs.spD}</td>
+          <th colSpan={5}>Special Defense</th>
+          <td colSpan={1}>{displayInfo.stats.spD}</td>
+          <td colSpan={1}>{displayInfo.ivs.spD}</td>
+          <td colSpan={1}>{displayInfo.evs.spD}</td>
         </tr>
         <tr>
-          <th colSpan={2}>Speed</th>
-          <td colSpan={2}>{displayInfo.stats.spe}</td>
-          <td colSpan={2}>{displayInfo.ivs.spe}</td>
-          <td colSpan={2}>{displayInfo.evs.spe}</td>
+          <th colSpan={5}>Speed</th>
+          <td colSpan={1}>{displayInfo.stats.spe}</td>
+          <td colSpan={1}>{displayInfo.ivs.spe}</td>
+          <td colSpan={1}>{displayInfo.evs.spe}</td>
         </tr>
         <tr>
           <th colSpan={8}>Moves:</th>
