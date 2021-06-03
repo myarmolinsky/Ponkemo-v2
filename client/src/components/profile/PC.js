@@ -13,6 +13,7 @@ export const PC = () => {
   const [filteredOwnedPokemonDex, setFilteredOwnedPokemonDex] = useState([]);
   const [page, setPage] = useState(1);
   const [selectedPokemonUid, setSelectedPokemonUid] = useState(-1);
+  const [chosenPokemon, setChosenPokemon] = useState({});
 
   const PAGE_LENGTH = 30; // how many Pokemon to show per page
   const PAGES = Math.ceil(filteredOwnedPokemon.length / PAGE_LENGTH); // how many pages there are
@@ -40,23 +41,41 @@ export const PC = () => {
   }, [ownedPokemon]);
 
   useEffect(() => {
-    let dex = ownedPokemonDex;
-    dex.forEach((pokemon, index) => (pokemon.uid = index));
-    setFilteredOwnedPokemonDex(dex);
+    setFilteredOwnedPokemonDex(ownedPokemonDex);
   }, [ownedPokemonDex]);
 
   useEffect(() => {
     setPage(1);
   }, [filteredOwnedPokemon, filteredOwnedPokemonDex]);
 
-  const isShiny = (index) => {
-    return ownedPokemon[
-      (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
-        PAGE_LENGTH +
-        index
-    ].shiny
-      ? true
-      : false;
+  useEffect(() => {
+    if (ownedPokemon) {
+      let pokemon = {};
+      let info = {};
+      for (let i = 0; i < ownedPokemon.length; i++) {
+        if (ownedPokemon[i].uid === selectedPokemonUid) {
+          pokemon = ownedPokemon[i];
+          info = ownedPokemonDex[i];
+          break;
+        }
+      }
+      setChosenPokemon({ pokemon, info });
+    }
+  }, [selectedPokemonUid, ownedPokemon, ownedPokemonDex]);
+
+  const isShiny = (uid) => {
+    let pokemon = ownedPokemon.filter((pokemon) => pokemon.uid === uid)[0];
+    return pokemon?.shiny ? true : false;
+  };
+
+  const handlePokemonSelect = (pokemon, index) => {
+    setSelectedPokemonUid(
+      filteredOwnedPokemon[
+        (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
+          PAGE_LENGTH +
+          index
+      ].uid
+    );
   };
 
   const isSelected = (pokemon, index) => {
@@ -82,7 +101,9 @@ export const PC = () => {
               (page - 1) * PAGE_LENGTH,
               page * PAGE_LENGTH
             )}
-            onClick={(pokemon) => setSelectedPokemonUid(pokemon.uid)}
+            onClick={(pokemon, index) => {
+              handlePokemonSelect(pokemon, index);
+            }}
             isShiny={isShiny}
             isSelected={isSelected}
           />
@@ -90,13 +111,9 @@ export const PC = () => {
       </div>
       <div className="pc-right">
         <OwnedPokemonInfo
-          pokemon={
-            selectedPokemonUid === -1 ? {} : ownedPokemon[selectedPokemonUid]
-          }
-          dexInfo={
-            selectedPokemonUid === -1 ? {} : ownedPokemonDex[selectedPokemonUid]
-          }
-          index={selectedPokemonUid}
+          pokemon={selectedPokemonUid === -1 ? {} : chosenPokemon.pokemon}
+          dexInfo={selectedPokemonUid === -1 ? {} : chosenPokemon.info}
+          uid={selectedPokemonUid}
         />
       </div>
     </div>

@@ -175,12 +175,11 @@ export const UserState = ({ children }) => {
     }
   };
 
-  const updateOwnedPokemon = async (updatedPokeInfo, index) => {
+  const updateOwnedPokemon = async (updatedPokeInfo, uid) => {
     try {
-      await axios.put(
-        `/api/users/${state.user.username}/owned/update/${index}`,
-        { ...updatedPokeInfo }
-      );
+      await axios.put(`/api/users/${state.user.username}/owned/update/${uid}`, {
+        ...updatedPokeInfo,
+      });
 
       getAllOwnedPokemon();
     } catch (err) {

@@ -109,14 +109,19 @@ router.get("/:username/owned", async (req, res) => {
 // @route PUT api/users/:username/owned/update/:index
 // @desc Update the given data of the owned Pokemon at the given index
 // @access Public
-router.put("/:username/owned/update/:index", async (req, res) => {
-  const { username, index } = req.params;
+router.put("/:username/owned/update/:uid", async (req, res) => {
+  const { username, uid } = req.params;
 
   try {
     const user = await User.findOne({ username });
     let ownedPokemon = user.ownedPokemon;
-    ownedPokemon[index] = { ...ownedPokemon[index], ...req.body };
-    await User.findOneAndUpdate({ username }, { ownedPokemon });
+    for (let i = 0; i < ownedPokemon.length; i++) {
+      if (ownedPokemon[i].uid == uid) {
+        ownedPokemon[i] = { ...ownedPokemon[i], ...req.body };
+        break;
+      }
+    }
+    await User.updateOne({ username }, { ownedPokemon });
     res.status(200).send();
   } catch (err) {
     // if something goes wrong here, then it's a server error
@@ -177,6 +182,24 @@ router.put("/:username/catch", async (req, res) => {
   const { username } = req.params;
   const { pokemon } = req.body;
 
+  // find the lowest unused uid
+  const user = await User.findOne({ username });
+  let ownedPokemon = user.ownedPokemon;
+  for (i = 0; i < ownedPokemon.length; i++) {
+    ownedPokemon[i] = ownedPokemon[i].uid;
+  }
+  ownedPokemon.sort((a, b) => a - b);
+  let lowestUnusedUid = -1;
+  for (i = 0; i < ownedPokemon.length; i++) {
+    if (ownedPokemon[i] !== i) {
+      lowestUnusedUid = i;
+      break;
+    }
+  }
+  if (lowestUnusedUid === -1) {
+    lowestUnusedUid = ownedPokemon.length;
+  }
+
   let level = Math.floor(Math.random() * 25) + 1;
   let nature = pickNature();
   let ivs = {
@@ -225,6 +248,7 @@ router.put("/:username/catch", async (req, res) => {
     },
     favorite: false,
     moves: pickMoves(pokemon.moves, level),
+    uid: lowestUnusedUid,
   };
 
   try {

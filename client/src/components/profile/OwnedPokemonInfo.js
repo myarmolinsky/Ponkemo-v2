@@ -5,7 +5,7 @@ import { object, number } from "prop-types";
 import { UserContext } from "../../context";
 import { PokemonSprite } from "../common";
 
-export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
+export const OwnedPokemonInfo = ({ pokemon, dexInfo, uid }) => {
   const { updateOwnedPokemon } = useContext(UserContext);
 
   const [displayInfo, setDisplayInfo] = useState({
@@ -114,7 +114,7 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
 
   useEffect(() => {
     setEditingNickname(false);
-  }, [index]);
+  }, [uid]);
 
   const onChangeNickname = (e) => setNickname(e.target.value);
 
@@ -138,7 +138,7 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
             )}
           </th>
           <th colSpan={1} style={{ borderRight: "none", borderLeft: "none" }}>
-            {index > -1 && (
+            {uid > -1 && (
               <i
                 className={`fas fa-${editingNickname ? "save" : "edit"}`}
                 style={{
@@ -154,7 +154,7 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
                                 ? displayInfo.nickname
                                 : nickname,
                           },
-                          index
+                          uid
                         );
                         setEditingNickname(false);
                       }
@@ -174,11 +174,11 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
                 cursor: "pointer",
               }}
               onClick={
-                index > -1
+                uid > -1
                   ? () =>
                       updateOwnedPokemon(
                         { favorite: !displayInfo.favorite },
-                        index
+                        uid
                       )
                   : () => {}
               }
@@ -190,7 +190,7 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
             <PokemonSprite
               sprite={displayInfo.sprite}
               alt={displayInfo.name}
-              visible={index > -1 ? true : false}
+              visible={uid > -1 ? true : false}
             />
           </td>
         </tr>
@@ -211,7 +211,7 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
           <td colSpan={2}>{displayInfo.nature}</td>
           <th colSpan={2}>Evo Lock:</th>
           <td colSpan={2}>
-            {index > -1 && (
+            {uid > -1 && (
               <i
                 className={`fas ${
                   displayInfo.evoLock ? "fa-lock" : "fa-lock-open"
@@ -220,7 +220,7 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
                   cursor: "pointer",
                 }}
                 onClick={() =>
-                  updateOwnedPokemon({ evoLock: !displayInfo.evoLock }, index)
+                  updateOwnedPokemon({ evoLock: !displayInfo.evoLock }, uid)
                 }
               />
             )}
@@ -328,5 +328,5 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
 OwnedPokemonInfo.propTypes = {
   pokemon: object.isRequired,
   dexInfo: object.isRequired,
-  index: number.isRequired,
+  uid: number.isRequired,
 };
