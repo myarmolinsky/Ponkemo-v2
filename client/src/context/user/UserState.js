@@ -156,10 +156,10 @@ export const UserState = ({ children }) => {
     });
   };
 
-  const getOwnedPokemon = async () => {
+  const getAllOwnedPokemon = async () => {
     try {
       const res = await axios.get(`/api/users/${state.user.username}/owned`);
-
+      console.log(res.data[99]);
       dispatch({
         type: LOAD_OWNED_POKEMON,
         payload: res.data,
@@ -171,13 +171,14 @@ export const UserState = ({ children }) => {
     }
   };
 
-  const toggleFavoriteOwnedPokemon = async (index) => {
+  const updateOwnedPokemon = async (updatedPokeInfo, index) => {
     try {
       await axios.put(
-        `/api/users/${state.user.username}/owned/toggle-favorite/${index}`
+        `/api/users/${state.user.username}/owned/update/${index}`,
+        { ...updatedPokeInfo }
       );
 
-      getOwnedPokemon();
+      getAllOwnedPokemon();
     } catch (err) {
       dispatch({
         type: LOAD_OWNED_POKEMON_FAIL,
@@ -197,12 +198,12 @@ export const UserState = ({ children }) => {
         loadUser,
         register,
         login,
-        getOwnedPokemon,
+        getAllOwnedPokemon,
         logout,
         spawnPokemon,
         despawnPokemon,
         catchPokemon,
-        toggleFavoriteOwnedPokemon,
+        updateOwnedPokemon,
       }}
     >
       {children}

@@ -6,7 +6,7 @@ import { UserContext } from "../../context";
 import { PokemonSprite } from "../common";
 
 export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
-  const { toggleFavoriteOwnedPokemon } = useContext(UserContext);
+  const { updateOwnedPokemon } = useContext(UserContext);
 
   const [displayInfo, setDisplayInfo] = useState({
     ability: "",
@@ -69,7 +69,8 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
       nickname: pokemon.nickname || "",
       name: dexInfo.name || "",
       level: pokemon.level || "",
-      favorite: pokemon.favorite == false ? false : true,
+      favorite:
+        typeof pokemon.favorite === "boolean" ? pokemon.favorite : false,
       sprite: pokemon.shiny ? dexInfo.shinySprite : dexInfo.sprite || "",
       heldItem: pokemon.heldItem || "",
       friendship: pokemon.friendship || "",
@@ -130,9 +131,16 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
               className={`fa${displayInfo.favorite ? "s" : "r"} fa-star`}
               style={{
                 color: displayInfo.favorite ? "yellow" : "black",
+                cursor: "pointer",
               }}
               onClick={
-                index > -1 ? () => toggleFavoriteOwnedPokemon(index) : () => {}
+                index > -1
+                  ? () =>
+                      updateOwnedPokemon(
+                        { favorite: !displayInfo.favorite },
+                        index
+                      )
+                  : () => {}
               }
             />
           </th>

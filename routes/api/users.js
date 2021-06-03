@@ -106,17 +106,18 @@ router.get("/:username/owned", async (req, res) => {
   }
 });
 
-// @route PUT api/users/:username/owned/toggle-favorite/:index
-// @desc Toggle the favorite property of the owned Pokemon at the given index
+// @route PUT api/users/:username/owned/update/:index
+// @desc Update the given data of the owned Pokemon at the given index
 // @access Public
-router.put("/:username/owned/toggle-favorite/:index", async (req, res) => {
+router.put("/:username/owned/update/:index", async (req, res) => {
   const { username, index } = req.params;
 
   try {
     const user = await User.findOne({ username });
-    const ownedPokemon = user.ownedPokemon;
-    ownedPokemon[index].favorite = !ownedPokemon[index].favorite;
+    let ownedPokemon = user.ownedPokemon;
+    ownedPokemon[index] = { ...ownedPokemon[index], ...req.body };
     await User.findOneAndUpdate({ username }, { ownedPokemon });
+    res.status(200).send();
   } catch (err) {
     // if something goes wrong here, then it's a server error
     console.error(err.message);

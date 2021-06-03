@@ -5,13 +5,14 @@ import { Dex, SearchFilter, CustomPagination } from "../common";
 import { OwnedPokemonInfo } from "./OwnedPokemonInfo";
 
 export const PC = () => {
-  const { user, loading, ownedPokemon, loadUser, getOwnedPokemon } =
+  const { user, loading, ownedPokemon, loadUser, getAllOwnedPokemon } =
     useContext(UserContext);
   const { pokedex } = useContext(PokemonContext);
 
+  const [allOwnedPokemon, setAllOwnedPokemon] = useState([]);
   const [ownedPokemonDex, setOwnedPokemonDex] = useState([]);
   const [filteredOwnedPokemon, setFilteredOwnedPokemon] = useState([]);
-  const [filteredOwnedPokemonDex, setFilteredOwnedPokemonDex] = useState([]);
+  // const [filteredOwnedPokemonDex, setFilteredOwnedPokemonDex] = useState([]);
   const [page, setPage] = useState(1);
   const [selectedPokemonIndex, setSelectedPokemonIndex] = useState(-1);
 
@@ -20,20 +21,26 @@ export const PC = () => {
 
   useEffect(() => {
     loadUser();
-    getOwnedPokemon();
+    getAllOwnedPokemon();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    if (pokedex.length > 0 && ownedPokemon) {
+    if (ownedPokemon) {
+      setAllOwnedPokemon(ownedPokemon);
+    }
+  }, [ownedPokemon]);
+
+  useEffect(() => {
+    if (pokedex.length > 0 && allOwnedPokemon) {
       setOwnedPokemonDex(
-        ownedPokemon.map(
+        allOwnedPokemon.map(
           (ownedPoke) =>
             pokedex.filter((pokedexPoke) => pokedexPoke.id === ownedPoke.id)[0]
         )
       );
     }
-  }, [ownedPokemon, pokedex]);
+  }, [allOwnedPokemon, pokedex]);
 
   useEffect(() => {
     if (ownedPokemon) {
@@ -41,9 +48,9 @@ export const PC = () => {
     }
   }, [ownedPokemon]);
 
-  useEffect(() => {
-    setFilteredOwnedPokemonDex(ownedPokemonDex);
-  }, [ownedPokemonDex]);
+  // useEffect(() => {
+  //   setFilteredOwnedPokemonDex(ownedPokemonDex);
+  // }, [ownedPokemonDex]);
 
   const setOwnedPokemonIndex = (pokemon, index) => {
     setSelectedPokemonIndex(
@@ -54,7 +61,7 @@ export const PC = () => {
   };
 
   const isShiny = (index) => {
-    return ownedPokemon[
+    return allOwnedPokemon[
       (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
         PAGE_LENGTH +
         index
@@ -99,7 +106,7 @@ export const PC = () => {
           pokemon={
             selectedPokemonIndex === -1
               ? {}
-              : ownedPokemon[selectedPokemonIndex]
+              : allOwnedPokemon[selectedPokemonIndex]
           }
           dexInfo={
             selectedPokemonIndex === -1
