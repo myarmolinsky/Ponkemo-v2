@@ -9,7 +9,6 @@ export const PC = () => {
     useContext(UserContext);
   const { pokedex } = useContext(PokemonContext);
 
-  const [allOwnedPokemon, setAllOwnedPokemon] = useState([]);
   const [ownedPokemonDex, setOwnedPokemonDex] = useState([]);
   const [filteredOwnedPokemon, setFilteredOwnedPokemon] = useState([]);
   // const [filteredOwnedPokemonDex, setFilteredOwnedPokemonDex] = useState([]);
@@ -26,21 +25,15 @@ export const PC = () => {
   }, []);
 
   useEffect(() => {
-    if (ownedPokemon) {
-      setAllOwnedPokemon(ownedPokemon);
-    }
-  }, [ownedPokemon]);
-
-  useEffect(() => {
-    if (pokedex.length > 0 && allOwnedPokemon) {
+    if (pokedex.length > 0 && ownedPokemon) {
       setOwnedPokemonDex(
-        allOwnedPokemon.map(
+        ownedPokemon.map(
           (ownedPoke) =>
             pokedex.filter((pokedexPoke) => pokedexPoke.id === ownedPoke.id)[0]
         )
       );
     }
-  }, [allOwnedPokemon, pokedex]);
+  }, [ownedPokemon, pokedex]);
 
   useEffect(() => {
     if (ownedPokemon) {
@@ -61,7 +54,7 @@ export const PC = () => {
   };
 
   const isShiny = (index) => {
-    return allOwnedPokemon[
+    return ownedPokemon[
       (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
         PAGE_LENGTH +
         index
@@ -106,7 +99,7 @@ export const PC = () => {
           pokemon={
             selectedPokemonIndex === -1
               ? {}
-              : allOwnedPokemon[selectedPokemonIndex]
+              : ownedPokemon[selectedPokemonIndex]
           }
           dexInfo={
             selectedPokemonIndex === -1

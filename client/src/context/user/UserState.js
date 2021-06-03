@@ -159,7 +159,6 @@ export const UserState = ({ children }) => {
   const getAllOwnedPokemon = async () => {
     try {
       const res = await axios.get(`/api/users/${state.user.username}/owned`);
-      console.log(res.data[99]);
       dispatch({
         type: LOAD_OWNED_POKEMON,
         payload: res.data,

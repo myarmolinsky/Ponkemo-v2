@@ -14,6 +14,7 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
     name: "",
     level: "",
     favorite: false,
+    evoLock: false,
     sprite: "",
     heldItem: "",
     friendship: "",
@@ -71,6 +72,7 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
       level: pokemon.level || "",
       favorite:
         typeof pokemon.favorite === "boolean" ? pokemon.favorite : false,
+      evoLock: typeof pokemon.evoLock === "boolean" ? pokemon.evoLock : false,
       sprite: pokemon.shiny ? dexInfo.shinySprite : dexInfo.sprite || "",
       heldItem: pokemon.heldItem || "",
       friendship: pokemon.friendship || "",
@@ -170,7 +172,27 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
           <th colSpan={2}>Nature:</th>
           <td colSpan={2}>{displayInfo.nature}</td>
           <th colSpan={2}>Evo Lock:</th>
-          <td colSpan={2}>UNLOCKED</td>
+          <td colSpan={2}>
+            {index > -1 && (
+              <i
+                className={`fas ${
+                  displayInfo.evoLock ? "fa-lock" : "fa-lock-open"
+                }`}
+                style={{
+                  cursor: "pointer",
+                }}
+                onClick={
+                  index > -1
+                    ? () =>
+                        updateOwnedPokemon(
+                          { evoLock: !displayInfo.evoLock },
+                          index
+                        )
+                    : () => {}
+                }
+              />
+            )}
+          </td>
         </tr>
         <tr>
           <th colSpan={2}>
