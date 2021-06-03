@@ -150,7 +150,9 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
                         updateOwnedPokemon(
                           {
                             nickname:
-                              nickname === "" ? displayInfo.nickname : nickname,
+                              nickname === "" || nickname.length > 12
+                                ? displayInfo.nickname
+                                : nickname,
                           },
                           index
                         );
