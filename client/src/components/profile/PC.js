@@ -5,8 +5,7 @@ import { Dex, SearchFilter, CustomPagination } from "../common";
 import { OwnedPokemonInfo } from "./OwnedPokemonInfo";
 
 export const PC = () => {
-  const { user, loading, ownedPokemon, loadUser, getAllOwnedPokemon } =
-    useContext(UserContext);
+  const { loading, ownedPokemon } = useContext(UserContext);
   const { pokedex } = useContext(PokemonContext);
 
   const [ownedPokemonDex, setOwnedPokemonDex] = useState([]);
@@ -17,12 +16,6 @@ export const PC = () => {
 
   const PAGE_LENGTH = 30; // how many Pokemon to show per page
   const PAGES = Math.ceil(filteredOwnedPokemon.length / PAGE_LENGTH); // how many pages there are
-
-  useEffect(() => {
-    loadUser();
-    getAllOwnedPokemon();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     if (pokedex.length > 0 && ownedPokemon) {
@@ -72,11 +65,11 @@ export const PC = () => {
     );
   };
 
-  return loading || !user ? (
+  return loading || !ownedPokemon ? (
     <Spinner />
   ) : (
-    <div className="pc" style={{ display: "flex", flexDirection: "row" }}>
-      <div className="pc-left" style={{ flex: 3 }}>
+    <div className="pc">
+      <div className="pc-left">
         {/* PC SearchFilter TODO */}
         {/* <SearchFilter
           pokedex={ownedPokemonDex.map((pokemon) => pokemon.dexInfo)}
@@ -94,7 +87,7 @@ export const PC = () => {
           />
         </CustomPagination>
       </div>
-      <div className="pc-right" style={{ flex: 1 }}>
+      <div className="pc-right">
         <OwnedPokemonInfo
           pokemon={
             selectedPokemonIndex === -1

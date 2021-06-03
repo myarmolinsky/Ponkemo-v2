@@ -22,27 +22,23 @@ export const Pokedex = () => {
     return `/pokedex/${pokemon.id}`;
   };
 
-  return (
+  return loading ? (
+    <Spinner />
+  ) : (
     <Fragment>
-      {filteredPokedex === null || loading ? (
-        <Spinner />
-      ) : (
-        <Fragment>
-          <SearchFilter
-            pokedex={pokedex}
-            setFilteredDex={(filtered) => setFilteredPokedex(filtered)}
-          />
-          <CustomPagination pages={PAGES} currentPage={page} setPage={setPage}>
-            <Dex
-              dex={filteredPokedex.slice(
-                (page - 1) * PAGE_LENGTH,
-                page * PAGE_LENGTH
-              )}
-              getLinkTo={directToPokemon}
-            />
-          </CustomPagination>
-        </Fragment>
-      )}
+      <SearchFilter
+        pokedex={pokedex}
+        setFilteredDex={(filtered) => setFilteredPokedex(filtered)}
+      />
+      <CustomPagination pages={PAGES} currentPage={page} setPage={setPage}>
+        <Dex
+          dex={filteredPokedex.slice(
+            (page - 1) * PAGE_LENGTH,
+            page * PAGE_LENGTH
+          )}
+          getLinkTo={directToPokemon}
+        />
+      </CustomPagination>
     </Fragment>
   );
 };

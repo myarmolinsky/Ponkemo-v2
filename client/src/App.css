@@ -106,6 +106,31 @@ td {
   overflow-x: auto;
 }
 
+.owned-pokemon-info-table {
+  position: fixed;
+  right: 0;
+  top: 7vh;
+  min-height: 93vh;
+  max-height: 93vh;
+  width: 25vw;
+  border-collapse: collapse;
+  text-align: center;
+  table-layout: fixed;
+}
+
+.pc {
+  display: flex;
+  flex-direction: row;
+}
+
+.pc-left {
+  flex: 3;
+}
+
+.pc-right {
+  flex: 1;
+}
+
 .alert {
   padding: 0.8rem;
   margin: 1rem 0;

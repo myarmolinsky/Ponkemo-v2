@@ -23,10 +23,6 @@ import setAuthToken from "../../utils/setAuthToken";
 export const UserState = ({ children }) => {
   const { setAlert } = useContext(MiscContext);
 
-  useEffect(() => {
-    loadUser();
-  }, []);
-
   const initialState = {
     token: localStorage.getItem("token"),
     isAuthenticated: null,
@@ -36,6 +32,14 @@ export const UserState = ({ children }) => {
     spawnedPokemon: [],
   };
   const [state, dispatch] = useReducer(userReducer, initialState);
+
+  useEffect(() => {
+    loadUser();
+  }, []);
+
+  useEffect(() => {
+    getAllOwnedPokemon();
+  }, [state.user]);
 
   // Load User
   const loadUser = async () => {

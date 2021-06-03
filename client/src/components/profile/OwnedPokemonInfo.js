@@ -107,23 +107,22 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
   }, [pokemon, dexInfo, pokemonAbility]);
 
   return (
-    <table
-      style={{
-        position: "fixed",
-        right: 0,
-        top: "7vh",
-        minHeight: "93vh",
-        maxHeight: "93vh",
-        width: "25vw",
-        borderCollapse: "collapse",
-        textAlign: "center",
-        tableLayout: "fixed",
-      }}
-    >
+    <table className="owned-pokemon-info-table">
       <tbody>
         <tr>
-          <th colSpan={4} style={{ borderRight: "none" }}>
+          <th colSpan={3} style={{ borderRight: "none" }}>
             {displayInfo.nickname}
+          </th>
+          <th colSpan={1} style={{ borderRight: "none", borderLeft: "none" }}>
+            {index > -1 && (
+              <i
+                className={`fas fa-edit`}
+                style={{
+                  cursor: "pointer",
+                }}
+                onClick={() => {}}
+              />
+            )}
           </th>
           <th colSpan={2} style={{ borderLeft: "none", borderRight: "none" }}>
             lv. {displayInfo.level}
@@ -181,14 +180,8 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
                 style={{
                   cursor: "pointer",
                 }}
-                onClick={
-                  index > -1
-                    ? () =>
-                        updateOwnedPokemon(
-                          { evoLock: !displayInfo.evoLock },
-                          index
-                        )
-                    : () => {}
+                onClick={() =>
+                  updateOwnedPokemon({ evoLock: !displayInfo.evoLock }, index)
                 }
               />
             )}
