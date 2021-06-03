@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 import { object, number } from "prop-types";
 import { UserContext } from "../../context";
 import { PokemonSprite } from "../common";
@@ -46,6 +46,8 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
     },
     moves: [],
   });
+  const [editingNickname, setEditingNickname] = useState(false);
+  const [nickname, setNickname] = useState("");
 
   const pokemonAbility = useMemo(() => {
     if (dexInfo?.abilities?.length > 0 && pokemon.ability >= 0) {
@@ -106,21 +108,56 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, index }) => {
     });
   }, [pokemon, dexInfo, pokemonAbility]);
 
+  useEffect(() => {
+    setNickname(displayInfo.nickname);
+  }, [displayInfo]);
+
+  useEffect(() => {
+    setEditingNickname(false);
+  }, [index]);
+
+  const onChangeNickname = (e) => setNickname(e.target.value);
+
   return (
     <table className="owned-pokemon-info-table">
       <tbody>
         <tr>
           <th colSpan={3} style={{ borderRight: "none" }}>
-            {displayInfo.nickname}
+            {editingNickname ? (
+              <TextField
+                name="nickname"
+                onChange={(e) => onChangeNickname(e)}
+                margin="none"
+                value={nickname}
+                fullWidth
+                size="small"
+                style={{ backgroundColor: "white" }}
+              />
+            ) : (
+              displayInfo.nickname
+            )}
           </th>
           <th colSpan={1} style={{ borderRight: "none", borderLeft: "none" }}>
             {index > -1 && (
               <i
-                className={`fas fa-edit`}
+                className={`fas fa-${editingNickname ? "save" : "edit"}`}
                 style={{
                   cursor: "pointer",
                 }}
-                onClick={() => {}}
+                onClick={
+                  editingNickname
+                    ? () => {
+                        updateOwnedPokemon(
+                          {
+                            nickname:
+                              nickname === "" ? displayInfo.nickname : nickname,
+                          },
+                          index
+                        );
+                        setEditingNickname(false);
+                      }
+                    : () => setEditingNickname(true)
+                }
               />
             )}
           </th>
