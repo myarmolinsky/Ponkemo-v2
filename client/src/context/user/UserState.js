@@ -39,6 +39,7 @@ export const UserState = ({ children }) => {
 
   useEffect(() => {
     getAllOwnedPokemon();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.user]);
 
   // Load User

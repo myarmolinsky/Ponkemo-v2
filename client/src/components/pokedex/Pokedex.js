@@ -18,6 +18,10 @@ export const Pokedex = () => {
     }
   }, [pokedex]);
 
+  useEffect(() => {
+    setPage(1);
+  }, [filteredPokedex]);
+
   const directToPokemon = (pokemon) => {
     return `/pokedex/${pokemon.id}`;
   };

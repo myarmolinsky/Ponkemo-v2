@@ -15,12 +15,14 @@ import { useStyles } from "../styles";
 export const SearchFilter = ({
   pokedex,
   setFilteredDex,
+  ownedPokemon,
+  setFilteredOwnedPokemon,
   showBothTypes,
   showBothEggGroups,
 }) => {
   const classes = useStyles();
 
-  const [searchData, setSearchData] = useState({
+  const [dexSearchData, setSearchData] = useState({
     search: "",
     firstType: " ",
     secondType: " ",
@@ -40,7 +42,7 @@ export const SearchFilter = ({
     baseSpeedGreater: 0,
     baseSpeedLess: 256,
   });
-
+  const [filteredIndexes, setFilteredIndexes] = useState([]);
   const [expandSearchOptions, setExpandSearchOptions] = useState(false);
 
   const {
@@ -62,18 +64,35 @@ export const SearchFilter = ({
     baseSpDefenseLess,
     baseSpeedGreater,
     baseSpeedLess,
-  } = searchData;
+  } = dexSearchData;
 
   const onChange = (e) => {
-    setSearchData({ ...searchData, [e.target.name]: e.target.value });
+    setSearchData({ ...dexSearchData, [e.target.name]: e.target.value });
   };
 
   useEffect(() => {
     setFilteredDex(
-      pokedex.filter((pokemon) => checkSearchPokemon(pokemon, searchData))
+      pokedex.filter((pokemon, index) => !filteredIndexes.includes(index))
     );
+    ownedPokemon &&
+      setFilteredOwnedPokemon(
+        ownedPokemon.filter(
+          (pokemon, index) => !filteredIndexes.includes(index)
+        )
+      );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchData, pokedex]);
+  }, [filteredIndexes, ownedPokemon]);
+
+  useEffect(() => {
+    let indexes = [];
+    pokedex.forEach((pokemon, index) => {
+      if (!checkSearchPokemon(pokemon, dexSearchData)) {
+        indexes.push(index);
+      }
+    });
+    setFilteredIndexes(indexes);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dexSearchData, pokedex]);
 
   const toggleSearchOptions = (e) => {
     e.preventDefault();
@@ -121,7 +140,7 @@ export const SearchFilter = ({
             color="primary"
             onClick={(e) => toggleSearchOptions(e)}
           >
-            Toggle Advanced Search Options
+            {expandSearchOptions ? "Hide" : "Show"} Advanced Search Options
           </Button>
         </Grid>
         <Grid item>
@@ -451,11 +470,15 @@ export const SearchFilter = ({
 SearchFilter.propTypes = {
   pokedex: array.isRequired,
   setFilteredDex: func.isRequired,
+  ownedPokemon: array,
+  setFilteredOwnedPokemon: func,
   showBothTypes: bool,
   showBothEggGroups: bool,
 };
 
 SearchFilter.defaultProps = {
+  ownedPokemon: null,
+  setFilteredOwnedPokemon: () => {},
   showBothTypes: true,
   showBothEggGroups: true,
 };

@@ -8,12 +8,8 @@ import { Dex } from "../common";
 export const Catch = () => {
   const TIMER_STARTING_TIME = 30;
 
-  const {
-    spawnedPokemon,
-    spawnPokemon,
-    despawnPokemon,
-    catchPokemon,
-  } = useContext(UserContext);
+  const { spawnedPokemon, spawnPokemon, despawnPokemon, catchPokemon } =
+    useContext(UserContext);
 
   const [shuffledSpawnedPokemonSets, setShuffledSpawnedPokemonSets] = useState(
     []
@@ -93,7 +89,7 @@ export const Catch = () => {
     shuffledSpawnedPokemonSets,
   ]);
 
-  const isActive = (index) => {
+  const isActive = (pokemon, index) => {
     return activeSelections.includes(index);
   };
 

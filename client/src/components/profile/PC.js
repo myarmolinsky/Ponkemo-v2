@@ -5,17 +5,22 @@ import { Dex, SearchFilter, CustomPagination } from "../common";
 import { OwnedPokemonInfo } from "./OwnedPokemonInfo";
 
 export const PC = () => {
-  const { loading, ownedPokemon } = useContext(UserContext);
+  const { loading, ownedPokemon, getAllOwnedPokemon } = useContext(UserContext);
   const { pokedex } = useContext(PokemonContext);
 
   const [ownedPokemonDex, setOwnedPokemonDex] = useState([]);
   const [filteredOwnedPokemon, setFilteredOwnedPokemon] = useState([]);
-  // const [filteredOwnedPokemonDex, setFilteredOwnedPokemonDex] = useState([]);
+  const [filteredOwnedPokemonDex, setFilteredOwnedPokemonDex] = useState([]);
   const [page, setPage] = useState(1);
-  const [selectedPokemonIndex, setSelectedPokemonIndex] = useState(-1);
+  const [selectedPokemonUid, setSelectedPokemonUid] = useState(-1);
 
   const PAGE_LENGTH = 30; // how many Pokemon to show per page
   const PAGES = Math.ceil(filteredOwnedPokemon.length / PAGE_LENGTH); // how many pages there are
+
+  useEffect(() => {
+    getAllOwnedPokemon();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (pokedex.length > 0 && ownedPokemon) {
@@ -34,17 +39,15 @@ export const PC = () => {
     }
   }, [ownedPokemon]);
 
-  // useEffect(() => {
-  //   setFilteredOwnedPokemonDex(ownedPokemonDex);
-  // }, [ownedPokemonDex]);
+  useEffect(() => {
+    let dex = ownedPokemonDex;
+    dex.forEach((pokemon, index) => (pokemon.uid = index));
+    setFilteredOwnedPokemonDex(dex);
+  }, [ownedPokemonDex]);
 
-  const setOwnedPokemonIndex = (pokemon, index) => {
-    setSelectedPokemonIndex(
-      (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
-        PAGE_LENGTH +
-        index
-    );
-  };
+  useEffect(() => {
+    setPage(1);
+  }, [filteredOwnedPokemon, filteredOwnedPokemonDex]);
 
   const isShiny = (index) => {
     return ownedPokemon[
@@ -56,13 +59,8 @@ export const PC = () => {
       : false;
   };
 
-  const isSelected = (index) => {
-    return (
-      selectedPokemonIndex ===
-      (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
-        PAGE_LENGTH +
-        index
-    );
+  const isSelected = (pokemon, index) => {
+    return selectedPokemonUid === pokemon.uid;
   };
 
   return loading || !ownedPokemon ? (
@@ -70,18 +68,21 @@ export const PC = () => {
   ) : (
     <div className="pc">
       <div className="pc-left">
-        {/* PC SearchFilter TODO */}
-        {/* <SearchFilter
-          pokedex={ownedPokemonDex.map((pokemon) => pokemon.dexInfo)}
-          setFilteredDex={(filtered) => setFilteredOwnedPokemon(filtered)}
-        /> */}
+        <SearchFilter
+          pokedex={ownedPokemonDex}
+          setFilteredDex={(filtered) => setFilteredOwnedPokemonDex(filtered)}
+          ownedPokemon={ownedPokemon}
+          setFilteredOwnedPokemon={(filtered) =>
+            setFilteredOwnedPokemon(filtered)
+          }
+        />
         <CustomPagination pages={PAGES} currentPage={page} setPage={setPage}>
           <Dex
-            dex={ownedPokemonDex.slice(
+            dex={filteredOwnedPokemonDex.slice(
               (page - 1) * PAGE_LENGTH,
               page * PAGE_LENGTH
             )}
-            onClick={setOwnedPokemonIndex}
+            onClick={(pokemon) => setSelectedPokemonUid(pokemon.uid)}
             isShiny={isShiny}
             isSelected={isSelected}
           />
@@ -90,16 +91,12 @@ export const PC = () => {
       <div className="pc-right">
         <OwnedPokemonInfo
           pokemon={
-            selectedPokemonIndex === -1
-              ? {}
-              : ownedPokemon[selectedPokemonIndex]
+            selectedPokemonUid === -1 ? {} : ownedPokemon[selectedPokemonUid]
           }
           dexInfo={
-            selectedPokemonIndex === -1
-              ? {}
-              : ownedPokemonDex[selectedPokemonIndex]
+            selectedPokemonUid === -1 ? {} : ownedPokemonDex[selectedPokemonUid]
           }
-          index={selectedPokemonIndex}
+          index={selectedPokemonUid}
         />
       </div>
     </div>

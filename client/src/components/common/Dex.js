@@ -36,10 +36,10 @@ export const Dex = ({
               sprite={isShiny(index) ? pokemon.shinySprite : pokemon.sprite}
               caption={pokemon.name}
               alt={pokemon.name}
-              visible={isVisible(index)}
+              visible={isVisible(pokemon, index)}
               showCaption={showCaption}
               onClick={() => onClick(pokemon, index)}
-              selected={isSelected(index)}
+              selected={isSelected(pokemon, index)}
             />
           </ConditionalLink>
         </Grid>
