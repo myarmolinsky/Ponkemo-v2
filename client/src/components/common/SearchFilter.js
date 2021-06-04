@@ -53,6 +53,12 @@ export const SearchFilter = ({
     spDefenseLess: 1000,
     speedGreater: 0,
     speedLess: 1000,
+    levelGreater: 0,
+    levelLess: 100,
+    friendshipGreater: 0,
+    friendshipLess: 255,
+    gender: " ",
+    nature: " ",
   });
   const [filteredIndexes, setFilteredIndexes] = useState([]);
   const [expandSearchOptions, setExpandSearchOptions] = useState(false);
@@ -89,6 +95,12 @@ export const SearchFilter = ({
     spDefenseLess,
     speedGreater,
     speedLess,
+    levelGreater,
+    levelLess,
+    friendshipGreater,
+    friendshipLess,
+    gender,
+    nature,
   } = dexSearchData;
 
   const onChange = (e) => {
@@ -128,37 +140,39 @@ export const SearchFilter = ({
         indexes.push(index);
       }
     });
-    ownedPokemon.forEach((pokemon, index) => {
-      if (!indexes.includes(index)) {
-        let abilities;
-        let poke = pokedex.filter((poke) => poke.id === pokemon.id)[0];
-        if (poke) {
-          abilities = poke.abilities;
-          if (poke.hiddenAbility !== "") {
-            abilities.push(poke.hiddenAbility);
-          }
-          if (
-            !checkSearchPokemon(
-              pokemon,
-              dexSearchData,
-              determinePokemonAbility(pokemon.ability, abilities)
-            )
-          ) {
-            indexes.push(index);
+    if (ownedPokemon) {
+      ownedPokemon.forEach((pokemon, index) => {
+        if (!indexes.includes(index)) {
+          let abilities;
+          let poke = pokedex.filter((poke) => poke.id === pokemon.id)[0];
+          if (poke) {
+            abilities = poke.abilities;
+            if (poke.hiddenAbility !== "") {
+              abilities.push(poke.hiddenAbility);
+            }
+            if (
+              !checkSearchPokemon(
+                pokemon,
+                dexSearchData,
+                determinePokemonAbility(pokemon.ability, abilities)
+              )
+            ) {
+              indexes.push(index);
+            }
           }
         }
-      }
-    });
+      });
+    }
     setFilteredIndexes(indexes);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dexSearchData, pokedex, ownedPokemon]);
 
   const toggleSearchOptions = (e) => {
     e.preventDefault();
-    setExpandSearchOptions(!expandSearchOptions);
-    if (!expandSearchOptions) {
+    if (expandSearchOptions) {
       setMoreExpandSearchOptions(false);
     }
+    setExpandSearchOptions(!expandSearchOptions);
   };
 
   const toggleMoreSearchOptions = (e) => {
@@ -198,6 +212,12 @@ export const SearchFilter = ({
       spDefenseLess: 1000,
       speedGreater: 0,
       speedLess: 1000,
+      levelGreater: 0,
+      levelLess: 100,
+      friendshipGreater: 0,
+      friendshipLess: 255,
+      gender: " ",
+      nature: " ",
     });
   };
 
@@ -705,7 +725,112 @@ export const SearchFilter = ({
                 value={speedLess}
               />
             </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Level >"
+                type="number"
+                variant="outlined"
+                placeholder="1"
+                name="levelGreater"
+                onChange={(e) => onChange(e)}
+                value={levelGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Level <"
+                type="number"
+                variant="outlined"
+                placeholder="100"
+                name="levelLess"
+                onChange={(e) => onChange(e)}
+                value={levelLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Friendship >"
+                type="number"
+                variant="outlined"
+                placeholder="1"
+                name="friendshipGreater"
+                onChange={(e) => onChange(e)}
+                value={friendshipGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Friendship <"
+                type="number"
+                variant="outlined"
+                placeholder="100"
+                name="friendshipLess"
+                onChange={(e) => onChange(e)}
+                value={friendshipLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <FormControl variant="outlined" margin="normal" fullWidth>
+                <InputLabel id="gender-label">Gender</InputLabel>
+                <Select
+                  labelId="gender-label"
+                  label="Gender"
+                  name="gender"
+                  onChange={(e) => onChange(e)}
+                  value={gender}
+                >
+                  <MenuItem value=" ">None</MenuItem>
+                  <MenuItem value="Male">Male</MenuItem>
+                  <MenuItem value="Female">Female</MenuItem>
+                  <MenuItem value="Genderless">Genderless</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={2}>
+              <FormControl variant="outlined" margin="normal" fullWidth>
+                <InputLabel id="nature-label">Nature</InputLabel>
+                <Select
+                  labelId="nature-label"
+                  label="Nature"
+                  name="nature"
+                  onChange={(e) => onChange(e)}
+                  value={nature}
+                >
+                  <MenuItem value=" ">None</MenuItem>
+                  <MenuItem value="Hardy">Hardy</MenuItem>
+                  <MenuItem value="Lonely">Lonely</MenuItem>
+                  <MenuItem value="Brave">Brave</MenuItem>
+                  <MenuItem value="Adamant">Adamant</MenuItem>
+                  <MenuItem value="Naughty">Naughty</MenuItem>
+                  <MenuItem value="Bold">Bold</MenuItem>
+                  <MenuItem value="Dovile">Dovile</MenuItem>
+                  <MenuItem value="Relaxed">Relaxed</MenuItem>
+                  <MenuItem value="Impish">Impish</MenuItem>
+                  <MenuItem value="Lax">Lax</MenuItem>
+                  <MenuItem value="Timid">Timid</MenuItem>
+                  <MenuItem value="Hasty">Hasty</MenuItem>
+                  <MenuItem value="Serious">Serious</MenuItem>
+                  <MenuItem value="Jolly">Jolly</MenuItem>
+                  <MenuItem value="Naive">Naive</MenuItem>
+                  <MenuItem value="Modest">Modest</MenuItem>
+                  <MenuItem value="Mild">Mild</MenuItem>
+                  <MenuItem value="Quiet">Quiet</MenuItem>
+                  <MenuItem value="Bashful">Bashful</MenuItem>
+                  <MenuItem value="Rash">Rash</MenuItem>
+                  <MenuItem value="Calm">Calm</MenuItem>
+                  <MenuItem value="Gentle">Gentle</MenuItem>
+                  <MenuItem value="Sassy">Sassy</MenuItem>
+                  <MenuItem value="Careful">Careful</MenuItem>
+                  <MenuItem value="Quirky">Quirky</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
           </Grid>
+          <Divider className={classes.divider} />
         </>
       )}
     </>
@@ -881,6 +1006,12 @@ const checkSearchPokemon = (pokemon, data, determinedAbility) => {
     speedGreater,
     speedLess,
     ability,
+    levelGreater,
+    levelLess,
+    friendshipGreater,
+    friendshipLess,
+    gender,
+    nature,
   } = data;
 
   if (!pokemon.nickname.toUpperCase().includes(search.toUpperCase())) {
@@ -892,14 +1023,18 @@ const checkSearchPokemon = (pokemon, data, determinedAbility) => {
     defGreater,
     spaGreater,
     spdGreater,
-    speGreater = 0;
+    speGreater,
+    lvlGreater,
+    fsGreater = 0;
 
   let hpLess,
     atkLess,
     defLess,
     spaLess,
     spdLess,
-    speLess = 1000;
+    speLess,
+    lvlLess,
+    fsLess = 1000;
 
   if (healthGreater !== "") {
     hpGreater = healthGreater;
@@ -957,6 +1092,34 @@ const checkSearchPokemon = (pokemon, data, determinedAbility) => {
   }
   if (!determinedAbility.toUpperCase().includes(ability.toUpperCase())) {
     return false;
+  }
+  if (levelGreater !== "") {
+    lvlGreater = levelGreater;
+  }
+  if (levelLess !== "") {
+    lvlLess = levelLess;
+  }
+  if (pokemon.level <= lvlGreater || pokemon.level >= lvlLess) {
+    return false;
+  }
+  if (friendshipGreater !== "") {
+    fsGreater = friendshipGreater;
+  }
+  if (friendshipLess !== "") {
+    fsLess = friendshipLess;
+  }
+  if (pokemon.friendship <= fsGreater || pokemon.friendship >= fsLess) {
+    return false;
+  }
+  if (gender !== " ") {
+    if (!pokemon.gender.includes(gender)) {
+      return false;
+    }
+  }
+  if (nature !== " ") {
+    if (!pokemon.nature.includes(nature)) {
+      return false;
+    }
   }
   return true;
 };

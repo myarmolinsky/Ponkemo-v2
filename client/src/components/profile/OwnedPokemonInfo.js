@@ -118,6 +118,17 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, uid }) => {
 
   const onChangeNickname = (e) => setNickname(e.target.value);
 
+  /**
+   * @desc Determine whether to wrap the children in a Link or a fragment
+   *
+   * @param {boolean} isLink
+   * @param {any} children
+   * @param {string} to
+   * @returns The children are wrapped in a Link to "to" if isLink is true or wrapped in a fragment is isLink is false
+   */
+  const ConditionalLink = ({ isLink, children, to }) =>
+    isLink ? <Link to={to}>{children}</Link> : <>{children}</>;
+
   return (
     <table className="owned-pokemon-info-table">
       <tbody>
@@ -187,11 +198,13 @@ export const OwnedPokemonInfo = ({ pokemon, dexInfo, uid }) => {
         </tr>
         <tr>
           <td colSpan={8} align="center">
-            <PokemonSprite
-              sprite={displayInfo.sprite}
-              alt={displayInfo.name}
-              visible={uid > -1 ? true : false}
-            />
+            <ConditionalLink isLink={uid > -1} to={`/pokedex/${pokemon.id}`}>
+              <PokemonSprite
+                sprite={displayInfo.sprite}
+                alt={displayInfo.name}
+                visible={uid > -1 ? true : false}
+              />
+            </ConditionalLink>
           </td>
         </tr>
         <tr>
