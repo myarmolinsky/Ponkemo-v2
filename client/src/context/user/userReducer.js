@@ -45,7 +45,7 @@ export default function (state, action) {
     case SPAWN_POKEMON:
       return {
         ...state,
-        spawnedPokemon: state.spawnedPokemon.concat([payload]),
+        spawnedPokemon: payload,
       };
     case SPAWN_POKEMON_FAIL:
     case DESPAWN_POKEMON:

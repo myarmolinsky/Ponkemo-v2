@@ -1,9 +1,10 @@
 import React, { Fragment, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { any } from "prop-types";
 import { Button, Grid } from "@material-ui/core";
 import { PokemonContext, UserContext } from "../../context";
 import { Spinner, NotFound } from "../layout";
+import { PokemonSprite } from "../common";
 
 export const Pokemon = ({ match }) => {
   const {
@@ -21,16 +22,45 @@ export const Pokemon = ({ match }) => {
 
   const { user } = useContext(UserContext);
 
+  let history = useHistory();
+
   useEffect(() => {
     getPokemon(match.params.id);
     getFormes(match.params.id);
     getEggs(match.params.id);
     getEvolutions(match.params.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [match.params.id]);
 
   let evolutionCount = -1;
   let formeRow = -1;
   let evolutionRow = -1;
+
+  const displayFormes = (formes) => {
+    return formes.map((pokemon) => (
+      <td key={pokemon.id} className="table-body" colSpan={2} align="center">
+        <PokemonSprite
+          sprite={pokemon.sprite}
+          caption={pokemon.name}
+          alt={pokemon.name}
+          onClick={() => history.push(`/pokedex/${pokemon.id}`)}
+        />
+      </td>
+    ));
+  };
+
+  const displayEvolutions = (evolutions, condition) => {
+    return evolutions.map((pokemon) => (
+      <td key={pokemon.id} className="table-body" colSpan={2} align="center">
+        <PokemonSprite
+          sprite={pokemon.sprite}
+          caption={pokemon.name + " " + evolutionCondition(condition)}
+          alt={pokemon.name}
+          onClick={() => history.push(`/pokedex/${pokemon.id}`)}
+        />
+      </td>
+    ));
+  };
 
   return (
     <Fragment>
@@ -102,19 +132,13 @@ export const Pokemon = ({ match }) => {
                   </th>
                 </tr>
                 <tr>
-                  <td className="table-body" colSpan={3}>
-                    <img
-                      className="sprite"
-                      src={pokemon.sprite}
-                      alt={pokemon.name}
-                      style={{ margin: "15%" }}
-                    />
+                  <td className="table-body" colSpan={3} align="center">
+                    <PokemonSprite sprite={pokemon.sprite} alt={pokemon.name} />
                   </td>
-                  <td className="table-body" colSpan={3}>
-                    <img
-                      className="sprite"
-                      src={pokemon.shinySprite}
-                      alt={"Shiny " + pokemon.name}
+                  <td className="table-body" colSpan={3} align="center">
+                    <PokemonSprite
+                      sprite={pokemon.shinySprite}
+                      alt={"Shiny" + pokemon.name}
                     />
                   </td>
                 </tr>
@@ -446,40 +470,6 @@ export const Pokemon = ({ match }) => {
       )}
     </Fragment>
   );
-};
-
-const displayFormes = (formes) => {
-  return formes.map((poke) => (
-    <td key={poke.id} className="table-body" colSpan={2}>
-      <Link key={poke.name} to={`/pokedex/${poke.id}`}>
-        {/* Create a link leading to the pokemon's page */}
-        <div style={{ margin: "15%" }}>
-          <img src={poke.sprite} className="sprite" alt={poke.name} />
-          {/* Pokemon's sprite */}
-          <span className="caption">{poke.name}</span>
-          {/* Pokemon's name */}
-        </div>
-      </Link>
-    </td>
-  ));
-};
-
-const displayEvolutions = (evolutions, condition) => {
-  return evolutions.map((poke) => (
-    <td key={poke.id} className="table-body" colSpan={2}>
-      <Link key={poke.name} to={`/pokedex/${poke.id}`}>
-        {/* Create a link leading to the pokemon's page */}
-        <div style={{ margin: "15%" }}>
-          <img src={poke.sprite} className="sprite" alt={poke.name} />
-          {/* Pokemon's sprite */}
-          <span className="caption">
-            {poke.name} {evolutionCondition(condition)}
-          </span>
-          {/* Pokemon's name */}
-        </div>
-      </Link>
-    </td>
-  ));
 };
 
 // Return the condition for evolving a Pokemon

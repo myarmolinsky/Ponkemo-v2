@@ -66,6 +66,7 @@ export const EditPokemon = ({ match }) => {
     if (match.params.id > 1) {
       getPreviousPokemonId(match.params.id);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [match.params.id]);
 
   useEffect(() => {

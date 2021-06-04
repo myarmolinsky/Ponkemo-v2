@@ -98,13 +98,31 @@ router.get("/:username/owned", async (req, res) => {
   try {
     const user = await User.findOne({ username });
 
-    let data = [];
-    for (let i = 0; i < user.ownedPokemon.length; i++) {
-      const pokemon = await Pokemon.findOne({ id: user.ownedPokemon[i].id });
-      data.push({ pokemon, info: user.ownedPokemon[i] });
-    }
+    res.send(user.ownedPokemon);
+  } catch (err) {
+    // if something goes wrong here, then it's a server error
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
 
-    res.send(data);
+// @route PUT api/users/:username/owned/update/:index
+// @desc Update the given data of the owned Pokemon at the given index
+// @access Public
+router.put("/:username/owned/update/:uid", async (req, res) => {
+  const { username, uid } = req.params;
+
+  try {
+    const user = await User.findOne({ username });
+    let ownedPokemon = user.ownedPokemon;
+    for (let i = 0; i < ownedPokemon.length; i++) {
+      if (ownedPokemon[i].uid == uid) {
+        ownedPokemon[i] = { ...ownedPokemon[i], ...req.body };
+        break;
+      }
+    }
+    await User.updateOne({ username }, { ownedPokemon });
+    res.status(200).send();
   } catch (err) {
     // if something goes wrong here, then it's a server error
     console.error(err.message);
@@ -121,27 +139,35 @@ router.put("/:username/spawn", async (req, res) => {
   const user = await User.findOne({ username });
   let spawnCounter = user.spawnCounter;
   let spawning = true;
+  let spawns = [];
   let spawnIndex = Math.floor(Math.random() * spawnCounter.length);
-  while (spawning) {
-    if (spawnCounter[spawnIndex] === spawnIndex) {
-      spawning = false;
-      spawnCounter[spawnIndex] = 0;
-    } else {
-      spawnCounter[spawnIndex] = spawnCounter[spawnIndex] + 1;
-      spawnIndex = Math.floor(Math.random() * spawnCounter.length);
+  // determine the spawnRate of 12 Pokemon to spawn
+  while (spawns.length < 12) {
+    while (spawning) {
+      if (spawnCounter[spawnIndex] === spawnIndex) {
+        spawning = false;
+        spawnCounter[spawnIndex] = 0;
+      } else {
+        spawnCounter[spawnIndex] = spawnCounter[spawnIndex] + 1;
+        spawnIndex = Math.floor(Math.random() * spawnCounter.length);
+      }
     }
+    spawns.push(spawnIndex);
   }
 
-  let pokemon = await Pokemon.aggregate([
-    { $match: { spawnRate: spawnIndex } },
-    { $sample: { size: 1 } },
-  ]);
-  pokemon = pokemon[0];
+  let spawnedPokemon = [];
+  while (spawnedPokemon.length < 12) {
+    let pokemon = await Pokemon.aggregate([
+      { $match: { spawnRate: spawns.pop() } },
+      { $sample: { size: 1 } },
+    ]);
+    spawnedPokemon.push(pokemon[0]);
+  }
 
   try {
     await User.updateOne({ username }, { spawnCounter });
 
-    res.status(200).send(pokemon);
+    res.status(200).send(spawnedPokemon);
   } catch (err) {
     // if something goes wrong here, then it's a server error
     console.error(err.message);
@@ -155,6 +181,24 @@ router.put("/:username/spawn", async (req, res) => {
 router.put("/:username/catch", async (req, res) => {
   const { username } = req.params;
   const { pokemon } = req.body;
+
+  // find the lowest unused uid
+  const user = await User.findOne({ username });
+  let ownedPokemon = user.ownedPokemon;
+  for (i = 0; i < ownedPokemon.length; i++) {
+    ownedPokemon[i] = ownedPokemon[i].uid;
+  }
+  ownedPokemon.sort((a, b) => a - b);
+  let lowestUnusedUid = -1;
+  for (i = 0; i < ownedPokemon.length; i++) {
+    if (ownedPokemon[i] !== i) {
+      lowestUnusedUid = i;
+      break;
+    }
+  }
+  if (lowestUnusedUid === -1) {
+    lowestUnusedUid = ownedPokemon.length;
+  }
 
   let level = Math.floor(Math.random() * 25) + 1;
   let nature = pickNature();
@@ -204,6 +248,7 @@ router.put("/:username/catch", async (req, res) => {
     },
     favorite: false,
     moves: pickMoves(pokemon.moves, level),
+    uid: lowestUnusedUid,
   };
 
   try {

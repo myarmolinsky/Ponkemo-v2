@@ -13,7 +13,7 @@ import {
   EditPokemon,
 } from "../pokedex";
 import { Catch, Forage, Shop, Recycle, Battle, Contest } from "../menu";
-import { Profile, Train, Breed } from "../profile";
+import { Profile, PC, Train, Breed } from "../profile";
 import { PrivateRoute } from "../routing/PrivateRoute";
 import { NotFound } from "../layout";
 
@@ -27,6 +27,7 @@ const Routes = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <PrivateRoute exact path="/menu" component={Menu} />
+        <PrivateRoute exact path="/pc" component={PC} />
         <PrivateRoute exact path="/profile" component={Profile} />
         <Route exact path="/pokedex" component={Pokedex} />
         <Route exact path="/pokedex/:id" component={Pokemon} />
@@ -35,14 +36,14 @@ const Routes = () => {
         <Route exact path="/egggroups/:eggGroup" component={EggGroup} />
         <Route exact path="/types" component={Types} />
         <Route exact path="/types/:type" component={Type} />
-        <Route exact path="/catch" component={Catch} />
-        <Route exact path="/forage" component={Forage} />
-        <Route exact path="/train" component={Train} />
-        <Route exact path="/breed" component={Breed} />
-        <Route exact path="/shop" component={Shop} />
-        <Route exact path="/recycle" component={Recycle} />
-        <Route exact path="/battle" component={Battle} />
-        <Route exact path="/contest" component={Contest} />
+        <PrivateRoute exact path="/catch" component={Catch} />
+        <PrivateRoute exact path="/forage" component={Forage} />
+        <PrivateRoute exact path="/train" component={Train} />
+        <PrivateRoute exact path="/breed" component={Breed} />
+        <PrivateRoute exact path="/shop" component={Shop} />
+        <PrivateRoute exact path="/recycle" component={Recycle} />
+        <PrivateRoute exact path="/battle" component={Battle} />
+        <PrivateRoute exact path="/contest" component={Contest} />
         <Route component={NotFound} />
       </Switch>
     </div>

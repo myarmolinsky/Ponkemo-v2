@@ -15,12 +15,14 @@ import { useStyles } from "../styles";
 export const SearchFilter = ({
   pokedex,
   setFilteredDex,
+  ownedPokemon,
+  setFilteredOwnedPokemon,
   showBothTypes,
   showBothEggGroups,
 }) => {
   const classes = useStyles();
 
-  const [searchData, setSearchData] = useState({
+  const [dexSearchData, setSearchData] = useState({
     search: "",
     firstType: " ",
     secondType: " ",
@@ -39,9 +41,40 @@ export const SearchFilter = ({
     baseSpDefenseLess: 256,
     baseSpeedGreater: 0,
     baseSpeedLess: 256,
+    healthGreater: 0,
+    healthLess: 1000,
+    attackGreater: 0,
+    attackLess: 1000,
+    defenseGreater: 0,
+    defenseLess: 1000,
+    spAttackGreater: 0,
+    spAttackLess: 1000,
+    spDefenseGreater: 0,
+    spDefenseLess: 1000,
+    speedGreater: 0,
+    speedLess: 1000,
+    levelGreater: 0,
+    levelLess: 101,
+    friendshipGreater: 0,
+    friendshipLess: 256,
+    gender: " ",
+    nature: " ",
+    healthIvGreater: -1,
+    healthIvLess: 32,
+    attackIvGreater: -1,
+    attackIvLess: 32,
+    defenseIvGreater: -1,
+    defenseIvLess: 32,
+    spAttackIvGreater: -1,
+    spAttackIvLess: 32,
+    spDefenseIvGreater: -1,
+    spDefenseIvLess: 32,
+    speedIvGreater: -1,
+    speedIvLess: 32,
   });
-
+  const [filteredIndexes, setFilteredIndexes] = useState([]);
   const [expandSearchOptions, setExpandSearchOptions] = useState(false);
+  const [moreExpandSearchOptions, setMoreExpandSearchOptions] = useState(false);
 
   const {
     search,
@@ -62,21 +95,119 @@ export const SearchFilter = ({
     baseSpDefenseLess,
     baseSpeedGreater,
     baseSpeedLess,
-  } = searchData;
+    healthGreater,
+    healthLess,
+    attackGreater,
+    attackLess,
+    defenseGreater,
+    defenseLess,
+    spAttackGreater,
+    spAttackLess,
+    spDefenseGreater,
+    spDefenseLess,
+    speedGreater,
+    speedLess,
+    levelGreater,
+    levelLess,
+    friendshipGreater,
+    friendshipLess,
+    gender,
+    nature,
+    healthIvGreater,
+    healthIvLess,
+    attackIvGreater,
+    attackIvLess,
+    defenseIvGreater,
+    defenseIvLess,
+    spAttackIvGreater,
+    spAttackIvLess,
+    spDefenseIvGreater,
+    spDefenseIvLess,
+    speedIvGreater,
+    speedIvLess,
+  } = dexSearchData;
 
   const onChange = (e) => {
-    setSearchData({ ...searchData, [e.target.name]: e.target.value });
+    setSearchData({ ...dexSearchData, [e.target.name]: e.target.value });
+  };
+
+  const determinePokemonAbility = (abilityRoll, abilities) => {
+    if (abilityRoll === 0) {
+      if (abilities.length > 2) {
+        return abilities[2];
+      }
+    } else {
+      if (abilityRoll > 75 && abilities.length > 1) {
+        return abilities[1];
+      }
+    }
+    return abilities[0];
   };
 
   useEffect(() => {
     setFilteredDex(
-      pokedex.filter((pokemon) => checkSearchPokemon(pokemon, searchData))
+      pokedex.filter((pokemon, index) => !filteredIndexes.includes(index))
     );
-  }, [searchData, pokedex]);
+    ownedPokemon &&
+      setFilteredOwnedPokemon(
+        ownedPokemon.filter(
+          (pokemon, index) => !filteredIndexes.includes(index)
+        )
+      );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filteredIndexes, ownedPokemon]);
+
+  useEffect(() => {
+    let indexes = [];
+    pokedex.forEach((pokemon, index) => {
+      if (
+        !checkSearchPokemonInfo(
+          pokemon,
+          dexSearchData,
+          ownedPokemon ? true : false
+        )
+      ) {
+        indexes.push(index);
+      }
+    });
+    if (ownedPokemon) {
+      ownedPokemon.forEach((pokemon, index) => {
+        if (!indexes.includes(index)) {
+          let abilities;
+          let poke = pokedex.filter((poke) => poke.id === pokemon.id)[0];
+          if (poke) {
+            abilities = poke.abilities;
+            if (poke.hiddenAbility !== "") {
+              abilities.push(poke.hiddenAbility);
+            }
+            if (
+              !checkSearchPokemon(
+                pokemon,
+                dexSearchData,
+                determinePokemonAbility(pokemon.ability, abilities)
+              )
+            ) {
+              indexes.push(index);
+            }
+          }
+        }
+      });
+    }
+    setFilteredIndexes(indexes);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dexSearchData, pokedex, ownedPokemon]);
 
   const toggleSearchOptions = (e) => {
     e.preventDefault();
+    if (expandSearchOptions) {
+      setMoreExpandSearchOptions(false);
+    }
     setExpandSearchOptions(!expandSearchOptions);
+  };
+
+  const toggleMoreSearchOptions = (e) => {
+    e.preventDefault();
+    setMoreExpandSearchOptions(!moreExpandSearchOptions);
   };
 
   const clearSearch = () => {
@@ -99,6 +230,24 @@ export const SearchFilter = ({
       baseSpDefenseLess: 256,
       baseSpeedGreater: 0,
       baseSpeedLess: 256,
+      healthGreater: 0,
+      healthLess: 1000,
+      attackGreater: 0,
+      attackLess: 1000,
+      defenseGreater: 0,
+      defenseLess: 1000,
+      spAttackGreater: 0,
+      spAttackLess: 1000,
+      spDefenseGreater: 0,
+      spDefenseLess: 1000,
+      speedGreater: 0,
+      speedLess: 1000,
+      levelGreater: 0,
+      levelLess: 100,
+      friendshipGreater: 0,
+      friendshipLess: 255,
+      gender: " ",
+      nature: " ",
     });
   };
 
@@ -120,9 +269,20 @@ export const SearchFilter = ({
             color="primary"
             onClick={(e) => toggleSearchOptions(e)}
           >
-            Toggle Advanced Search Options
+            {expandSearchOptions ? "Hide" : "Show"} Advanced Search Options
           </Button>
         </Grid>
+        {expandSearchOptions && ownedPokemon && (
+          <Grid item>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={(e) => toggleMoreSearchOptions(e)}
+            >
+              {moreExpandSearchOptions ? "Less" : "More"} Options
+            </Button>
+          </Grid>
+        )}
         <Grid item>
           <Button
             onClick={() => clearSearch()}
@@ -443,6 +603,410 @@ export const SearchFilter = ({
         </Fragment>
       )}
       <Divider className={classes.divider} />
+      {moreExpandSearchOptions && (
+        <>
+          <Grid
+            container
+            justify="space-evenly"
+            alignItems="flex-end"
+            spacing={1}
+          >
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="HP >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="healthGreater"
+                onChange={(e) => onChange(e)}
+                value={healthGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="HP <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="healthLess"
+                onChange={(e) => onChange(e)}
+                value={healthLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Attack >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="attackGreater"
+                onChange={(e) => onChange(e)}
+                value={attackGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Attack <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="attackLess"
+                onChange={(e) => onChange(e)}
+                value={attackLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Defense >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="defenseGreater"
+                onChange={(e) => onChange(e)}
+                value={defenseGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Defense <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="defenseLess"
+                onChange={(e) => onChange(e)}
+                value={defenseLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Special Attack >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="spAttackGreater"
+                onChange={(e) => onChange(e)}
+                value={spAttackGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Special Attack <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="spAttackLess"
+                onChange={(e) => onChange(e)}
+                value={spAttackLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Special Defense >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="spDefenseGreater"
+                onChange={(e) => onChange(e)}
+                value={spDefenseGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Special Defense <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="spDefenseLess"
+                onChange={(e) => onChange(e)}
+                value={spDefenseLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Speed >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="speedGreater"
+                onChange={(e) => onChange(e)}
+                value={speedGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Speed <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="speedLess"
+                onChange={(e) => onChange(e)}
+                value={speedLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Level >"
+                type="number"
+                variant="outlined"
+                placeholder="1"
+                name="levelGreater"
+                onChange={(e) => onChange(e)}
+                value={levelGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Level <"
+                type="number"
+                variant="outlined"
+                placeholder="100"
+                name="levelLess"
+                onChange={(e) => onChange(e)}
+                value={levelLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Friendship >"
+                type="number"
+                variant="outlined"
+                placeholder="1"
+                name="friendshipGreater"
+                onChange={(e) => onChange(e)}
+                value={friendshipGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Friendship <"
+                type="number"
+                variant="outlined"
+                placeholder="100"
+                name="friendshipLess"
+                onChange={(e) => onChange(e)}
+                value={friendshipLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <FormControl variant="outlined" margin="normal" fullWidth>
+                <InputLabel id="gender-label">Gender</InputLabel>
+                <Select
+                  labelId="gender-label"
+                  label="Gender"
+                  name="gender"
+                  onChange={(e) => onChange(e)}
+                  value={gender}
+                >
+                  <MenuItem value=" ">None</MenuItem>
+                  <MenuItem value="Male">Male</MenuItem>
+                  <MenuItem value="Female">Female</MenuItem>
+                  <MenuItem value="Genderless">Genderless</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={2}>
+              <FormControl variant="outlined" margin="normal" fullWidth>
+                <InputLabel id="nature-label">Nature</InputLabel>
+                <Select
+                  labelId="nature-label"
+                  label="Nature"
+                  name="nature"
+                  onChange={(e) => onChange(e)}
+                  value={nature}
+                >
+                  <MenuItem value=" ">None</MenuItem>
+                  <MenuItem value="Hardy">Hardy</MenuItem>
+                  <MenuItem value="Lonely">Lonely</MenuItem>
+                  <MenuItem value="Brave">Brave</MenuItem>
+                  <MenuItem value="Adamant">Adamant</MenuItem>
+                  <MenuItem value="Naughty">Naughty</MenuItem>
+                  <MenuItem value="Bold">Bold</MenuItem>
+                  <MenuItem value="Dovile">Dovile</MenuItem>
+                  <MenuItem value="Relaxed">Relaxed</MenuItem>
+                  <MenuItem value="Impish">Impish</MenuItem>
+                  <MenuItem value="Lax">Lax</MenuItem>
+                  <MenuItem value="Timid">Timid</MenuItem>
+                  <MenuItem value="Hasty">Hasty</MenuItem>
+                  <MenuItem value="Serious">Serious</MenuItem>
+                  <MenuItem value="Jolly">Jolly</MenuItem>
+                  <MenuItem value="Naive">Naive</MenuItem>
+                  <MenuItem value="Modest">Modest</MenuItem>
+                  <MenuItem value="Mild">Mild</MenuItem>
+                  <MenuItem value="Quiet">Quiet</MenuItem>
+                  <MenuItem value="Bashful">Bashful</MenuItem>
+                  <MenuItem value="Rash">Rash</MenuItem>
+                  <MenuItem value="Calm">Calm</MenuItem>
+                  <MenuItem value="Gentle">Gentle</MenuItem>
+                  <MenuItem value="Sassy">Sassy</MenuItem>
+                  <MenuItem value="Careful">Careful</MenuItem>
+                  <MenuItem value="Quirky">Quirky</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="HP IV >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="healthIvGreater"
+                onChange={(e) => onChange(e)}
+                value={healthIvGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="HP IV <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="healthIvLess"
+                onChange={(e) => onChange(e)}
+                value={healthIvLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Attack IV >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="attackIvGreater"
+                onChange={(e) => onChange(e)}
+                value={attackIvGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Attack IV <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="attackIvLess"
+                onChange={(e) => onChange(e)}
+                value={attackIvLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Defense IV >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="defenseIvGreater"
+                onChange={(e) => onChange(e)}
+                value={defenseIvGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Defense IV <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="defenseIvLess"
+                onChange={(e) => onChange(e)}
+                value={defenseIvLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Special Attack IV >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="spAttackIvGreater"
+                onChange={(e) => onChange(e)}
+                value={spAttackIvGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Special Attack IV <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="spAttackIvLess"
+                onChange={(e) => onChange(e)}
+                value={spAttackIvLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Special Defense IV >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="spDefenseIvGreater"
+                onChange={(e) => onChange(e)}
+                value={spDefenseIvGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Special Defense IV <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="spDefenseIvLess"
+                onChange={(e) => onChange(e)}
+                value={spDefenseIvLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Speed IV >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="speedIvGreater"
+                onChange={(e) => onChange(e)}
+                value={speedIvGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Speed IV <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="speedIvLess"
+                onChange={(e) => onChange(e)}
+                value={speedIvLess}
+              />
+            </Grid>
+          </Grid>
+          <Divider className={classes.divider} />
+        </>
+      )}
     </>
   );
 };
@@ -450,16 +1014,20 @@ export const SearchFilter = ({
 SearchFilter.propTypes = {
   pokedex: array.isRequired,
   setFilteredDex: func.isRequired,
+  ownedPokemon: array,
+  setFilteredOwnedPokemon: func,
   showBothTypes: bool,
   showBothEggGroups: bool,
 };
 
 SearchFilter.defaultProps = {
+  ownedPokemon: null,
+  setFilteredOwnedPokemon: () => {},
   showBothTypes: true,
   showBothEggGroups: true,
 };
 
-const checkSearchPokemon = (pokemon, data) => {
+const checkSearchPokemonInfo = (pokemon, data, passedOwnedPokemon = false) => {
   const {
     search,
     firstType,
@@ -481,8 +1049,10 @@ const checkSearchPokemon = (pokemon, data) => {
     baseSpeedLess,
   } = data;
 
-  if (!pokemon.name.toUpperCase().includes(search.toUpperCase())) {
-    return false;
+  if (!passedOwnedPokemon) {
+    if (!pokemon.name.toUpperCase().includes(search.toUpperCase())) {
+      return false;
+    }
   }
 
   if (firstType !== " ") {
@@ -496,16 +1066,18 @@ const checkSearchPokemon = (pokemon, data) => {
     }
   }
 
-  if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase())) {
-    if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase())) {
-      if (pokemon.abilities.length > 1) {
-        if (
-          !pokemon.abilities[1].toUpperCase().includes(ability.toUpperCase())
-        ) {
+  if (!passedOwnedPokemon) {
+    if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase())) {
+      if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase())) {
+        if (pokemon.abilities.length > 1) {
+          if (
+            !pokemon.abilities[1].toUpperCase().includes(ability.toUpperCase())
+          ) {
+            return false;
+          }
+        } else {
           return false;
         }
-      } else {
-        return false;
       }
     }
   }
@@ -587,6 +1159,220 @@ const checkSearchPokemon = (pokemon, data) => {
     speLess = baseSpeedLess;
   }
   if (pokemon.baseStats.spe <= speGreater || pokemon.baseStats.spe >= speLess) {
+    return false;
+  }
+  return true;
+};
+
+const checkSearchPokemon = (pokemon, data, determinedAbility) => {
+  const {
+    search,
+    healthGreater,
+    healthLess,
+    attackGreater,
+    attackLess,
+    defenseGreater,
+    defenseLess,
+    spAttackGreater,
+    spAttackLess,
+    spDefenseGreater,
+    spDefenseLess,
+    speedGreater,
+    speedLess,
+    ability,
+    levelGreater,
+    levelLess,
+    friendshipGreater,
+    friendshipLess,
+    gender,
+    nature,
+    healthIvGreater,
+    healthIvLess,
+    attackIvGreater,
+    attackIvLess,
+    defenseIvGreater,
+    defenseIvLess,
+    spAttackIvGreater,
+    spAttackIvLess,
+    spDefenseIvGreater,
+    spDefenseIvLess,
+    speedIvGreater,
+    speedIvLess,
+  } = data;
+
+  if (!pokemon.nickname.toUpperCase().includes(search.toUpperCase())) {
+    return false;
+  }
+
+  let hpGreater,
+    atkGreater,
+    defGreater,
+    spaGreater,
+    spdGreater,
+    speGreater,
+    lvlGreater,
+    fsGreater = 0;
+
+  let hpLess,
+    atkLess,
+    defLess,
+    spaLess,
+    spdLess,
+    speLess,
+    lvlLess,
+    fsLess = 1000;
+
+  if (healthGreater !== "") {
+    hpGreater = healthGreater;
+  }
+  if (healthLess !== "") {
+    hpLess = healthLess;
+  }
+  if (pokemon.stats.hp <= hpGreater || pokemon.stats.hp >= hpLess) {
+    return false;
+  }
+  if (attackGreater !== "") {
+    atkGreater = attackGreater;
+  }
+  if (attackLess !== "") {
+    atkLess = attackLess;
+  }
+  if (pokemon.stats.atk <= atkGreater || pokemon.stats.atk >= atkLess) {
+    return false;
+  }
+  if (defenseGreater !== "") {
+    defGreater = defenseGreater;
+  }
+  if (defenseLess !== "") {
+    defLess = defenseLess;
+  }
+  if (pokemon.stats.def <= defGreater || pokemon.stats.def >= defLess) {
+    return false;
+  }
+  if (spAttackGreater !== "") {
+    spaGreater = spAttackGreater;
+  }
+  if (spAttackLess !== "") {
+    spaLess = spAttackLess;
+  }
+  if (pokemon.stats.spA <= spaGreater || pokemon.stats.spA >= spaLess) {
+    return false;
+  }
+  if (spDefenseGreater !== "") {
+    spdGreater = spDefenseGreater;
+  }
+  if (spDefenseLess !== "") {
+    spdLess = spDefenseLess;
+  }
+  if (pokemon.stats.spD <= spdGreater || pokemon.stats.spD >= spdLess) {
+    return false;
+  }
+  if (speedGreater !== "") {
+    speGreater = speedGreater;
+  }
+  if (speedLess !== "") {
+    speLess = speedLess;
+  }
+  if (pokemon.stats.spe <= speGreater || pokemon.stats.spe >= speLess) {
+    return false;
+  }
+  if (!determinedAbility.toUpperCase().includes(ability.toUpperCase())) {
+    return false;
+  }
+  if (levelGreater !== "") {
+    lvlGreater = levelGreater;
+  }
+  if (levelLess !== "") {
+    lvlLess = levelLess;
+  }
+  if (pokemon.level <= lvlGreater || pokemon.level >= lvlLess) {
+    return false;
+  }
+  if (friendshipGreater !== "") {
+    fsGreater = friendshipGreater;
+  }
+  if (friendshipLess !== "") {
+    fsLess = friendshipLess;
+  }
+  if (pokemon.friendship <= fsGreater || pokemon.friendship >= fsLess) {
+    return false;
+  }
+  if (gender !== " ") {
+    if (!pokemon.gender.includes(gender)) {
+      return false;
+    }
+  }
+  if (nature !== " ") {
+    if (!pokemon.nature.includes(nature)) {
+      return false;
+    }
+  }
+  let hpIvGreater,
+    atkIvGreater,
+    defIvGreater,
+    spaIvGreater,
+    spdIvGreater,
+    speIvGreater = -1;
+
+  let hpIvLess,
+    atkIvLess,
+    defIvLess,
+    spaIvLess,
+    spdIvLess,
+    speIvLess = 32;
+
+  if (healthIvGreater !== "") {
+    hpIvGreater = healthIvGreater;
+  }
+  if (healthIvLess !== "") {
+    hpLess = healthIvLess;
+  }
+  if (pokemon.ivs.hp <= hpIvGreater || pokemon.ivs.hp >= hpIvLess) {
+    return false;
+  }
+  if (attackIvGreater !== "") {
+    atkIvGreater = attackIvGreater;
+  }
+  if (attackIvLess !== "") {
+    atkIvLess = attackIvLess;
+  }
+  if (pokemon.ivs.atk <= atkIvGreater || pokemon.ivs.atk >= atkIvLess) {
+    return false;
+  }
+  if (defenseIvGreater !== "") {
+    defIvGreater = defenseIvGreater;
+  }
+  if (defenseIvLess !== "") {
+    defIvLess = defenseIvLess;
+  }
+  if (pokemon.ivs.def <= defIvGreater || pokemon.ivs.def >= defIvLess) {
+    return false;
+  }
+  if (spAttackIvGreater !== "") {
+    spaIvGreater = spAttackIvGreater;
+  }
+  if (spAttackIvLess !== "") {
+    spaIvLess = spAttackIvLess;
+  }
+  if (pokemon.ivs.spA <= spaIvGreater || pokemon.ivs.spA >= spaIvLess) {
+    return false;
+  }
+  if (spDefenseIvGreater !== "") {
+    spdIvGreater = spDefenseIvGreater;
+  }
+  if (spDefenseIvLess !== "") {
+    spdIvLess = spDefenseIvLess;
+  }
+  if (pokemon.ivs.spD <= spdIvGreater || pokemon.ivs.spD >= spdIvLess) {
+    return false;
+  }
+  if (speedIvGreater !== "") {
+    speIvGreater = speedIvGreater;
+  }
+  if (speedIvLess !== "") {
+    speIvLess = speedIvLess;
+  }
+  if (pokemon.ivs.spe <= speIvGreater || pokemon.ivs.spe >= speIvLess) {
     return false;
   }
   return true;

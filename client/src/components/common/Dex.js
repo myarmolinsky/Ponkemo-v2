@@ -1,121 +1,68 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { array } from "prop-types";
+import { array, func, bool } from "prop-types";
 import { Grid } from "@material-ui/core";
-import Pagination from "@material-ui/lab/Pagination";
-import Tippy from "@tippyjs/react";
-import { OwnedPokemonInfo } from "../profile";
+import { PokemonSprite } from "./PokemonSprite";
 
-export const Dex = ({ dex, ownedPokemon }) => {
-  const pageLength = 48;
-  const pages = Math.ceil(dex.length / pageLength);
-  const [page, setPage] = useState(1);
-
-  const handleChange = (event, value) => {
-    setPage(value);
-  };
+export const Dex = ({
+  dex,
+  showCaption,
+  onClick,
+  isVisible,
+  getLinkTo,
+  isShiny,
+  isSelected,
+}) => {
+  /**
+   * @desc Determine whether to wrap the children in a Link or a fragment
+   *
+   * @param {boolean} isLink
+   * @param {any} children
+   * @param {string} to
+   * @returns The children are wrapped in a Link to "to" if isLink is true or wrapped in a fragment is isLink is false
+   */
+  const ConditionalLink = ({ isLink, children, to }) =>
+    isLink ? <Link to={to}>{children}</Link> : <>{children}</>;
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <Pagination
-        count={pages}
-        page={page}
-        showFirstButton
-        showLastButton
-        onChange={handleChange}
-        size="large"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      />
-      <Grid container spacing={3}>
-        {dex
-          .slice((page - 1) * pageLength, page * pageLength)
-          .map((pokemon, index) => (
-            <Grid item key={index} xs={2}>
-              <Tippy
-                content={
-                  ownedPokemon ? (
-                    <OwnedPokemonInfo
-                      pokemon={ownedPokemon[index]}
-                      index={index}
-                      ability={getAbility(ownedPokemon[index].ability, {
-                        hiddenAbility: pokemon.hiddenAbility,
-                        abilities: pokemon.abilities,
-                      })}
-                    />
-                  ) : (
-                    ""
-                  )
-                }
-                interactive
-                duration={0}
-                placement="left-start"
-              >
-                <Link to={`/pokedex/${pokemon.id}`}>
-                  {/* Create a link leading to the pokemon's page */}
-                  {/* Pokemon's sprite */}
-                  <div
-                    className="pokedex-item"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      textAlign: "center",
-                    }}
-                  >
-                    <img
-                      className="sprite"
-                      src={
-                        ownedPokemon
-                          ? ownedPokemon[index].shiny
-                            ? pokemon.shinySprite
-                            : pokemon.sprite
-                          : pokemon.sprite
-                      }
-                      alt={pokemon.name}
-                    />
-                    {/* Pokemon's name */}
-                    <p variant="caption">{pokemon.name}</p>
-                  </div>
-                </Link>
-              </Tippy>
-            </Grid>
-          ))}
-      </Grid>
-      <Pagination
-        count={pages}
-        page={page}
-        showFirstButton
-        showLastButton
-        onChange={handleChange}
-        size="large"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      />
-    </div>
+    <Grid container justify="space-evenly" alignContent="center" spacing={3}>
+      {dex.map((pokemon, index) => (
+        <Grid key={index} item xs="auto">
+          <ConditionalLink
+            isLink={getLinkTo(pokemon) !== ""}
+            to={getLinkTo(pokemon)}
+          >
+            <PokemonSprite
+              sprite={isShiny(index) ? pokemon.shinySprite : pokemon.sprite}
+              caption={pokemon.name}
+              alt={pokemon.name}
+              visible={isVisible(pokemon, index)}
+              showCaption={showCaption}
+              onClick={() => onClick(pokemon, index)}
+              selected={isSelected(pokemon, index)}
+            />
+          </ConditionalLink>
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 
 Dex.propTypes = {
   dex: array.isRequired,
-  ownedPokemon: array,
+  showCaption: bool,
+  onClick: func,
+  isVisible: func,
+  getLinkTo: func,
+  isShiny: func,
+  isSelected: func,
 };
 
 Dex.defaultProps = {
-  ownedPokemon: null,
-};
-
-const getAbility = (abilityRoll, abilities) => {
-  if (abilityRoll === 0 && abilities.hiddenAbility !== "") {
-    return abilities.hiddenAbility;
-  }
-  if (abilityRoll <= 75 || abilities.abilities.length < 2) {
-    return abilities.abilities[0];
-  }
-  return abilities.abilities[1];
+  showCaption: true,
+  onClick: () => {},
+  isVisible: () => true,
+  getLinkTo: () => "",
+  isShiny: () => false,
+  isSelected: () => false,
 };

@@ -23,10 +23,6 @@ import setAuthToken from "../../utils/setAuthToken";
 export const UserState = ({ children }) => {
   const { setAlert } = useContext(MiscContext);
 
-  useEffect(() => {
-    loadUser();
-  }, []);
-
   const initialState = {
     token: localStorage.getItem("token"),
     isAuthenticated: null,
@@ -38,8 +34,14 @@ export const UserState = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
 
   useEffect(() => {
-    getOwnedPokemon();
+    loadUser();
+  }, []);
+
+  useEffect(() => {
+    getAllOwnedPokemon();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.user]);
+
   // Load User
   const loadUser = async () => {
     //we want to be able to take and use a token already stored in local storage if there is one
@@ -127,6 +129,8 @@ export const UserState = ({ children }) => {
   };
 
   const spawnPokemon = async () => {
+    despawnPokemon();
+
     try {
       const res = await axios.put(`/api/users/${state.user.username}/spawn`);
 
@@ -144,7 +148,6 @@ export const UserState = ({ children }) => {
   const catchPokemon = async (pokemon) => {
     try {
       await axios.put(`/api/users/${state.user.username}/catch`, { pokemon });
-      getOwnedPokemon();
     } catch (err) {
       dispatch({
         type: DESPAWN_POKEMON,
@@ -158,14 +161,27 @@ export const UserState = ({ children }) => {
     });
   };
 
-  const getOwnedPokemon = async () => {
+  const getAllOwnedPokemon = async () => {
     try {
       const res = await axios.get(`/api/users/${state.user.username}/owned`);
-
       dispatch({
         type: LOAD_OWNED_POKEMON,
         payload: res.data,
       });
+    } catch (err) {
+      dispatch({
+        type: LOAD_OWNED_POKEMON_FAIL,
+      });
+    }
+  };
+
+  const updateOwnedPokemon = async (updatedPokeInfo, uid) => {
+    try {
+      await axios.put(`/api/users/${state.user.username}/owned/update/${uid}`, {
+        ...updatedPokeInfo,
+      });
+
+      getAllOwnedPokemon();
     } catch (err) {
       dispatch({
         type: LOAD_OWNED_POKEMON_FAIL,
@@ -185,11 +201,12 @@ export const UserState = ({ children }) => {
         loadUser,
         register,
         login,
-        getOwnedPokemon,
+        getAllOwnedPokemon,
         logout,
         spawnPokemon,
         despawnPokemon,
         catchPokemon,
+        updateOwnedPokemon,
       }}
     >
       {children}

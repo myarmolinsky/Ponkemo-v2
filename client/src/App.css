@@ -36,12 +36,8 @@ img {
 
 /* Utilities */
 .container {
-  max-width: 1400px;
-  margin: auto;
-  overflow: hidden;
-  padding: 0 2rem;
-  margin-top: 5rem;
-  max-height: 100%;
+  padding: 0 2vw;
+  margin-top: 8vh;
 }
 
 .center {
@@ -94,17 +90,51 @@ img {
   table-layout: fixed;
 }
 
-th {
-  padding: 1%;
-  font-size: large;
-  background-color: gray;
+th,
+td {
   border: solid;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+th:hover,
+td:hover {
+  text-overflow: clip;
+  white-space: normal;
+}
+
+th {
+  background-color: gray;
 }
 
 td {
-  padding: 0.5%;
   background-color: lightgrey;
-  border: solid;
+}
+
+.owned-pokemon-info-table {
+  position: fixed;
+  right: 0;
+  top: 7vh;
+  min-height: 93vh;
+  max-height: 93vh;
+  width: 25vw;
+  border-collapse: collapse;
+  text-align: center;
+  table-layout: fixed;
+}
+
+.pc {
+  display: flex;
+  flex-direction: row;
+}
+
+.pc-left {
+  flex: 3;
+}
+
+.pc-right {
+  flex: 1;
 }
 
 .alert {
@@ -175,7 +205,8 @@ input[type="number"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 2rem;
+  padding: 0 2rem;
+  height: 7vh;
   position: fixed;
   z-index: 1;
   width: 100%;
@@ -244,24 +275,17 @@ input[type="number"] {
   filter: none;
 }
 
-.sprite {
-  height: 100px;
-  width: 100px;
-}
-
-.pokedex-item {
-  vertical-align: top;
-  display: inline-block;
-  flex-flow: wrap;
+.dex-entry {
   text-align: center;
-  border-radius: 25px;
-  width: 175px;
-  height: 175px;
+  border-radius: 10%;
+  width: 21vh;
+  height: 21vh;
   background-color: lightgrey;
   margin: 1%;
+  cursor: pointer;
 }
 
-.caption {
-  display: block;
-  font-size: 0.75em;
+.dex-entry-caption {
+  text-align: center;
+  max-width: 21vh;
 }

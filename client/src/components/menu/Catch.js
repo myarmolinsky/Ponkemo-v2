@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import { Button, Grid } from "@material-ui/core";
 import { UserContext } from "../../context";
 import { Spinner } from "../layout";
+import { Dex } from "../common";
 
 export const Catch = () => {
-  const {
-    spawnedPokemon,
-    spawnPokemon,
-    despawnPokemon,
-    catchPokemon,
-  } = useContext(UserContext);
+  const TIMER_STARTING_TIME = 30;
+
+  const { spawnedPokemon, spawnPokemon, despawnPokemon, catchPokemon } =
+    useContext(UserContext);
 
   const [shuffledSpawnedPokemonSets, setShuffledSpawnedPokemonSets] = useState(
     []
@@ -22,32 +21,29 @@ export const Catch = () => {
 
   const firstSelectedPokemonId = useMemo(
     () => shuffledSpawnedPokemonSets[activeSelections[0]]?.id,
-    [activeSelections]
+    [activeSelections, shuffledSpawnedPokemonSets]
   );
   const secondSelectedPokemonId = useMemo(
     () => shuffledSpawnedPokemonSets[activeSelections[1]]?.id,
-    [activeSelections]
+    [activeSelections, shuffledSpawnedPokemonSets]
   );
 
-  // Despawn all spawned Pokemon when the user enters the page
+  // Spawn Pokemon
   useEffect(() => {
-    despawnPokemon();
+    spawnPokemon();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Spawn 9 Pokemon
+  // Create shuffledSpawnedPokemonSets and start timer
   useEffect(() => {
-    if (spawnedPokemon.length < 9) {
-      spawnPokemon();
-    }
-    if (spawnedPokemon.length === 9) {
-      setShuffledSpawnedPokemonSets(
-        shuffle(spawnedPokemon.concat(spawnedPokemon))
-      );
-      setTimer(15);
-      setTimesUp(false);
-    }
+    setShuffledSpawnedPokemonSets(
+      shuffle(spawnedPokemon.concat(spawnedPokemon))
+    );
+    setTimer(TIMER_STARTING_TIME);
+    setTimesUp(false);
   }, [spawnedPokemon]);
 
+  // count down the timer as long as there are still spawned Pokemon
   useEffect(() => {
     if (shuffledSpawnedPokemonSets.length > 0) {
       if (timer === 0) {
@@ -85,10 +81,22 @@ export const Catch = () => {
         setSelectingDisabled(false);
       }, 500);
     }
-  }, [activeSelections]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    activeSelections,
+    firstSelectedPokemonId,
+    secondSelectedPokemonId,
+    shuffledSpawnedPokemonSets,
+  ]);
 
-  const isActive = (index) => {
+  const isActive = (pokemon, index) => {
     return activeSelections.includes(index);
+  };
+
+  const handleSelect = (pokemon, index) => {
+    !selectingDisabled &&
+      !activeSelections.includes(index) &&
+      setActiveSelections(activeSelections.concat(index));
   };
 
   const removeCaughtPokemon = (firstSelection, secondSelection) => {
@@ -103,7 +111,7 @@ export const Catch = () => {
     return newShuffledSpawnedPokemonArray;
   };
 
-  return spawnedPokemon.length < 9 ? (
+  return spawnedPokemon.length === 0 ? (
     <Spinner />
   ) : shuffledSpawnedPokemonSets.length > 0 && !timesUp ? (
     <div>
@@ -111,40 +119,13 @@ export const Catch = () => {
         Match Pokemon to catch them before time runs out:{" "}
         <span className="text-dark">{timer}</span>
       </h1>
-      <Grid container spacing={3}>
-        {shuffledSpawnedPokemonSets.map((pokemon, index) => (
-          <Grid item key={index} xs={2}>
-            <div
-              className="pokedex-item"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              onClick={() =>
-                selectingDisabled
-                  ? {}
-                  : !activeSelections.includes(index)
-                  ? setActiveSelections(activeSelections.concat(index))
-                  : {}
-              }
-            >
-              {isActive(index) && (
-                <div>
-                  <img
-                    style={{ height: "75%", width: "75%" }}
-                    src={pokemon.sprite}
-                    alt={pokemon.name}
-                  />
-                  {/* Pokemon's name */}
-                  <p variant="caption">{pokemon.name}</p>
-                </div>
-              )}
-            </div>
-          </Grid>
-        ))}
-      </Grid>
+      <Dex
+        dex={shuffledSpawnedPokemonSets}
+        showCaption={false}
+        isVisible={isActive}
+        onClick={handleSelect}
+        isSelected={isActive}
+      />
     </div>
   ) : (
     <div className="text-primary center" style={{ textAlign: "center" }}>
@@ -162,7 +143,10 @@ export const Catch = () => {
             size="large"
             variant="contained"
             fullWidth
-            onClick={() => despawnPokemon()}
+            onClick={() => {
+              setActiveSelections([]);
+              despawnPokemon();
+            }}
           >
             Yes
           </Button>

@@ -4,13 +4,17 @@ import { any } from "prop-types";
 import { Button } from "@material-ui/core";
 import { PokemonContext } from "../../context";
 import { Spinner } from "../layout";
-import { SearchFilter, Dex } from "../common";
+import { SearchFilter, Dex, CustomPagination } from "../common";
 
 export const EggGroup = ({ match }) => {
   const { pokedex, loading } = useContext(PokemonContext);
 
   const [filteredPokedex, setFilteredPokedex] = useState([]);
   const [eggGroup, setEggGroup] = useState([]);
+  const [page, setPage] = useState(1);
+
+  const PAGE_LENGTH = 48; // how many Pokemon to show per page
+  const PAGES = Math.ceil(filteredPokedex.length / PAGE_LENGTH); // how many pages there are
 
   useEffect(() => {
     setEggGroup(
@@ -19,6 +23,14 @@ export const EggGroup = ({ match }) => {
       )
     );
   }, [pokedex, match]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [filteredPokedex]);
+
+  const directToPokemon = (pokemon) => {
+    return `/pokedex/${pokemon.id}`;
+  };
 
   return pokedex === null || loading ? (
     <Spinner />
@@ -39,7 +51,15 @@ export const EggGroup = ({ match }) => {
         setFilteredDex={(filtered) => setFilteredPokedex(filtered)}
         showBothEggGroups={false}
       />
-      <Dex dex={filteredPokedex} />
+      <CustomPagination pages={PAGES} currentPage={page} setPage={setPage}>
+        <Dex
+          dex={filteredPokedex.slice(
+            (page - 1) * PAGE_LENGTH,
+            page * PAGE_LENGTH
+          )}
+          getLinkTo={directToPokemon}
+        />
+      </CustomPagination>
     </Fragment>
   );
 };
