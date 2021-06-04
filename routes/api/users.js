@@ -1,8 +1,10 @@
+const crypto = require("crypto");
 const express = require("express");
 const router = express.Router(); // bring in express router, allows us to make routes in separate files
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
+const nodemailer = require("nodemailer");
 const { check, validationResult } = require("express-validator");
 // check lets us add a second parameter in .post() as middleware which checks given input with provided rules
 // if any errors are found, they can be seen inside the validationResult array
@@ -81,6 +83,73 @@ router.post(
           res.json({ token });
         }
       );
+    } catch (err) {
+      // if something goes wrong here, then it's a server error
+      console.error(err.message);
+      res.status(500).send("Server error");
+    }
+  }
+);
+
+// @route POST api/users/forgot-password
+// @desc Send an email to reset password if the provided email matches an email on record
+// @access Public
+router.post(
+  "/forgot-password",
+  [check("email", "Please include a valid email").isEmail()],
+  async (req, res) => {
+    // for req.body to work, we have to initialize the middleware for the body-parser, which we did in server.js by calling 'app.use(express.json({extended: false}))'
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { email } = req.body;
+
+    try {
+      let user = await User.findOne({ email });
+      if (!user) {
+        // if there is no user with the provided email
+        return res.status(400).json({
+          errors: [{ msg: "There is no user with the provided email" }],
+        });
+      }
+
+      const token = crypto.randomBytes(20).toString("hex");
+      await User.updateOne(
+        { email },
+        {
+          resetPasswordToken: token,
+          resetPasswordExpires: Date.now() + 3600000,
+        }
+      );
+
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: `${config.get("EMAIL_ADDRESS")}`,
+          pass: `${config.get("EMAIL_PASSWORD")}`,
+        },
+      });
+
+      const mailOptions = {
+        from: `${config.get("EMAIL_ADDRESS")}`,
+        to: `${email}`,
+        subject: "Ponkemo | Link To Reset Password",
+        text:
+          "You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n" +
+          "Please click on the following link, or paste it into your browser, to complete the process within one hour of receiving it:\n\n" +
+          `${config.get("URL")}/reset/${token} \n\n` +
+          "If you did not request this, please ignore this email and your password will remain unchanged.\n",
+      };
+
+      transporter.sendMail(mailOptions, (err, res) => {
+        if (err) {
+          console.error("Error: ", err);
+        } else {
+          res.status(200).json("Recovery email sent!");
+        }
+      });
     } catch (err) {
       // if something goes wrong here, then it's a server error
       console.error(err.message);

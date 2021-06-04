@@ -61,6 +61,8 @@ export default function (state, action) {
         isAuthenticated: false,
         loading: false,
         user: null,
+        ownedPokemon: null,
+        spawnedPokemon: [],
       };
     default:
       return state;

@@ -52,6 +52,14 @@ const UserSchema = new mongoose.Schema({
       t3: 0,
     },
   },
+  resetPasswordToken: {
+    type: String,
+    default: null,
+  },
+  resetPasswordExpires: {
+    type: Date,
+    default: null,
+  },
 });
 
 module.exports = User = mongoose.model("user", UserSchema); //export this as User which is a mongoose model

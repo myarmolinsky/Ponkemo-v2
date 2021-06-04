@@ -189,6 +189,20 @@ export const UserState = ({ children }) => {
     }
   };
 
+  const sendPasswordResetEmail = async (email) => {
+    try {
+      await axios.post(`/api/users/forgot-password`, {
+        email,
+      });
+    } catch (err) {
+      const errors = err.response.data.errors;
+
+      if (errors) {
+        errors.forEach((error) => setAlert(error.msg, "danger"));
+      }
+    }
+  };
+
   // Logout
   const logout = () => {
     dispatch({ type: LOGOUT });
@@ -207,6 +221,7 @@ export const UserState = ({ children }) => {
         despawnPokemon,
         catchPokemon,
         updateOwnedPokemon,
+        sendPasswordResetEmail,
       }}
     >
       {children}
