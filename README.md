@@ -31,6 +31,10 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
   - Search filter to search for Pokemon by name, another type, ability, egg group, and base stats
 - Catch Pokemon
   - Click the "Catch" button on the Menu to play a matching game! Each correct match catches that Pokemon
+- PC
+  - See the Pokemon you've caught
+  - Select an owned Pokemon to see its information
+  - Search filter to filter like in Pokedex + by the following owned Pokemon properties: stats, gender, nature, ivs, level, and friendship
 
 ## Planned Features/To-Do List
 
@@ -62,10 +66,8 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 - Profile
   - Train your Pokemon
   - Breed your Pokemon
-  - Favorite your Pokemon
   - Change your Pokemon's formes
-  - Recycle (?)
-  - Owned Pokemon version of Search Filter
+  - Recycle
 - Sort owned Pokemon
 - Shop for buying items and Pokemon with points (specific Pokemon and items and/or packs of random Pokemon and items for their respective points)
 - Use items and give items to Pokemon to hold
