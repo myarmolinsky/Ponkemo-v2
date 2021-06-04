@@ -79,7 +79,14 @@ export const PC = () => {
   };
 
   const isSelected = (pokemon, index) => {
-    return selectedPokemonUid === pokemon.uid;
+    return (
+      selectedPokemonUid ===
+      filteredOwnedPokemon[
+        (page * PAGE_LENGTH - (page - 1) * PAGE_LENGTH) * page -
+          PAGE_LENGTH +
+          index
+      ].uid
+    );
   };
 
   return loading || !ownedPokemon ? (

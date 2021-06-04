@@ -41,9 +41,22 @@ export const SearchFilter = ({
     baseSpDefenseLess: 256,
     baseSpeedGreater: 0,
     baseSpeedLess: 256,
+    healthGreater: 0,
+    healthLess: 1000,
+    attackGreater: 0,
+    attackLess: 1000,
+    defenseGreater: 0,
+    defenseLess: 1000,
+    spAttackGreater: 0,
+    spAttackLess: 1000,
+    spDefenseGreater: 0,
+    spDefenseLess: 1000,
+    speedGreater: 0,
+    speedLess: 1000,
   });
   const [filteredIndexes, setFilteredIndexes] = useState([]);
   const [expandSearchOptions, setExpandSearchOptions] = useState(false);
+  const [moreExpandSearchOptions, setMoreExpandSearchOptions] = useState(false);
 
   const {
     search,
@@ -64,10 +77,35 @@ export const SearchFilter = ({
     baseSpDefenseLess,
     baseSpeedGreater,
     baseSpeedLess,
+    healthGreater,
+    healthLess,
+    attackGreater,
+    attackLess,
+    defenseGreater,
+    defenseLess,
+    spAttackGreater,
+    spAttackLess,
+    spDefenseGreater,
+    spDefenseLess,
+    speedGreater,
+    speedLess,
   } = dexSearchData;
 
   const onChange = (e) => {
     setSearchData({ ...dexSearchData, [e.target.name]: e.target.value });
+  };
+
+  const determinePokemonAbility = (abilityRoll, abilities) => {
+    if (abilityRoll === 0) {
+      if (abilities.length > 2) {
+        return abilities[2];
+      }
+    } else {
+      if (abilityRoll > 75 && abilities.length > 1) {
+        return abilities[1];
+      }
+    }
+    return abilities[0];
   };
 
   useEffect(() => {
@@ -86,17 +124,46 @@ export const SearchFilter = ({
   useEffect(() => {
     let indexes = [];
     pokedex.forEach((pokemon, index) => {
-      if (!checkSearchPokemon(pokemon, dexSearchData)) {
+      if (!checkSearchPokemonInfo(pokemon, dexSearchData, true)) {
         indexes.push(index);
+      }
+    });
+    ownedPokemon.forEach((pokemon, index) => {
+      if (!indexes.includes(index)) {
+        let abilities;
+        let poke = pokedex.filter((poke) => poke.id === pokemon.id)[0];
+        if (poke) {
+          abilities = poke.abilities;
+          if (poke.hiddenAbility !== "") {
+            abilities.push(poke.hiddenAbility);
+          }
+          if (
+            !checkSearchPokemon(
+              pokemon,
+              dexSearchData,
+              determinePokemonAbility(pokemon.ability, abilities)
+            )
+          ) {
+            indexes.push(index);
+          }
+        }
       }
     });
     setFilteredIndexes(indexes);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dexSearchData, pokedex]);
+  }, [dexSearchData, pokedex, ownedPokemon]);
 
   const toggleSearchOptions = (e) => {
     e.preventDefault();
     setExpandSearchOptions(!expandSearchOptions);
+    if (!expandSearchOptions) {
+      setMoreExpandSearchOptions(false);
+    }
+  };
+
+  const toggleMoreSearchOptions = (e) => {
+    e.preventDefault();
+    setMoreExpandSearchOptions(!moreExpandSearchOptions);
   };
 
   const clearSearch = () => {
@@ -119,6 +186,18 @@ export const SearchFilter = ({
       baseSpDefenseLess: 256,
       baseSpeedGreater: 0,
       baseSpeedLess: 256,
+      healthGreater: 0,
+      healthLess: 1000,
+      attackGreater: 0,
+      attackLess: 1000,
+      defenseGreater: 0,
+      defenseLess: 1000,
+      spAttackGreater: 0,
+      spAttackLess: 1000,
+      spDefenseGreater: 0,
+      spDefenseLess: 1000,
+      speedGreater: 0,
+      speedLess: 1000,
     });
   };
 
@@ -143,6 +222,17 @@ export const SearchFilter = ({
             {expandSearchOptions ? "Hide" : "Show"} Advanced Search Options
           </Button>
         </Grid>
+        {expandSearchOptions && (
+          <Grid item>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={(e) => toggleMoreSearchOptions(e)}
+            >
+              {moreExpandSearchOptions ? "Less" : "More"} Options
+            </Button>
+          </Grid>
+        )}
         <Grid item>
           <Button
             onClick={() => clearSearch()}
@@ -463,6 +553,161 @@ export const SearchFilter = ({
         </Fragment>
       )}
       <Divider className={classes.divider} />
+      {moreExpandSearchOptions && (
+        <>
+          <Grid
+            container
+            justify="space-evenly"
+            alignItems="flex-end"
+            spacing={1}
+          >
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="HP >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="healthGreater"
+                onChange={(e) => onChange(e)}
+                value={healthGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="HP <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="healthLess"
+                onChange={(e) => onChange(e)}
+                value={healthLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Attack >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="attackGreater"
+                onChange={(e) => onChange(e)}
+                value={attackGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Attack <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="attackLess"
+                onChange={(e) => onChange(e)}
+                value={attackLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Defense >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="defenseGreater"
+                onChange={(e) => onChange(e)}
+                value={defenseGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Defense <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="defenseLess"
+                onChange={(e) => onChange(e)}
+                value={defenseLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Special Attack >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="spAttackGreater"
+                onChange={(e) => onChange(e)}
+                value={spAttackGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Special Attack <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="spAttackLess"
+                onChange={(e) => onChange(e)}
+                value={spAttackLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Special Defense >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="spDefenseGreater"
+                onChange={(e) => onChange(e)}
+                value={spDefenseGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Special Defense <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="spDefenseLess"
+                onChange={(e) => onChange(e)}
+                value={spDefenseLess}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Speed >"
+                type="number"
+                variant="outlined"
+                placeholder="0"
+                name="speedGreater"
+                onChange={(e) => onChange(e)}
+                value={speedGreater}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                margin="normal"
+                label="Speed <"
+                type="number"
+                variant="outlined"
+                placeholder="1000"
+                name="speedLess"
+                onChange={(e) => onChange(e)}
+                value={speedLess}
+              />
+            </Grid>
+          </Grid>
+        </>
+      )}
     </>
   );
 };
@@ -483,7 +728,7 @@ SearchFilter.defaultProps = {
   showBothEggGroups: true,
 };
 
-const checkSearchPokemon = (pokemon, data) => {
+const checkSearchPokemonInfo = (pokemon, data, passedOwnedPokemon = false) => {
   const {
     search,
     firstType,
@@ -505,8 +750,10 @@ const checkSearchPokemon = (pokemon, data) => {
     baseSpeedLess,
   } = data;
 
-  if (!pokemon.name.toUpperCase().includes(search.toUpperCase())) {
-    return false;
+  if (!passedOwnedPokemon) {
+    if (!pokemon.name.toUpperCase().includes(search.toUpperCase())) {
+      return false;
+    }
   }
 
   if (firstType !== " ") {
@@ -520,16 +767,18 @@ const checkSearchPokemon = (pokemon, data) => {
     }
   }
 
-  if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase())) {
-    if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase())) {
-      if (pokemon.abilities.length > 1) {
-        if (
-          !pokemon.abilities[1].toUpperCase().includes(ability.toUpperCase())
-        ) {
+  if (!passedOwnedPokemon) {
+    if (!pokemon.hiddenAbility.toUpperCase().includes(ability.toUpperCase())) {
+      if (!pokemon.abilities[0].toUpperCase().includes(ability.toUpperCase())) {
+        if (pokemon.abilities.length > 1) {
+          if (
+            !pokemon.abilities[1].toUpperCase().includes(ability.toUpperCase())
+          ) {
+            return false;
+          }
+        } else {
           return false;
         }
-      } else {
-        return false;
       }
     }
   }
@@ -611,6 +860,102 @@ const checkSearchPokemon = (pokemon, data) => {
     speLess = baseSpeedLess;
   }
   if (pokemon.baseStats.spe <= speGreater || pokemon.baseStats.spe >= speLess) {
+    return false;
+  }
+  return true;
+};
+
+const checkSearchPokemon = (pokemon, data, determinedAbility) => {
+  const {
+    search,
+    healthGreater,
+    healthLess,
+    attackGreater,
+    attackLess,
+    defenseGreater,
+    defenseLess,
+    spAttackGreater,
+    spAttackLess,
+    spDefenseGreater,
+    spDefenseLess,
+    speedGreater,
+    speedLess,
+    ability,
+  } = data;
+
+  if (!pokemon.nickname.toUpperCase().includes(search.toUpperCase())) {
+    return false;
+  }
+
+  let hpGreater,
+    atkGreater,
+    defGreater,
+    spaGreater,
+    spdGreater,
+    speGreater = 0;
+
+  let hpLess,
+    atkLess,
+    defLess,
+    spaLess,
+    spdLess,
+    speLess = 1000;
+
+  if (healthGreater !== "") {
+    hpGreater = healthGreater;
+  }
+  if (healthLess !== "") {
+    hpLess = healthLess;
+  }
+  if (pokemon.stats.hp <= hpGreater || pokemon.stats.hp >= hpLess) {
+    return false;
+  }
+  if (attackGreater !== "") {
+    atkGreater = attackGreater;
+  }
+  if (attackLess !== "") {
+    atkLess = attackLess;
+  }
+  if (pokemon.stats.atk <= atkGreater || pokemon.stats.atk >= atkLess) {
+    return false;
+  }
+  if (defenseGreater !== "") {
+    defGreater = defenseGreater;
+  }
+  if (defenseLess !== "") {
+    defLess = defenseLess;
+  }
+  if (pokemon.stats.def <= defGreater || pokemon.stats.def >= defLess) {
+    return false;
+  }
+  if (spAttackGreater !== "") {
+    spaGreater = spAttackGreater;
+  }
+  if (spAttackLess !== "") {
+    spaLess = spAttackLess;
+  }
+  if (pokemon.stats.spA <= spaGreater || pokemon.stats.spA >= spaLess) {
+    return false;
+  }
+  if (spDefenseGreater !== "") {
+    spdGreater = spDefenseGreater;
+  }
+  if (spDefenseLess !== "") {
+    spdLess = spDefenseLess;
+  }
+  if (pokemon.stats.spD <= spdGreater || pokemon.stats.spD >= spdLess) {
+    return false;
+  }
+  if (speedGreater !== "") {
+    speGreater = speedGreater;
+  }
+  if (speedLess !== "") {
+    speLess = speedLess;
+  }
+  if (pokemon.stats.spe <= speGreater || pokemon.stats.spe >= speLess) {
+    return false;
+  }
+  if (!determinedAbility.toUpperCase().includes(ability.toUpperCase())) {
     return false;
   }
   return true;
