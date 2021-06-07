@@ -17,6 +17,8 @@ import {
   SPAWN_POKEMON,
   SPAWN_POKEMON_FAIL,
   DESPAWN_POKEMON,
+  PASSWORD_RESET_TOKEN_VALID,
+  PASSWORD_RESET_TOKEN_INVALID,
 } from "./types";
 import setAuthToken from "../../utils/setAuthToken";
 
@@ -30,6 +32,7 @@ export const UserState = ({ children }) => {
     user: null,
     ownedPokemon: null,
     spawnedPokemon: [],
+    resetPasswordUsername: "",
   };
   const [state, dispatch] = useReducer(userReducer, initialState);
 
@@ -191,15 +194,38 @@ export const UserState = ({ children }) => {
 
   const sendPasswordResetEmail = async (email) => {
     try {
-      await axios.post(`/api/users/forgot-password`, {
+      await axios.put(`/api/users/forgot-password`, {
         email,
       });
+
+      setAlert("Password Reset email sent!", "success");
     } catch (err) {
       const errors = err.response.data.errors;
 
       if (errors) {
         errors.forEach((error) => setAlert(error.msg, "danger"));
       }
+    }
+  };
+
+  const resetPassword = async (password) => {};
+
+  const isPasswordResetTokenValid = async (token) => {
+    try {
+      const res = await axios.get(`/api/users/reset-password`, {
+        params: {
+          resetPasswordToken: token,
+        },
+      });
+
+      dispatch({
+        type: PASSWORD_RESET_TOKEN_VALID,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: PASSWORD_RESET_TOKEN_INVALID,
+      });
     }
   };
 
@@ -222,6 +248,8 @@ export const UserState = ({ children }) => {
         catchPokemon,
         updateOwnedPokemon,
         sendPasswordResetEmail,
+        resetPassword,
+        isPasswordResetTokenValid,
       }}
     >
       {children}

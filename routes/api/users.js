@@ -91,10 +91,10 @@ router.post(
   }
 );
 
-// @route POST api/users/forgot-password
+// @route PUT api/users/forgot-password
 // @desc Send an email to reset password if the provided email matches an email on record
 // @access Public
-router.post(
+router.put(
   "/forgot-password",
   [check("email", "Please include a valid email").isEmail()],
   async (req, res) => {
@@ -146,10 +146,9 @@ router.post(
       transporter.sendMail(mailOptions, (err, res) => {
         if (err) {
           console.error("Error: ", err);
-        } else {
-          res.status(200).json("Recovery email sent!");
         }
       });
+      res.status(200).json("Recovery email sent!");
     } catch (err) {
       // if something goes wrong here, then it's a server error
       console.error(err.message);
@@ -157,6 +156,28 @@ router.post(
     }
   }
 );
+
+// @route GET api/users/reset-password
+// @desc Check if the provided Password Reset Token is valid. If it is, return the username of its associated user.
+// @access Public
+router.get("/reset-password", async (req, res) => {
+  const { resetPasswordToken } = req.query;
+
+  try {
+    const user = await User.findOne({
+      resetPasswordToken,
+      resetPasswordExpires: { $gt: Date.now() },
+    });
+
+    if (user) {
+      res.status(200).send(user.username);
+    }
+  } catch (err) {
+    // if something goes wrong here, then it's a server error
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
 
 // @route GET api/users/:username/owned
 // @desc Get owned Pokemon and their info

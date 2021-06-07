@@ -2,24 +2,22 @@ import React, { useContext } from "react";
 import { MiscContext } from "../../context";
 
 export const Alert = () => {
-  let { alerts } = useContext(MiscContext);
+  const { alerts } = useContext(MiscContext);
 
-  alerts = uniqueAlerts(alerts);
+  let uniqueAlerts = getUniqueAlerts(alerts);
   return (
-    alerts !== null &&
-    alerts.length > 0 &&
-    alerts.map((alert) => (
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <div key={alert.id} className={`alert alert-${alert.alertType}`}>
-          {alert.msg}
-        </div>
+    uniqueAlerts !== null &&
+    uniqueAlerts.length > 0 &&
+    uniqueAlerts.map((alert) => (
+      <div key={alert.id} className={`alert alert-${alert.alertType}`}>
+        {alert.msg}
       </div>
     ))
   );
 };
 //map through the alerts and output the message along with the class styling
 
-const uniqueAlerts = (alerts) => {
+const getUniqueAlerts = (alerts) => {
   let dispatchedAlerts = [];
   let uniqueAlerts = [];
   alerts.forEach((alert) => {

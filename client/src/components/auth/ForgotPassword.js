@@ -28,7 +28,7 @@ export const ForgotPassword = () => {
 
   return (
     <div className="center">
-      <h1 className="large text-primary">Reset Password</h1>
+      <h1 className="large text-primary">Send Password Reset Email</h1>
       <form onSubmit={(e) => onSubmit(e)}>
         <Grid container direction="column">
           <Grid item>

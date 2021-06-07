@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { Register, Login, ForgotPassword } from "../auth";
+import { Register, Login, ForgotPassword, ResetPassword } from "../auth";
 import { Menu } from "../menu/Menu";
 import {
   Pokedex,
@@ -26,6 +26,7 @@ const Routes = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/forgot-password" component={ForgotPassword} />
+        <Route exact path="/reset/:token" component={ResetPassword} />
         <PrivateRoute exact path="/menu" component={Menu} />
         <PrivateRoute exact path="/pc" component={PC} />
         <PrivateRoute exact path="/profile" component={Profile} />
