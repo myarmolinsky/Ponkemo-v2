@@ -1,8 +1,10 @@
+const crypto = require("crypto");
 const express = require("express");
 const router = express.Router(); // bring in express router, allows us to make routes in separate files
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
+const nodemailer = require("nodemailer");
 const { check, validationResult } = require("express-validator");
 // check lets us add a second parameter in .post() as middleware which checks given input with provided rules
 // if any errors are found, they can be seen inside the validationResult array
@@ -88,6 +90,128 @@ router.post(
     }
   }
 );
+
+// @route PUT api/users/forgot-password
+// @desc Send an email to reset password if the provided email matches an email on record
+// @access Public
+router.put(
+  "/forgot-password",
+  [check("email", "Please include a valid email").isEmail()],
+  async (req, res) => {
+    // for req.body to work, we have to initialize the middleware for the body-parser, which we did in server.js by calling 'app.use(express.json({extended: false}))'
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { email } = req.body;
+
+    try {
+      let user = await User.findOne({ email });
+      if (!user) {
+        // if there is no user with the provided email
+        return res.status(400).json({
+          errors: [{ msg: "There is no user with the provided email" }],
+        });
+      }
+
+      const token = crypto.randomBytes(20).toString("hex");
+      await User.updateOne(
+        { email },
+        {
+          resetPasswordToken: token,
+          resetPasswordExpires: Date.now() + 3600000,
+        }
+      );
+
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: `${config.get("EMAIL_ADDRESS")}`,
+          pass: `${config.get("EMAIL_PASSWORD")}`,
+        },
+      });
+
+      const mailOptions = {
+        from: `${config.get("EMAIL_ADDRESS")}`,
+        to: `${email}`,
+        subject: "Ponkemo | Link To Reset Password",
+        text:
+          "You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n" +
+          "Please click on the following link, or paste it into your browser, to complete the process within one hour of receiving it:\n\n" +
+          `${config.get("URL")}/reset/${token} \n\n` +
+          "If you did not request this, please ignore this email and your password will remain unchanged.\n",
+      };
+
+      transporter.sendMail(mailOptions, (err, res) => {
+        if (err) {
+          console.error("Error: ", err);
+        }
+      });
+      res.status(200).json("Recovery email sent!");
+    } catch (err) {
+      // if something goes wrong here, then it's a server error
+      console.error(err.message);
+      res.status(500).send("Server error");
+    }
+  }
+);
+
+// @route GET api/users/reset-password
+// @desc Check if the provided Password Reset Token is valid. If it is, return the username of its associated user.
+// @access Public
+router.get("/reset-password", async (req, res) => {
+  const { resetPasswordToken } = req.query;
+
+  try {
+    const user = await User.findOne({
+      resetPasswordToken,
+      resetPasswordExpires: { $gt: Date.now() },
+    });
+
+    if (user) {
+      res.status(200).send(user.username);
+    }
+  } catch (err) {
+    // if something goes wrong here, then it's a server error
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// @route PUT api/users/reset-password
+// @desc Reset a user's password given a username and new password.
+// @access Public
+router.put("/reset-password", async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = await User.findOne({ username });
+
+    if (!user) {
+      res.status(404).send("No user with the given username exists");
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    // we pass what is called the "rounds" into bcrypt.genSalt() (10 is what is recommended in the documentation)
+    // the more rounds you have, the more secure the password is but the slower it can be
+    const hashedPassword = await bcrypt.hash(password, salt); // bcrypt.hash takes in two parameters: the plain-text (in this case "password") and the salt
+
+    await User.updateOne(
+      { username },
+      {
+        password: hashedPassword,
+        resetPasswordToken: null,
+        resetPasswordExpires: null,
+      }
+    );
+    res.status(200).send(user.username);
+  } catch (err) {
+    // if something goes wrong here, then it's a server error
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
 
 // @route GET api/users/:username/owned
 // @desc Get owned Pokemon and their info

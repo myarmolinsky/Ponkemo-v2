@@ -37,7 +37,7 @@ export const Register = () => {
     if (password !== password2) {
       setAlert("Passwords do not match", "danger");
     } else {
-      register({ username, email, password });
+      register(username, email, password);
     }
   };
 

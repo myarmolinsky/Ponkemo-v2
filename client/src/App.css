@@ -145,6 +145,8 @@ td {
   color: #333;
   border-radius: 10px;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .alert-primary {

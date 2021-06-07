@@ -17,6 +17,10 @@ import {
   SPAWN_POKEMON,
   SPAWN_POKEMON_FAIL,
   DESPAWN_POKEMON,
+  PASSWORD_RESET_TOKEN_VALID,
+  PASSWORD_RESET_TOKEN_INVALID,
+  PASSWORD_RESET_SUCCESS,
+  PASSWORD_RESET_FAIL,
 } from "./types";
 import setAuthToken from "../../utils/setAuthToken";
 
@@ -30,6 +34,8 @@ export const UserState = ({ children }) => {
     user: null,
     ownedPokemon: null,
     spawnedPokemon: [],
+    resetPasswordUsername: "",
+    passwordUpdated: false,
   };
   const [state, dispatch] = useReducer(userReducer, initialState);
 
@@ -189,6 +195,69 @@ export const UserState = ({ children }) => {
     }
   };
 
+  const sendPasswordResetEmail = async (email) => {
+    try {
+      await axios.put(`/api/users/forgot-password`, {
+        email,
+      });
+
+      setAlert("Password Reset email sent!", "success");
+    } catch (err) {
+      const errors = err.response.data.errors;
+
+      if (errors) {
+        errors.forEach((error) => setAlert(error.msg, "danger"));
+      }
+    }
+  };
+
+  const isPasswordResetTokenValid = async (token) => {
+    try {
+      const res = await axios.get(`/api/users/reset-password`, {
+        params: {
+          resetPasswordToken: token,
+        },
+      });
+
+      dispatch({
+        type: PASSWORD_RESET_TOKEN_VALID,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: PASSWORD_RESET_TOKEN_INVALID,
+      });
+    }
+  };
+
+  const resetPassword = async (username, password) => {
+    try {
+      await axios.put(`/api/users/reset-password`, { username, password });
+
+      setAlert("Password succesfully reset!", "success");
+
+      dispatch({
+        type: PASSWORD_RESET_SUCCESS,
+      });
+    } catch (err) {
+      dispatch({
+        type: PASSWORD_RESET_FAIL,
+      });
+    }
+  };
+
+  const setPasswordUpdated = (value) => {
+    if (value) {
+      dispatch({
+        type: PASSWORD_RESET_SUCCESS,
+      });
+    } else {
+      dispatch({
+        type: PASSWORD_RESET_FAIL,
+      });
+    }
+  };
+
   // Logout
   const logout = () => {
     dispatch({ type: LOGOUT });
@@ -207,6 +276,10 @@ export const UserState = ({ children }) => {
         despawnPokemon,
         catchPokemon,
         updateOwnedPokemon,
+        sendPasswordResetEmail,
+        isPasswordResetTokenValid,
+        resetPassword,
+        setPasswordUpdated,
       }}
     >
       {children}

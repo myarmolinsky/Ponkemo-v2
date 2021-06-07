@@ -5,7 +5,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    minlength: 6,
     maxlength: 16,
   },
   email: {
@@ -32,31 +31,7 @@ const UserSchema = new mongoose.Schema({
   spawnCounter: {
     type: Array,
     default: [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     ],
   },
   pokemonTierPoints: {
@@ -76,6 +51,14 @@ const UserSchema = new mongoose.Schema({
       t2: 0,
       t3: 0,
     },
+  },
+  resetPasswordToken: {
+    type: String,
+    default: null,
+  },
+  resetPasswordExpires: {
+    type: Date,
+    default: null,
   },
 });
 
