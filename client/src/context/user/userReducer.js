@@ -13,6 +13,8 @@ import {
   DESPAWN_POKEMON,
   PASSWORD_RESET_TOKEN_VALID,
   PASSWORD_RESET_TOKEN_INVALID,
+  PASSWORD_RESET_SUCCESS,
+  PASSWORD_RESET_FAIL,
 } from "./types";
 
 export default function (state, action) {
@@ -56,6 +58,10 @@ export default function (state, action) {
       return { ...state, resetPasswordUsername: payload };
     case PASSWORD_RESET_TOKEN_INVALID:
       return { ...state, resetPasswordUsername: "" };
+    case PASSWORD_RESET_SUCCESS:
+      return { ...state, resetPasswordUsername: "", passwordUpdated: true };
+    case PASSWORD_RESET_FAIL:
+      return { ...state, passwordUpdated: false };
     case REGISTER_FAIL:
     case LOGIN_FAIL:
     case AUTH_ERROR:

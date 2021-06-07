@@ -10,6 +10,8 @@ export const ResetPassword = ({ match }) => {
     isPasswordResetTokenValid,
     isAuthenticated,
     resetPasswordUsername,
+    setPasswordUpdated,
+    passwordUpdated,
   } = useContext(UserContext);
   const { setAlert } = useContext(MiscContext);
 
@@ -19,6 +21,10 @@ export const ResetPassword = ({ match }) => {
   });
 
   const { password, password2 } = formData;
+
+  useEffect(() => {
+    setPasswordUpdated(false);
+  }, []);
 
   useEffect(() => {
     isPasswordResetTokenValid(match.params.token);
@@ -32,7 +38,7 @@ export const ResetPassword = ({ match }) => {
     if (password !== password2) {
       setAlert("Passwords do not match", "danger");
     } else {
-      resetPassword(password);
+      resetPassword(resetPasswordUsername, password);
     }
   };
 
@@ -41,8 +47,10 @@ export const ResetPassword = ({ match }) => {
     return <Redirect to="/menu" />;
   }
 
-  return !resetPasswordUsername ? (
+  return !resetPasswordUsername && !passwordUpdated ? (
     <AccessDenied />
+  ) : passwordUpdated ? (
+    <Redirect to="/login" />
   ) : (
     <div className="center">
       <h1 className="large text-primary">Reset Password</h1>

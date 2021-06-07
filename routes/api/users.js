@@ -179,6 +179,40 @@ router.get("/reset-password", async (req, res) => {
   }
 });
 
+// @route PUT api/users/reset-password
+// @desc Reset a user's password given a username and new password.
+// @access Public
+router.put("/reset-password", async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = await User.findOne({ username });
+
+    if (!user) {
+      res.status(404).send("No user with the given username exists");
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    // we pass what is called the "rounds" into bcrypt.genSalt() (10 is what is recommended in the documentation)
+    // the more rounds you have, the more secure the password is but the slower it can be
+    const hashedPassword = await bcrypt.hash(password, salt); // bcrypt.hash takes in two parameters: the plain-text (in this case "password") and the salt
+
+    await User.updateOne(
+      { username },
+      {
+        password: hashedPassword,
+        resetPasswordToken: null,
+        resetPasswordExpires: null,
+      }
+    );
+    res.status(200).send(user.username);
+  } catch (err) {
+    // if something goes wrong here, then it's a server error
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
 // @route GET api/users/:username/owned
 // @desc Get owned Pokemon and their info
 // @access Public
