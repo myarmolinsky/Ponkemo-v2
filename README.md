@@ -11,6 +11,7 @@ I planned to return to the project once I felt more comfortable with a JavaScrip
 ## Included Features
 
 - User sign up and log in
+  - Reset password by sending a password reset link to the account's provided email
 - User Profile
   - Shows owned Pokemon
     - Hover over an owned Pokemon to see its info
